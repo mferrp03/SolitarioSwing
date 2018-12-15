@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.Color;
 import java.awt.Desktop.Action;
-
+import javax.swing.*;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
@@ -19,13 +19,22 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.ImageIcon;
 import java.awt.Image;
-
+import java.util.ArrayList;
 public class SolitarioSwing extends JFrame {
+	private Carta seleccionada = new Carta ('0','0',"0");
+	int pilaSeleccionada = 0;
 	public static void main(String[] args) {
 		new SolitarioSwing();
 	}
-
+	int getPilaSeleccionada(){
+		return pilaSeleccionada;
+	}
+	void setPilaSeleccionada(int n) {
+		pilaSeleccionada = n;
+	}
 	public SolitarioSwing() { 
+		
+		ArrayList<Pila>Pilas = new ArrayList<Pila>();
 		Pila pila = new Pila();
 		Pila monton = new Pila();
 		Pila Palo1 = new Pila();
@@ -39,7 +48,7 @@ public class SolitarioSwing extends JFrame {
 		Pila Pila5 = new Pila();
 		Pila Pila6 = new Pila();
 		Pila Pila7 = new Pila();
-		Carta seleccionada;
+		
 		
 		Carta AS = new Carta ('A','S',"/Images/107016_01.png");
 		pila.addCarta(AS);
@@ -151,6 +160,25 @@ public class SolitarioSwing extends JFrame {
 		
 		
 		pila.barajar();
+		Pila1.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		Pila2.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		Pila2.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		Pilas.add(pila);
+		Pilas.add(monton);
+		Pilas.add(Palo1);
+		Pilas.add(Palo2);
+		Pilas.add(Palo3);
+		Pilas.add(Palo4);
+		Pilas.add(Pila1);
+		Pilas.add(Pila2);
+		Pilas.add(Pila3);
+		Pilas.add(Pila4);
+		Pilas.add(Pila5);
+		Pilas.add(Pila6);
+		Pilas.add(Pila7);
 		getContentPane().setBackground(new Color(0, 128, 0));
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -160,32 +188,104 @@ public class SolitarioSwing extends JFrame {
 		getContentPane().setLayout(gridBagLayout);
 		getContentPane().setBackground(new Color(0, 128, 0));
 
-		JButton btnCarta = new JButton("");
+		JButton btn0 = new JButton("");
 		
-		btnCarta.setIcon(new ImageIcon(solitarioSwing.class.getResource("/Images/107016_54.gif")));
+		btn0.setIcon(new ImageIcon(solitarioSwing.class.getResource("/Images/107016_54.gif")));
 		
-		btnCarta.setBackground(new Color(0, 128, 0));
-		btnCarta.setForeground(new Color(0, 128, 0));
+		btn0.setBackground(new Color(0, 128, 0));
+		btn0.setForeground(new Color(0, 128, 0));
 
-		GridBagConstraints gbc_btnCarta = new GridBagConstraints();
-		gbc_btnCarta.anchor = GridBagConstraints.SOUTHWEST;
-		gbc_btnCarta.ipadx = 2;
-		gbc_btnCarta.gridwidth = 2;
-		gbc_btnCarta.gridheight = 4;
-		gbc_btnCarta.insets = new Insets(0, 0, 5, 5);
-		gbc_btnCarta.gridx = 0;
-		gbc_btnCarta.gridy = 0;
-		getContentPane().add(btnCarta, gbc_btnCarta);
+		GridBagConstraints gbc_btn0 = new GridBagConstraints();
+		gbc_btn0.anchor = GridBagConstraints.SOUTHWEST;
+		gbc_btn0.ipadx = 2;
+		gbc_btn0.gridwidth = 2;
+		gbc_btn0.gridheight = 4;
+		gbc_btn0.insets = new Insets(0, 0, 5, 5);
+		gbc_btn0.gridx = 0;
+		gbc_btn0.gridy = 0;
+		getContentPane().add(btn0, gbc_btn0);
 
-		JButton btnNewButton = new JButton("");
-		btnNewButton.setBackground(new Color(0, 128, 0));
-		btnNewButton.setForeground(new Color(0, 128, 0));
-		btnNewButton.setIcon(new ImageIcon(solitarioSwing.class.getResource("/Images/107016_75.gif")));
-		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
-		gbc_btnNewButton.insets = new Insets(0, 0, 5, 5);
-		gbc_btnNewButton.gridx = 2;
-		gbc_btnNewButton.gridy = 0;
-		getContentPane().add(btnNewButton, gbc_btnNewButton);
+		JButton btn1 = new JButton("");
+		
+		btn1.setBackground(new Color(0, 128, 0));
+		btn1.setForeground(new Color(0, 128, 0));
+		btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource("/Images/107016_75.gif")));
+		GridBagConstraints gbc_btn1 = new GridBagConstraints();
+		gbc_btn1.insets = new Insets(0, 0, 5, 5);
+		gbc_btn1.gridx = 2;
+		gbc_btn1.gridy = 0;
+		getContentPane().add(btn1, gbc_btn1);
+		
+		JButton btn2 = new JButton("");
+		
+		btn2.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+		btn2.setBackground(new Color(0, 128, 0));
+		btn2.setForeground(new Color(0, 128, 0));
+		GridBagConstraints gbc_btn2 = new GridBagConstraints();
+		gbc_btn2.insets = new Insets(0, 0, 5, 5);
+		gbc_btn2.gridx = 3;
+		gbc_btn2.gridy = 0;
+		getContentPane().add(btn2, gbc_btn2);
+		
+		JButton btn3 = new JButton("");
+		
+		btn3.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+		btn3.setForeground(new Color(0, 128, 0));
+		btn3.setBackground(new Color(0, 128, 0));
+		GridBagConstraints gbc_btn3 = new GridBagConstraints();
+		gbc_btn3.insets = new Insets(0, 0, 5, 5);
+		gbc_btn3.gridx = 4;
+		gbc_btn3.gridy = 0;
+		getContentPane().add(btn3, gbc_btn3);
+		
+		JButton btn4 = new JButton("");
+		
+		btn4.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+		btn4.setForeground(new Color(0, 128, 0));
+		btn4.setBackground(new Color(0, 128, 0));
+		GridBagConstraints gbc_btn4 = new GridBagConstraints();
+		gbc_btn4.insets = new Insets(0, 0, 5, 5);
+		gbc_btn4.gridx = 5;
+		gbc_btn4.gridy = 0;
+		getContentPane().add(btn4, gbc_btn4);
+		
+		JButton btn5 = new JButton("");
+		
+		btn5.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+		btn5.setBackground(new Color(0, 128, 0));
+		btn5.setForeground(new Color(0, 128, 0));
+		GridBagConstraints gbc_btn5 = new GridBagConstraints();
+		gbc_btn5.insets = new Insets(0, 0, 5, 5);
+		gbc_btn5.gridx = 6;
+		gbc_btn5.gridy = 0;
+		getContentPane().add(btn5, gbc_btn5);
+		
+		JButton btn6 = new JButton("");
+		
+		btn6.setHorizontalAlignment(SwingConstants.LEFT);
+		btn6.setVerticalAlignment(SwingConstants.BOTTOM);
+		btn6.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(6).getCarta().getRuta())));
+		btn6.setBackground(new Color(0, 128, 0));
+		btn6.setForeground(new Color(0, 128, 0));
+		GridBagConstraints gbc_btn6 = new GridBagConstraints();
+		gbc_btn6.weighty = 2.0;
+		gbc_btn6.ipady = 5;
+		gbc_btn6.ipadx = 5;
+		gbc_btn6.insets = new Insets(0, 0, 5, 5);
+		gbc_btn6.gridx = 1;
+		gbc_btn6.gridy = 7;
+		getContentPane().add(btn6, gbc_btn6);
+		
+		JButton btn7 = new JButton("");
+		
+		btn7.setBackground(new Color(0, 128, 0));
+		btn7.setForeground(new Color(0, 128, 0));
+		GridBagConstraints gbc_btn7 = new GridBagConstraints();
+		gbc_btn7.weighty = 2.0;
+		gbc_btn7.insets = new Insets(0, 0, 5, 5);
+		gbc_btn7.gridx = 2;
+		gbc_btn7.gridy = 7;
+		getContentPane().add(btn7, gbc_btn7);
 		setBackground(new Color(255, 255, 255));
 
 		JMenuBar menuBar = new JMenuBar();
@@ -237,20 +337,473 @@ public class SolitarioSwing extends JFrame {
 				JOptionPane.showMessageDialog(null, "Para realizar el solitario hay que...");
 			}
 		});
-		btnCarta.addActionListener(new ActionListener() {
+		btn1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (Pilas.get(1).numCartas()!=0) {
+					
+					seleccionada = new Carta(Pilas.get(1).getCarta().getNum(),Pilas.get(1).getCarta().getPalo(),Pilas.get(1).getCarta().getRuta());
+					setPilaSeleccionada(1);
+				}
+			}
+		});
+		btn2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				//codificar movimiento a la pila del palo
+				if(Palo1.numCartas()==0) {
+					if(seleccionada.getNum()=='A') {
+						Pilas.get(2).addCarta(seleccionada);
+						Pilas.get(getPilaSeleccionada()).eliminarCarta();
+						btn2.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(2).getCarta().getRuta())));
+						if(Pilas.get(1).numCartas()==0) {
+							btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+						}
+						else {
+						btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+						}
+						if(Pilas.get(6).numCartas()==0) {
+							btn6.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						else {
+							btn6.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(6).getCarta().getRuta())));
+						}
+						
+					}
+				}
+				else {
+					if (seleccionada.movimientoAMonton(Palo1.getCarta())) {
+						Pilas.get(2).addCarta(seleccionada);
+						Pilas.get(getPilaSeleccionada()).eliminarCarta();
+						btn2.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(2).getCarta().getRuta())));
+						if(Pilas.get(1).numCartas()==0) {
+							btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+						}
+						else {
+						btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+						}
+						if(Pilas.get(6).numCartas()==0) {
+							btn6.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						else {
+							btn6.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(6).getCarta().getRuta())));
+						}
+					}
+				}
+				seleccionada = new Carta('0','0',"0");
+			}
+		});
+		btn3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//codificar movimiento a la pila del palo
+				if(Palo2.numCartas()==0) {
+					if(seleccionada.getNum()=='A') {
+						Pilas.get(3).addCarta(seleccionada);
+						Pilas.get(getPilaSeleccionada()).eliminarCarta();
+						btn3.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(3).getCarta().getRuta())));
+
+						
+						if(Pilas.get(1).numCartas()==0) {
+							btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+						}
+						else {
+						btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+						}
+						if(Pilas.get(6).numCartas()==0) {
+							btn6.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						else {
+							btn6.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(6).getCarta().getRuta())));
+						}
+						
+					}
+				}
+				else {
+					if (seleccionada.movimientoAMonton(Palo2.getCarta())) {
+						Pilas.get(3).addCarta(seleccionada);
+						Pilas.get(getPilaSeleccionada()).eliminarCarta();
+						btn3.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(3).getCarta().getRuta())));	
+						
+						if(Pilas.get(1).numCartas()==0) {
+							btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+						}
+						else {
+						btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+						}
+						if(Pilas.get(6).numCartas()==0) {
+							btn6.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						else {
+							btn6.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(6).getCarta().getRuta())));
+						}
+					}
+				}
+				seleccionada = new Carta('0','0',"0");
+			}
+		});
+		btn4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//codificar movimiento a la pila del palo
+				if(Palo3.numCartas()==0) {
+					if(seleccionada.getNum()=='A') {
+						Pilas.get(4).addCarta(seleccionada);
+						Pilas.get(getPilaSeleccionada()).eliminarCarta();
+						btn4.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(4).getCarta().getRuta())));
+						
+						if(Pilas.get(1).numCartas()==0) {
+							btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+						}
+						else {
+						btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+						}
+						if(Pilas.get(6).numCartas()==0) {
+							btn6.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						else {
+							btn6.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(6).getCarta().getRuta())));
+						}
+						
+					}
+				}
+				else {
+					if (seleccionada.movimientoAMonton(Palo3.getCarta())) {
+						Pilas.get(4).addCarta(seleccionada);
+						Pilas.get(getPilaSeleccionada()).eliminarCarta();
+						
+						btn4.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(4).getCarta().getRuta())));	
+						if(Pilas.get(1).numCartas()==0) {
+							btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+						}
+						else {
+						btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+						}
+						if(Pilas.get(6).numCartas()==0) {
+							btn6.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						else {
+							btn6.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(6).getCarta().getRuta())));
+						}
+					}
+				}
+				seleccionada = new Carta('0','0',"0");
+			}
+		});
+		btn5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//codificar movimiento a la pila del palo
+				if(Palo4.numCartas()==0) {
+					if(seleccionada.getNum()=='A') {
+						Pilas.get(5).addCarta(seleccionada);
+						Pilas.get(getPilaSeleccionada()).eliminarCarta();
+						btn5.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(5).getCarta().getRuta())));
+						
+						
+							if(Pilas.get(1).numCartas()==0) {
+								btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+							}
+						
+						
+							if(Pilas.get(6).numCartas()==0) {
+								btn6.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+							}
+							else {
+								btn6.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(6).getCarta().getRuta())));
+							}
+						
+						
+					}
+				}
+				else {
+					if (seleccionada.movimientoAMonton(Palo4.getCarta())) {
+						Pilas.get(5).addCarta(seleccionada);
+						Pilas.get(getPilaSeleccionada()).eliminarCarta();
+						
+						btn5.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(5).getCarta().getRuta())));	
+						
+							if(Pilas.get(1).numCartas()==0) {
+								btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+							}
+						
+						
+							if(Pilas.get(6).numCartas()==0) {
+								btn6.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+							}
+							else {
+								btn6.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+							}
+						
+					}
+				}
+				seleccionada = new Carta('0','0',"0");
+			}
+		});
+		btn6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(Pilas.get(6).numCartas()==0) {
+					if(seleccionada.getNum()=='K') {
+						Pilas.get(6).addCarta(seleccionada);
+						Pilas.get(getPilaSeleccionada()).eliminarCarta();
+						btn6.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(6).getCarta().getRuta())));
+						if(getPilaSeleccionada() == 1) {
+							if(Pilas.get(1).numCartas()==0) {
+								btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+							}
+						}
+						else if(pilaSeleccionada == 7) {
+							if(Pilas.get(7).numCartas()==0) {
+								btn7.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn7.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+							}
+						}
+						setPilaSeleccionada(0);
+					}
+						
+					
+				}
+				else if(seleccionada.getNum()=='0') {
+					seleccionada = new Carta(Pilas.get(6).getCarta().getNum(),Pilas.get(6).getCarta().getPalo(),Pilas.get(6).getCarta().getRuta());
+					setPilaSeleccionada(6);
+				}
+				
+				else if(seleccionada.movimientoPila(Pilas.get(6).getCarta())) {
+					Pilas.get(6).addCarta(seleccionada);
+					Pilas.get(getPilaSeleccionada()).eliminarCarta();
+					btn6.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(6).getCarta().getRuta())));	
+					if(getPilaSeleccionada() == 1) {
+						if(Pilas.get(1).numCartas()==0) {
+							btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+						}
+					}
+					else if(pilaSeleccionada == 7) {
+						if(Pilas.get(7).numCartas()==0) {
+							btn7.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn7.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+						}
+					}
+					/*else if(pilaSeleccionada == 8) {
+						if(Pilas.get(1).numCartas()==0) {
+							btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+						}
+					}
+					else if(pilaSeleccionada == 9) {
+						if(Pilas.get(1).numCartas()==0) {
+							btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+						}
+					}
+					else if(pilaSeleccionada == 10) {
+						if(Pilas.get(1).numCartas()==0) {
+							btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+						}
+					}
+					else if(pilaSeleccionada == 11) {
+						if(Pilas.get(1).numCartas()==0) {
+							btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+						}
+					}
+					else if(pilaSeleccionada == 12) {
+						if(Pilas.get(1).numCartas()==0) {
+							btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+						}
+					}*/
+					seleccionada = new Carta('0','0',"0");
+				}
+				else {
+					if (Pilas.get(6).numCartas()!=0) {
+						
+						seleccionada = new Carta(Pilas.get(6).getCarta().getNum(),Pilas.get(6).getCarta().getPalo(),Pilas.get(6).getCarta().getRuta());
+						setPilaSeleccionada(6);
+					}
+				}
+			
+			}
+			
+		});
+		btn7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(Pilas.get(7).numCartas()==0) {
+					if(seleccionada.getNum()=='K') {
+						Pilas.get(7).addCarta(seleccionada);
+						Pilas.get(getPilaSeleccionada()).eliminarCarta();
+						btn6.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(7).getCarta().getRuta())));
+						if(getPilaSeleccionada() == 1) {
+							if(Pilas.get(1).numCartas()==0) {
+								btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+							}
+						}
+						else if(pilaSeleccionada == 6) {
+							if(Pilas.get(6).numCartas()==0) {
+								btn6.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn6.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+							}
+						}
+						setPilaSeleccionada(0);
+						
+					}
+				}
+				else if(seleccionada.getNum()=='0') {
+					seleccionada = new Carta(Pilas.get(7).getCarta().getNum(),Pilas.get(7).getCarta().getPalo(),Pilas.get(7).getCarta().getRuta());
+					setPilaSeleccionada(7);
+				}
+				
+				else if(seleccionada.movimientoPila(Pilas.get(7).getCarta())) {
+					Pilas.get(7).addCarta(seleccionada);
+					Pilas.get(getPilaSeleccionada()).eliminarCarta();
+					btn7.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(7).getCarta().getRuta())));	
+					if(getPilaSeleccionada() == 1) {
+						if(Pilas.get(1).numCartas()==0) {
+							btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+						}
+					}
+					else if(pilaSeleccionada == 6) {
+						if(Pilas.get(6).numCartas()==0) {
+							btn6.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn6.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+						}
+					}
+					/*else if(pilaSeleccionada == 8) {
+						if(Pilas.get(1).numCartas()==0) {
+							btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+						}
+					}
+					else if(pilaSeleccionada == 9) {
+						if(Pilas.get(1).numCartas()==0) {
+							btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+						}
+					}
+					else if(pilaSeleccionada == 10) {
+						if(Pilas.get(1).numCartas()==0) {
+							btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+						}
+					}
+					else if(pilaSeleccionada == 11) {
+						if(Pilas.get(1).numCartas()==0) {
+							btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+						}
+					}
+					else if(pilaSeleccionada == 12) {
+						if(Pilas.get(1).numCartas()==0) {
+							btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+						}
+					}*/
+					seleccionada = new Carta('0','0',"0");
+				}
+				else {
+					if (Pilas.get(7).numCartas()!=0) {
+						
+						seleccionada = new Carta(Pilas.get(7).getCarta().getNum(),Pilas.get(7).getCarta().getPalo(),Pilas.get(7).getCarta().getRuta());
+						setPilaSeleccionada(7);
+					}
+				}
+			
+			}
+			
+		});
+		
+		btn0.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				//mover de mazo a monton dandole la vuelta a la carta
-				btnNewButton.setIcon(new ImageIcon(solitarioSwing.class.getResource(pila.getCarta().getRuta())));
-				monton.addCarta(pila.getCarta());
-				pila.eliminarCarta();
+				seleccionada = new Carta('0','0',"0");
+				setPilaSeleccionada(0);
+				btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(pila.getCarta().getRuta())));
+				Pilas.get(1).addCarta(pila.getCarta());
+				Pilas.get(0).eliminarCarta();
 				if(pila.numCartas()==0) {
-					btnCarta.setIcon(new ImageIcon(solitarioSwing.class.getResource("/Images/107016_64.gif")));
+					btn0.setIcon(new ImageIcon(solitarioSwing.class.getResource("/Images/107016_64.gif")));
 				}
+				
 			}
 		});
 		menuBar.add(mntmAyuda);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(10, 10, 600, 320);
+		setBounds(10, 10, 800, 500);
 		setVisible(true);
 	}
 

@@ -37,6 +37,47 @@ public class Carta {
 		}
 		return palo;
 	}
+	int tamanoNum() {
+		int posicion = -1;
+		boolean encontrar = false;
+		int i = 0;
+		char[] numeros = {'A','2','3','4','5','6','7','8','9','T','J','Q','K'};
+		do {
+			if(this.getNum()==numeros[i]) {
+				posicion = i;
+				encontrar = true;
+			}
+			else {
+				i++;
+			}
+		}while(!encontrar && i< 12);
+		
+		return posicion;
+	}
+	boolean distintoColor(Carta carta) {
+		boolean color = false;
+		if(((this.getPalo() == 'D' || this.getPalo() == 'H') && (carta.getPalo() == 'C' || carta.getPalo() == 'S')) ||((this.getPalo() == 'C' || this.getPalo() == 'S') &&  (carta.getPalo() == 'C' || carta.getPalo() == 'S')) ){
+			color = true;
+		}
+		
+		return color;
+	}
+	boolean movimientoPila(Carta carta) {
+		boolean valido = false;
+		if(this.tamanoNum() == carta.tamanoNum()-1) {
+			valido = true;
+		}	
+		return valido;
+	}
+	boolean movimientoAMonton(Carta carta) {
+		boolean valido = false;		
+		if(this.mismoPalo(carta)) {
+			if(this.tamanoNum() == carta.tamanoNum()+1) {
+				valido = true;
+			}	
+		}
+		return valido;
+	}
 	boolean mismoNumero(Carta carta) {
 		boolean num = false;
 		if(this.getNum()==carta.getNum()) {
