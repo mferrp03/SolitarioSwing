@@ -166,6 +166,60 @@ public class SolitarioSwing extends JFrame {
 		pila.eliminarCarta();
 		Pila2.addCarta(pila.getCarta());
 		pila.eliminarCarta();
+		Pila3.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		Pila3.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		Pila3.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		Pila4.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		Pila4.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		Pila4.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		Pila4.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		Pila5.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		Pila5.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		Pila5.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		Pila5.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		Pila5.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		Pila6.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		Pila6.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		Pila6.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		Pila6.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		Pila6.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		Pila6.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		Pila7.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		Pila7.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		Pila7.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		Pila7.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		Pila7.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		Pila7.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		Pila7.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		/*Pila1.addCarta(AD);
+		Pila2.addCarta(QH);
+		pila.addCarta(QH);
+		Pila2.addCarta(KS);*/
 		Pilas.add(pila);
 		Pilas.add(monton);
 		Pilas.add(Palo1);
@@ -264,6 +318,7 @@ public class SolitarioSwing extends JFrame {
 		
 		btn6.setHorizontalAlignment(SwingConstants.LEFT);
 		btn6.setVerticalAlignment(SwingConstants.BOTTOM);
+		
 		btn6.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(6).getCarta().getRuta())));
 		btn6.setBackground(new Color(0, 128, 0));
 		btn6.setForeground(new Color(0, 128, 0));
@@ -278,6 +333,7 @@ public class SolitarioSwing extends JFrame {
 		
 		JButton btn7 = new JButton("");
 		
+		btn7.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(7).getCarta().getRuta())));
 		btn7.setBackground(new Color(0, 128, 0));
 		btn7.setForeground(new Color(0, 128, 0));
 		GridBagConstraints gbc_btn7 = new GridBagConstraints();
@@ -286,6 +342,65 @@ public class SolitarioSwing extends JFrame {
 		gbc_btn7.gridx = 2;
 		gbc_btn7.gridy = 7;
 		getContentPane().add(btn7, gbc_btn7);
+		
+		JButton btn8 = new JButton("");
+		btn8.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(8).getCarta().getRuta())));
+		btn8.setBackground(new Color(0, 128, 0));
+		btn8.setForeground(new Color(0, 128, 0));
+		GridBagConstraints gbc_btn8 = new GridBagConstraints();
+		gbc_btn8.weighty = 2.0;
+		gbc_btn8.insets = new Insets(0, 0, 5, 5);
+		gbc_btn8.gridx = 3;
+		gbc_btn8.gridy = 7;
+		getContentPane().add(btn8, gbc_btn8);
+		
+		JButton btn9 = new JButton("");
+		
+		btn9.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(9).getCarta().getRuta())));
+		btn9.setBackground(new Color(0, 128, 0));
+		btn9.setForeground(new Color(0, 128, 0));
+		GridBagConstraints gbc_btn9 = new GridBagConstraints();
+		gbc_btn9.weighty = 2.0;
+		gbc_btn9.insets = new Insets(0, 0, 5, 5);
+		gbc_btn9.gridx = 4;
+		gbc_btn9.gridy = 7;
+		getContentPane().add(btn9, gbc_btn9);
+		
+		JButton btn10 = new JButton("");
+		
+		btn10.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(10).getCarta().getRuta())));
+		btn10.setBackground(new Color(0, 128, 0));
+		btn10.setForeground(new Color(0, 128, 0));
+		GridBagConstraints gbc_btn10 = new GridBagConstraints();
+		gbc_btn10.weighty = 2.0;
+		gbc_btn10.insets = new Insets(0, 0, 5, 5);
+		gbc_btn10.gridx = 5;
+		gbc_btn10.gridy = 7;
+		getContentPane().add(btn10, gbc_btn10);
+		
+		JButton btn11 = new JButton("");
+		
+		btn11.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(11).getCarta().getRuta())));
+		btn11.setBackground(new Color(0, 128, 0));
+		btn11.setForeground(new Color(0, 128, 0));
+		GridBagConstraints gbc_btn11 = new GridBagConstraints();
+		gbc_btn11.weighty = 2.0;
+		gbc_btn11.insets = new Insets(0, 0, 5, 5);
+		gbc_btn11.gridx = 6;
+		gbc_btn11.gridy = 7;
+		getContentPane().add(btn11, gbc_btn11);
+		
+		JButton btn12 = new JButton("");
+		
+		btn12.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(12).getCarta().getRuta())));
+		btn12.setForeground(new Color(0, 128, 0));
+		btn12.setBackground(new Color(0, 128, 0));
+		GridBagConstraints gbc_btn12 = new GridBagConstraints();
+		gbc_btn12.weighty = 2.0;
+		gbc_btn12.insets = new Insets(0, 0, 5, 0);
+		gbc_btn12.gridx = 7;
+		gbc_btn12.gridy = 7;
+		getContentPane().add(btn12, gbc_btn12);
 		setBackground(new Color(255, 255, 255));
 
 		JMenuBar menuBar = new JMenuBar();
@@ -358,15 +473,57 @@ public class SolitarioSwing extends JFrame {
 							btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
 							
 						}
-						else {
+						if(Pilas.get(1).numCartas()!=0) { 
 						btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
 						}
 						if(Pilas.get(6).numCartas()==0) {
 							btn6.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
 					
 						}
-						else {
+						if(Pilas.get(6).numCartas()!=0) { 
 							btn6.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(6).getCarta().getRuta())));
+						}
+						if(Pilas.get(7).numCartas()==0) {
+							btn7.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(7).numCartas()!=0) { 
+							btn7.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(7).getCarta().getRuta())));
+						}
+						if(Pilas.get(8).numCartas()==0) {
+							btn8.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(8).numCartas()!=0) { 
+							btn8.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(8).getCarta().getRuta())));
+						}
+						if(Pilas.get(9).numCartas()==0) {
+							btn9.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(9).numCartas()!=0) { 
+							btn9.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(9).getCarta().getRuta())));
+						}
+						if(Pilas.get(10).numCartas()==0) {
+							btn10.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(10).numCartas()!=0) { 
+							btn10.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(10).getCarta().getRuta())));
+						}
+						if(Pilas.get(11).numCartas()==0) {
+							btn11.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(11).numCartas()!=0) { 
+							btn11.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(11).getCarta().getRuta())));
+						}
+						if(Pilas.get(12).numCartas()==0) {
+							btn12.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(11).numCartas()!=0) { 
+							btn12.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(12).getCarta().getRuta())));
 						}
 						
 					}
@@ -380,16 +537,59 @@ public class SolitarioSwing extends JFrame {
 							btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
 							
 						}
-						else {
+						if(Pilas.get(1).numCartas()!=0) { 
 						btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
 						}
 						if(Pilas.get(6).numCartas()==0) {
 							btn6.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
 					
 						}
-						else {
+						if(Pilas.get(6).numCartas()!=0) { 
 							btn6.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(6).getCarta().getRuta())));
 						}
+						if(Pilas.get(7).numCartas()==0) {
+							btn7.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(7).numCartas()!=0) { 
+							btn7.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(7).getCarta().getRuta())));
+						}
+						if(Pilas.get(8).numCartas()==0) {
+							btn8.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(8).numCartas()!=0) { 
+							btn8.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(8).getCarta().getRuta())));
+						}
+						if(Pilas.get(9).numCartas()==0) {
+							btn9.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(9).numCartas()!=0) { 
+							btn9.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(9).getCarta().getRuta())));
+						}
+						if(Pilas.get(10).numCartas()==0) {
+							btn10.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(10).numCartas()!=0) { 
+							btn10.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(10).getCarta().getRuta())));
+						}
+						if(Pilas.get(11).numCartas()==0) {
+							btn11.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(11).numCartas()!=0) { 
+							btn11.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(11).getCarta().getRuta())));
+						}
+						if(Pilas.get(12).numCartas()==0) {
+							btn12.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(12).numCartas()!=0) { 
+							btn12.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(12).getCarta().getRuta())));
+						}
+						
 					}
 				}
 				seleccionada = new Carta('0','0',"0");
@@ -404,20 +604,61 @@ public class SolitarioSwing extends JFrame {
 						Pilas.get(getPilaSeleccionada()).eliminarCarta();
 						btn3.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(3).getCarta().getRuta())));
 
-						
 						if(Pilas.get(1).numCartas()==0) {
 							btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
 							
 						}
-						else {
+						if(Pilas.get(1).numCartas()!=0) { 
 						btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
 						}
 						if(Pilas.get(6).numCartas()==0) {
 							btn6.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
 					
 						}
-						else {
+						if(Pilas.get(6).numCartas()!=0) { 
 							btn6.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(6).getCarta().getRuta())));
+						}
+						if(Pilas.get(7).numCartas()==0) {
+							btn7.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(7).numCartas()!=0) { 
+							btn7.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(7).getCarta().getRuta())));
+						}
+						if(Pilas.get(8).numCartas()==0) {
+							btn8.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(8).numCartas()!=0) { 
+							btn8.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(8).getCarta().getRuta())));
+						}
+						if(Pilas.get(9).numCartas()==0) {
+							btn9.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(9).numCartas()!=0) { 
+							btn9.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(9).getCarta().getRuta())));
+						}
+						if(Pilas.get(10).numCartas()==0) {
+							btn10.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(10).numCartas()!=0) { 
+							btn10.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(10).getCarta().getRuta())));
+						}
+						if(Pilas.get(11).numCartas()==0) {
+							btn11.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(11).numCartas()!=0) { 
+							btn11.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(11).getCarta().getRuta())));
+						}
+						if(Pilas.get(12).numCartas()==0) {
+							btn12.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(12).numCartas()!=0) { 
+							btn12.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(12).getCarta().getRuta())));
 						}
 						
 					}
@@ -427,21 +668,64 @@ public class SolitarioSwing extends JFrame {
 						Pilas.get(3).addCarta(seleccionada);
 						Pilas.get(getPilaSeleccionada()).eliminarCarta();
 						btn3.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(3).getCarta().getRuta())));	
-						
 						if(Pilas.get(1).numCartas()==0) {
 							btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
 							
 						}
-						else {
+						if(Pilas.get(1).numCartas()!=0) { 
 						btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
 						}
 						if(Pilas.get(6).numCartas()==0) {
 							btn6.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
 					
 						}
-						else {
+						if(Pilas.get(6).numCartas()!=0) { 
 							btn6.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(6).getCarta().getRuta())));
 						}
+						if(Pilas.get(7).numCartas()==0) {
+							btn7.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(7).numCartas()!=0) { 
+							btn7.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(7).getCarta().getRuta())));
+						}
+						if(Pilas.get(8).numCartas()==0) {
+							btn8.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(8).numCartas()!=0) { 
+							btn8.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(8).getCarta().getRuta())));
+						}
+						if(Pilas.get(9).numCartas()==0) {
+							btn9.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(9).numCartas()!=0) { 
+							btn9.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(9).getCarta().getRuta())));
+						}
+						if(Pilas.get(10).numCartas()==0) {
+							btn10.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(10).numCartas()!=0) { 
+							btn10.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(10).getCarta().getRuta())));
+						}
+						if(Pilas.get(11).numCartas()==0) {
+							btn11.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(11).numCartas()!=0) { 
+							btn11.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(11).getCarta().getRuta())));
+						}
+						if(Pilas.get(12).numCartas()==0) {
+							btn12.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(12).numCartas()!=0) { 
+							btn12.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(12).getCarta().getRuta())));
+						}
+						
+						
 					}
 				}
 				seleccionada = new Carta('0','0',"0");
@@ -455,20 +739,61 @@ public class SolitarioSwing extends JFrame {
 						Pilas.get(4).addCarta(seleccionada);
 						Pilas.get(getPilaSeleccionada()).eliminarCarta();
 						btn4.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(4).getCarta().getRuta())));
-						
 						if(Pilas.get(1).numCartas()==0) {
 							btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
 							
 						}
-						else {
+						if(Pilas.get(1).numCartas()!=0) { 
 						btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
 						}
 						if(Pilas.get(6).numCartas()==0) {
 							btn6.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
 					
 						}
-						else {
+						if(Pilas.get(6).numCartas()!=0) { 
 							btn6.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(6).getCarta().getRuta())));
+						}
+						if(Pilas.get(7).numCartas()==0) {
+							btn7.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(7).numCartas()!=0) { 
+							btn7.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(7).getCarta().getRuta())));
+						}
+						if(Pilas.get(8).numCartas()==0) {
+							btn8.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(8).numCartas()!=0) { 
+							btn8.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(8).getCarta().getRuta())));
+						}
+						if(Pilas.get(9).numCartas()==0) {
+							btn9.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(9).numCartas()!=0) { 
+							btn9.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(9).getCarta().getRuta())));
+						}
+						if(Pilas.get(10).numCartas()==0) {
+							btn10.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(10).numCartas()!=0) { 
+							btn10.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(10).getCarta().getRuta())));
+						}
+						if(Pilas.get(11).numCartas()==0) {
+							btn11.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(11).numCartas()!=0) { 
+							btn11.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(11).getCarta().getRuta())));
+						}
+						if(Pilas.get(12).numCartas()==0) {
+							btn12.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(12).numCartas()!=0) { 
+							btn12.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(12).getCarta().getRuta())));
 						}
 						
 					}
@@ -483,16 +808,59 @@ public class SolitarioSwing extends JFrame {
 							btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
 							
 						}
-						else {
+						if(Pilas.get(1).numCartas()!=0) { 
 						btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
 						}
 						if(Pilas.get(6).numCartas()==0) {
 							btn6.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
 					
 						}
-						else {
+						if(Pilas.get(6).numCartas()!=0) { 
 							btn6.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(6).getCarta().getRuta())));
 						}
+						if(Pilas.get(7).numCartas()==0) {
+							btn7.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(7).numCartas()!=0) { 
+							btn7.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(7).getCarta().getRuta())));
+						}
+						if(Pilas.get(8).numCartas()==0) {
+							btn8.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(8).numCartas()!=0) { 
+							btn8.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(8).getCarta().getRuta())));
+						}
+						if(Pilas.get(9).numCartas()==0) {
+							btn9.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(9).numCartas()!=0) { 
+							btn9.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(9).getCarta().getRuta())));
+						}
+						if(Pilas.get(10).numCartas()==0) {
+							btn10.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(10).numCartas()!=0) { 
+							btn10.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(10).getCarta().getRuta())));
+						}
+						if(Pilas.get(11).numCartas()==0) {
+							btn11.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(11).numCartas()!=0) { 
+							btn11.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(11).getCarta().getRuta())));
+						}
+						if(Pilas.get(12).numCartas()==0) {
+							btn12.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(12).numCartas()!=0) { 
+							btn12.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(12).getCarta().getRuta())));
+						}
+						
 					}
 				}
 				seleccionada = new Carta('0','0',"0");
@@ -507,24 +875,62 @@ public class SolitarioSwing extends JFrame {
 						Pilas.get(getPilaSeleccionada()).eliminarCarta();
 						btn5.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(5).getCarta().getRuta())));
 						
-						
-							if(Pilas.get(1).numCartas()==0) {
-								btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						if(Pilas.get(1).numCartas()==0) {
+							btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
 							
-							}
-							else {
-								btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
-							}
-						
-						
-							if(Pilas.get(6).numCartas()==0) {
-								btn6.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
-						
-							}
-							else {
-								btn6.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(6).getCarta().getRuta())));
-							}
-						
+						}
+						if(Pilas.get(1).numCartas()!=0) { 
+						btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+						}
+						if(Pilas.get(6).numCartas()==0) {
+							btn6.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(6).numCartas()!=0) { 
+							btn6.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(6).getCarta().getRuta())));
+						}
+						if(Pilas.get(7).numCartas()==0) {
+							btn7.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(7).numCartas()!=0) { 
+							btn7.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(7).getCarta().getRuta())));
+						}
+						if(Pilas.get(8).numCartas()==0) {
+							btn8.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(8).numCartas()!=0) { 
+							btn8.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(8).getCarta().getRuta())));
+						}
+						if(Pilas.get(9).numCartas()==0) {
+							btn9.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(9).numCartas()!=0) { 
+							btn9.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(9).getCarta().getRuta())));
+						}
+						if(Pilas.get(10).numCartas()==0) {
+							btn10.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(10).numCartas()!=0) { 
+							btn10.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(10).getCarta().getRuta())));
+						}
+						if(Pilas.get(11).numCartas()==0) {
+							btn11.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(11).numCartas()!=0) { 
+							btn11.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(11).getCarta().getRuta())));
+						}
+						if(Pilas.get(12).numCartas()==0) {
+							btn12.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(12).numCartas()!=0) { 
+							btn12.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(12).getCarta().getRuta())));
+						}
 						
 					}
 				}
@@ -535,23 +941,62 @@ public class SolitarioSwing extends JFrame {
 						
 						btn5.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(5).getCarta().getRuta())));	
 						
-							if(Pilas.get(1).numCartas()==0) {
-								btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						if(Pilas.get(1).numCartas()==0) {
+							btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
 							
-							}
-							else {
-								btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
-							}
-						
-						
-							if(Pilas.get(6).numCartas()==0) {
-								btn6.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
-						
-							}
-							else {
-								btn6.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
-							}
-						
+						}
+						if(Pilas.get(1).numCartas()!=0) { 
+						btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+						}
+						if(Pilas.get(6).numCartas()==0) {
+							btn6.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(6).numCartas()!=0) { 
+							btn6.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(6).getCarta().getRuta())));
+						}
+						if(Pilas.get(7).numCartas()==0) {
+							btn7.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(7).numCartas()!=0) { 
+							btn7.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(7).getCarta().getRuta())));
+						}
+						if(Pilas.get(8).numCartas()==0) {
+							btn8.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(8).numCartas()!=0) { 
+							btn8.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(8).getCarta().getRuta())));
+						}
+						if(Pilas.get(9).numCartas()==0) {
+							btn9.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(9).numCartas()!=0) { 
+							btn9.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(9).getCarta().getRuta())));
+						}
+						if(Pilas.get(10).numCartas()==0) {
+							btn10.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(10).numCartas()!=0) { 
+							btn10.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(10).getCarta().getRuta())));
+						}
+						if(Pilas.get(11).numCartas()==0) {
+							btn11.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(11).numCartas()!=0) { 
+							btn11.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(11).getCarta().getRuta())));
+						}
+						if(Pilas.get(12).numCartas()==0) {
+							btn12.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					
+						}
+						if(Pilas.get(12).numCartas()!=0) { 
+							btn12.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(12).getCarta().getRuta())));
+						}
 					}
 				}
 				seleccionada = new Carta('0','0',"0");
@@ -573,13 +1018,58 @@ public class SolitarioSwing extends JFrame {
 								btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
 							}
 						}
-						else if(pilaSeleccionada == 7) {
+						else if(getPilaSeleccionada() == 7) {
 							if(Pilas.get(7).numCartas()==0) {
 								btn7.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
 							
 							}
 							else {
-								btn7.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+								btn7.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(7).getCarta().getRuta())));
+							}
+						}
+						else if(getPilaSeleccionada() == 8) {
+							if(Pilas.get(8).numCartas()==0) {
+								btn8.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn8.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(8).getCarta().getRuta())));
+							}
+						}
+						else if(getPilaSeleccionada() == 9) {
+							if(Pilas.get(9).numCartas()==0) {
+								btn9.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn9.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(9).getCarta().getRuta())));
+							}
+						}
+						else if(getPilaSeleccionada() == 10) {
+							if(Pilas.get(10).numCartas()==0) {
+								btn10.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn10.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(10).getCarta().getRuta())));
+							}
+						}
+						else if(getPilaSeleccionada() == 11) {
+							if(Pilas.get(11).numCartas()==0) {
+								btn11.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn11.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(11).getCarta().getRuta())));
+							}
+						}
+						else if(getPilaSeleccionada() == 12) {
+							if(Pilas.get(12).numCartas()==0) {
+								btn12.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn12.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(12).getCarta().getRuta())));
 							}
 						}
 						setPilaSeleccionada(0);
@@ -605,61 +1095,63 @@ public class SolitarioSwing extends JFrame {
 							btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
 						}
 					}
-					else if(pilaSeleccionada == 7) {
+					else if(getPilaSeleccionada() == 7) {
 						if(Pilas.get(7).numCartas()==0) {
 							btn7.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
 						
 						}
 						else {
-							btn7.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+							btn7.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(7).getCarta().getRuta())));
 						}
 					}
-					/*else if(pilaSeleccionada == 8) {
-						if(Pilas.get(1).numCartas()==0) {
-							btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					else if(getPilaSeleccionada() == 8) {
+						if(Pilas.get(8).numCartas()==0) {
+							btn8.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
 						
 						}
 						else {
-							btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+							btn8.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(8).getCarta().getRuta())));
 						}
 					}
-					else if(pilaSeleccionada == 9) {
-						if(Pilas.get(1).numCartas()==0) {
-							btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					else if(getPilaSeleccionada() == 9) {
+						if(Pilas.get(9).numCartas()==0) {
+							btn9.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
 						
 						}
 						else {
-							btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+							btn9.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(9).getCarta().getRuta())));
 						}
 					}
-					else if(pilaSeleccionada == 10) {
-						if(Pilas.get(1).numCartas()==0) {
-							btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					else if(getPilaSeleccionada() == 10) {
+						if(Pilas.get(10).numCartas()==0) {
+							btn10.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
 						
 						}
 						else {
-							btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+							btn10.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(10).getCarta().getRuta())));
 						}
 					}
-					else if(pilaSeleccionada == 11) {
-						if(Pilas.get(1).numCartas()==0) {
-							btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					else if(getPilaSeleccionada() == 11) {
+						if(Pilas.get(11).numCartas()==0) {
+							btn11.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
 						
 						}
 						else {
-							btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+							btn11.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(11).getCarta().getRuta())));
 						}
 					}
-					else if(pilaSeleccionada == 12) {
-						if(Pilas.get(1).numCartas()==0) {
-							btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					else if(getPilaSeleccionada() == 12) {
+						if(Pilas.get(12).numCartas()==0) {
+							btn12.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
 						
 						}
 						else {
-							btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+							btn12.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(12).getCarta().getRuta())));
 						}
-					}*/
+					}
+					
 					seleccionada = new Carta('0','0',"0");
+					setPilaSeleccionada(0);
 				}
 				else {
 					if (Pilas.get(6).numCartas()!=0) {
@@ -678,7 +1170,7 @@ public class SolitarioSwing extends JFrame {
 					if(seleccionada.getNum()=='K') {
 						Pilas.get(7).addCarta(seleccionada);
 						Pilas.get(getPilaSeleccionada()).eliminarCarta();
-						btn6.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(7).getCarta().getRuta())));
+						btn7.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(7).getCarta().getRuta())));
 						if(getPilaSeleccionada() == 1) {
 							if(Pilas.get(1).numCartas()==0) {
 								btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
@@ -694,7 +1186,52 @@ public class SolitarioSwing extends JFrame {
 							
 							}
 							else {
-								btn6.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+								btn6.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(6).getCarta().getRuta())));
+							}
+						}
+						else if(pilaSeleccionada == 8) {
+							if(Pilas.get(8).numCartas()==0) {
+								btn8.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn8.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(8).getCarta().getRuta())));
+							}
+						}
+						else if(getPilaSeleccionada() == 9) {
+							if(Pilas.get(9).numCartas()==0) {
+								btn9.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn9.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(9).getCarta().getRuta())));
+							}
+						}
+						else if(getPilaSeleccionada() == 10) {
+							if(Pilas.get(10).numCartas()==0) {
+								btn10.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn10.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(10).getCarta().getRuta())));
+							}
+						}
+						else if(getPilaSeleccionada() == 11) {
+							if(Pilas.get(11).numCartas()==0) {
+								btn11.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn11.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(11).getCarta().getRuta())));
+							}
+						}
+						else if(getPilaSeleccionada() == 12) {
+							if(Pilas.get(12).numCartas()==0) {
+								btn12.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn12.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(12).getCarta().getRuta())));
 							}
 						}
 						setPilaSeleccionada(0);
@@ -719,61 +1256,63 @@ public class SolitarioSwing extends JFrame {
 							btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
 						}
 					}
-					else if(pilaSeleccionada == 6) {
+					else if(getPilaSeleccionada() == 6) {
 						if(Pilas.get(6).numCartas()==0) {
 							btn6.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
 						
 						}
 						else {
-							btn6.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+							btn6.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(6).getCarta().getRuta())));
 						}
 					}
-					/*else if(pilaSeleccionada == 8) {
-						if(Pilas.get(1).numCartas()==0) {
-							btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					else if(getPilaSeleccionada() == 8) {
+						if(Pilas.get(8).numCartas()==0) {
+							btn8.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
 						
 						}
 						else {
-							btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+							btn8.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(8).getCarta().getRuta())));
 						}
 					}
-					else if(pilaSeleccionada == 9) {
-						if(Pilas.get(1).numCartas()==0) {
-							btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					else if(getPilaSeleccionada() == 9) {
+						if(Pilas.get(9).numCartas()==0) {
+							btn9.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
 						
 						}
 						else {
-							btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+							btn9.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(9).getCarta().getRuta())));
 						}
 					}
-					else if(pilaSeleccionada == 10) {
-						if(Pilas.get(1).numCartas()==0) {
-							btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					else if(getPilaSeleccionada() == 10) {
+						if(Pilas.get(10).numCartas()==0) {
+							btn10.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
 						
 						}
 						else {
-							btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+							btn10.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(10).getCarta().getRuta())));
 						}
 					}
-					else if(pilaSeleccionada == 11) {
-						if(Pilas.get(1).numCartas()==0) {
-							btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					else if(getPilaSeleccionada() == 11) {
+						if(Pilas.get(11).numCartas()==0) {
+							btn11.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
 						
 						}
 						else {
-							btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+							btn11.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(11).getCarta().getRuta())));
 						}
 					}
-					else if(pilaSeleccionada == 12) {
-						if(Pilas.get(1).numCartas()==0) {
-							btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+					else if(getPilaSeleccionada() == 12) {
+						if(Pilas.get(12).numCartas()==0) {
+							btn12.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
 						
 						}
 						else {
-							btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+							btn12.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(12).getCarta().getRuta())));
 						}
-					}*/
+					}
+					
 					seleccionada = new Carta('0','0',"0");
+					setPilaSeleccionada(0);
 				}
 				else {
 					if (Pilas.get(7).numCartas()!=0) {
@@ -786,7 +1325,810 @@ public class SolitarioSwing extends JFrame {
 			}
 			
 		});
-		
+		btn8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(Pilas.get(8).numCartas()==0) {
+					if(seleccionada.getNum()=='K') {
+						Pilas.get(8).addCarta(seleccionada);
+						Pilas.get(getPilaSeleccionada()).eliminarCarta();
+						btn8.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(8).getCarta().getRuta())));
+						if(getPilaSeleccionada() == 1) {
+							if(Pilas.get(1).numCartas()==0) {
+								btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+							}
+						}
+						else if(getPilaSeleccionada() == 6) {
+							if(Pilas.get(6).numCartas()==0) {
+								btn6.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn6.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(6).getCarta().getRuta())));
+							}
+						}
+						else if(getPilaSeleccionada() == 7) {
+							if(Pilas.get(1).numCartas()==0) {
+								btn7.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn7.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(7).getCarta().getRuta())));
+							}
+						}
+						else if(getPilaSeleccionada() == 9) {
+							if(Pilas.get(9).numCartas()==0) {
+								btn9.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn9.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(9).getCarta().getRuta())));
+							}
+						}
+						else if(getPilaSeleccionada() == 10) {
+							if(Pilas.get(10).numCartas()==0) {
+								btn10.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn10.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(10).getCarta().getRuta())));
+							}
+						}
+						else if(getPilaSeleccionada() == 11) {
+							if(Pilas.get(11).numCartas()==0) {
+								btn11.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn11.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(11).getCarta().getRuta())));
+							}
+						}
+						else if(getPilaSeleccionada() == 12) {
+							if(Pilas.get(12).numCartas()==0) {
+								btn12.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn12.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(12).getCarta().getRuta())));
+							}
+						}
+						setPilaSeleccionada(0);
+						
+					}
+				}
+				else if(seleccionada.getNum()=='0') {
+					seleccionada = new Carta(Pilas.get(8).getCarta().getNum(),Pilas.get(8).getCarta().getPalo(),Pilas.get(8).getCarta().getRuta());
+					setPilaSeleccionada(8);
+				}
+				
+				else if(seleccionada.movimientoPila(Pilas.get(8).getCarta())) {
+					Pilas.get(8).addCarta(seleccionada);
+					Pilas.get(getPilaSeleccionada()).eliminarCarta();
+					btn8.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(8).getCarta().getRuta())));	
+					if(getPilaSeleccionada() == 1) {
+						if(Pilas.get(1).numCartas()==0) {
+							btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+						}
+					}
+					else if(getPilaSeleccionada() == 6) {
+						if(Pilas.get(6).numCartas()==0) {
+							btn6.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn6.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(6).getCarta().getRuta())));
+						}
+					}
+					else if(getPilaSeleccionada() == 7) {
+						if(Pilas.get(1).numCartas()==0) {
+							btn7.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn7.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(8).getCarta().getRuta())));
+						}
+					}
+					else if(getPilaSeleccionada() == 9) {
+						if(Pilas.get(9).numCartas()==0) {
+							btn9.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn9.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(9).getCarta().getRuta())));
+						}
+					}
+					else if(getPilaSeleccionada() == 10) {
+						if(Pilas.get(10).numCartas()==0) {
+							btn10.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn10.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(10).getCarta().getRuta())));
+						}
+					}
+					else if(getPilaSeleccionada() == 11) {
+						if(Pilas.get(11).numCartas()==0) {
+							btn11.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn11.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(11).getCarta().getRuta())));
+						}
+					}
+					else if(getPilaSeleccionada() == 12) {
+						if(Pilas.get(12).numCartas()==0) {
+							btn12.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn12.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(12).getCarta().getRuta())));
+						}
+					}
+					
+					seleccionada = new Carta('0','0',"0");
+					setPilaSeleccionada(0);
+				}
+				else {
+					if (Pilas.get(8).numCartas()!=0) {
+						
+						seleccionada = new Carta(Pilas.get(8).getCarta().getNum(),Pilas.get(8).getCarta().getPalo(),Pilas.get(8).getCarta().getRuta());
+						setPilaSeleccionada(8);
+					}
+				}
+			
+			}
+			
+		});
+		btn9.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(Pilas.get(9).numCartas()==0) {
+					if(seleccionada.getNum()=='K') {
+						Pilas.get(9).addCarta(seleccionada);
+						Pilas.get(getPilaSeleccionada()).eliminarCarta();
+						btn9.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(9).getCarta().getRuta())));
+						if(getPilaSeleccionada() == 1) {
+							if(Pilas.get(1).numCartas()==0) {
+								btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+							}
+						}
+						else if(getPilaSeleccionada() == 6) {
+							if(Pilas.get(6).numCartas()==0) {
+								btn6.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn6.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(6).getCarta().getRuta())));
+							}
+						}
+						else if(getPilaSeleccionada() == 7) {
+							if(Pilas.get(1).numCartas()==0) {
+								btn7.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn7.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(7).getCarta().getRuta())));
+							}
+						}
+						else if(getPilaSeleccionada() == 8) {
+							if(Pilas.get(8).numCartas()==0) {
+								btn8.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn8.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(8).getCarta().getRuta())));
+							}
+						}
+						else if(getPilaSeleccionada() == 10) {
+							if(Pilas.get(10).numCartas()==0) {
+								btn10.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn10.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(10).getCarta().getRuta())));
+							}
+						}
+						else if(getPilaSeleccionada() == 11) {
+							if(Pilas.get(11).numCartas()==0) {
+								btn11.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn11.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(11).getCarta().getRuta())));
+							}
+						}
+						else if(getPilaSeleccionada() == 12) {
+							if(Pilas.get(12).numCartas()==0) {
+								btn12.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn12.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(12).getCarta().getRuta())));
+							}
+						}
+						setPilaSeleccionada(0);
+						
+					}
+				}
+				else if(seleccionada.getNum()=='0') {
+					seleccionada = new Carta(Pilas.get(9).getCarta().getNum(),Pilas.get(9).getCarta().getPalo(),Pilas.get(9).getCarta().getRuta());
+					setPilaSeleccionada(9);
+				}
+				
+				else if(seleccionada.movimientoPila(Pilas.get(9).getCarta())) {
+					Pilas.get(9).addCarta(seleccionada);
+					Pilas.get(getPilaSeleccionada()).eliminarCarta();
+					btn9.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(9).getCarta().getRuta())));	
+					if(getPilaSeleccionada() == 1) {
+						if(Pilas.get(1).numCartas()==0) {
+							btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+						}
+					}
+					else if(pilaSeleccionada == 6) {
+						if(Pilas.get(6).numCartas()==0) {
+							btn6.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn6.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(6).getCarta().getRuta())));
+						}
+					}
+					else if(pilaSeleccionada == 7) {
+						if(Pilas.get(1).numCartas()==0) {
+							btn7.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn7.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(7).getCarta().getRuta())));
+						}
+					}
+					else if(pilaSeleccionada == 8) {
+						if(Pilas.get(8).numCartas()==0) {
+							btn8.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn8.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(8).getCarta().getRuta())));
+						}
+					}
+					else if(pilaSeleccionada == 10) {
+						if(Pilas.get(10).numCartas()==0) {
+							btn10.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn10.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(10).getCarta().getRuta())));
+						}
+					}
+					else if(pilaSeleccionada == 11) {
+						if(Pilas.get(11).numCartas()==0) {
+							btn11.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn11.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(11).getCarta().getRuta())));
+						}
+					}
+					else if(getPilaSeleccionada() == 12) {
+						if(Pilas.get(12).numCartas()==0) {
+							btn12.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn12.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(12).getCarta().getRuta())));
+						}
+					}
+					
+					seleccionada = new Carta('0','0',"0");
+					setPilaSeleccionada(0);
+				}
+				else {
+					if (Pilas.get(9).numCartas()!=0) {
+						
+						seleccionada = new Carta(Pilas.get(9).getCarta().getNum(),Pilas.get(9).getCarta().getPalo(),Pilas.get(9).getCarta().getRuta());
+						setPilaSeleccionada(9);
+					}
+				}
+			
+			}
+			
+		});
+		btn10.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(Pilas.get(10).numCartas()==0) {
+					if(seleccionada.getNum()=='K') {
+						Pilas.get(10).addCarta(seleccionada);
+						Pilas.get(getPilaSeleccionada()).eliminarCarta();
+						btn10.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(10).getCarta().getRuta())));
+						if(getPilaSeleccionada() == 1) {
+							if(Pilas.get(1).numCartas()==0) {
+								btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+							}
+						}
+						else if(getPilaSeleccionada() == 6) {
+							if(Pilas.get(6).numCartas()==0) {
+								btn6.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn6.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(6).getCarta().getRuta())));
+							}
+						}
+						else if(getPilaSeleccionada() == 7) {
+							if(Pilas.get(1).numCartas()==0) {
+								btn7.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn7.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(7).getCarta().getRuta())));
+							}
+						}
+						else if(getPilaSeleccionada() == 8) {
+							if(Pilas.get(8).numCartas()==0) {
+								btn8.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn8.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(8).getCarta().getRuta())));
+							}
+						}
+						else if(getPilaSeleccionada() == 9) {
+							if(Pilas.get(9).numCartas()==0) {
+								btn9.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn9.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(9).getCarta().getRuta())));
+							}
+						}
+						else if(getPilaSeleccionada() == 11) {
+							if(Pilas.get(11).numCartas()==0) {
+								btn11.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn11.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(11).getCarta().getRuta())));
+							}
+						}
+						else if(getPilaSeleccionada() == 12) {
+							if(Pilas.get(12).numCartas()==0) {
+								btn12.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn12.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(12).getCarta().getRuta())));
+							}
+						}
+						setPilaSeleccionada(0);
+						
+					}
+				}
+				else if(seleccionada.getNum()=='0') {
+					seleccionada = new Carta(Pilas.get(10).getCarta().getNum(),Pilas.get(10).getCarta().getPalo(),Pilas.get(10).getCarta().getRuta());
+					setPilaSeleccionada(10);
+				}
+				
+				else if(seleccionada.movimientoPila(Pilas.get(10).getCarta())) {
+					Pilas.get(10).addCarta(seleccionada);
+					Pilas.get(getPilaSeleccionada()).eliminarCarta();
+					btn10.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(10).getCarta().getRuta())));	
+					if(getPilaSeleccionada() == 1) {
+						if(Pilas.get(1).numCartas()==0) {
+							btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+						}
+					}
+					else if(pilaSeleccionada == 6) {
+						if(Pilas.get(6).numCartas()==0) {
+							btn6.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn6.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(6).getCarta().getRuta())));
+						}
+					}
+					else if(pilaSeleccionada == 7) {
+						if(Pilas.get(1).numCartas()==0) {
+							btn7.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn7.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(7).getCarta().getRuta())));
+						}
+					}
+					else if(pilaSeleccionada == 8) {
+						if(Pilas.get(8).numCartas()==0) {
+							btn8.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn8.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(8).getCarta().getRuta())));
+						}
+					}
+					else if(pilaSeleccionada == 9) {
+						if(Pilas.get(9).numCartas()==0) {
+							btn9.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn9.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(9).getCarta().getRuta())));
+						}
+					}
+					else if(pilaSeleccionada == 11) {
+						if(Pilas.get(11).numCartas()==0) {
+							btn11.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn11.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(11).getCarta().getRuta())));
+						}
+					}
+					else if(getPilaSeleccionada() == 12) {
+						if(Pilas.get(12).numCartas()==0) {
+							btn12.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn12.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(12).getCarta().getRuta())));
+						}
+					}
+					seleccionada = new Carta('0','0',"0");
+					setPilaSeleccionada(0);
+				}
+				else {
+					if (Pilas.get(10).numCartas()!=0) {
+						
+						seleccionada = new Carta(Pilas.get(10).getCarta().getNum(),Pilas.get(10).getCarta().getPalo(),Pilas.get(10).getCarta().getRuta());
+						setPilaSeleccionada(10);
+					}
+				}
+			
+			}
+			
+		});
+		btn11.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(Pilas.get(11).numCartas()==0) {
+					if(seleccionada.getNum()=='K') {
+						Pilas.get(11).addCarta(seleccionada);
+						Pilas.get(getPilaSeleccionada()).eliminarCarta();
+						btn11.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(11).getCarta().getRuta())));
+						if(getPilaSeleccionada() == 1) {
+							if(Pilas.get(1).numCartas()==0) {
+								btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+							}
+						}
+						else if(getPilaSeleccionada() == 6) {
+							if(Pilas.get(6).numCartas()==0) {
+								btn6.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn6.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(6).getCarta().getRuta())));
+							}
+						}
+						else if(getPilaSeleccionada() == 7) {
+							if(Pilas.get(1).numCartas()==0) {
+								btn7.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn7.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(7).getCarta().getRuta())));
+							}
+						}
+						else if(getPilaSeleccionada() == 8) {
+							if(Pilas.get(8).numCartas()==0) {
+								btn8.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn8.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(8).getCarta().getRuta())));
+							}
+						}
+						else if(getPilaSeleccionada() == 9) {
+							if(Pilas.get(9).numCartas()==0) {
+								btn9.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn9.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(9).getCarta().getRuta())));
+							}
+						}
+						else if(getPilaSeleccionada() == 10) {
+							if(Pilas.get(10).numCartas()==0) {
+								btn10.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn10.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(10).getCarta().getRuta())));
+							}
+						}
+						else if(getPilaSeleccionada() == 12) {
+							if(Pilas.get(12).numCartas()==0) {
+								btn12.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn12.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(12).getCarta().getRuta())));
+							}
+						}
+						setPilaSeleccionada(0);
+						
+					}
+				}
+				else if(seleccionada.getNum()=='0') {
+					seleccionada = new Carta(Pilas.get(11).getCarta().getNum(),Pilas.get(11).getCarta().getPalo(),Pilas.get(11).getCarta().getRuta());
+					setPilaSeleccionada(11);
+				}
+				
+				else if(seleccionada.movimientoPila(Pilas.get(11).getCarta())) {
+					Pilas.get(11).addCarta(seleccionada);
+					Pilas.get(getPilaSeleccionada()).eliminarCarta();
+					btn10.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(11).getCarta().getRuta())));	
+					if(getPilaSeleccionada() == 1) {
+						if(Pilas.get(1).numCartas()==0) {
+							btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+						}
+					}
+					else if(pilaSeleccionada == 6) {
+						if(Pilas.get(6).numCartas()==0) {
+							btn6.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn6.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(6).getCarta().getRuta())));
+						}
+					}
+					else if(pilaSeleccionada == 7) {
+						if(Pilas.get(1).numCartas()==0) {
+							btn7.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn7.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(7).getCarta().getRuta())));
+						}
+					}
+					else if(pilaSeleccionada == 8) {
+						if(Pilas.get(8).numCartas()==0) {
+							btn8.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn8.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(8).getCarta().getRuta())));
+						}
+					}
+					else if(pilaSeleccionada == 9) {
+						if(Pilas.get(9).numCartas()==0) {
+							btn9.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn9.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(9).getCarta().getRuta())));
+						}
+					}
+					else if(pilaSeleccionada == 10) {
+						if(Pilas.get(10).numCartas()==0) {
+							btn10.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn10.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(10).getCarta().getRuta())));
+						}
+					}
+					else if(getPilaSeleccionada() == 12) {
+						if(Pilas.get(12).numCartas()==0) {
+							btn12.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn12.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(12).getCarta().getRuta())));
+						}
+					}
+					
+					seleccionada = new Carta('0','0',"0");
+					setPilaSeleccionada(0);
+				}
+				else {
+					if (Pilas.get(11).numCartas()!=0) {
+						
+						seleccionada = new Carta(Pilas.get(11).getCarta().getNum(),Pilas.get(11).getCarta().getPalo(),Pilas.get(11).getCarta().getRuta());
+						setPilaSeleccionada(11);
+					}
+				}
+			
+			}
+			
+		});
+		btn12.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(Pilas.get(12).numCartas()==0) {
+					if(seleccionada.getNum()=='K') {
+						Pilas.get(12).addCarta(seleccionada);
+						Pilas.get(getPilaSeleccionada()).eliminarCarta();
+						btn12.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(12).getCarta().getRuta())));
+						if(getPilaSeleccionada() == 1) {
+							if(Pilas.get(1).numCartas()==0) {
+								btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+							}
+						}
+						else if(getPilaSeleccionada() == 6) {
+							if(Pilas.get(6).numCartas()==0) {
+								btn6.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn6.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(6).getCarta().getRuta())));
+							}
+						}
+						else if(getPilaSeleccionada() == 7) {
+							if(Pilas.get(1).numCartas()==0) {
+								btn7.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn7.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(7).getCarta().getRuta())));
+							}
+						}
+						else if(getPilaSeleccionada() == 8) {
+							if(Pilas.get(8).numCartas()==0) {
+								btn8.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn8.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(8).getCarta().getRuta())));
+							}
+						}
+						else if(getPilaSeleccionada() == 9) {
+							if(Pilas.get(9).numCartas()==0) {
+								btn9.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn9.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(9).getCarta().getRuta())));
+							}
+						}
+						else if(getPilaSeleccionada() == 10) {
+							if(Pilas.get(10).numCartas()==0) {
+								btn10.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn10.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(10).getCarta().getRuta())));
+							}
+						}
+						else if(getPilaSeleccionada() == 11) {
+							if(Pilas.get(11).numCartas()==0) {
+								btn11.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+							
+							}
+							else {
+								btn11.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(11).getCarta().getRuta())));
+							}
+						}
+						setPilaSeleccionada(0);
+						
+					}
+				}
+				else if(seleccionada.getNum()=='0') {
+					seleccionada = new Carta(Pilas.get(12).getCarta().getNum(),Pilas.get(12).getCarta().getPalo(),Pilas.get(12).getCarta().getRuta());
+					setPilaSeleccionada(12);
+				}
+				
+				else if(seleccionada.movimientoPila(Pilas.get(11).getCarta())) {
+					Pilas.get(11).addCarta(seleccionada);
+					Pilas.get(getPilaSeleccionada()).eliminarCarta();
+					btn10.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(11).getCarta().getRuta())));	
+					if(getPilaSeleccionada() == 1) {
+						if(Pilas.get(1).numCartas()==0) {
+							btn1.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn1.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(1).getCarta().getRuta())));
+						}
+					}
+					else if(pilaSeleccionada == 6) {
+						if(Pilas.get(6).numCartas()==0) {
+							btn6.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn6.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(6).getCarta().getRuta())));
+						}
+					}
+					else if(pilaSeleccionada == 7) {
+						if(Pilas.get(1).numCartas()==0) {
+							btn7.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn7.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(7).getCarta().getRuta())));
+						}
+					}
+					else if(pilaSeleccionada == 8) {
+						if(Pilas.get(8).numCartas()==0) {
+							btn8.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn8.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(8).getCarta().getRuta())));
+						}
+					}
+					else if(pilaSeleccionada == 9) {
+						if(Pilas.get(9).numCartas()==0) {
+							btn9.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn9.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(9).getCarta().getRuta())));
+						}
+					}
+					else if(pilaSeleccionada == 10) {
+						if(Pilas.get(10).numCartas()==0) {
+							btn10.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn10.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(10).getCarta().getRuta())));
+						}
+					}
+					else if(getPilaSeleccionada() == 11) {
+						if(Pilas.get(11).numCartas()==0) {
+							btn11.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+						
+						}
+						else {
+							btn11.setIcon(new ImageIcon(solitarioSwing.class.getResource(Pilas.get(11).getCarta().getRuta())));
+						}
+					}
+					
+					seleccionada = new Carta('0','0',"0");
+					setPilaSeleccionada(0);
+				}
+				else {
+					if (Pilas.get(12).numCartas()!=0) {
+						
+						seleccionada = new Carta(Pilas.get(12).getCarta().getNum(),Pilas.get(12).getCarta().getPalo(),Pilas.get(12).getCarta().getRuta());
+						setPilaSeleccionada(12);
+					}
+				}
+			
+			}
+			
+		});
 		btn0.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				//mover de mazo a monton dandole la vuelta a la carta
@@ -803,7 +2145,7 @@ public class SolitarioSwing extends JFrame {
 		});
 		menuBar.add(mntmAyuda);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(10, 10, 800, 500);
+		setBounds(10, 10, 1024, 768);
 		setVisible(true);
 	}
 

@@ -50,7 +50,7 @@ public class Carta {
 			else {
 				i++;
 			}
-		}while(!encontrar && i< 12);
+		}while(!encontrar && i<= 12);
 		
 		return posicion;
 	}
