@@ -56,7 +56,7 @@ public class Carta {
 	}
 	boolean distintoColor(Carta carta) {
 		boolean color = false;
-		if(((this.getPalo() == 'D' || this.getPalo() == 'H') && (carta.getPalo() == 'C' || carta.getPalo() == 'S')) ||((this.getPalo() == 'C' || this.getPalo() == 'S') &&  (carta.getPalo() == 'C' || carta.getPalo() == 'S')) ){
+		if(((this.getPalo() == 'D' || this.getPalo() == 'H') && (carta.getPalo() == 'C' || carta.getPalo() == 'S')) ||((this.getPalo() == 'C' || this.getPalo() == 'S') &&  (carta.getPalo() == 'D' || carta.getPalo() == 'H')) ){
 			color = true;
 		}
 		
@@ -64,7 +64,7 @@ public class Carta {
 	}
 	boolean movimientoPila(Carta carta) {
 		boolean valido = false;
-		if(this.tamanoNum() == carta.tamanoNum()-1) {
+		if(this.tamanoNum() == carta.tamanoNum()-1 && this.distintoColor(carta)) {
 			valido = true;
 		}	
 		return valido;
