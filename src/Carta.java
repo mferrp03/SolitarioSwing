@@ -45,6 +45,19 @@ public class Carta {
 		}
 		return palo;
 	}
+	String getImage() {
+		String image;
+		if(this.back) {
+			image = "/Images/107016_54.gif";
+		}
+		else {
+			image = this.ruta;
+		}
+		return image;
+	}
+	String backImage() {
+		return "/Images/107016_54.gif";
+	}
 	int tamanoNum() {
 		int posicion = -1;
 		boolean encontrar = false;
