@@ -35,6 +35,9 @@ public class Pila {
 	Carta getCarta() {
 		return pila.get(i-1);
 	}
+	Carta getCartaN(int n) {
+		return pila.get(n);
+	}
 	void barajar() {
 		Collections.shuffle(pila);
 	}

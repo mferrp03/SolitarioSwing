@@ -3,15 +3,23 @@ import javax.swing.ImageIcon;
 public class Carta {
 	char[] carta;
 	String ruta;
-	Carta(char numero, char palo,String ruta){
+	boolean back;
+	Carta(char numero, char palo,boolean back,String ruta){
 		carta = new char[2];
 		carta[0] = numero;
 		carta[1] = palo;
 		this.ruta = ruta;
+		this.back = back;
 	}
 	String getRuta(){
 		
 		return ruta;
+	}
+	boolean getBack() {
+		return back;
+	}
+	void setBack(boolean b) {
+		back = b;
 	}
 	char getPalo(){
 		char palo;
