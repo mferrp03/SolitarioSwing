@@ -497,12 +497,12 @@ public class SolitarioSwing extends JFrame {
 		panel2.setLayout(gbl_panel2);
 		
 		btn2 = new JButton("");
+		btn2.setName("2_1");
 		GridBagConstraints gbc_btn2 = new GridBagConstraints();
 		gbc_btn2.gridx = 0;
 		gbc_btn2.gridy = 0;
 		panel2.add(btn2, gbc_btn2);
 		
-		btn2.setName("2");
 		btn2.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
 		btn2.setBackground(new Color(0, 128, 0));
 		btn2.setForeground(new Color(0, 128, 0));
@@ -531,7 +531,7 @@ public class SolitarioSwing extends JFrame {
 		gbc_btn3.gridy = 0;
 		panel3.add(btn3, gbc_btn3);
 		
-		btn3.setName("3");
+		btn3.setName("3_1");
 		btn3.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
 		btn3.setForeground(new Color(0, 128, 0));
 		btn3.setBackground(new Color(0, 128, 0));
@@ -554,12 +554,13 @@ public class SolitarioSwing extends JFrame {
 		panel4.setLayout(gbl_panel4);
 		
 		btn4 = new JButton("");
+		
 		GridBagConstraints gbc_btn4 = new GridBagConstraints();
 		gbc_btn4.gridx = 0;
 		gbc_btn4.gridy = 0;
 		panel4.add(btn4, gbc_btn4);
 		
-		btn4.setName("4");
+		btn4.setName("4_1");
 		btn4.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
 		btn4.setForeground(new Color(0, 128, 0));
 		btn4.setBackground(new Color(0, 128, 0));
@@ -587,7 +588,7 @@ public class SolitarioSwing extends JFrame {
 		gbc_btn5.gridy = 0;
 		panel5.add(btn5, gbc_btn5);
 		
-		btn5.setName("5");
+		btn5.setName("5_1");
 		btn5.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
 		btn5.setBackground(new Color(0, 128, 0));
 		btn5.setForeground(new Color(0, 128, 0));
@@ -610,7 +611,7 @@ public class SolitarioSwing extends JFrame {
 		/*btn6.setBounds(0, 0, 105, 115);
 		panel6.add(btn6);*/
 		
-		btn6.setName("1");
+		btn6.setName("6_1");
 		btn6.setHorizontalAlignment(SwingConstants.LEFT);
 		btn6.setVerticalAlignment(SwingConstants.BOTTOM);
 		btn6.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(6).getCarta().getRuta())));
@@ -655,19 +656,19 @@ public class SolitarioSwing extends JFrame {
 		crearBotonesClasico(panel6,btn6_13,13,12,1,6);
 		btn6_14 = new JButton("");
 		crearBotonesClasico(panel6,btn6_14,14,13,1,6);
-		btn6_2.setName("2");
-		btn6_3.setName("3");
-		btn6_4.setName("4");
-		btn6_5.setName("5");
-		btn6_6.setName("6");
-		btn6_7.setName("7");
-		btn6_8.setName("8");
-		btn6_9.setName("9");
-		btn6_10.setName("10");
-		btn6_11.setName("11");
-		btn6_12.setName("12");
-		btn6_13.setName("13");
-		btn6_14.setName("14");
+		btn6_2.setName("6_2");
+		btn6_3.setName("6_3");
+		btn6_4.setName("6_4");
+		btn6_5.setName("6_5");
+		btn6_6.setName("6_6");
+		btn6_7.setName("6_7");
+		btn6_8.setName("6_8");
+		btn6_9.setName("6_9");
+		btn6_10.setName("6_10");
+		btn6_11.setName("6_11");
+		btn6_12.setName("6_12");
+		btn6_13.setName("6_13");
+		btn6_14.setName("6_14");
 		
 		btn6.addActionListener(new MyListener());
 		btn6_2.addActionListener(new MyListener());
@@ -700,7 +701,7 @@ public class SolitarioSwing extends JFrame {
 		btn7 = new JButton("");
 		
 		btn7.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(7).getCartaN(0).getImage())));
-		btn7.setName("1");
+		btn7.setName("7_1");
 		
 		crearBotonesClasico(panel7,btn7,1,0,1,7);
 		
@@ -764,20 +765,20 @@ public class SolitarioSwing extends JFrame {
 		btn7_13.addActionListener(new MyListener());
 		btn7_14.addActionListener(new MyListener());
 		btn7_15.addActionListener(new MyListener());
-		btn7_2.setName("2");
-		btn7_3.setName("3");
-		btn7_4.setName("4");
-		btn7_5.setName("5");
-		btn7_6.setName("6");
-		btn7_7.setName("7");
-		btn7_8.setName("8");
-		btn7_9.setName("9");
-		btn7_10.setName("10");
-		btn7_11.setName("11");
-		btn7_12.setName("12");
-		btn7_13.setName("13");
-		btn7_14.setName("14");
-		btn7_15.setName("15");
+		btn7_2.setName("7_2");
+		btn7_3.setName("7_3");
+		btn7_4.setName("7_4");
+		btn7_5.setName("7_5");
+		btn7_6.setName("7_6");
+		btn7_7.setName("7_7");
+		btn7_8.setName("7_8");
+		btn7_9.setName("7_9");
+		btn7_10.setName("7_10");
+		btn7_11.setName("7_11");
+		btn7_12.setName("7_12");
+		btn7_13.setName("7_13");
+		btn7_14.setName("7_14");
+		btn7_15.setName("7_15");
 	
 		panel8 = new JLayeredPane();
 		panel8.setForeground(new Color(0, 128, 0));
@@ -792,7 +793,7 @@ public class SolitarioSwing extends JFrame {
 		getContentPane().add(panel8, gbc_panel8);
 		
 		btn8 = new JButton("");
-		btn8.setName("1");
+		btn8.setName("8_1");
 		
 		btn8.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(8).getCartaN(0).getImage())));
 		crearBotonesClasico(panel8,btn8,1,0,3,8);
@@ -843,21 +844,21 @@ public class SolitarioSwing extends JFrame {
 		
 		btn8_16 = new JButton("");
 		crearBotonesClasico(panel8,btn8_16,16,15,3,8);
-		btn8_2.setName("2");
-		btn8_3.setName("3");
-		btn8_4.setName("4");
-		btn8_5.setName("5");
-		btn8_6.setName("6");
-		btn8_7.setName("7");
-		btn8_8.setName("8");
-		btn8_9.setName("9");
-		btn8_10.setName("10");
-		btn8_11.setName("11");
-		btn8_12.setName("12");
-		btn8_13.setName("13");
-		btn8_14.setName("14");
-		btn8_15.setName("15");
-		btn8_16.setName("16");
+		btn8_2.setName("8_2");
+		btn8_3.setName("8_3");
+		btn8_4.setName("8_4");
+		btn8_5.setName("8_5");
+		btn8_6.setName("8_6");
+		btn8_7.setName("8_7");
+		btn8_8.setName("8_8");
+		btn8_9.setName("8_9");
+		btn8_10.setName("8_10");
+		btn8_11.setName("8_11");
+		btn8_12.setName("8_12");
+		btn8_13.setName("8_13");
+		btn8_14.setName("8_14");
+		btn8_15.setName("8_15");
+		btn8_16.setName("8_16");
 		btn8.addActionListener(new MyListener());
 		btn8_2.addActionListener(new MyListener());
 		btn8_3.addActionListener(new MyListener());
@@ -891,7 +892,7 @@ public class SolitarioSwing extends JFrame {
 		
 		crearBotonesClasico(panel9,btn9,1,0,4,9);
 		
-		btn9.setName("1");
+		btn9.setName("9_1");
 		btn9.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(9).getCartaN(0).getImage())));
 
 		btn9_2 = new JButton("");
@@ -961,22 +962,22 @@ public class SolitarioSwing extends JFrame {
 		btn9_15.addActionListener(new MyListener());
 		btn9_16.addActionListener(new MyListener());
 		btn9_17.addActionListener(new MyListener());
-		btn9_2.setName("2");
-		btn9_3.setName("3");
-		btn9_4.setName("4");
-		btn9_5.setName("5");
-		btn9_6.setName("6");
-		btn9_7.setName("7");
-		btn9_8.setName("8");
-		btn9_9.setName("9");
-		btn9_10.setName("10");
-		btn9_11.setName("11");
-		btn9_12.setName("12");
-		btn9_13.setName("13");
-		btn9_14.setName("14");
-		btn9_15.setName("15");
-		btn9_16.setName("16");
-		btn9_17.setName("17");
+		btn9_2.setName("9_2");
+		btn9_3.setName("9_3");
+		btn9_4.setName("9_4");
+		btn9_5.setName("9_5");
+		btn9_6.setName("9_6");
+		btn9_7.setName("9_7");
+		btn9_8.setName("9_8");
+		btn9_9.setName("9_9");
+		btn9_10.setName("9_10");
+		btn9_11.setName("9_11");
+		btn9_12.setName("9_12");
+		btn9_13.setName("9_13");
+		btn9_14.setName("9_14");
+		btn9_15.setName("9_15");
+		btn9_16.setName("9_16");
+		btn9_17.setName("9_17");
 		panel10 = new JLayeredPane();
 		panel10.setForeground(new Color(0, 128, 0));
 		panel10.setBackground(new Color(0, 128, 0));
@@ -993,7 +994,7 @@ public class SolitarioSwing extends JFrame {
 		
 		crearBotonesClasico(panel10,btn10,1,0,5,10);
 		
-		btn10.setName("1");
+		btn10.setName("10_1");
 		btn10.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(10).getCartaN(0).getImage())));
 		
 		btn10_2 = new JButton("");
@@ -1050,23 +1051,23 @@ public class SolitarioSwing extends JFrame {
 		
 		btn10_18 = new JButton("");
 		crearBotonesClasico(panel10,btn10_18,18,17,5,10);
-		btn10_2.setName("2");
-		btn10_3.setName("3");
-		btn10_4.setName("4");
-		btn10_5.setName("5");
-		btn10_6.setName("6");
-		btn10_7.setName("7");
-		btn10_8.setName("8");
-		btn10_9.setName("9");
-		btn10_10.setName("10");
-		btn10_11.setName("11");
-		btn10_12.setName("12");
-		btn10_13.setName("13");
-		btn10_14.setName("14");
-		btn10_15.setName("15");
-		btn10_16.setName("16");
-		btn10_17.setName("17");
-		btn10_18.setName("18");
+		btn10_2.setName("10_2");
+		btn10_3.setName("10_3");
+		btn10_4.setName("10_4");
+		btn10_5.setName("10_5");
+		btn10_6.setName("10_6");
+		btn10_7.setName("10_7");
+		btn10_8.setName("10_8");
+		btn10_9.setName("10_9");
+		btn10_10.setName("10_10");
+		btn10_11.setName("10_11");
+		btn10_12.setName("10_12");
+		btn10_13.setName("10_13");
+		btn10_14.setName("10_14");
+		btn10_15.setName("10_15");
+		btn10_16.setName("10_16");
+		btn10_17.setName("10_17");
+		btn10_18.setName("10_18");
 		btn10.addActionListener(new MyListener());
 		btn10_2.addActionListener(new MyListener());
 		btn10_3.addActionListener(new MyListener());
@@ -1100,7 +1101,7 @@ public class SolitarioSwing extends JFrame {
 		btn11 = new JButton("");
 		crearBotonesClasico(panel11,btn11,1,0,6,11);
 		
-		btn11.setName("1");
+		btn11.setName("11_1");
 		
 		btn11.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(11).getCartaN(0).getImage())));
 		
@@ -1165,24 +1166,24 @@ public class SolitarioSwing extends JFrame {
 		
 		btn11_19 = new JButton("");
 		crearBotonesClasico(panel11,btn11_19,19,18,6,11);
-		btn11_2.setName("2");
-		btn11_3.setName("3");
-		btn11_4.setName("4");
-		btn11_5.setName("5");
-		btn11_6.setName("6");
-		btn11_7.setName("7");
-		btn11_8.setName("8");
-		btn11_9.setName("9");
-		btn11_10.setName("10");
-		btn11_11.setName("11");
-		btn11_12.setName("12");
-		btn11_13.setName("13");
-		btn11_14.setName("14");
-		btn11_15.setName("15");
-		btn11_16.setName("16");
-		btn11_17.setName("17");
-		btn11_18.setName("18");
-		btn11_19.setName("19");
+		btn11_2.setName("11_2");
+		btn11_3.setName("11_3");
+		btn11_4.setName("11_4");
+		btn11_5.setName("11_5");
+		btn11_6.setName("11_6");
+		btn11_7.setName("11_7");
+		btn11_8.setName("11_8");
+		btn11_9.setName("11-9");
+		btn11_10.setName("11_10");
+		btn11_11.setName("11_11");
+		btn11_12.setName("11_12");
+		btn11_13.setName("11_13");
+		btn11_14.setName("11_14");
+		btn11_15.setName("11_15");
+		btn11_16.setName("11_16");
+		btn11_17.setName("11_17");
+		btn11_18.setName("11_18");
+		btn11_19.setName("11_19");
 		btn11.addActionListener(new MyListener());
 		btn11_2.addActionListener(new MyListener());
 		btn11_3.addActionListener(new MyListener());
@@ -1218,7 +1219,7 @@ public class SolitarioSwing extends JFrame {
 		getContentPane().add(panel12, gbc_panel12);
 		
 		btn12 = new JButton("");
-		btn12.setName("1");
+		btn12.setName("12_1");
 		btn12.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(12).getCartaN(0).getImage())));
 		crearBotonesClasico(panel12,btn12,1,0,7,11);
 		btn12.addActionListener(new MyListener());
@@ -1267,25 +1268,25 @@ public class SolitarioSwing extends JFrame {
 		crearBotonesClasico(panel12,btn12_19,19,18,7,11);
 		btn12_20 = new JButton("");
 		crearBotonesClasico(panel12,btn12_20,20,19,7,11);
-		btn12_2.setName("2");
-		btn12_3.setName("3");
-		btn12_4.setName("4");
-		btn12_5.setName("5");
-		btn12_6.setName("6");
-		btn12_7.setName("7");
-		btn12_8.setName("8");
-		btn12_9.setName("9");
-		btn12_10.setName("10");
-		btn12_11.setName("11");
-		btn12_12.setName("12");
-		btn12_13.setName("13");
-		btn12_14.setName("14");
-		btn12_15.setName("15");
-		btn12_16.setName("16");
-		btn12_17.setName("17");
-		btn12_18.setName("18");
-		btn12_19.setName("19");
-		btn12_20.setName("20");
+		btn12_2.setName("12_2");
+		btn12_3.setName("12_3");
+		btn12_4.setName("12_4");
+		btn12_5.setName("12_5");
+		btn12_6.setName("12_6");
+		btn12_7.setName("12_7");
+		btn12_8.setName("12_8");
+		btn12_9.setName("12_9");
+		btn12_10.setName("12_10");
+		btn12_11.setName("12_11");
+		btn12_12.setName("12_12");
+		btn12_13.setName("12_13");
+		btn12_14.setName("12_14");
+		btn12_15.setName("12_15");
+		btn12_16.setName("12_16");
+		btn12_17.setName("12_17");
+		btn12_18.setName("12_18");
+		btn12_19.setName("12_19");
+		btn12_20.setName("12_20");
 		btn12.addActionListener(new MyListener());
 		btn12_2.addActionListener(new MyListener());
 		btn12_3.addActionListener(new MyListener());
@@ -1469,6 +1470,38 @@ public class SolitarioSwing extends JFrame {
 	
 	private class MyListener implements ActionListener{
 		public void	actionPerformed(ActionEvent e){
+			String[] nombre =((JButton) e.getSource()).getName().split("_");
+			int pila = Integer.parseInt(nombre[0]);
+			int numero = Integer.parseInt(nombre[1]);
+			if(numero == Pilas.get(pila).numCartas() && Pilas.get(pila).getCarta().getBack()) {
+				Pilas.get(pila).getCarta().setBack(false);
+				((JButton) e.getSource()).setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(pila).getCarta().getImage())));
+				seleccionada = new Carta('0','0',false,"0");
+			}
+			else if(pila<6 && seleccionada.getNum()==Pilas.get(getPilaSeleccionada()).getCarta().getNum() && seleccionada.getPalo()==Pilas.get(getPilaSeleccionada()).getCarta().getPalo()) {
+				if(Pilas.get(pila).numCartas()==0) {
+					if(seleccionada.getNum()=='A') {
+						Pilas.get(pila).addCarta(seleccionada);
+						Pilas.get(getPilaSeleccionada()).eliminarCarta();
+						
+						actualizarImagenes();
+						
+					}
+				}
+				else {
+					if (seleccionada.movimientoAMonton(Pilas.get(pila).getCarta())) {
+						Pilas.get(pila).addCarta(seleccionada);
+						Pilas.get(getPilaSeleccionada()).eliminarCarta();
+						actualizarImagenes();
+						seleccionada = new Carta('0','0',false,"0");
+					}
+				}
+			}
+			else {
+				seleccionada = new Carta(Pilas.get(pila).getCarta().getNum(),Pilas.get(pila).getCarta().getPalo(),Pilas.get(pila).getCarta().getBack(),Pilas.get(pila).getCarta().getRuta());
+				setPilaSeleccionada(pila);
+			}
+			/*
 			//por ahora solo esta codificado las acciones del boton 3, añadir las de los demas, las de los botones 2-5 son identicas a las de este, para los demas habra que añadir un if(?)
 				if(e.getSource() == btn2 || e.getSource() == btn3 ||e.getSource() == btn4 || e.getSource() == btn5) {
 					String numero = ((JButton) e.getSource()).getName();
@@ -1530,7 +1563,7 @@ public class SolitarioSwing extends JFrame {
 					}
 				
 				}	
-				
+				*/
 			
 			}
 		}
