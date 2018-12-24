@@ -2401,16 +2401,19 @@ public class SolitarioSwing extends JFrame {
 			}
 			else if(Pilas.get(pila).numCartas()==0) {
 				if(seleccionada.getNum()=='K') {
+					int j = 0;
 					for(int i = getNumBtn();i<=Pilas.get(getPilaSeleccionada()).numCartas();i++) {
 						Pilas.get(pila).addCarta(Pilas.get(getPilaSeleccionada()).getCartaN(i-1));
+						j++;
 					}
-					for(int i = getNumBtn();i<=Pilas.get(getPilaSeleccionada()).numCartas();i++) {
+					for(int i = 0;i<j;i++) {
 						Pilas.get(getPilaSeleccionada()).eliminarCarta();
 					}
-					actualizarImagenes();
 					
-					setPilaSeleccionada(0);
-				}	
+				}
+				actualizarImagenes();
+				
+				setPilaSeleccionada(0);
 			}
 			//else if(numero == Pilas.get(pila).numCartas()) {//condicion temporal para debuggear
 			else if(seleccionada.movimientoPila(Pilas.get(pila).getCarta())) {
@@ -2426,7 +2429,7 @@ public class SolitarioSwing extends JFrame {
 						Pilas.get(pila).addCarta(Pilas.get(getPilaSeleccionada()).getCartaN(i-1));
 						j++;
 					}
-					for(int i = 0;i<=j;i++) {
+					for(int i = 0;i<j;i++) {
 						Pilas.get(getPilaSeleccionada()).eliminarCarta();
 					}
 					
@@ -2436,8 +2439,9 @@ public class SolitarioSwing extends JFrame {
 					int j = 0;
 					for(int i = getNumBtn();i<=Pilas.get(getPilaSeleccionada()).numCartas();i++) {
 						Pilas.get(pila).addCarta(Pilas.get(getPilaSeleccionada()).getCartaN(i-1));
+						j++;
 					}
-					for(int i = 0;i<=j;i++) {
+					for(int i = 0;i<j;i++) {
 				//	for(int i = getNumBtn();i<=Pilas.get(getPilaSeleccionada()).numCartas();i++) {
 						Pilas.get(getPilaSeleccionada()).eliminarCarta();
 					}
