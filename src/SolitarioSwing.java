@@ -2419,21 +2419,26 @@ public class SolitarioSwing extends JFrame {
 					Pilas.get(getPilaSeleccionada()).eliminarCarta();
 				}
 				//algo peta por aqui, al mover mas de una carta a la vez la de arriba se duplica
-				if(getNumBtn() != Pilas.get(getPilaSeleccionada()).numCartas()) {
+				else if(getNumBtn() != Pilas.get(getPilaSeleccionada()).numCartas()) {
+					int j = 0;
+					
 					for(int i = getNumBtn();i<=Pilas.get(getPilaSeleccionada()).numCartas();i++) {
 						Pilas.get(pila).addCarta(Pilas.get(getPilaSeleccionada()).getCartaN(i-1));
+						j++;
 					}
-					for(int i = getNumBtn();i<=Pilas.get(getPilaSeleccionada()).numCartas();i++) {
+					for(int i = 0;i<=j;i++) {
 						Pilas.get(getPilaSeleccionada()).eliminarCarta();
 					}
 					
 				}
 				
 				else {
+					int j = 0;
 					for(int i = getNumBtn();i<=Pilas.get(getPilaSeleccionada()).numCartas();i++) {
 						Pilas.get(pila).addCarta(Pilas.get(getPilaSeleccionada()).getCartaN(i-1));
 					}
-					for(int i = getNumBtn();i<=Pilas.get(getPilaSeleccionada()).numCartas();i++) {
+					for(int i = 0;i<=j;i++) {
+				//	for(int i = getNumBtn();i<=Pilas.get(getPilaSeleccionada()).numCartas();i++) {
 						Pilas.get(getPilaSeleccionada()).eliminarCarta();
 					}
 					
