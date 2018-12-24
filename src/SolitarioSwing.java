@@ -18,6 +18,7 @@ import java.util.ArrayList;
 public class SolitarioSwing extends JFrame {
 	private Carta seleccionada = new Carta ('0','0',false,"0");
 	int pilaSeleccionada = 0;
+	int numBtn = 0;
 	JButton btn0;
 	JButton btn1;
 	JButton btn2;
@@ -168,6 +169,12 @@ public class SolitarioSwing extends JFrame {
 	}
 	void setPilaSeleccionada(int n) {
 		pilaSeleccionada = n;
+	}
+	int getNumBtn(){
+		return numBtn;
+	}
+	void setNumBtn(int n) {
+		numBtn = n;
 	}
 	public SolitarioSwing() { 
 		
@@ -1419,52 +1426,948 @@ public class SolitarioSwing extends JFrame {
 		}
 		if(Pilas.get(6).numCartas()==0) {
 			btn6.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+			btn6_2.setVisible(false);
+			btn6_3.setVisible(false);
+			btn6_4.setVisible(false);
+			btn6_5.setVisible(false);
+			btn6_6.setVisible(false);
+			btn6_7.setVisible(false);
+			btn6_8.setVisible(false);
+			btn6_9.setVisible(false);
+			btn6_10.setVisible(false);
+			btn6_11.setVisible(false);
+			btn6_12.setVisible(false);
+			btn6_13.setVisible(false);
+			btn6_14.setVisible(false);
 	
 		}
 		if(Pilas.get(6).numCartas()!=0) { 
-			btn6.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(6).getCarta().getRuta())));
+			btn6.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(6).getCartaN(0).getImage())));
+			if(Pilas.get(6).numCartas()>1) {
+				btn6_2.setVisible(true);
+				btn6_2.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(6).getCartaN(1).getImage())));
+			}
+			else {
+				btn6_2.setVisible(false);
+			}
+			if(Pilas.get(6).numCartas()>2) {
+				btn6_3.setVisible(true);
+				btn6_3.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(6).getCartaN(2).getImage())));
+			}
+			else {
+				btn6_3.setVisible(false);
+			}
+			if(Pilas.get(6).numCartas()>3) {
+				btn6_4.setVisible(true);
+				btn6_4.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(6).getCartaN(3).getImage())));
+			}
+			else {
+				btn6_4.setVisible(false);
+			}
+			if(Pilas.get(6).numCartas()>4) {
+				btn6_5.setVisible(true);
+				btn6_5.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(6).getCartaN(4).getImage())));
+			}
+			else {
+				btn6_5.setVisible(false);
+			}
+			if(Pilas.get(6).numCartas()>5) {
+				btn6_6.setVisible(true);
+				btn6_6.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(6).getCartaN(5).getImage())));
+			}
+			else {
+				btn6_6.setVisible(false);
+			}
+			if(Pilas.get(6).numCartas()>6) {
+				btn6_7.setVisible(true);
+				btn6_7.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(6).getCartaN(6).getImage())));
+			}
+			else {
+				btn6_7.setVisible(false);
+			}
+			if(Pilas.get(6).numCartas()>7) {
+				btn6_8.setVisible(true);
+				btn6_8.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(6).getCartaN(7).getImage())));
+			}
+			else {
+				btn6_8.setVisible(false);
+			}
+			if(Pilas.get(6).numCartas()>8) {
+				btn6_9.setVisible(true);
+				btn6_9.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(6).getCartaN(8).getImage())));
+			}
+			else {
+				btn6_9.setVisible(false);
+			}
+			if(Pilas.get(6).numCartas()>9) {
+				btn6_10.setVisible(true);
+				btn6_10.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(6).getCartaN(9).getImage())));
+			}
+			else {
+				btn6_10.setVisible(false);
+			}
+			if(Pilas.get(6).numCartas()>10) {
+				btn6_11.setVisible(true);
+				btn6_11.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(6).getCartaN(10).getImage())));
+			}
+			else {
+				btn6_11.setVisible(false);
+			}
+			if(Pilas.get(6).numCartas()>11) {
+				btn6_12.setVisible(true);
+				btn6_12.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(6).getCartaN(11).getImage())));
+			}
+			else {
+				btn6_12.setVisible(false);
+			}
+			if(Pilas.get(6).numCartas()>12) {
+				btn6_13.setVisible(true);
+				btn6_13.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(6).getCartaN(12).getImage())));
+			}
+			else {
+				btn6_13.setVisible(false);
+			}
+			if(Pilas.get(6).numCartas()>13) {
+				btn6_14.setVisible(true);
+				btn6_14.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(6).getCartaN(13).getImage())));
+			}
+			else {
+				btn6_14.setVisible(false);
+			}
 		}
 		if(Pilas.get(7).numCartas()==0) {
 			btn7.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+			btn7_2.setVisible(false);
+			btn7_3.setVisible(false);
+			btn7_4.setVisible(false);
+			btn7_5.setVisible(false);
+			btn7_6.setVisible(false);
+			btn7_7.setVisible(false);
+			btn7_8.setVisible(false);
+			btn7_9.setVisible(false);
+			btn7_10.setVisible(false);
+			btn7_11.setVisible(false);
+			btn7_12.setVisible(false);
+			btn7_13.setVisible(false);
+			btn7_14.setVisible(false);
+			btn7_15.setVisible(false);
 	
 		}
 		if(Pilas.get(7).numCartas()!=0) { 
-			btn7.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(7).getCarta().getRuta())));
+			btn7.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(7).getCartaN(0).getImage())));
+			if(Pilas.get(7).numCartas()>1) {
+				btn7_2.setVisible(true);
+				btn7_2.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(7).getCartaN(1).getImage())));
+			}
+			else {
+				btn7_2.setVisible(false);
+			}
+			if(Pilas.get(7).numCartas()>2) {
+				btn7_3.setVisible(true);
+				
+				btn7_3.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(7).getCartaN(2).getImage())));
+			}
+			else {
+				btn7_3.setVisible(false);
+			}
+			if(Pilas.get(7).numCartas()>4) {
+				btn7_4.setVisible(true);
+				btn7_4.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(7).getCartaN(3).getImage())));
+			}
+			else {
+				btn7_4.setVisible(false);
+			}
+			if(Pilas.get(7).numCartas()>5) {
+				btn7_5.setVisible(true);
+				btn7_5.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(7).getCartaN(4).getImage())));
+			}
+			else {
+				btn7_5.setVisible(false);
+			}
+			if(Pilas.get(7).numCartas()>6) {
+				btn7_6.setVisible(true);
+				btn7_6.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(7).getCartaN(5).getImage())));
+			}
+			else {
+				btn7_6.setVisible(false);
+			}
+			if(Pilas.get(7).numCartas()>7) {
+				btn7_7.setVisible(true);
+				btn7_7.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(7).getCartaN(6).getImage())));
+			}
+			else {
+				btn7_7.setVisible(false);
+			}
+			if(Pilas.get(7).numCartas()>8) {
+				btn7_8.setVisible(true);
+				btn7_8.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(7).getCartaN(7).getImage())));
+			}
+			else {
+				btn7_8.setVisible(false);
+			}
+			if(Pilas.get(7).numCartas()>9) {
+				btn7_9.setVisible(true);
+				btn7_9.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(7).getCartaN(8).getImage())));
+			}
+			else {
+				btn7_9.setVisible(false);
+			}
+			if(Pilas.get(7).numCartas()>10) {
+				btn7_10.setVisible(true);
+				btn7_10.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(7).getCartaN(9).getImage())));
+			}
+			else {
+				btn7_10.setVisible(false);
+			}
+			if(Pilas.get(7).numCartas()>11) {
+				btn7_11.setVisible(true);
+				btn7_11.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(7).getCartaN(10).getImage())));
+			}
+			else {
+				btn7_11.setVisible(false);
+			}
+			if(Pilas.get(7).numCartas()>12) {
+				btn7_12.setVisible(true);
+				btn7_12.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(7).getCartaN(11).getImage())));
+			}
+			else {
+				btn7_12.setVisible(false);
+			}
+			if(Pilas.get(7).numCartas()>13) {
+				btn7_13.setVisible(true);
+				btn7_13.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(7).getCartaN(12).getImage())));
+			}
+			else {
+				btn7_13.setVisible(false);
+			}
+			if(Pilas.get(7).numCartas()>14) {
+				btn7_14.setVisible(true);
+				btn7_14.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(7).getCartaN(13).getImage())));
+			}
+			else {
+				btn7_14.setVisible(false);
+			}
+			if(Pilas.get(7).numCartas()>15) {
+				btn7_15.setVisible(true);
+				btn7_15.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(7).getCartaN(14).getImage())));
+			}
+			else {
+				btn7_15.setVisible(false);
+			}
 		}
 		if(Pilas.get(8).numCartas()==0) {
 			btn8.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+			btn8_2.setVisible(false);
+			btn8_3.setVisible(false);
+			btn8_4.setVisible(false);
+			btn8_5.setVisible(false);
+			btn8_6.setVisible(false);
+			btn8_7.setVisible(false);
+			btn8_8.setVisible(false);
+			btn8_9.setVisible(false);
+			btn8_10.setVisible(false);
+			btn8_11.setVisible(false);
+			btn8_12.setVisible(false);
+			btn8_13.setVisible(false);
+			btn8_14.setVisible(false);
+			btn8_15.setVisible(false);
+			btn8_16.setVisible(false);
 	
 		}
 		if(Pilas.get(8).numCartas()!=0) { 
-			btn8.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(8).getCarta().getRuta())));
+			btn8.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(8).getCartaN(0).getImage())));
+			if(Pilas.get(8).numCartas()>1) {
+				btn8_2.setVisible(true);
+				btn8_2.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(8).getCartaN(1).getImage())));
+			}
+			else {
+				btn8_2.setVisible(false);
+			}
+			if(Pilas.get(8).numCartas()>2) {
+				btn8_3.setVisible(true);
+				
+				btn8_3.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(8).getCartaN(2).getImage())));
+			}
+			else {
+				btn8_3.setVisible(false);
+			}
+			if(Pilas.get(8).numCartas()>3) {
+				btn8_4.setVisible(true);
+				btn8_4.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(8).getCartaN(3).getImage())));
+			}
+			else {
+				btn8_4.setVisible(false);
+			}
+			if(Pilas.get(8).numCartas()>4) {
+				btn8_5.setVisible(true);
+				btn8_5.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(8).getCartaN(4).getImage())));
+			}
+			else {
+				btn8_5.setVisible(false);
+			}
+			if(Pilas.get(8).numCartas()>5) {
+				btn8_6.setVisible(true);
+				btn8_6.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(8).getCartaN(5).getImage())));
+			}
+			else {
+				btn8_6.setVisible(false);
+			}
+			if(Pilas.get(8).numCartas()>6) {
+				btn8_7.setVisible(true);
+				btn8_7.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(8).getCartaN(6).getImage())));
+			}
+			else {
+				btn8_7.setVisible(false);
+			}
+			if(Pilas.get(8).numCartas()>7) {
+				btn8_8.setVisible(true);
+				btn8_8.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(8).getCartaN(7).getImage())));
+			}
+			else {
+				btn8_8.setVisible(false);
+			}
+			if(Pilas.get(8).numCartas()>8) {
+				btn8_9.setVisible(true);
+				btn8_9.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(8).getCartaN(8).getImage())));
+			}
+			else {
+				btn8_9.setVisible(false);
+			}
+			if(Pilas.get(8).numCartas()>9) {
+				btn8_10.setVisible(true);
+				btn8_10.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(8).getCartaN(9).getImage())));
+			}
+			else {
+				btn8_10.setVisible(false);
+			}
+			if(Pilas.get(8).numCartas()>10) {
+				btn8_11.setVisible(true);
+				btn8_11.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(8).getCartaN(10).getImage())));
+			}
+			else {
+				btn8_11.setVisible(false);
+			}
+			if(Pilas.get(8).numCartas()>11) {
+				btn8_12.setVisible(true);
+				btn8_12.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(8).getCartaN(11).getImage())));
+			}
+			else {
+				btn8_12.setVisible(false);
+			}
+			if(Pilas.get(8).numCartas()>12) {
+				btn8_13.setVisible(true);
+				btn8_13.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(8).getCartaN(12).getImage())));
+			}
+			else {
+				btn8_13.setVisible(false);
+			}
+			if(Pilas.get(8).numCartas()>13) {
+				btn8_14.setVisible(true);
+				btn8_14.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(8).getCartaN(13).getImage())));
+			}
+			
+			else {
+				btn8_14.setVisible(false);
+			}
+			if(Pilas.get(8).numCartas()>14) {
+				btn8_15.setVisible(true);
+				btn8_15.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(8).getCartaN(14).getImage())));
+			}
+			else {
+				btn8_15.setVisible(false);
+			}
+			if(Pilas.get(8).numCartas()>15) {
+				btn8_16.setVisible(true);
+				btn8_16.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(8).getCartaN(15).getImage())));
+			}
+			else {
+				btn8_16.setVisible(false);
+			}
 		}
 		if(Pilas.get(9).numCartas()==0) {
 			btn9.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
-	
+			btn9_2.setVisible(false);
+			btn9_3.setVisible(false);
+			btn9_4.setVisible(false);
+			btn9_5.setVisible(false);
+			btn9_6.setVisible(false);
+			btn9_7.setVisible(false);
+			btn9_8.setVisible(false);
+			btn9_9.setVisible(false);
+			btn9_10.setVisible(false);
+			btn9_11.setVisible(false);
+			btn9_12.setVisible(false);
+			btn9_13.setVisible(false);
+			btn9_14.setVisible(false);
+			btn9_15.setVisible(false);
+			btn9_16.setVisible(false);
+			btn9_17.setVisible(false);
 		}
 		if(Pilas.get(9).numCartas()!=0) { 
-			btn9.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(9).getCarta().getRuta())));
+			btn9.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(9).getCartaN(0).getImage())));
+			if(Pilas.get(9).numCartas()>1) {
+				btn9_2.setVisible(true);
+				btn9_2.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(9).getCartaN(1).getImage())));
+			}
+			else {
+				btn9_2.setVisible(false);
+			}
+			if(Pilas.get(9).numCartas()>2) {
+				btn9_3.setVisible(true);
+				
+				btn9_3.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(9).getCartaN(2).getImage())));
+			}
+			else {
+				btn9_3.setVisible(false);
+			}
+			if(Pilas.get(9).numCartas()>3) {
+				btn9_4.setVisible(true);
+				btn9_4.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(9).getCartaN(3).getImage())));
+			}
+			else {
+				btn9_4.setVisible(false);
+			}
+			if(Pilas.get(9).numCartas()>4) {
+				btn9_5.setVisible(true);
+				btn9_5.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(9).getCartaN(4).getImage())));
+			}
+			else {
+				btn9_5.setVisible(false);
+			}
+			if(Pilas.get(9).numCartas()>5) {
+				btn9_6.setVisible(true);
+				btn9_6.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(9).getCartaN(5).getImage())));
+			}
+			else {
+				btn9_6.setVisible(false);
+			}
+			if(Pilas.get(9).numCartas()>6) {
+				btn9_7.setVisible(true);
+				btn9_7.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(9).getCartaN(6).getImage())));
+			}
+			else {
+				btn9_7.setVisible(false);
+			}
+			if(Pilas.get(9).numCartas()>7) {
+				btn9_8.setVisible(true);
+				btn9_8.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(9).getCartaN(7).getImage())));
+			}
+			else {
+				btn9_8.setVisible(false);
+			}
+			if(Pilas.get(9).numCartas()>8) {
+				btn9_9.setVisible(true);
+				btn9_9.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(9).getCartaN(8).getImage())));
+			}
+			else {
+				btn9_9.setVisible(false);
+			}
+			if(Pilas.get(9).numCartas()>9) {
+				btn9_10.setVisible(true);
+				btn9_10.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(9).getCartaN(9).getImage())));
+			}
+			else {
+				btn9_10.setVisible(false);
+			}
+			if(Pilas.get(9).numCartas()>10) {
+				btn9_11.setVisible(true);
+				btn9_11.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(9).getCartaN(10).getImage())));
+			}
+			else {
+				btn9_11.setVisible(false);
+			}
+			if(Pilas.get(9).numCartas()>11) {
+				btn9_12.setVisible(true);
+				btn9_12.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(9).getCartaN(11).getImage())));
+			}
+			else {
+				btn9_12.setVisible(false);
+			}
+			if(Pilas.get(9).numCartas()>12) {
+				btn9_13.setVisible(true);
+				btn9_13.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(9).getCartaN(12).getImage())));
+			}
+			else {
+				btn9_13.setVisible(false);
+			}
+			if(Pilas.get(9).numCartas()>13) {
+				btn9_14.setVisible(true);
+				btn9_14.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(9).getCartaN(13).getImage())));
+			}
+			else {
+				btn9_14.setVisible(false);
+			}
+			if(Pilas.get(9).numCartas()>14) {
+				btn9_15.setVisible(true);
+				btn9_15.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(9).getCartaN(14).getImage())));
+			}
+			else {
+				btn9_15.setVisible(false);
+			}
+			if(Pilas.get(9).numCartas()>15) {
+				btn9_16.setVisible(true);
+				btn9_16.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(9).getCartaN(15).getImage())));
+			}
+			else {
+				btn9_16.setVisible(false);
+			}
+			if(Pilas.get(9).numCartas()>16) {
+				btn9_17.setVisible(true);
+				btn9_17.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(9).getCartaN(16).getImage())));
+			}
+			else {
+				btn9_17.setVisible(false);
+			}
 		}
 		if(Pilas.get(10).numCartas()==0) {
 			btn10.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+			btn10_2.setVisible(false);
+			btn10_3.setVisible(false);
+			btn10_4.setVisible(false);
+			btn10_5.setVisible(false);
+			btn10_6.setVisible(false);
+			btn10_7.setVisible(false);
+			btn10_8.setVisible(false);
+			btn10_9.setVisible(false);
+			btn10_10.setVisible(false);
+			btn10_11.setVisible(false);
+			btn10_12.setVisible(false);
+			btn10_13.setVisible(false);
+			btn10_14.setVisible(false);
+			btn10_15.setVisible(false);
+			btn10_16.setVisible(false);
+			btn10_17.setVisible(false);
+			btn10_18.setVisible(false);
 	
 		}
 		if(Pilas.get(10).numCartas()!=0) { 
-			btn10.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(10).getCarta().getRuta())));
+			btn10.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(10).getCartaN(0).getImage())));
+			if(Pilas.get(10).numCartas()>1) {
+				btn10_2.setVisible(true);
+				btn10_2.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(10).getCartaN(1).getImage())));
+			}
+			else {
+				btn10_2.setVisible(false);
+			}
+			if(Pilas.get(10).numCartas()>2) {
+				btn10_3.setVisible(true);
+				
+				btn10_3.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(10).getCartaN(2).getImage())));
+			}
+			else {
+				btn10_3.setVisible(false);
+			}
+			if(Pilas.get(10).numCartas()>3) {
+				btn10_4.setVisible(true);
+				btn10_4.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(10).getCartaN(3).getImage())));
+			}
+			else {
+				btn10_4.setVisible(false);
+			}
+			if(Pilas.get(10).numCartas()>4) {
+				btn10_5.setVisible(true);
+				btn10_5.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(10).getCartaN(4).getImage())));
+			}
+			else {
+				btn10_5.setVisible(false);
+			}
+			if(Pilas.get(10).numCartas()>5) {
+				btn10_6.setVisible(true);
+				btn10_6.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(10).getCartaN(5).getImage())));
+			}
+			else {
+				btn10_6.setVisible(false);
+			}
+			if(Pilas.get(10).numCartas()>6) {
+				btn10_7.setVisible(true);
+				btn10_7.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(10).getCartaN(6).getImage())));
+			}
+			else {
+				btn10_7.setVisible(false);
+			}
+			if(Pilas.get(10).numCartas()>7) {
+				btn10_8.setVisible(true);
+				btn10_8.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(10).getCartaN(7).getImage())));
+			}
+			else {
+				btn10_8.setVisible(false);
+			}
+			if(Pilas.get(10).numCartas()>8) {
+				btn10_9.setVisible(true);
+				btn10_9.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(10).getCartaN(8).getImage())));
+			}
+			else {
+				btn10_9.setVisible(false);
+			}
+			if(Pilas.get(10).numCartas()>9) {
+				btn10_10.setVisible(true);
+				btn10_10.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(10).getCartaN(9).getImage())));
+			}
+			else {
+				btn10_10.setVisible(false);
+			}
+			if(Pilas.get(10).numCartas()>10) {
+				btn10_11.setVisible(true);
+				btn10_11.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(10).getCartaN(10).getImage())));
+			}
+			else {
+				btn10_11.setVisible(false);
+			}
+			if(Pilas.get(10).numCartas()>11) {
+				btn10_12.setVisible(true);
+				btn10_12.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(10).getCartaN(11).getImage())));
+			}
+			else {
+				btn10_12.setVisible(false);
+			}
+			if(Pilas.get(10).numCartas()>12) {
+				btn10_13.setVisible(true);
+				btn10_13.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(10).getCartaN(12).getImage())));
+			}
+			else {
+				btn10_13.setVisible(false);
+			}
+			if(Pilas.get(10).numCartas()>13) {
+				btn10_14.setVisible(true);
+				btn10_14.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(10).getCartaN(13).getImage())));
+			}
+			else {
+				btn10_14.setVisible(false);
+			}
+			if(Pilas.get(10).numCartas()>14) {
+				btn10_15.setVisible(true);
+				btn10_15.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(10).getCartaN(14).getImage())));
+			}
+			else {
+				btn10_15.setVisible(false);
+			}
+			if(Pilas.get(10).numCartas()>15) {
+				btn10_16.setVisible(true);
+				btn10_16.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(10).getCartaN(15).getImage())));
+			}
+			else {
+				btn10_16.setVisible(false);
+			}
+			if(Pilas.get(10).numCartas()>16) {
+				btn10_17.setVisible(true);
+				btn10_17.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(10).getCartaN(16).getImage())));
+			}
+			else {
+				btn10_18.setVisible(false);
+			}
+			if(Pilas.get(10).numCartas()>17) {
+				btn10_18.setVisible(true);
+				btn10_18.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(10).getCartaN(17).getImage())));
+			}
+			else {
+				btn10_18.setVisible(false);
+			}
 		}
 		if(Pilas.get(11).numCartas()==0) {
 			btn11.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
+			btn11_2.setVisible(false);
+			btn11_3.setVisible(false);
+			btn11_4.setVisible(false);
+			btn11_5.setVisible(false);
+			btn11_6.setVisible(false);
+			btn11_7.setVisible(false);
+			btn11_8.setVisible(false);
+			btn11_9.setVisible(false);
+			btn11_10.setVisible(false);
+			btn11_11.setVisible(false);
+			btn11_12.setVisible(false);
+			btn11_13.setVisible(false);
+			btn11_14.setVisible(false);
+			btn11_15.setVisible(false);
+			btn11_16.setVisible(false);
+			btn11_17.setVisible(false);
+			btn11_18.setVisible(false);
+			btn11_19.setVisible(false);
 	
 		}
 		if(Pilas.get(11).numCartas()!=0) { 
-			btn11.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(11).getCarta().getRuta())));
+			btn11.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(11).getCartaN(0).getImage())));
+			if(Pilas.get(11).numCartas()>1) {
+				btn11_2.setVisible(true);
+				btn11_2.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(11).getCartaN(1).getImage())));
+			}
+			else {
+				btn11_2.setVisible(false);
+			}
+			if(Pilas.get(11).numCartas()>2) {
+				btn11_3.setVisible(true);
+				
+				btn11_3.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(11).getCartaN(2).getImage())));
+			}
+			else {
+				btn11_3.setVisible(false);
+			}
+			if(Pilas.get(11).numCartas()>3) {
+				btn11_4.setVisible(true);
+				btn11_4.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(11).getCartaN(3).getImage())));
+			}
+			else {
+				btn11_4.setVisible(false);
+			}
+			if(Pilas.get(11).numCartas()>4) {
+				btn11_5.setVisible(true);
+				btn11_5.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(11).getCartaN(4).getImage())));
+			}
+			else {
+				btn11_5.setVisible(false);
+			}
+			if(Pilas.get(11).numCartas()>5) {
+				btn11_6.setVisible(true);
+				btn11_6.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(11).getCartaN(5).getImage())));
+			}
+			else {
+				btn11_6.setVisible(false);
+			}
+			if(Pilas.get(11).numCartas()>6) {
+				btn11_7.setVisible(true);
+				btn11_7.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(11).getCartaN(6).getImage())));
+			}
+			else {
+				btn11_7.setVisible(false);
+			}
+			if(Pilas.get(11).numCartas()>7) {
+				btn11_8.setVisible(true);
+				btn11_8.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(11).getCartaN(7).getImage())));
+			}
+			else {
+				btn11_8.setVisible(false);
+			}
+			if(Pilas.get(11).numCartas()>8) {
+				btn11_9.setVisible(true);
+				btn11_9.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(11).getCartaN(8).getImage())));
+			}
+			else {
+				btn11_9.setVisible(false);
+			}
+			if(Pilas.get(11).numCartas()>9) {
+				btn11_10.setVisible(true);
+				btn11_10.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(11).getCartaN(9).getImage())));
+			}
+			else {
+				btn11_10.setVisible(false);
+			}
+			if(Pilas.get(11).numCartas()>10) {
+				btn11_11.setVisible(true);
+				btn11_11.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(11).getCartaN(10).getImage())));
+			}
+			else {
+				btn11_11.setVisible(false);
+			}
+			if(Pilas.get(11).numCartas()>11) {
+				btn11_12.setVisible(true);
+				btn11_12.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(11).getCartaN(11).getImage())));
+			}
+			else {
+				btn11_12.setVisible(false);
+			}
+			if(Pilas.get(11).numCartas()>12) {
+				btn11_13.setVisible(true);
+				btn11_13.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(11).getCartaN(12).getImage())));
+			}
+			else {
+				btn11_13.setVisible(false);
+			}
+			if(Pilas.get(11).numCartas()>13) {
+				btn11_14.setVisible(true);
+				btn11_14.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(11).getCartaN(13).getImage())));
+			}
+			else {
+				btn11_14.setVisible(false);
+			}
+			if(Pilas.get(11).numCartas()>14) {
+				btn11_15.setVisible(true);
+				btn11_15.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(11).getCartaN(14).getImage())));
+			}
+			else {
+				btn11_15.setVisible(false);
+			}
+			if(Pilas.get(11).numCartas()>15) {
+				btn11_16.setVisible(true);
+				btn11_16.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(11).getCartaN(15).getImage())));
+			}
+			else {
+				btn11_16.setVisible(false);
+			}
+			if(Pilas.get(11).numCartas()>16) {
+				btn11_17.setVisible(true);
+				btn11_17.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(11).getCartaN(16).getImage())));
+			}
+			else {
+				btn11_17.setVisible(false);
+			}
+			if(Pilas.get(11).numCartas()>17) {
+				btn11_18.setVisible(true);
+				btn11_18.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(11).getCartaN(17).getImage())));
+			}
+			else {
+				btn11_18.setVisible(false);
+			}
+			if(Pilas.get(11).numCartas()>18) {
+				btn11_19.setVisible(true);
+				btn11_19.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(11).getCartaN(18).getImage())));
+			}
+			else {
+				btn11_19.setVisible(false);
+			}
 		}
 		if(Pilas.get(12).numCartas()==0) {
 			btn12.setIcon(new ImageIcon(SolitarioSwing.class.getResource("/Images/107016_75.gif")));
-	
+			btn12_2.setVisible(false);
+			btn12_3.setVisible(false);
+			btn12_4.setVisible(false);
+			btn12_5.setVisible(false);
+			btn12_6.setVisible(false);
+			btn12_7.setVisible(false);
+			btn12_8.setVisible(false);
+			btn12_9.setVisible(false);
+			btn12_10.setVisible(false);
+			btn12_11.setVisible(false);
+			btn12_12.setVisible(false);
+			btn12_13.setVisible(false);
+			btn12_14.setVisible(false);
+			btn12_15.setVisible(false);
+			btn12_16.setVisible(false);
+			btn12_17.setVisible(false);
+			btn12_18.setVisible(false);
+			btn12_19.setVisible(false);
 		}
 		if(Pilas.get(12).numCartas()!=0) { 
-			btn12.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(12).getCarta().getRuta())));
+			btn12.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(12).getCartaN(0).getImage())));
+			if(Pilas.get(12).numCartas()>1) {
+				btn12_2.setVisible(true);
+				btn12_2.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(12).getCartaN(1).getImage())));
+			}
+			else {
+				btn12_2.setVisible(false);
+			}
+			if(Pilas.get(12).numCartas()>2) {
+				btn12_3.setVisible(true);
+				
+				btn12_3.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(12).getCartaN(2).getImage())));
+			}else {
+				btn12_3.setVisible(false);
+			}
+			if(Pilas.get(12).numCartas()>3) {
+				btn12_4.setVisible(true);
+				btn12_4.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(12).getCartaN(3).getImage())));
+			}
+			else {
+				btn12_4.setVisible(false);
+			}
+			if(Pilas.get(12).numCartas()>4) {
+				btn12_5.setVisible(true);
+				btn12_5.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(12).getCartaN(4).getImage())));
+			}
+			else {
+				btn12_5.setVisible(false);
+			}
+			if(Pilas.get(12).numCartas()>5) {
+				btn12_6.setVisible(true);
+				btn12_6.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(12).getCartaN(5).getImage())));
+			}
+			else {
+				btn12_6.setVisible(false);
+			}
+			if(Pilas.get(12).numCartas()>6) {
+				btn12_7.setVisible(true);
+				btn12_7.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(12).getCartaN(6).getImage())));
+			}
+			else {
+				btn12_7.setVisible(false);
+			}
+			if(Pilas.get(12).numCartas()>7) {
+				btn12_8.setVisible(true);
+				btn12_8.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(12).getCartaN(7).getImage())));
+			}
+			else {
+				btn12_8.setVisible(false);
+			}
+			if(Pilas.get(12).numCartas()>8) {
+				btn12_9.setVisible(true);
+				btn12_9.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(12).getCartaN(8).getImage())));
+			}
+			else {
+				btn12_9.setVisible(false);
+			}
+			if(Pilas.get(12).numCartas()>9) {
+				btn12_10.setVisible(true);
+				btn12_10.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(12).getCartaN(9).getImage())));
+			}
+			else {
+				btn12_10.setVisible(false);
+			}
+			if(Pilas.get(12).numCartas()>10) {
+				btn12_11.setVisible(true);
+				btn12_11.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(12).getCartaN(10).getImage())));
+			}
+			else {
+				btn12_11.setVisible(false);
+			}
+			if(Pilas.get(12).numCartas()>11) {
+				btn12_12.setVisible(true);
+				btn12_12.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(12).getCartaN(11).getImage())));
+			}
+			else {
+				btn12_12.setVisible(false);
+			}
+			if(Pilas.get(12).numCartas()>12) {
+				btn12_13.setVisible(true);
+				btn12_13.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(12).getCartaN(12).getImage())));
+			}
+			else {
+				btn12_13.setVisible(false);
+			}
+			if(Pilas.get(12).numCartas()>13) {
+				btn12_14.setVisible(true);
+				btn12_14.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(12).getCartaN(13).getImage())));
+			}
+			else {
+				btn12_14.setVisible(false);
+			}
+			if(Pilas.get(12).numCartas()>14) {
+				btn12_15.setVisible(true);
+				btn12_15.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(12).getCartaN(14).getImage())));
+			}
+			else {
+				btn12_15.setVisible(false);
+			}
+			if(Pilas.get(12).numCartas()>15) {
+				btn12_16.setVisible(true);
+				btn12_16.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(12).getCartaN(15).getImage())));
+			}
+			else {
+				btn12_16.setVisible(false);
+			}
+			if(Pilas.get(12).numCartas()>16) {
+				btn12_17.setVisible(true);
+				btn12_17.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(12).getCartaN(16).getImage())));
+			}
+			else {
+				btn12_17.setVisible(false);
+			}
+			if(Pilas.get(12).numCartas()>17) {
+				btn12_18.setVisible(true);
+				btn12_18.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(12).getCartaN(17).getImage())));
+			}
+			else {
+				btn12_18.setVisible(false);
+			}
+			if(Pilas.get(12).numCartas()>18) {
+				btn12_19.setVisible(true);
+				btn12_19.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(12).getCartaN(18).getImage())));
+			}
+			else {
+				btn12_19.setVisible(false);
+			}
+			if(Pilas.get(12).numCartas()>19) {
+				btn12_19.setVisible(true);
+				btn12_20.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(12).getCartaN(19).getImage())));
+			}
 		}
 	}
 	
@@ -1497,9 +2400,39 @@ public class SolitarioSwing extends JFrame {
 					}
 				}
 			}
+			else if(seleccionada.movimientoPila(Pilas.get(pila).getCarta())) {
+				if(getPilaSeleccionada()==1) {
+					Pilas.get(pila).addCarta(seleccionada);
+					Pilas.get(getPilaSeleccionada()).eliminarCarta();
+				}
+				else {
+					for(int i = numero;i<=Pilas.get(getPilaSeleccionada()).numCartas();i++) {
+						Pilas.get(pila).addCarta(Pilas.get(getPilaSeleccionada()).getCartaN(i));
+					}
+					for(int i = numero;i<=Pilas.get(getPilaSeleccionada()).numCartas();i++) {
+						Pilas.get(getPilaSeleccionada()).eliminarCarta();
+					}
+					
+				}
+				actualizarImagenes();
+			}
+			else if(Pilas.get(pila).numCartas()==0) {
+				if(seleccionada.getNum()=='K') {
+					for(int i = numero;i<=Pilas.get(getPilaSeleccionada()).numCartas();i++) {
+						Pilas.get(pila).addCarta(Pilas.get(getPilaSeleccionada()).getCartaN(i));
+					}
+					for(int i = numero;i<=Pilas.get(getPilaSeleccionada()).numCartas();i++) {
+						Pilas.get(getPilaSeleccionada()).eliminarCarta();
+					}
+					actualizarImagenes();
+					
+					setPilaSeleccionada(0);
+				}	
+			}
 			else {
 				seleccionada = new Carta(Pilas.get(pila).getCarta().getNum(),Pilas.get(pila).getCarta().getPalo(),Pilas.get(pila).getCarta().getBack(),Pilas.get(pila).getCarta().getRuta());
 				setPilaSeleccionada(pila);
+				setNumBtn(numero);
 			}
 			/*
 			//por ahora solo esta codificado las acciones del boton 3, añadir las de los demas, las de los botones 2-5 son identicas a las de este, para los demas habra que añadir un if(?)
