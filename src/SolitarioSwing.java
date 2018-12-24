@@ -2412,12 +2412,23 @@ public class SolitarioSwing extends JFrame {
 					setPilaSeleccionada(0);
 				}	
 			}
-			else if(numero == Pilas.get(pila).)
+			//else if(numero == Pilas.get(pila).numCartas()) {//condicion temporal para debuggear
 			else if(seleccionada.movimientoPila(Pilas.get(pila).getCarta())) {
 				if(getPilaSeleccionada()==1) {
 					Pilas.get(pila).addCarta(seleccionada);
 					Pilas.get(getPilaSeleccionada()).eliminarCarta();
 				}
+				//algo peta por aqui, al mover mas de una carta a la vez la de arriba se duplica
+				if(getNumBtn() != Pilas.get(getPilaSeleccionada()).numCartas()) {
+					for(int i = getNumBtn();i<=Pilas.get(getPilaSeleccionada()).numCartas();i++) {
+						Pilas.get(pila).addCarta(Pilas.get(getPilaSeleccionada()).getCartaN(i-1));
+					}
+					for(int i = getNumBtn();i<=Pilas.get(getPilaSeleccionada()).numCartas();i++) {
+						Pilas.get(getPilaSeleccionada()).eliminarCarta();
+					}
+					
+				}
+				
 				else {
 					for(int i = getNumBtn();i<=Pilas.get(getPilaSeleccionada()).numCartas();i++) {
 						Pilas.get(pila).addCarta(Pilas.get(getPilaSeleccionada()).getCartaN(i-1));
@@ -2429,9 +2440,27 @@ public class SolitarioSwing extends JFrame {
 				}
 				actualizarImagenes();
 			}
-			
+			//}
+	/*		else if(numero != Pilas.get(pila).numCartas()) {//condicion temporal para debuggear 2: electric boogaloo
+				 if(seleccionada.movimientoPila(Pilas.get(pila).getCarta())) {
+					if(getPilaSeleccionada()==1) {
+						Pilas.get(pila).addCarta(seleccionada);
+						Pilas.get(getPilaSeleccionada()).eliminarCarta();
+					}
+					else {
+						for(int i = getNumBtn();i<=Pilas.get(getPilaSeleccionada()).numCartas();i++) {
+							Pilas.get(pila).addCarta(Pilas.get(getPilaSeleccionada()).getCartaN(i-1));
+						}
+						for(int i = getNumBtn();i<=Pilas.get(getPilaSeleccionada()).numCartas();i++) {
+							Pilas.get(getPilaSeleccionada()).eliminarCarta();
+						}
+						
+					}
+					actualizarImagenes();
+				}
+				}*/
 			else {
-				seleccionada = new Carta(Pilas.get(pila).getCarta().getNum(),Pilas.get(pila).getCarta().getPalo(),Pilas.get(pila).getCarta().getBack(),Pilas.get(pila).getCarta().getRuta());
+				seleccionada = new Carta(Pilas.get(pila).getCartaN(numero-1).getNum(),Pilas.get(pila).getCartaN(numero-1).getPalo(),Pilas.get(pila).getCarta().getBack(),Pilas.get(pila).getCartaN(numero-1).getRuta());
 				setPilaSeleccionada(pila);
 				setNumBtn(numero);
 			}
