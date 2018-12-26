@@ -2337,7 +2337,7 @@ public class SolitarioSwing extends JFrame {
 		}
 	private class ListenerClasico implements ActionListener{
 		public void	actionPerformed(ActionEvent e){
-			nuevoClasico();
+		nuevoClasico();
 		}
 	}
 	public void actualizarBotonesSaltos() {
