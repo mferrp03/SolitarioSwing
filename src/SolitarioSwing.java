@@ -125,7 +125,7 @@ public class SolitarioSwing extends JFrame {
 	JPanel panel_38;
 	JPanel panel_39;
 	JPanel panel_40;
-	ArrayList<Pila>Pilas = new ArrayList<Pila>();
+	ArrayList<Pila>Pilas;
 	
 	private int y;
 	private JButton btn11_2;
@@ -240,6 +240,47 @@ public class SolitarioSwing extends JFrame {
 	private JButton btn12_18;
 	private JButton btn12_19;
 	private JButton btn12_20;
+	Pila pila;
+	Pila pila1;
+	Pila pila2;
+	Pila pila3;
+	Pila pila4;	
+	Pila pila5;
+	Pila pila6;
+	Pila pila7;
+	Pila pila8;
+	Pila pila9;
+	Pila pila10;
+	Pila pila11;
+	Pila pila12;
+	Pila pila13;
+	Pila pila14;
+	Pila pila15;
+	Pila pila16;
+	Pila pila17;
+	Pila pila18;
+	Pila pila19;	
+	Pila pila20;
+	Pila pila21;
+	Pila pila22;
+	Pila pila23 ;
+	Pila pila24;
+	Pila pila25;
+	Pila pila26;
+	Pila pila27;
+	Pila pila28;
+	Pila pila29;
+	Pila pila30;
+	Pila pila31;
+	Pila pila32;
+	Pila pila33;
+	Pila pila34;	
+	Pila pila35;
+	Pila pila36;
+	Pila pila37;
+	Pila pila38;
+	Pila pila39 ;
+	Pila pila40;
 	public static void main(String[] args) {
 		new SolitarioSwing();
 	}
@@ -256,114 +297,262 @@ public class SolitarioSwing extends JFrame {
 		numBtn = n;
 	}
 	public SolitarioSwing() { 
-		ArrayList<Pila>Pilas = new ArrayList<Pila>();
-		Pila pila = new Pila();
-		Pila monton = new Pila();
-		Pila palo1 = new Pila();
-		Pila palo2 = new Pila();
-		Pila palo3 = new Pila();
-		Pila palo4 = new Pila();
-		Pila pila1 = new Pila();
-		Pila pila2 = new Pila();
-		Pila pila3 = new Pila();
-		Pila pila4 = new Pila();
-		Pila pila5 = new Pila();
-		Pila pila6 = new Pila();
-		Pila pila7 = new Pila();
+		Pilas = new ArrayList<Pila>();
+		pila = new Pila();
+		 pila1 = new Pila();
+		 pila2 = new Pila();
+		 pila3 = new Pila();
+		pila4 = new Pila();	
+		pila5 = new Pila();
+		pila6 = new Pila();
+		pila7 = new Pila();
+		pila8 = new Pila();
+		 pila9 = new Pila();
+		 pila10 = new Pila();
+		pila11 = new Pila();
+		 pila12 = new Pila();
+		pila13 = new Pila();
+		pila14 = new Pila();
+		 pila15 = new Pila();
+		 pila16 = new Pila();
+		 pila17 = new Pila();
+		 pila18 = new Pila();
+		 pila19 = new Pila();	
+		 pila20 = new Pila();
+		 pila21 = new Pila();
+		 pila22 = new Pila();
+		 pila23 = new Pila();
+		 pila24= new Pila();
+		 pila25 = new Pila();
+		 pila26 = new Pila();
+		 pila27 = new Pila();
+		 pila28 = new Pila();
+		 pila29 = new Pila();
+		 pila30 = new Pila();
+		 pila31 = new Pila();
+		 pila32 = new Pila();
+		 pila33 = new Pila();
+		 pila34 = new Pila();	
+		 pila35 = new Pila();
+		 pila36 = new Pila();
+		 pila37 = new Pila();
+		 pila38 = new Pila();
+		 pila39 = new Pila();
+		 pila40 = new Pila();
 		
 		
-		Carta AS = new Carta ('A','S',false,"/Images.espada/1.jpg");
+		Carta AS = new Carta ('A','S',false,"/Images/espada/1.jpg");
 		pila.addCarta(AS);
-		Carta DS = new Carta ('2','S',false,"/Images.espada/2.jpg");
+		Carta DS = new Carta ('2','S',false,"/Images/espada/2.jpg");
 		pila.addCarta(DS);
-		Carta TS = new Carta ('3','S',false,"/Images.espada/3.jpg");
+		Carta TS = new Carta ('3','S',false,"/Images/espada/3.jpg");
 		pila.addCarta(TS);
-		Carta CS = new Carta ('4','S',false,"/Images.espada/4.jpg");
+		Carta CS = new Carta ('4','S',false,"/Images/espada/4.jpg");
 		pila.addCarta(CS);
-		Carta CiS = new Carta ('5','S',false,"/Images.espada/5.jpg");
+		Carta CiS = new Carta ('5','S',false,"/Images/espada/5.jpg");
 		pila.addCarta(CiS);
-		Carta SS = new Carta ('6','S',false,"/Images.espada/6.jpg");
+		Carta SS = new Carta ('6','S',false,"/Images/espada/6.jpg");
 		pila.addCarta(SS);
-		Carta SiS = new Carta ('7','S',false,"/Images.espada/7.jpg");
+		Carta SiS = new Carta ('7','S',false,"/Images/espada/7.jpg");
 		pila.addCarta(SiS);
 		
-		Carta DiS = new Carta ('T','S',false,"/Images.espada/10.jpg");
+		Carta DiS = new Carta ('T','S',false,"/Images/espada/10.jpg");
 		pila.addCarta(DiS);
-		Carta JS = new Carta ('J','S',false,"/Images.espada/11.jpg");
+		Carta JS = new Carta ('J','S',false,"/Images/espada/11.jpg");
 		pila.addCarta(JS);
 		
-		Carta KS = new Carta ('K','S',false,"/Images.espada/12.jpg");
+		Carta KS = new Carta ('K','S',false,"/Images/espada/12.jpg");
 		pila.addCarta(KS);
 		
-		Carta AC = new Carta ('A','C',false,"/Images.copa/1.jpg");
+		Carta AC = new Carta ('A','C',false,"/Images/copa/1.jpg");
 		pila.addCarta(AC);
-		Carta DC = new Carta ('2','C',false,"/Images.copa/2.jpg");
+		Carta DC = new Carta ('2','C',false,"/Images/copa/2.jpg");
 		pila.addCarta(DC);
-		Carta TC = new Carta ('3','C',false,"/Images.copa/3.jpg");;
+		Carta TC = new Carta ('3','C',false,"/Images/copa/3.jpg");;
 		pila.addCarta(TC);
-		Carta CC = new Carta ('4','C',false,"/Images.copa/4.jpg");
+		Carta CC = new Carta ('4','C',false,"/Images/copa/4.jpg");
 		pila.addCarta(CC);
-		Carta CiC = new Carta ('5','C',false,"/Images.copa/5.jpg");
+		Carta CiC = new Carta ('5','C',false,"/Images/copa/5.jpg");
 		pila.addCarta(CiC);
-		Carta SC = new Carta ('6','C',false,"/Images.copa/6.jpg");
+		Carta SC = new Carta ('6','C',false,"/Images/copa/6.jpg");
 		pila.addCarta(SC);
-		Carta SiC = new Carta ('7','C',false,"/Images.copa/7.jpg");
+		Carta SiC = new Carta ('7','C',false,"/Images/copa/7.jpg");
 		pila.addCarta(SiC);
 		
-		Carta DiC = new Carta ('T','C',false,"/Images.copa/10.jpg");
+		Carta DiC = new Carta ('T','C',false,"/Images/copa/10.jpg");
 		pila.addCarta(DiC);
-		Carta JC = new Carta ('J','C',false,"/Images.copa/11.jpg");
+		Carta JC = new Carta ('J','C',false,"/Images/copa/11.jpg");
 		pila.addCarta(JC);
-		Carta KC = new Carta ('K','C',false,"/Images.copa/12.jpg");
+		Carta KC = new Carta ('K','C',false,"/Images/copa/12.jpg");
 		pila.addCarta(KC);
 	
-		Carta AD = new Carta ('A','D',false,"/Images.oro/1.jpg");
+		Carta AD = new Carta ('A','D',false,"/Images/oro/1.jpg");
 		pila.addCarta(AD);
-		Carta DD = new Carta ('2','D',false,"/Images.oro/2.jpg");
+		Carta DD = new Carta ('2','D',false,"/Images/oro/2.jpg");
 		pila.addCarta(DD);
-		Carta TD = new Carta ('3','D',false,"/Images.oro/3.jpg");
+		Carta TD = new Carta ('3','D',false,"/Images/oro/3.jpg");
 		pila.addCarta(TD);
-		Carta CD = new Carta ('4','D',false,"/Images.oro/4.jpg");
+		Carta CD = new Carta ('4','D',false,"/Images/oro/4.jpg");
 		pila.addCarta(CD);
-		Carta CiD = new Carta ('5','D',false,"/Images.oro/5.jpg");
+		Carta CiD = new Carta ('5','D',false,"/Images/oro/5.jpg");
 		pila.addCarta(CiD);
-		Carta SD = new Carta ('6','D',false,"/Images.oro/6.jpg");
+		Carta SD = new Carta ('6','D',false,"/Images/oro/6.jpg");
 		pila.addCarta(SD);
-		Carta SiD = new Carta ('7','D',false,"/Images.oro/7.jpg");
+		Carta SiD = new Carta ('7','D',false,"/Images/oro/7.jpg");
 		pila.addCarta(SiD);
 		
-		Carta DiD = new Carta ('T','D',false,"/Images.oro/10.jpg");
+		Carta DiD = new Carta ('T','D',false,"/Images/oro/10.jpg");
 		pila.addCarta(DiD);
-		Carta JD = new Carta ('J','D',false,"/Images.oro/11.jpg");
+		Carta JD = new Carta ('J','D',false,"/Images/oro/11.jpg");
 		pila.addCarta(JD);
 		
-		Carta KD = new Carta ('K','D',false,"/Images.oro/12.jpg");
+		Carta KD = new Carta ('K','D',false,"/Images/oro/12.jpg");
 		pila.addCarta(KD);
 	
-		Carta AH = new Carta ('A','H',false,"/Images.basto/1.jpg");
+		Carta AH = new Carta ('A','H',false,"/Images/basto/1.jpg");
 		pila.addCarta(AH);
-		Carta DH = new Carta ('2','H',false,"/Images.basto/2.jpg");
+		Carta DH = new Carta ('2','H',false,"/Images/basto/2.jpg");
 		pila.addCarta(DH);
-		Carta TH = new Carta ('3','H',false,"/Images.basto/3.jpg");
+		Carta TH = new Carta ('3','H',false,"/Images/basto/3.jpg");
 		pila.addCarta(TH);
-		Carta CH = new Carta ('4','H',false,"/Images.basto/4.jpg");
+		Carta CH = new Carta ('4','H',false,"/Images/basto/4.jpg");
 		pila.addCarta(CH);
-		Carta CiH = new Carta ('5','H',false,"/Images.basto/5.jpg");
+		Carta CiH = new Carta ('5','H',false,"/Images/basto/5.jpg");
 		pila.addCarta(CiH);
-		Carta SH = new Carta ('6','H',false,"/Images.basto/6.jpg");
+		Carta SH = new Carta ('6','H',false,"/Images/basto/6.jpg");
 		pila.addCarta(SH);
-		Carta SiH = new Carta ('7','H',false,"/Images.basto/7.jpg");
+		Carta SiH = new Carta ('7','H',false,"/Images/basto/7.jpg");
 		pila.addCarta(SiH);
 		
-		Carta DiH = new Carta ('T','H',false,"/Images.basto/10.jpg");
+		Carta DiH = new Carta ('T','H',false,"/Images/basto/10.jpg");
 		pila.addCarta(DiH);
-		Carta JH = new Carta ('J','H',false,"/Images.basto/11.jpg");
+		Carta JH = new Carta ('J','H',false,"/Images/basto/11.jpg");
 		pila.addCarta(JH);
 		
-		Carta KH = new Carta ('K','H',false,"/Images.basto/12.jpg");
+		Carta KH = new Carta ('K','H',false,"/Images/basto/12.jpg");
 		pila.addCarta(KH);
 		
+		pila1.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila2.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila3.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila4.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila5.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila6.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila7.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila8.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila9.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila10.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila11.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila12.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila13.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila14.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila15.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila16.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila17.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila18.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila19.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila20.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila21.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila22.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila23.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila24.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila25.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila26.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila27.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila28.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila29.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila30.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila31.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila32.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila33.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila34.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila35.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila36.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila37.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila38.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila39.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila40.addCarta(pila.getCarta());
+		pila.eliminarCarta();
 		
+		Pilas.add(pila1);
+		Pilas.add(pila2);
+		Pilas.add(pila3);
+		Pilas.add(pila4);
+		Pilas.add(pila5);
+		Pilas.add(pila6);
+		Pilas.add(pila7);
+		Pilas.add(pila8);
+		Pilas.add(pila9);
+		Pilas.add(pila10);
+		Pilas.add(pila11);
+		Pilas.add(pila12);
+		Pilas.add(pila13);
+		Pilas.add(pila14);
+		Pilas.add(pila15);
+		Pilas.add(pila16);
+		Pilas.add(pila17);
+		Pilas.add(pila18);
+		Pilas.add(pila19);
+		Pilas.add(pila20);
+		Pilas.add(pila21);
+		Pilas.add(pila22);
+		Pilas.add(pila23);
+		Pilas.add(pila24);
+		Pilas.add(pila25);
+		Pilas.add(pila26);
+		Pilas.add(pila27);
+		Pilas.add(pila28);
+		Pilas.add(pila29);
+		Pilas.add(pila30);
+		Pilas.add(pila31);
+		Pilas.add(pila32);
+		Pilas.add(pila33);
+		Pilas.add(pila34);
+		Pilas.add(pila35);
+		Pilas.add(pila36);
+		Pilas.add(pila37);
+		Pilas.add(pila38);
+		Pilas.add(pila39);
+		Pilas.add(pila40);
 		
 		
 		getContentPane().setBackground(new Color(0, 128, 0));
@@ -385,6 +574,7 @@ public class SolitarioSwing extends JFrame {
 		getContentPane().add(panel_9, gbc_panel_9);
 		
 		 e9 = new JButton("");
+		 e9.setName("9");
 		e9.setBackground(new Color(0, 128, 0));
 		e9.setForeground(new Color(0, 128, 0));
 		panel_9.add(e9);
@@ -398,7 +588,8 @@ public class SolitarioSwing extends JFrame {
 		gbc_panel_1.gridy = 0;
 		getContentPane().add(panel_1, gbc_panel_1);
 		
-		 e1 = new JButton("");
+		e1 = new JButton("");
+		e1.setName("1");
 		e1.setForeground(new Color(0, 128, 0));
 		e1.setBackground(new Color(0, 128, 0));
 		panel_1.add(e1);
@@ -412,7 +603,8 @@ public class SolitarioSwing extends JFrame {
 		gbc_panel_2.gridy = 0;
 		getContentPane().add(panel_2, gbc_panel_2);
 		
-		 e2 = new JButton("");
+		e2 = new JButton("");
+		e2.setName("2");
 		e2.setBackground(new Color(0, 128, 0));
 		e2.setForeground(new Color(0, 128, 0));
 		panel_2.add(e2);
@@ -426,7 +618,8 @@ public class SolitarioSwing extends JFrame {
 		gbc_panel_3.gridy = 0;
 		getContentPane().add(panel_3, gbc_panel_3);
 		
-		 e3 = new JButton("");
+		e3 = new JButton("");
+		e3.setName("3");
 		e3.setBackground(new Color(0, 128, 0));
 		e3.setForeground(new Color(0, 128, 0));
 		panel_3.add(e3);
@@ -440,7 +633,8 @@ public class SolitarioSwing extends JFrame {
 		gbc_panel_4.gridy = 0;
 		getContentPane().add(panel_4, gbc_panel_4);
 		
-		 e4 = new JButton("");
+		e4 = new JButton("");
+		e4.setName("4");
 		e4.setBackground(new Color(0, 128, 0));
 		e4.setForeground(new Color(0, 128, 0));
 		panel_4.add(e4);
@@ -455,6 +649,7 @@ public class SolitarioSwing extends JFrame {
 		getContentPane().add(panel_5, gbc_panel_5);
 		
 		 e5 = new JButton("");
+		 e5.setName("5");
 		e5.setForeground(new Color(0, 128, 0));
 		e5.setBackground(new Color(0, 128, 0));
 		panel_5.add(e5);
@@ -469,6 +664,7 @@ public class SolitarioSwing extends JFrame {
 		getContentPane().add(panel_6, gbc_panel_6);
 		
 		 e6 = new JButton("");
+		 e6.setName("6");
 		e6.setForeground(new Color(0, 128, 0));
 		e6.setBackground(new Color(0, 128, 0));
 		panel_6.add(e6);
@@ -483,6 +679,7 @@ public class SolitarioSwing extends JFrame {
 		getContentPane().add(panel_7, gbc_panel_7);
 		
 		 e7 = new JButton("");
+		 e7.setName("7");
 		e7.setBackground(new Color(0, 128, 0));
 		e7.setForeground(new Color(0, 128, 0));
 		panel_7.add(e7);
@@ -497,6 +694,7 @@ public class SolitarioSwing extends JFrame {
 		getContentPane().add(panel_8, gbc_panel_8);
 		
 		 e8 = new JButton("");
+		 e8.setName("8");
 		e8.setForeground(new Color(0, 128, 0));
 		e8.setBackground(new Color(0, 128, 0));
 		panel_8.add(e8);
@@ -511,6 +709,7 @@ public class SolitarioSwing extends JFrame {
 		getContentPane().add(panel_10, gbc_panel_10);
 		
 		 e10 = new JButton("");
+		 e10.setName("10");
 		e10.setBackground(new Color(0, 128, 0));
 		e10.setForeground(new Color(0, 128, 0));
 		panel_10.add(e10);
@@ -525,6 +724,7 @@ public class SolitarioSwing extends JFrame {
 		getContentPane().add(panel_20, gbc_panel_20);
 		
 		 e20 = new JButton("");
+		 e20.setName("20");
 		e20.setBackground(new Color(0, 128, 0));
 		e20.setForeground(new Color(0, 128, 0));
 		panel_20.add(e20);
@@ -539,6 +739,7 @@ public class SolitarioSwing extends JFrame {
 		getContentPane().add(panel_11, gbc_panel_11);
 		
 		 e11 = new JButton("");
+		 e11.setName("11");
 		e11.setForeground(new Color(0, 128, 0));
 		e11.setBackground(new Color(0, 128, 0));
 		panel_11.add(e11);
@@ -553,6 +754,7 @@ public class SolitarioSwing extends JFrame {
 		getContentPane().add(panel_12, gbc_panel_12);
 		
 		 e12 = new JButton("");
+		 e12.setName("12");
 		e12.setForeground(new Color(0, 128, 0));
 		e12.setBackground(new Color(0, 128, 0));
 		panel_12.add(e12);
@@ -567,6 +769,7 @@ public class SolitarioSwing extends JFrame {
 		getContentPane().add(panel_13, gbc_panel_13);
 		
 		 e13 = new JButton("");
+		 e13.setName("13");
 		e13.setBackground(new Color(0, 128, 0));
 		e13.setForeground(new Color(0, 128, 0));
 		panel_13.add(e13);
@@ -581,6 +784,7 @@ public class SolitarioSwing extends JFrame {
 		getContentPane().add(panel_14, gbc_panel_14);
 		
 		 e14 = new JButton("");
+		 e14.setName("14");
 		e14.setForeground(new Color(0, 128, 0));
 		e14.setBackground(new Color(0, 128, 0));
 		panel_14.add(e14);
@@ -595,6 +799,7 @@ public class SolitarioSwing extends JFrame {
 		getContentPane().add(panel_15, gbc_panel_15);
 		
 		 e15 = new JButton("");
+		 e15.setName("15");
 		e15.setForeground(new Color(0, 128, 0));
 		e15.setBackground(new Color(0, 128, 0));
 		panel_15.add(e15);
@@ -609,6 +814,7 @@ public class SolitarioSwing extends JFrame {
 		getContentPane().add(panel_16, gbc_panel_16);
 		
 		 e16 = new JButton("");
+		 e16.setName("16");
 		e16.setForeground(new Color(0, 128, 0));
 		e16.setBackground(new Color(0, 128, 0));
 		panel_16.add(e16);
@@ -623,6 +829,7 @@ public class SolitarioSwing extends JFrame {
 		getContentPane().add(panel_17, gbc_panel_17);
 		
 		 e17 = new JButton("");
+		 e17.setName("17");
 		e17.setBackground(new Color(0, 128, 0));
 		e17.setForeground(new Color(0, 128, 0));
 		panel_17.add(e17);
@@ -637,6 +844,7 @@ public class SolitarioSwing extends JFrame {
 		getContentPane().add(panel_18, gbc_panel_18);
 		
 		 e18 = new JButton("");
+		 e18.setName("18");
 		e18.setForeground(new Color(0, 128, 0));
 		e18.setBackground(new Color(0, 128, 0));
 		panel_18.add(e18);
@@ -651,6 +859,7 @@ public class SolitarioSwing extends JFrame {
 		getContentPane().add(panel_19, gbc_panel_19);
 		
 		 e19 = new JButton("");
+		 e19.setName("19");
 		e19.setBackground(new Color(0, 128, 0));
 		e19.setForeground(new Color(0, 128, 0));
 		panel_19.add(e19);
@@ -665,6 +874,7 @@ public class SolitarioSwing extends JFrame {
 		getContentPane().add(panel_21, gbc_panel_21);
 		
 		 e21 = new JButton("");
+		 e21.setName("21");
 		e21.setForeground(new Color(0, 128, 0));
 		e21.setBackground(new Color(0, 128, 0));
 		panel_21.add(e21);
@@ -679,6 +889,7 @@ public class SolitarioSwing extends JFrame {
 		getContentPane().add(panel_22, gbc_panel_22);
 		
 		 e22 = new JButton("");
+		 e22.setName("22");
 		e22.setForeground(new Color(0, 128, 0));
 		e22.setBackground(new Color(0, 128, 0));
 		panel_22.add(e22);
@@ -693,6 +904,7 @@ public class SolitarioSwing extends JFrame {
 		getContentPane().add(panel_23, gbc_panel_23);
 		
 		 e23 = new JButton("");
+		 e23.setName("23");
 		e23.setBackground(new Color(0, 128, 0));
 		e23.setForeground(new Color(0, 128, 0));
 		panel_23.add(e23);
@@ -707,6 +919,7 @@ public class SolitarioSwing extends JFrame {
 		getContentPane().add(panel_24, gbc_panel_24);
 		
 		 e24 = new JButton("");
+		 e24.setName("24");
 		e24.setBackground(new Color(0, 128, 0));
 		e24.setForeground(new Color(0, 128, 0));
 		panel_24.add(e24);
@@ -721,6 +934,7 @@ public class SolitarioSwing extends JFrame {
 		getContentPane().add(panel_25, gbc_panel_25);
 		
 		 e25 = new JButton("");
+		 e25.setName("25");
 		e25.setForeground(new Color(0, 128, 0));
 		e25.setBackground(new Color(0, 128, 0));
 		panel_25.add(e25);
@@ -735,6 +949,7 @@ public class SolitarioSwing extends JFrame {
 		getContentPane().add(panel_26, gbc_panel_26);
 		
 		 e26 = new JButton("");
+		 e26.setName("26");
 		e26.setBackground(new Color(0, 128, 0));
 		e26.setForeground(new Color(0, 128, 0));
 		panel_26.add(e26);
@@ -749,6 +964,7 @@ public class SolitarioSwing extends JFrame {
 		getContentPane().add(panel_27, gbc_panel_27);
 		
 		 e27 = new JButton("");
+		 e27.setName("27");
 		e27.setForeground(new Color(0, 128, 0));
 		e27.setBackground(new Color(0, 128, 0));
 		panel_27.add(e27);
@@ -763,6 +979,7 @@ public class SolitarioSwing extends JFrame {
 		getContentPane().add(panel_28, gbc_panel_28);
 		
 		 e28 = new JButton("");
+		 e28.setName("28");
 		e28.setBackground(new Color(0, 128, 0));
 		e28.setForeground(new Color(0, 128, 0));
 		panel_28.add(e28);
@@ -777,6 +994,7 @@ public class SolitarioSwing extends JFrame {
 		getContentPane().add(panel_29, gbc_panel_29);
 		
 		 e29 = new JButton("");
+		 e29.setName("29");
 		e29.setBackground(new Color(0, 128, 0));
 		e29.setForeground(new Color(0, 128, 0));
 		panel_29.add(e29);
@@ -791,6 +1009,7 @@ public class SolitarioSwing extends JFrame {
 		getContentPane().add(panel_30, gbc_panel_30);
 		
 		 e30 = new JButton("");
+		 e30.setName("30");
 		e30.setForeground(new Color(0, 128, 0));
 		e30.setBackground(new Color(0, 128, 0));
 		panel_30.add(e30);
@@ -806,6 +1025,7 @@ public class SolitarioSwing extends JFrame {
 		getContentPane().add(panel_31, gbc_panel_31);
 		
 		 e31 = new JButton("");
+		 e31.setName("31");
 		e31.setForeground(new Color(0, 128, 0));
 		e31.setBackground(new Color(0, 128, 0));
 		panel_31.add(e31);
@@ -821,6 +1041,7 @@ public class SolitarioSwing extends JFrame {
 		getContentPane().add(panel_32, gbc_panel_32);
 		
 		 e32 = new JButton("");
+		 e32.setName("32");
 		e32.setForeground(new Color(0, 128, 0));
 		e32.setBackground(new Color(0, 128, 0));
 		panel_32.add(e32);
@@ -836,6 +1057,7 @@ public class SolitarioSwing extends JFrame {
 		getContentPane().add(panel_33, gbc_panel_33);
 		
 		 e33 = new JButton("");
+		 e33.setName("33");
 		e33.setForeground(new Color(0, 128, 0));
 		e33.setBackground(new Color(0, 128, 0));
 		panel_33.add(e33);
@@ -851,6 +1073,7 @@ public class SolitarioSwing extends JFrame {
 		getContentPane().add(panel_34, gbc_panel_34);
 		
 		 e34 = new JButton("");
+		 e34.setName("34");
 		e34.setForeground(new Color(0, 128, 0));
 		e34.setBackground(new Color(0, 128, 0));
 		panel_34.add(e34);
@@ -866,6 +1089,7 @@ public class SolitarioSwing extends JFrame {
 		getContentPane().add(panel_35, gbc_panel_35);
 		
 		 e35 = new JButton("");
+		 e35.setName("35");
 		e35.setForeground(new Color(0, 128, 0));
 		e35.setBackground(new Color(0, 128, 0));
 		panel_35.add(e35);
@@ -881,6 +1105,7 @@ public class SolitarioSwing extends JFrame {
 		getContentPane().add(panel_36, gbc_panel_36);
 		
 		 e36 = new JButton("");
+		 e36.setName("36");
 		e36.setForeground(new Color(0, 128, 0));
 		e36.setBackground(new Color(0, 128, 0));
 		panel_36.add(e36);
@@ -896,6 +1121,7 @@ public class SolitarioSwing extends JFrame {
 		getContentPane().add(panel_37, gbc_panel_37);
 		
 		 e37 = new JButton("");
+		 e37.setName("37");
 		e37.setForeground(new Color(0, 128, 0));
 		e37.setBackground(new Color(0, 128, 0));
 		panel_37.add(e37);
@@ -911,6 +1137,7 @@ public class SolitarioSwing extends JFrame {
 		getContentPane().add(panel_38, gbc_panel_38);
 		
 		 e38 = new JButton("");
+		 e38.setName("38");
 		e38.setForeground(new Color(0, 128, 0));
 		e38.setBackground(new Color(0, 128, 0));
 		panel_38.add(e38);
@@ -926,6 +1153,7 @@ public class SolitarioSwing extends JFrame {
 		getContentPane().add(panel_39, gbc_panel_39);
 		
 		 e39 = new JButton("");
+		 e39.setName("39");
 		e39.setForeground(new Color(0, 128, 0));
 		e39.setBackground(new Color(0, 128, 0));
 		panel_39.add(e39);
@@ -941,10 +1169,12 @@ public class SolitarioSwing extends JFrame {
 		getContentPane().add(panel_40, gbc_panel_40);
 		
 		 e40 = new JButton("");
+		 e40.setName("40");
 		e40.setForeground(new Color(0, 128, 0));
 		e40.setBackground(new Color(0, 128, 0));
 		panel_40.add(e40);
 		
+		actualizarBotonesSaltos();
 		
 
 		JMenuBar menuBar = new JMenuBar();
@@ -2110,8 +2340,254 @@ public class SolitarioSwing extends JFrame {
 			nuevoClasico();
 		}
 	}
+	public void actualizarBotonesSaltos() {
+		
+		if(Pilas.get(0).numCartas()>0) {
+			
+			e1.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(0).getCarta().getImage()))); 
+			 
+		}
+		if(Pilas.get(0).numCartas()==0) {
+			e1.setVisible(false);
+		}
+		if(Pilas.get(1).numCartas()>0) {
+			e2.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(1).getCarta().getImage()))); 
+		}
+		if(Pilas.get(1).numCartas()==0) {
+			e2.setVisible(false);
+		}
+		if(Pilas.get(2).numCartas()>0) {
+			e3.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(2).getCarta().getImage()))); 
+		}
+		if(Pilas.get(2).numCartas()==0) {
+			e3.setVisible(false);
+		}
+		if(Pilas.get(3).numCartas()>0) {
+			e4.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(3).getCarta().getImage()))); 
+		}
+		if(Pilas.get(3).numCartas()==0) {
+			e4.setVisible(false);
+		}
+		if(Pilas.get(4).numCartas()>0) {
+			e5.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(4).getCarta().getImage()))); 
+		}
+		if(Pilas.get(4).numCartas()==0) {
+			e5.setVisible(false);
+		}
+		if(Pilas.get(5).numCartas()>0) {
+			e6.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(5).getCarta().getImage()))); 
+		}
+		if(Pilas.get(5).numCartas()==0) {
+			e6.setVisible(false);
+		}
+		if(Pilas.get(6).numCartas()>0) {
+			e7.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(6).getCarta().getImage()))); 
+		}
+		if(Pilas.get(6).numCartas()==0) {
+			e7.setVisible(false);
+		}
+		if(Pilas.get(7).numCartas()>0) {
+			e8.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(7).getCarta().getImage()))); 
+		}
+		if(Pilas.get(7).numCartas()==0) {
+			e8.setVisible(false);
+		}
+		if(Pilas.get(8).numCartas()>0) {
+			e9.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(8).getCarta().getImage()))); 
+		}
+		if(Pilas.get(8).numCartas()==0) {
+			e9.setVisible(false);
+		}
+		if(Pilas.get(9).numCartas()>0) {
+			e10.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(9).getCarta().getImage()))); 
+		}
+		if(Pilas.get(9).numCartas()==0) {
+			e10.setVisible(false);
+		}
+		if(Pilas.get(10).numCartas()>0) {
+			e11.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(10).getCarta().getImage()))); 
+		}
+		if(Pilas.get(10).numCartas()==0) {
+			e11.setVisible(false);
+		}
+		if(Pilas.get(11).numCartas()>0) {
+			e12.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(11).getCarta().getImage()))); 
+		}
+		if(Pilas.get(11).numCartas()==0) {
+			e12.setVisible(false);
+		}
+		if(Pilas.get(12).numCartas()>0) {
+			e13.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(12).getCarta().getImage()))); 
+		}
+		if(Pilas.get(12).numCartas()==0) {
+			e13.setVisible(false);
+		}
+		if(Pilas.get(13).numCartas()>0) {
+			e14.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(13).getCarta().getImage()))); 
+		}
+		if(Pilas.get(13).numCartas()==0) {
+			e14.setVisible(false);
+		}
+		if(Pilas.get(14).numCartas()>0) {
+			e15.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(14).getCarta().getImage()))); 
+		}
+		if(Pilas.get(14).numCartas()==0) {
+			e15.setVisible(false);
+		}
+		if(Pilas.get(15).numCartas()>0) {
+			e16.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(15).getCarta().getImage()))); 
+		}
+		if(Pilas.get(15).numCartas()==0) {
+			e16.setVisible(false);
+		}
+		if(Pilas.get(16).numCartas()>0) {
+			e17.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(16).getCarta().getImage()))); 
+		}
+		if(Pilas.get(16).numCartas()==0) {
+			e17.setVisible(false);
+		}
+		if(Pilas.get(17).numCartas()>0) {
+			e18.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(17).getCarta().getImage()))); 
+		}
+		if(Pilas.get(17).numCartas()==0) {
+			e18.setVisible(false);
+		}
+		if(Pilas.get(18).numCartas()>0) {
+			e19.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(18).getCarta().getImage()))); 
+		}
+		if(Pilas.get(18).numCartas()==0) {
+			e19.setVisible(false);
+		}
+		if(Pilas.get(19).numCartas()>0) {
+			e20.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(19).getCarta().getImage()))); 
+		}
+		if(Pilas.get(19).numCartas()==0) {
+			e20.setVisible(false);
+		}
+		if(Pilas.get(20).numCartas()>0) {
+			e21.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(20).getCarta().getImage()))); 
+		}
+		if(Pilas.get(20).numCartas()==0) {
+			e21.setVisible(false);
+		}
+		if(Pilas.get(21).numCartas()>0) {
+			e22.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(21).getCarta().getImage()))); 
+		}
+		if(Pilas.get(21).numCartas()==0) {
+			e22.setVisible(false);
+		}
+		if(Pilas.get(22).numCartas()>0) {
+			e23.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(22).getCarta().getImage()))); 
+		}
+		if(Pilas.get(22).numCartas()==0) {
+			e23.setVisible(false);
+		}
+		if(Pilas.get(23).numCartas()>0) {
+			e24.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(23).getCarta().getImage()))); 
+		}
+		if(Pilas.get(23).numCartas()==0) {
+			e24.setVisible(false);
+		}
+		if(Pilas.get(24).numCartas()>0) {
+			e25.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(24).getCarta().getImage()))); 
+		}
+		if(Pilas.get(24).numCartas()==0) {
+			e25.setVisible(false);
+		}
+		if(Pilas.get(25).numCartas()>0) {
+			e26.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(25).getCarta().getImage()))); 
+		}
+		if(Pilas.get(25).numCartas()==0) {
+			e26.setVisible(false);
+		}
+		if(Pilas.get(26).numCartas()>0) {
+			e27.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(26).getCarta().getImage()))); 
+		}
+		if(Pilas.get(26).numCartas()==0) {
+			e27.setVisible(false);
+		}
+		if(Pilas.get(27).numCartas()>0) {
+			e28.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(27).getCarta().getImage()))); 
+		}
+		if(Pilas.get(27).numCartas()==0) {
+			e28.setVisible(false);
+		}
+		if(Pilas.get(28).numCartas()>0) {
+			e29.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(28).getCarta().getImage()))); 
+		}
+		if(Pilas.get(28).numCartas()==0) {
+			e29.setVisible(false);
+		}
+		if(Pilas.get(29).numCartas()>0) {
+			e30.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(29).getCarta().getImage()))); 
+		}
+		if(Pilas.get(29).numCartas()==0) {
+			e30.setVisible(false);
+		}
+		if(Pilas.get(30).numCartas()>0) {
+			e31.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(30).getCarta().getImage()))); 
+		}
+		if(Pilas.get(30).numCartas()==0) {
+			e31.setVisible(false);
+		}
+		if(Pilas.get(31).numCartas()>0) {
+			e32.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(31).getCarta().getImage()))); 
+		}
+		if(Pilas.get(31).numCartas()==0) {
+			e32.setVisible(false);
+		}
+		if(Pilas.get(32).numCartas()>0) {
+			e33.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(32).getCarta().getImage()))); 
+		}
+		if(Pilas.get(32).numCartas()==0) {
+			e33.setVisible(false);
+		}
+		if(Pilas.get(33).numCartas()>0) {
+			e34.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(33).getCarta().getImage()))); 
+		}
+		if(Pilas.get(33).numCartas()==0) {
+			e34.setVisible(false);
+		}
+		if(Pilas.get(34).numCartas()>0) {
+			e35.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(34).getCarta().getImage()))); 
+		}
+		if(Pilas.get(34).numCartas()==0) {
+			e35.setVisible(false);
+		}
+		if(Pilas.get(35).numCartas()>0) {
+			e36.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(35).getCarta().getImage()))); 
+		}
+		if(Pilas.get(35).numCartas()==0) {
+			e36.setVisible(false);
+		}
+		if(Pilas.get(36).numCartas()>0) {
+			e37.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(36).getCarta().getImage()))); 
+		}
+		if(Pilas.get(36).numCartas()==0) {
+			e37.setVisible(false);
+		}
+		if(Pilas.get(37).numCartas()>0) {
+			e38.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(37).getCarta().getImage()))); 
+		}
+		if(Pilas.get(37).numCartas()==0) {
+			e38.setVisible(false);
+		}
+		if(Pilas.get(38).numCartas()>0) {
+			e39.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(38).getCarta().getImage()))); 
+		}
+		if(Pilas.get(38).numCartas()==0) {
+			e39.setVisible(false);
+		}
+		if(Pilas.get(39).numCartas()>0) {
+			e40.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(39).getCarta().getImage()))); 
+		}
+		if(Pilas.get(39).numCartas()==0) {
+			e40.setVisible(false);
+		}
+	}
+	
 	public void nuevoClasico() {
-		ArrayList<Pila>Pilas = new ArrayList<Pila>();
+		Pilas = new ArrayList<Pila>();
 		Pila pila = new Pila();
 		Pila monton = new Pila();
 		Pila palo1 = new Pila();
