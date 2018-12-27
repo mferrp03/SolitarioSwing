@@ -1,4 +1,5 @@
 import javax.swing.JFrame;
+import javax.swing.filechooser.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.Desktop.Action;
@@ -19,6 +20,7 @@ public class SolitarioSwing extends JFrame {
 	private Carta seleccionada = new Carta ('0','0',false,"0");
 	int pilaSeleccionada = 0;
 	int numBtn = 0;
+
 	JButton btn0;
 	JButton btn1;
 	JButton btn2;
@@ -297,264 +299,7 @@ public class SolitarioSwing extends JFrame {
 		numBtn = n;
 	}
 	public SolitarioSwing() { 
-		Pilas = new ArrayList<Pila>();
-		pila = new Pila();
-		 pila1 = new Pila();
-		 pila2 = new Pila();
-		 pila3 = new Pila();
-		pila4 = new Pila();	
-		pila5 = new Pila();
-		pila6 = new Pila();
-		pila7 = new Pila();
-		pila8 = new Pila();
-		 pila9 = new Pila();
-		 pila10 = new Pila();
-		pila11 = new Pila();
-		 pila12 = new Pila();
-		pila13 = new Pila();
-		pila14 = new Pila();
-		 pila15 = new Pila();
-		 pila16 = new Pila();
-		 pila17 = new Pila();
-		 pila18 = new Pila();
-		 pila19 = new Pila();	
-		 pila20 = new Pila();
-		 pila21 = new Pila();
-		 pila22 = new Pila();
-		 pila23 = new Pila();
-		 pila24= new Pila();
-		 pila25 = new Pila();
-		 pila26 = new Pila();
-		 pila27 = new Pila();
-		 pila28 = new Pila();
-		 pila29 = new Pila();
-		 pila30 = new Pila();
-		 pila31 = new Pila();
-		 pila32 = new Pila();
-		 pila33 = new Pila();
-		 pila34 = new Pila();	
-		 pila35 = new Pila();
-		 pila36 = new Pila();
-		 pila37 = new Pila();
-		 pila38 = new Pila();
-		 pila39 = new Pila();
-		 pila40 = new Pila();
-		
-		
-		Carta AS = new Carta ('A','S',false,"/Images/espada/1.jpg");
-		pila.addCarta(AS);
-		Carta DS = new Carta ('2','S',false,"/Images/espada/2.jpg");
-		pila.addCarta(DS);
-		Carta TS = new Carta ('3','S',false,"/Images/espada/3.jpg");
-		pila.addCarta(TS);
-		Carta CS = new Carta ('4','S',false,"/Images/espada/4.jpg");
-		pila.addCarta(CS);
-		Carta CiS = new Carta ('5','S',false,"/Images/espada/5.jpg");
-		pila.addCarta(CiS);
-		Carta SS = new Carta ('6','S',false,"/Images/espada/6.jpg");
-		pila.addCarta(SS);
-		Carta SiS = new Carta ('7','S',false,"/Images/espada/7.jpg");
-		pila.addCarta(SiS);
-		
-		Carta DiS = new Carta ('T','S',false,"/Images/espada/10.jpg");
-		pila.addCarta(DiS);
-		Carta JS = new Carta ('J','S',false,"/Images/espada/11.jpg");
-		pila.addCarta(JS);
-		
-		Carta KS = new Carta ('K','S',false,"/Images/espada/12.jpg");
-		pila.addCarta(KS);
-		
-		Carta AC = new Carta ('A','C',false,"/Images/copa/1.jpg");
-		pila.addCarta(AC);
-		Carta DC = new Carta ('2','C',false,"/Images/copa/2.jpg");
-		pila.addCarta(DC);
-		Carta TC = new Carta ('3','C',false,"/Images/copa/3.jpg");;
-		pila.addCarta(TC);
-		Carta CC = new Carta ('4','C',false,"/Images/copa/4.jpg");
-		pila.addCarta(CC);
-		Carta CiC = new Carta ('5','C',false,"/Images/copa/5.jpg");
-		pila.addCarta(CiC);
-		Carta SC = new Carta ('6','C',false,"/Images/copa/6.jpg");
-		pila.addCarta(SC);
-		Carta SiC = new Carta ('7','C',false,"/Images/copa/7.jpg");
-		pila.addCarta(SiC);
-		
-		Carta DiC = new Carta ('T','C',false,"/Images/copa/10.jpg");
-		pila.addCarta(DiC);
-		Carta JC = new Carta ('J','C',false,"/Images/copa/11.jpg");
-		pila.addCarta(JC);
-		Carta KC = new Carta ('K','C',false,"/Images/copa/12.jpg");
-		pila.addCarta(KC);
-	
-		Carta AD = new Carta ('A','D',false,"/Images/oro/1.jpg");
-		pila.addCarta(AD);
-		Carta DD = new Carta ('2','D',false,"/Images/oro/2.jpg");
-		pila.addCarta(DD);
-		Carta TD = new Carta ('3','D',false,"/Images/oro/3.jpg");
-		pila.addCarta(TD);
-		Carta CD = new Carta ('4','D',false,"/Images/oro/4.jpg");
-		pila.addCarta(CD);
-		Carta CiD = new Carta ('5','D',false,"/Images/oro/5.jpg");
-		pila.addCarta(CiD);
-		Carta SD = new Carta ('6','D',false,"/Images/oro/6.jpg");
-		pila.addCarta(SD);
-		Carta SiD = new Carta ('7','D',false,"/Images/oro/7.jpg");
-		pila.addCarta(SiD);
-		
-		Carta DiD = new Carta ('T','D',false,"/Images/oro/10.jpg");
-		pila.addCarta(DiD);
-		Carta JD = new Carta ('J','D',false,"/Images/oro/11.jpg");
-		pila.addCarta(JD);
-		
-		Carta KD = new Carta ('K','D',false,"/Images/oro/12.jpg");
-		pila.addCarta(KD);
-	
-		Carta AH = new Carta ('A','H',false,"/Images/basto/1.jpg");
-		pila.addCarta(AH);
-		Carta DH = new Carta ('2','H',false,"/Images/basto/2.jpg");
-		pila.addCarta(DH);
-		Carta TH = new Carta ('3','H',false,"/Images/basto/3.jpg");
-		pila.addCarta(TH);
-		Carta CH = new Carta ('4','H',false,"/Images/basto/4.jpg");
-		pila.addCarta(CH);
-		Carta CiH = new Carta ('5','H',false,"/Images/basto/5.jpg");
-		pila.addCarta(CiH);
-		Carta SH = new Carta ('6','H',false,"/Images/basto/6.jpg");
-		pila.addCarta(SH);
-		Carta SiH = new Carta ('7','H',false,"/Images/basto/7.jpg");
-		pila.addCarta(SiH);
-		
-		Carta DiH = new Carta ('T','H',false,"/Images/basto/10.jpg");
-		pila.addCarta(DiH);
-		Carta JH = new Carta ('J','H',false,"/Images/basto/11.jpg");
-		pila.addCarta(JH);
-		
-		Carta KH = new Carta ('K','H',false,"/Images/basto/12.jpg");
-		pila.addCarta(KH);
-		
-		pila1.addCarta(pila.getCarta());
-		pila.eliminarCarta();
-		pila2.addCarta(pila.getCarta());
-		pila.eliminarCarta();
-		pila3.addCarta(pila.getCarta());
-		pila.eliminarCarta();
-		pila4.addCarta(pila.getCarta());
-		pila.eliminarCarta();
-		pila5.addCarta(pila.getCarta());
-		pila.eliminarCarta();
-		pila6.addCarta(pila.getCarta());
-		pila.eliminarCarta();
-		pila7.addCarta(pila.getCarta());
-		pila.eliminarCarta();
-		pila8.addCarta(pila.getCarta());
-		pila.eliminarCarta();
-		pila9.addCarta(pila.getCarta());
-		pila.eliminarCarta();
-		pila10.addCarta(pila.getCarta());
-		pila.eliminarCarta();
-		pila11.addCarta(pila.getCarta());
-		pila.eliminarCarta();
-		pila12.addCarta(pila.getCarta());
-		pila.eliminarCarta();
-		pila13.addCarta(pila.getCarta());
-		pila.eliminarCarta();
-		pila14.addCarta(pila.getCarta());
-		pila.eliminarCarta();
-		pila15.addCarta(pila.getCarta());
-		pila.eliminarCarta();
-		pila16.addCarta(pila.getCarta());
-		pila.eliminarCarta();
-		pila17.addCarta(pila.getCarta());
-		pila.eliminarCarta();
-		pila18.addCarta(pila.getCarta());
-		pila.eliminarCarta();
-		pila19.addCarta(pila.getCarta());
-		pila.eliminarCarta();
-		pila20.addCarta(pila.getCarta());
-		pila.eliminarCarta();
-		pila21.addCarta(pila.getCarta());
-		pila.eliminarCarta();
-		pila22.addCarta(pila.getCarta());
-		pila.eliminarCarta();
-		pila23.addCarta(pila.getCarta());
-		pila.eliminarCarta();
-		pila24.addCarta(pila.getCarta());
-		pila.eliminarCarta();
-		pila25.addCarta(pila.getCarta());
-		pila.eliminarCarta();
-		pila26.addCarta(pila.getCarta());
-		pila.eliminarCarta();
-		pila27.addCarta(pila.getCarta());
-		pila.eliminarCarta();
-		pila28.addCarta(pila.getCarta());
-		pila.eliminarCarta();
-		pila29.addCarta(pila.getCarta());
-		pila.eliminarCarta();
-		pila30.addCarta(pila.getCarta());
-		pila.eliminarCarta();
-		pila31.addCarta(pila.getCarta());
-		pila.eliminarCarta();
-		pila32.addCarta(pila.getCarta());
-		pila.eliminarCarta();
-		pila33.addCarta(pila.getCarta());
-		pila.eliminarCarta();
-		pila34.addCarta(pila.getCarta());
-		pila.eliminarCarta();
-		pila35.addCarta(pila.getCarta());
-		pila.eliminarCarta();
-		pila36.addCarta(pila.getCarta());
-		pila.eliminarCarta();
-		pila37.addCarta(pila.getCarta());
-		pila.eliminarCarta();
-		pila38.addCarta(pila.getCarta());
-		pila.eliminarCarta();
-		pila39.addCarta(pila.getCarta());
-		pila.eliminarCarta();
-		pila40.addCarta(pila.getCarta());
-		pila.eliminarCarta();
-		
-		Pilas.add(pila1);
-		Pilas.add(pila2);
-		Pilas.add(pila3);
-		Pilas.add(pila4);
-		Pilas.add(pila5);
-		Pilas.add(pila6);
-		Pilas.add(pila7);
-		Pilas.add(pila8);
-		Pilas.add(pila9);
-		Pilas.add(pila10);
-		Pilas.add(pila11);
-		Pilas.add(pila12);
-		Pilas.add(pila13);
-		Pilas.add(pila14);
-		Pilas.add(pila15);
-		Pilas.add(pila16);
-		Pilas.add(pila17);
-		Pilas.add(pila18);
-		Pilas.add(pila19);
-		Pilas.add(pila20);
-		Pilas.add(pila21);
-		Pilas.add(pila22);
-		Pilas.add(pila23);
-		Pilas.add(pila24);
-		Pilas.add(pila25);
-		Pilas.add(pila26);
-		Pilas.add(pila27);
-		Pilas.add(pila28);
-		Pilas.add(pila29);
-		Pilas.add(pila30);
-		Pilas.add(pila31);
-		Pilas.add(pila32);
-		Pilas.add(pila33);
-		Pilas.add(pila34);
-		Pilas.add(pila35);
-		Pilas.add(pila36);
-		Pilas.add(pila37);
-		Pilas.add(pila38);
-		Pilas.add(pila39);
-		Pilas.add(pila40);
-		
-		
+
 		getContentPane().setBackground(new Color(0, 128, 0));
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -564,619 +309,6 @@ public class SolitarioSwing extends JFrame {
 		getContentPane().setLayout(gridBagLayout);
 		getContentPane().setBackground(new Color(0, 128, 0));
 		
-		panel_9 = new JPanel();
-		panel_9.setForeground(new Color(0, 128, 0));
-		panel_9.setBackground(new Color(0, 128, 0));
-		GridBagConstraints gbc_panel_9 = new GridBagConstraints();
-		gbc_panel_9.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_9.gridx = 9;
-		gbc_panel_9.gridy = 0;
-		getContentPane().add(panel_9, gbc_panel_9);
-		
-		 e9 = new JButton("");
-		 e9.setName("9");
-		e9.setBackground(new Color(0, 128, 0));
-		e9.setForeground(new Color(0, 128, 0));
-		panel_9.add(e9);
-		
-		panel_1 = new JPanel();
-		panel_1.setForeground(new Color(0, 128, 0));
-		panel_1.setBackground(new Color(0, 128, 0));
-		GridBagConstraints gbc_panel_1 = new GridBagConstraints();
-		gbc_panel_1.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_1.gridx = 1;
-		gbc_panel_1.gridy = 0;
-		getContentPane().add(panel_1, gbc_panel_1);
-		
-		e1 = new JButton("");
-		e1.setName("1");
-		e1.setForeground(new Color(0, 128, 0));
-		e1.setBackground(new Color(0, 128, 0));
-		panel_1.add(e1);
-		
-		 panel_2 = new JPanel();
-		panel_2.setBackground(new Color(0, 128, 0));
-		panel_2.setForeground(new Color(0, 128, 0));
-		GridBagConstraints gbc_panel_2 = new GridBagConstraints();
-		gbc_panel_2.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_2.gridx = 2;
-		gbc_panel_2.gridy = 0;
-		getContentPane().add(panel_2, gbc_panel_2);
-		
-		e2 = new JButton("");
-		e2.setName("2");
-		e2.setBackground(new Color(0, 128, 0));
-		e2.setForeground(new Color(0, 128, 0));
-		panel_2.add(e2);
-		
-		 panel_3 = new JPanel();
-		panel_3.setForeground(new Color(0, 128, 0));
-		panel_3.setBackground(new Color(0, 128, 0));
-		GridBagConstraints gbc_panel_3 = new GridBagConstraints();
-		gbc_panel_3.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_3.gridx = 3;
-		gbc_panel_3.gridy = 0;
-		getContentPane().add(panel_3, gbc_panel_3);
-		
-		e3 = new JButton("");
-		e3.setName("3");
-		e3.setBackground(new Color(0, 128, 0));
-		e3.setForeground(new Color(0, 128, 0));
-		panel_3.add(e3);
-		
-		 panel_4 = new JPanel();
-		panel_4.setForeground(new Color(0, 128, 0));
-		panel_4.setBackground(new Color(0, 128, 0));
-		GridBagConstraints gbc_panel_4 = new GridBagConstraints();
-		gbc_panel_4.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_4.gridx = 4;
-		gbc_panel_4.gridy = 0;
-		getContentPane().add(panel_4, gbc_panel_4);
-		
-		e4 = new JButton("");
-		e4.setName("4");
-		e4.setBackground(new Color(0, 128, 0));
-		e4.setForeground(new Color(0, 128, 0));
-		panel_4.add(e4);
-		
-		 panel_5 = new JPanel();
-		panel_5.setForeground(new Color(0, 128, 0));
-		panel_5.setBackground(new Color(0, 128, 0));
-		GridBagConstraints gbc_panel_5 = new GridBagConstraints();
-		gbc_panel_5.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_5.gridx = 5;
-		gbc_panel_5.gridy = 0;
-		getContentPane().add(panel_5, gbc_panel_5);
-		
-		 e5 = new JButton("");
-		 e5.setName("5");
-		e5.setForeground(new Color(0, 128, 0));
-		e5.setBackground(new Color(0, 128, 0));
-		panel_5.add(e5);
-		
-		 panel_6 = new JPanel();
-		panel_6.setForeground(new Color(0, 128, 0));
-		panel_6.setBackground(new Color(0, 128, 0));
-		GridBagConstraints gbc_panel_6 = new GridBagConstraints();
-		gbc_panel_6.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_6.gridx = 6;
-		gbc_panel_6.gridy = 0;
-		getContentPane().add(panel_6, gbc_panel_6);
-		
-		 e6 = new JButton("");
-		 e6.setName("6");
-		e6.setForeground(new Color(0, 128, 0));
-		e6.setBackground(new Color(0, 128, 0));
-		panel_6.add(e6);
-		
-		 panel_7 = new JPanel();
-		panel_7.setForeground(new Color(0, 128, 0));
-		panel_7.setBackground(new Color(0, 128, 0));
-		GridBagConstraints gbc_panel_7 = new GridBagConstraints();
-		gbc_panel_7.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_7.gridx = 7;
-		gbc_panel_7.gridy = 0;
-		getContentPane().add(panel_7, gbc_panel_7);
-		
-		 e7 = new JButton("");
-		 e7.setName("7");
-		e7.setBackground(new Color(0, 128, 0));
-		e7.setForeground(new Color(0, 128, 0));
-		panel_7.add(e7);
-		
-		 panel_8 = new JPanel();
-		panel_8.setForeground(new Color(0, 128, 0));
-		panel_8.setBackground(new Color(0, 128, 0));
-		GridBagConstraints gbc_panel_8 = new GridBagConstraints();
-		gbc_panel_8.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_8.gridx = 8;
-		gbc_panel_8.gridy = 0;
-		getContentPane().add(panel_8, gbc_panel_8);
-		
-		 e8 = new JButton("");
-		 e8.setName("8");
-		e8.setForeground(new Color(0, 128, 0));
-		e8.setBackground(new Color(0, 128, 0));
-		panel_8.add(e8);
-		
-		 panel_10 = new JPanel();
-		panel_10.setForeground(new Color(0, 128, 0));
-		panel_10.setBackground(new Color(0, 128, 0));
-		GridBagConstraints gbc_panel_10 = new GridBagConstraints();
-		gbc_panel_10.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_10.gridx = 10;
-		gbc_panel_10.gridy = 0;
-		getContentPane().add(panel_10, gbc_panel_10);
-		
-		 e10 = new JButton("");
-		 e10.setName("10");
-		e10.setBackground(new Color(0, 128, 0));
-		e10.setForeground(new Color(0, 128, 0));
-		panel_10.add(e10);
-		
-		 panel_20 = new JPanel();
-		panel_20.setForeground(new Color(0, 128, 0));
-		panel_20.setBackground(new Color(0, 128, 0));
-		GridBagConstraints gbc_panel_20 = new GridBagConstraints();
-		gbc_panel_20.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_20.gridx = 10;
-		gbc_panel_20.gridy = 1;
-		getContentPane().add(panel_20, gbc_panel_20);
-		
-		 e20 = new JButton("");
-		 e20.setName("20");
-		e20.setBackground(new Color(0, 128, 0));
-		e20.setForeground(new Color(0, 128, 0));
-		panel_20.add(e20);
-		
-		 panel_11 = new JPanel();
-		panel_11.setForeground(new Color(0, 128, 0));
-		panel_11.setBackground(new Color(0, 128, 0));
-		GridBagConstraints gbc_panel_11 = new GridBagConstraints();
-		gbc_panel_11.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_11.gridx = 1;
-		gbc_panel_11.gridy = 1;
-		getContentPane().add(panel_11, gbc_panel_11);
-		
-		 e11 = new JButton("");
-		 e11.setName("11");
-		e11.setForeground(new Color(0, 128, 0));
-		e11.setBackground(new Color(0, 128, 0));
-		panel_11.add(e11);
-		
-		 panel_12 = new JPanel();
-		panel_12.setForeground(new Color(0, 128, 0));
-		panel_12.setBackground(new Color(0, 128, 0));
-		GridBagConstraints gbc_panel_12 = new GridBagConstraints();
-		gbc_panel_12.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_12.gridx = 2;
-		gbc_panel_12.gridy = 1;
-		getContentPane().add(panel_12, gbc_panel_12);
-		
-		 e12 = new JButton("");
-		 e12.setName("12");
-		e12.setForeground(new Color(0, 128, 0));
-		e12.setBackground(new Color(0, 128, 0));
-		panel_12.add(e12);
-		
-		 panel_13 = new JPanel();
-		panel_13.setForeground(new Color(0, 128, 0));
-		panel_13.setBackground(new Color(0, 128, 0));
-		GridBagConstraints gbc_panel_13 = new GridBagConstraints();
-		gbc_panel_13.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_13.gridx = 3;
-		gbc_panel_13.gridy = 1;
-		getContentPane().add(panel_13, gbc_panel_13);
-		
-		 e13 = new JButton("");
-		 e13.setName("13");
-		e13.setBackground(new Color(0, 128, 0));
-		e13.setForeground(new Color(0, 128, 0));
-		panel_13.add(e13);
-		
-		 panel_14 = new JPanel();
-		panel_14.setForeground(new Color(0, 128, 0));
-		panel_14.setBackground(new Color(0, 128, 0));
-		GridBagConstraints gbc_panel_14 = new GridBagConstraints();
-		gbc_panel_14.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_14.gridx = 4;
-		gbc_panel_14.gridy = 1;
-		getContentPane().add(panel_14, gbc_panel_14);
-		
-		 e14 = new JButton("");
-		 e14.setName("14");
-		e14.setForeground(new Color(0, 128, 0));
-		e14.setBackground(new Color(0, 128, 0));
-		panel_14.add(e14);
-		
-		 panel_15 = new JPanel();
-		panel_15.setForeground(new Color(0, 128, 0));
-		panel_15.setBackground(new Color(0, 128, 0));
-		GridBagConstraints gbc_panel_15 = new GridBagConstraints();
-		gbc_panel_15.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_15.gridx = 5;
-		gbc_panel_15.gridy = 1;
-		getContentPane().add(panel_15, gbc_panel_15);
-		
-		 e15 = new JButton("");
-		 e15.setName("15");
-		e15.setForeground(new Color(0, 128, 0));
-		e15.setBackground(new Color(0, 128, 0));
-		panel_15.add(e15);
-		
-		 panel_16 = new JPanel();
-		panel_16.setForeground(new Color(0, 128, 0));
-		panel_16.setBackground(new Color(0, 128, 0));
-		GridBagConstraints gbc_panel_16 = new GridBagConstraints();
-		gbc_panel_16.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_16.gridx = 6;
-		gbc_panel_16.gridy = 1;
-		getContentPane().add(panel_16, gbc_panel_16);
-		
-		 e16 = new JButton("");
-		 e16.setName("16");
-		e16.setForeground(new Color(0, 128, 0));
-		e16.setBackground(new Color(0, 128, 0));
-		panel_16.add(e16);
-		
-		 panel_17 = new JPanel();
-		panel_17.setForeground(new Color(0, 128, 0));
-		panel_17.setBackground(new Color(0, 128, 0));
-		GridBagConstraints gbc_panel_17 = new GridBagConstraints();
-		gbc_panel_17.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_17.gridx = 7;
-		gbc_panel_17.gridy = 1;
-		getContentPane().add(panel_17, gbc_panel_17);
-		
-		 e17 = new JButton("");
-		 e17.setName("17");
-		e17.setBackground(new Color(0, 128, 0));
-		e17.setForeground(new Color(0, 128, 0));
-		panel_17.add(e17);
-		
-		 panel_18 = new JPanel();
-		panel_18.setForeground(new Color(0, 128, 0));
-		panel_18.setBackground(new Color(0, 128, 0));
-		GridBagConstraints gbc_panel_18 = new GridBagConstraints();
-		gbc_panel_18.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_18.gridx = 8;
-		gbc_panel_18.gridy = 1;
-		getContentPane().add(panel_18, gbc_panel_18);
-		
-		 e18 = new JButton("");
-		 e18.setName("18");
-		e18.setForeground(new Color(0, 128, 0));
-		e18.setBackground(new Color(0, 128, 0));
-		panel_18.add(e18);
-		
-		 panel_19 = new JPanel();
-		panel_19.setForeground(new Color(0, 128, 0));
-		panel_19.setBackground(new Color(0, 128, 0));
-		GridBagConstraints gbc_panel_19 = new GridBagConstraints();
-		gbc_panel_19.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_19.gridx = 9;
-		gbc_panel_19.gridy = 1;
-		getContentPane().add(panel_19, gbc_panel_19);
-		
-		 e19 = new JButton("");
-		 e19.setName("19");
-		e19.setBackground(new Color(0, 128, 0));
-		e19.setForeground(new Color(0, 128, 0));
-		panel_19.add(e19);
-		
-		 panel_21 = new JPanel();
-		panel_21.setForeground(new Color(0, 128, 0));
-		panel_21.setBackground(new Color(0, 128, 0));
-		GridBagConstraints gbc_panel_21 = new GridBagConstraints();
-		gbc_panel_21.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_21.gridx = 1;
-		gbc_panel_21.gridy = 2;
-		getContentPane().add(panel_21, gbc_panel_21);
-		
-		 e21 = new JButton("");
-		 e21.setName("21");
-		e21.setForeground(new Color(0, 128, 0));
-		e21.setBackground(new Color(0, 128, 0));
-		panel_21.add(e21);
-		
-		 panel_22 = new JPanel();
-		panel_22.setForeground(new Color(0, 128, 0));
-		panel_22.setBackground(new Color(0, 128, 0));
-		GridBagConstraints gbc_panel_22 = new GridBagConstraints();
-		gbc_panel_22.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_22.gridx = 2;
-		gbc_panel_22.gridy = 2;
-		getContentPane().add(panel_22, gbc_panel_22);
-		
-		 e22 = new JButton("");
-		 e22.setName("22");
-		e22.setForeground(new Color(0, 128, 0));
-		e22.setBackground(new Color(0, 128, 0));
-		panel_22.add(e22);
-		
-		 panel_23 = new JPanel();
-		panel_23.setForeground(new Color(0, 128, 0));
-		panel_23.setBackground(new Color(0, 128, 0));
-		GridBagConstraints gbc_panel_23 = new GridBagConstraints();
-		gbc_panel_23.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_23.gridx = 3;
-		gbc_panel_23.gridy = 2;
-		getContentPane().add(panel_23, gbc_panel_23);
-		
-		 e23 = new JButton("");
-		 e23.setName("23");
-		e23.setBackground(new Color(0, 128, 0));
-		e23.setForeground(new Color(0, 128, 0));
-		panel_23.add(e23);
-		
-		 panel_24 = new JPanel();
-		panel_24.setForeground(new Color(0, 128, 0));
-		panel_24.setBackground(new Color(0, 128, 0));
-		GridBagConstraints gbc_panel_24 = new GridBagConstraints();
-		gbc_panel_24.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_24.gridx = 4;
-		gbc_panel_24.gridy = 2;
-		getContentPane().add(panel_24, gbc_panel_24);
-		
-		 e24 = new JButton("");
-		 e24.setName("24");
-		e24.setBackground(new Color(0, 128, 0));
-		e24.setForeground(new Color(0, 128, 0));
-		panel_24.add(e24);
-		
-		 panel_25 = new JPanel();
-		panel_25.setForeground(new Color(0, 128, 0));
-		panel_25.setBackground(new Color(0, 128, 0));
-		GridBagConstraints gbc_panel_25 = new GridBagConstraints();
-		gbc_panel_25.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_25.gridx = 5;
-		gbc_panel_25.gridy = 2;
-		getContentPane().add(panel_25, gbc_panel_25);
-		
-		 e25 = new JButton("");
-		 e25.setName("25");
-		e25.setForeground(new Color(0, 128, 0));
-		e25.setBackground(new Color(0, 128, 0));
-		panel_25.add(e25);
-		
-		 panel_26 = new JPanel();
-		panel_26.setForeground(new Color(0, 128, 0));
-		panel_26.setBackground(new Color(0, 128, 0));
-		GridBagConstraints gbc_panel_26 = new GridBagConstraints();
-		gbc_panel_26.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_26.gridx = 6;
-		gbc_panel_26.gridy = 2;
-		getContentPane().add(panel_26, gbc_panel_26);
-		
-		 e26 = new JButton("");
-		 e26.setName("26");
-		e26.setBackground(new Color(0, 128, 0));
-		e26.setForeground(new Color(0, 128, 0));
-		panel_26.add(e26);
-		
-		 panel_27 = new JPanel();
-		panel_27.setBackground(new Color(0, 128, 0));
-		panel_27.setForeground(new Color(0, 128, 0));
-		GridBagConstraints gbc_panel_27 = new GridBagConstraints();
-		gbc_panel_27.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_27.gridx = 7;
-		gbc_panel_27.gridy = 2;
-		getContentPane().add(panel_27, gbc_panel_27);
-		
-		 e27 = new JButton("");
-		 e27.setName("27");
-		e27.setForeground(new Color(0, 128, 0));
-		e27.setBackground(new Color(0, 128, 0));
-		panel_27.add(e27);
-		
-		 panel_28 = new JPanel();
-		panel_28.setForeground(new Color(0, 128, 0));
-		panel_28.setBackground(new Color(0, 128, 0));
-		GridBagConstraints gbc_panel_28 = new GridBagConstraints();
-		gbc_panel_28.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_28.gridx = 8;
-		gbc_panel_28.gridy = 2;
-		getContentPane().add(panel_28, gbc_panel_28);
-		
-		 e28 = new JButton("");
-		 e28.setName("28");
-		e28.setBackground(new Color(0, 128, 0));
-		e28.setForeground(new Color(0, 128, 0));
-		panel_28.add(e28);
-		
-		 panel_29 = new JPanel();
-		panel_29.setBackground(new Color(0, 128, 0));
-		panel_29.setForeground(new Color(0, 128, 0));
-		GridBagConstraints gbc_panel_29 = new GridBagConstraints();
-		gbc_panel_29.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_29.gridx = 9;
-		gbc_panel_29.gridy = 2;
-		getContentPane().add(panel_29, gbc_panel_29);
-		
-		 e29 = new JButton("");
-		 e29.setName("29");
-		e29.setBackground(new Color(0, 128, 0));
-		e29.setForeground(new Color(0, 128, 0));
-		panel_29.add(e29);
-		
-		 panel_30 = new JPanel();
-		panel_30.setForeground(new Color(0, 128, 0));
-		panel_30.setBackground(new Color(0, 128, 0));
-		GridBagConstraints gbc_panel_30 = new GridBagConstraints();
-		gbc_panel_30.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_30.gridx = 10;
-		gbc_panel_30.gridy = 2;
-		getContentPane().add(panel_30, gbc_panel_30);
-		
-		 e30 = new JButton("");
-		 e30.setName("30");
-		e30.setForeground(new Color(0, 128, 0));
-		e30.setBackground(new Color(0, 128, 0));
-		panel_30.add(e30);
-		
-		 panel_31 = new JPanel();
-		panel_31.setForeground(new Color(0, 128, 0));
-		panel_31.setBackground(new Color(0, 128, 0));
-		GridBagConstraints gbc_panel_31 = new GridBagConstraints();
-		gbc_panel_31.fill = GridBagConstraints.BOTH;
-		gbc_panel_31.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_31.gridx = 1;
-		gbc_panel_31.gridy = 3;
-		getContentPane().add(panel_31, gbc_panel_31);
-		
-		 e31 = new JButton("");
-		 e31.setName("31");
-		e31.setForeground(new Color(0, 128, 0));
-		e31.setBackground(new Color(0, 128, 0));
-		panel_31.add(e31);
-		
-		 panel_32 = new JPanel();
-		panel_32.setForeground(new Color(0, 128, 0));
-		panel_32.setBackground(new Color(0, 128, 0));
-		GridBagConstraints gbc_panel_32 = new GridBagConstraints();
-		gbc_panel_32.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_32.fill = GridBagConstraints.BOTH;
-		gbc_panel_32.gridx = 2;
-		gbc_panel_32.gridy = 3;
-		getContentPane().add(panel_32, gbc_panel_32);
-		
-		 e32 = new JButton("");
-		 e32.setName("32");
-		e32.setForeground(new Color(0, 128, 0));
-		e32.setBackground(new Color(0, 128, 0));
-		panel_32.add(e32);
-		
-		 panel_33 = new JPanel();
-		panel_33.setForeground(new Color(0, 128, 0));
-		panel_33.setBackground(new Color(0, 128, 0));
-		GridBagConstraints gbc_panel_33 = new GridBagConstraints();
-		gbc_panel_33.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_33.fill = GridBagConstraints.BOTH;
-		gbc_panel_33.gridx = 3;
-		gbc_panel_33.gridy = 3;
-		getContentPane().add(panel_33, gbc_panel_33);
-		
-		 e33 = new JButton("");
-		 e33.setName("33");
-		e33.setForeground(new Color(0, 128, 0));
-		e33.setBackground(new Color(0, 128, 0));
-		panel_33.add(e33);
-		
-		 panel_34 = new JPanel();
-		panel_34.setForeground(new Color(0, 128, 0));
-		panel_34.setBackground(new Color(0, 128, 0));
-		GridBagConstraints gbc_panel_34 = new GridBagConstraints();
-		gbc_panel_34.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_34.fill = GridBagConstraints.BOTH;
-		gbc_panel_34.gridx = 4;
-		gbc_panel_34.gridy = 3;
-		getContentPane().add(panel_34, gbc_panel_34);
-		
-		 e34 = new JButton("");
-		 e34.setName("34");
-		e34.setForeground(new Color(0, 128, 0));
-		e34.setBackground(new Color(0, 128, 0));
-		panel_34.add(e34);
-		
-		 panel_35 = new JPanel();
-		panel_35.setForeground(new Color(0, 128, 0));
-		panel_35.setBackground(new Color(0, 128, 0));
-		GridBagConstraints gbc_panel_35 = new GridBagConstraints();
-		gbc_panel_35.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_35.fill = GridBagConstraints.BOTH;
-		gbc_panel_35.gridx = 5;
-		gbc_panel_35.gridy = 3;
-		getContentPane().add(panel_35, gbc_panel_35);
-		
-		 e35 = new JButton("");
-		 e35.setName("35");
-		e35.setForeground(new Color(0, 128, 0));
-		e35.setBackground(new Color(0, 128, 0));
-		panel_35.add(e35);
-		
-		 panel_36 = new JPanel();
-		panel_36.setForeground(new Color(0, 128, 0));
-		panel_36.setBackground(new Color(0, 128, 0));
-		GridBagConstraints gbc_panel_36 = new GridBagConstraints();
-		gbc_panel_36.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_36.fill = GridBagConstraints.BOTH;
-		gbc_panel_36.gridx = 6;
-		gbc_panel_36.gridy = 3;
-		getContentPane().add(panel_36, gbc_panel_36);
-		
-		 e36 = new JButton("");
-		 e36.setName("36");
-		e36.setForeground(new Color(0, 128, 0));
-		e36.setBackground(new Color(0, 128, 0));
-		panel_36.add(e36);
-		
-		 panel_37 = new JPanel();
-		panel_37.setForeground(new Color(0, 128, 0));
-		panel_37.setBackground(new Color(0, 128, 0));
-		GridBagConstraints gbc_panel_37 = new GridBagConstraints();
-		gbc_panel_37.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_37.fill = GridBagConstraints.BOTH;
-		gbc_panel_37.gridx = 7;
-		gbc_panel_37.gridy = 3;
-		getContentPane().add(panel_37, gbc_panel_37);
-		
-		 e37 = new JButton("");
-		 e37.setName("37");
-		e37.setForeground(new Color(0, 128, 0));
-		e37.setBackground(new Color(0, 128, 0));
-		panel_37.add(e37);
-		
-		 panel_38 = new JPanel();
-		panel_38.setForeground(new Color(0, 128, 0));
-		panel_38.setBackground(new Color(0, 128, 0));
-		GridBagConstraints gbc_panel_38 = new GridBagConstraints();
-		gbc_panel_38.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_38.fill = GridBagConstraints.BOTH;
-		gbc_panel_38.gridx = 8;
-		gbc_panel_38.gridy = 3;
-		getContentPane().add(panel_38, gbc_panel_38);
-		
-		 e38 = new JButton("");
-		 e38.setName("38");
-		e38.setForeground(new Color(0, 128, 0));
-		e38.setBackground(new Color(0, 128, 0));
-		panel_38.add(e38);
-		
-		 panel_39 = new JPanel();
-		panel_39.setForeground(new Color(0, 128, 0));
-		panel_39.setBackground(new Color(0, 128, 0));
-		GridBagConstraints gbc_panel_39 = new GridBagConstraints();
-		gbc_panel_39.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_39.fill = GridBagConstraints.BOTH;
-		gbc_panel_39.gridx = 9;
-		gbc_panel_39.gridy = 3;
-		getContentPane().add(panel_39, gbc_panel_39);
-		
-		 e39 = new JButton("");
-		 e39.setName("39");
-		e39.setForeground(new Color(0, 128, 0));
-		e39.setBackground(new Color(0, 128, 0));
-		panel_39.add(e39);
-		
-		 panel_40 = new JPanel();
-		panel_40.setForeground(new Color(0, 128, 0));
-		panel_40.setBackground(new Color(0, 128, 0));
-		GridBagConstraints gbc_panel_40 = new GridBagConstraints();
-		gbc_panel_40.fill = GridBagConstraints.BOTH;
-		gbc_panel_40.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_40.gridx = 10;
-		gbc_panel_40.gridy = 3;
-		getContentPane().add(panel_40, gbc_panel_40);
-		
-		 e40 = new JButton("");
-		 e40.setName("40");
-		e40.setForeground(new Color(0, 128, 0));
-		e40.setBackground(new Color(0, 128, 0));
-		panel_40.add(e40);
-		
-		actualizarBotonesSaltos();
-		
-
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 
@@ -1203,6 +335,11 @@ public class SolitarioSwing extends JFrame {
 		mnArchivo.add(mntmSalvarComo);
 
 		JMenuItem mntmSalir = new JMenuItem("Salir");
+		mntmSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				dispose();
+			}
+		});
 		mnArchivo.add(mntmSalir);
 
 		JMenu mnEditar = new JMenu("Editar");
@@ -1228,7 +365,7 @@ public class SolitarioSwing extends JFrame {
 
 		JMenuItem mntmAyuda = new JMenuItem("Ayuda");
 		mntmSolitarioClasico.addActionListener(new ListenerClasico());
-			
+		mntmSolitarioDeSaltos.addActionListener(new ListenerNuevoSaltos());
 		mntmAyuda.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JOptionPane.showMessageDialog(null, "Para realizar el solitario hay que...");
@@ -1237,7 +374,7 @@ public class SolitarioSwing extends JFrame {
 		
 		menuBar.add(mntmAyuda);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(10, 10, 1024, 1024);
+		setBounds(10, 10, 1200, 1200);
 		setVisible(true);
 	}
 	public void crearBotonesClasico(JLayeredPane pano,JButton button,int i,int dimension,int cartas,int pila) {
@@ -2238,6 +1375,102 @@ public class SolitarioSwing extends JFrame {
 		}
 	}
 	
+	private class ListenerSaltos implements ActionListener{
+		public void	actionPerformed(ActionEvent e){
+			int boton = 0;
+			boton = Integer.parseInt(((JButton) e.getSource()).getName());
+
+			
+			if(getPilaSeleccionada()==-1) {
+				seleccionada = new Carta(Pilas.get(boton-1).getCarta().getNum(),Pilas.get(boton-1).getCarta().getPalo(),Pilas.get(boton-1).getCarta().getBack(),Pilas.get(boton-1).getCarta().getRuta());
+				setPilaSeleccionada(boton-1);
+				setNumBtn(boton);
+			}
+			else if(primerSalto(boton-1,getPilaSeleccionada())  && (Pilas.get(boton-1)).saltoPosible(Pilas.get(getPilaSeleccionada())) && ((boton-1)==Pilas.get(getPilaSeleccionada()).getCorto() || (boton-1) == Pilas.get(getPilaSeleccionada()).getLargo())) {
+
+				Pilas.get(boton-1).addCarta(Pilas.get(getPilaSeleccionada()).getCarta());
+				Pilas.get(getPilaSeleccionada()).eliminarCarta();
+				if(Pilas.get(getPilaSeleccionada()).numCartas()==0) {
+					desplazarSaltos(getPilaSeleccionada());
+				}
+					
+				seleccionada = new Carta('0','0',false,"0");
+				setPilaSeleccionada(-1);
+				setNumBtn(-1);
+			}
+			
+			
+			else{
+				seleccionada = new Carta(Pilas.get(boton-1).getCarta().getNum(),Pilas.get(boton-1).getCarta().getPalo(),Pilas.get(boton-1).getCarta().getBack(),Pilas.get(boton-1).getCarta().getRuta());
+				setPilaSeleccionada(boton-1);
+				setNumBtn(boton);
+			}
+			actualizarBotonesSaltos();
+		
+	
+		}
+	}
+	boolean primerSalto(int i, int origen) {
+	
+		boolean primero = false;
+		boolean bucle = true;
+		int j = 0;
+		int salto = 0;
+		while(bucle && j<40) {
+		
+			
+				if(Pilas.get(j).numCartas()>0) {
+					if(Pilas.get(j).getLargo()>=0) {
+						if(Pilas.get(Pilas.get(j).getLargo()).saltoPosible(Pilas.get(j))) {
+							salto = Pilas.get(j).getLargo();
+							bucle = false;
+						
+						}
+					}
+					
+					if(Pilas.get(j).getCorto()>=0 && bucle) {
+						if(Pilas.get(Pilas.get(j).getCorto()).saltoPosible(Pilas.get(j))){
+							salto =Pilas.get(j).getCorto();//AQUI
+							bucle = false;
+						}
+					}
+					}
+			if(bucle) {
+				j++;
+			}
+		}
+		if(salto==i && origen == j) {
+			primero = true;
+			
+		}
+		return primero;
+	}
+	void desplazarSaltos(int n) {
+		for(int i = n;i<Pilas.size();i++) {
+			if(Pilas.get(i).getCorto()>=0) {
+				while(Pilas.get(Pilas.get(i).getCorto()).numCartas()==0) {
+					Pilas.get(i).cambiarCorto();
+				}
+			}
+			
+			while(Pilas.get(i).getLargo()>=0 && comprobarLargo(i,Pilas.get(i).getLargo())) {
+				Pilas.get(i).cambiarLargo();
+			}
+			
+		}
+	}
+	boolean comprobarLargo(int i,int largo) {
+		boolean cambiar = false;
+		int contar = 0;
+		for(int j = largo; j < i;j++) {
+			if(Pilas.get(j).numCartas()>0)
+				contar++;
+		}
+		if(contar<3) {
+			cambiar=true;
+		}
+		return cambiar;
+	}
 	private class MyListener implements ActionListener{
 		public void	actionPerformed(ActionEvent e){
 			String[] nombre =((JButton) e.getSource()).getName().split("_");
@@ -2338,6 +1571,11 @@ public class SolitarioSwing extends JFrame {
 	private class ListenerClasico implements ActionListener{
 		public void	actionPerformed(ActionEvent e){
 		nuevoClasico();
+		}
+	}
+	private class ListenerNuevoSaltos implements ActionListener{
+		public void	actionPerformed(ActionEvent e){
+		nuevoSaltos();
 		}
 	}
 	public void actualizarBotonesSaltos() {
@@ -2585,8 +1823,968 @@ public class SolitarioSwing extends JFrame {
 			e40.setVisible(false);
 		}
 	}
+	public void nuevoSaltos() {
+		getContentPane().removeAll();
+		Pilas = new ArrayList<Pila>();
+		pila = new Pila();
+		pila1 = new Pila();
+		pila2 = new Pila();
+		pila3 = new Pila();
+		pila4 = new Pila();	
+		pila5 = new Pila();
+		pila6 = new Pila();
+		pila7 = new Pila();
+		pila8 = new Pila();
+		pila9 = new Pila();
+		pila10 = new Pila();
+		pila11 = new Pila();
+		pila12 = new Pila();
+		pila13 = new Pila();
+		pila14 = new Pila();
+		pila15 = new Pila();
+		pila16 = new Pila();
+		pila17 = new Pila();
+		pila18 = new Pila();
+		pila19 = new Pila();	
+		pila20 = new Pila();
+		pila21 = new Pila();
+		pila22 = new Pila();
+		pila23 = new Pila();
+		pila24= new Pila();
+		pila25 = new Pila();
+		pila26 = new Pila();
+		pila27 = new Pila();
+		pila28 = new Pila();
+		pila29 = new Pila();
+		pila30 = new Pila();
+		pila31 = new Pila();
+		pila32 = new Pila();
+		pila33 = new Pila();
+		pila34 = new Pila();	
+		pila35 = new Pila();
+		pila36 = new Pila();
+		pila37 = new Pila();
+		pila38 = new Pila();
+		pila39 = new Pila();
+		pila40 = new Pila();
+		
+		
+		Carta AS = new Carta ('A','S',false,"/Images/espada/1.jpg");
+		pila.addCarta(AS);
+		Carta DS = new Carta ('2','S',false,"/Images/espada/2.jpg");
+		pila.addCarta(DS);
+		Carta TS = new Carta ('3','S',false,"/Images/espada/3.jpg");
+		pila.addCarta(TS);
+		Carta CS = new Carta ('4','S',false,"/Images/espada/4.jpg");
+		pila.addCarta(CS);
+		Carta CiS = new Carta ('5','S',false,"/Images/espada/5.jpg");
+		pila.addCarta(CiS);
+		Carta SS = new Carta ('6','S',false,"/Images/espada/6.jpg");
+		pila.addCarta(SS);
+		Carta SiS = new Carta ('7','S',false,"/Images/espada/7.jpg");
+		pila.addCarta(SiS);
+		
+		Carta DiS = new Carta ('T','S',false,"/Images/espada/10.jpg");
+		pila.addCarta(DiS);
+		Carta JS = new Carta ('J','S',false,"/Images/espada/11.jpg");
+		pila.addCarta(JS);
+		
+		Carta KS = new Carta ('K','S',false,"/Images/espada/12.jpg");
+		pila.addCarta(KS);
+		
+		Carta AC = new Carta ('A','C',false,"/Images/copa/1.jpg");
+		pila.addCarta(AC);
+		Carta DC = new Carta ('2','C',false,"/Images/copa/2.jpg");
+		pila.addCarta(DC);
+		Carta TC = new Carta ('3','C',false,"/Images/copa/3.jpg");;
+		pila.addCarta(TC);
+		Carta CC = new Carta ('4','C',false,"/Images/copa/4.jpg");
+		pila.addCarta(CC);
+		Carta CiC = new Carta ('5','C',false,"/Images/copa/5.jpg");
+		pila.addCarta(CiC);
+		Carta SC = new Carta ('6','C',false,"/Images/copa/6.jpg");
+		pila.addCarta(SC);
+		Carta SiC = new Carta ('7','C',false,"/Images/copa/7.jpg");
+		pila.addCarta(SiC);
+		
+		Carta DiC = new Carta ('T','C',false,"/Images/copa/10.jpg");
+		pila.addCarta(DiC);
+		Carta JC = new Carta ('J','C',false,"/Images/copa/11.jpg");
+		pila.addCarta(JC);
+		Carta KC = new Carta ('K','C',false,"/Images/copa/12.jpg");
+		pila.addCarta(KC);
 	
+		Carta AD = new Carta ('A','D',false,"/Images/oro/1.jpg");
+		pila.addCarta(AD);
+		Carta DD = new Carta ('2','D',false,"/Images/oro/2.jpg");
+		pila.addCarta(DD);
+		Carta TD = new Carta ('3','D',false,"/Images/oro/3.jpg");
+		pila.addCarta(TD);
+		Carta CD = new Carta ('4','D',false,"/Images/oro/4.jpg");
+		pila.addCarta(CD);
+		Carta CiD = new Carta ('5','D',false,"/Images/oro/5.jpg");
+		pila.addCarta(CiD);
+		Carta SD = new Carta ('6','D',false,"/Images/oro/6.jpg");
+		pila.addCarta(SD);
+		Carta SiD = new Carta ('7','D',false,"/Images/oro/7.jpg");
+		pila.addCarta(SiD);
+		
+		Carta DiD = new Carta ('T','D',false,"/Images/oro/10.jpg");
+		pila.addCarta(DiD);
+		Carta JD = new Carta ('J','D',false,"/Images/oro/11.jpg");
+		pila.addCarta(JD);
+		
+		Carta KD = new Carta ('K','D',false,"/Images/oro/12.jpg");
+		pila.addCarta(KD);
+	
+		Carta AH = new Carta ('A','H',false,"/Images/basto/1.jpg");
+		pila.addCarta(AH);
+		Carta DH = new Carta ('2','H',false,"/Images/basto/2.jpg");
+		pila.addCarta(DH);
+		Carta TH = new Carta ('3','H',false,"/Images/basto/3.jpg");
+		pila.addCarta(TH);
+		Carta CH = new Carta ('4','H',false,"/Images/basto/4.jpg");
+		pila.addCarta(CH);
+		Carta CiH = new Carta ('5','H',false,"/Images/basto/5.jpg");
+		pila.addCarta(CiH);
+		Carta SH = new Carta ('6','H',false,"/Images/basto/6.jpg");
+		pila.addCarta(SH);
+		Carta SiH = new Carta ('7','H',false,"/Images/basto/7.jpg");
+		pila.addCarta(SiH);
+		
+		Carta DiH = new Carta ('T','H',false,"/Images/basto/10.jpg");
+		pila.addCarta(DiH);
+		Carta JH = new Carta ('J','H',false,"/Images/basto/11.jpg");
+		pila.addCarta(JH);
+		
+		Carta KH = new Carta ('K','H',false,"/Images/basto/12.jpg");
+		pila.addCarta(KH);
+		
+		pila.barajar();
+		
+		pila1.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila2.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila3.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila4.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila5.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila6.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila7.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila8.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila9.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila10.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila11.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila12.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila13.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila14.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila15.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila16.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila17.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila18.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila19.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila20.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila21.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila22.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila23.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila24.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila25.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila26.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila27.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila28.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila29.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila30.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila31.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila32.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila33.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila34.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila35.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila36.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila37.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila38.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila39.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		pila40.addCarta(pila.getCarta());
+		pila.eliminarCarta();
+		
+		Pilas.add(pila1);
+		Pilas.add(pila2);
+		Pilas.add(pila3);
+		Pilas.add(pila4);
+		Pilas.add(pila5);
+		Pilas.add(pila6);
+		Pilas.add(pila7);
+		Pilas.add(pila8);
+		Pilas.add(pila9);
+		Pilas.add(pila10);
+		Pilas.add(pila11);
+		Pilas.add(pila12);
+		Pilas.add(pila13);
+		Pilas.add(pila14);
+		Pilas.add(pila15);
+		Pilas.add(pila16);
+		Pilas.add(pila17);
+		Pilas.add(pila18);
+		Pilas.add(pila19);
+		Pilas.add(pila20);
+		Pilas.add(pila21);
+		Pilas.add(pila22);
+		Pilas.add(pila23);
+		Pilas.add(pila24);
+		Pilas.add(pila25);
+		Pilas.add(pila26);
+		Pilas.add(pila27);
+		Pilas.add(pila28);
+		Pilas.add(pila29);
+		Pilas.add(pila30);
+		Pilas.add(pila31);
+		Pilas.add(pila32);
+		Pilas.add(pila33);
+		Pilas.add(pila34);
+		Pilas.add(pila35);
+		Pilas.add(pila36);
+		Pilas.add(pila37);
+		Pilas.add(pila38);
+		Pilas.add(pila39);
+		Pilas.add(pila40);
+		setPilaSeleccionada(-1);
+		
+		
+		panel_9 = new JPanel();
+		panel_9.setForeground(new Color(0, 128, 0));
+		panel_9.setBackground(new Color(0, 128, 0));
+		GridBagConstraints gbc_panel_9 = new GridBagConstraints();
+		gbc_panel_9.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_9.gridx = 9;
+		gbc_panel_9.gridy = 0;
+		getContentPane().add(panel_9, gbc_panel_9);
+		
+		 e9 = new JButton("");
+		 e9.setName("9");
+		e9.setBackground(new Color(0, 128, 0));
+		e9.setForeground(new Color(0, 128, 0));
+		panel_9.add(e9);
+		
+		panel_1 = new JPanel();
+		panel_1.setForeground(new Color(0, 128, 0));
+		panel_1.setBackground(new Color(0, 128, 0));
+		GridBagConstraints gbc_panel_1 = new GridBagConstraints();
+		gbc_panel_1.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_1.gridx = 1;
+		gbc_panel_1.gridy = 0;
+		getContentPane().add(panel_1, gbc_panel_1);
+		
+		e1 = new JButton("");
+		e1.setName("1");
+		e1.setForeground(new Color(0, 128, 0));
+		e1.setBackground(new Color(0, 128, 0));
+		panel_1.add(e1);
+		
+		 panel_2 = new JPanel();
+		panel_2.setBackground(new Color(0, 128, 0));
+		panel_2.setForeground(new Color(0, 128, 0));
+		GridBagConstraints gbc_panel_2 = new GridBagConstraints();
+		gbc_panel_2.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_2.gridx = 2;
+		gbc_panel_2.gridy = 0;
+		getContentPane().add(panel_2, gbc_panel_2);
+		
+		e2 = new JButton("");
+		e2.setName("2");
+		e2.setBackground(new Color(0, 128, 0));
+		e2.setForeground(new Color(0, 128, 0));
+		panel_2.add(e2);
+		
+		 panel_3 = new JPanel();
+		panel_3.setForeground(new Color(0, 128, 0));
+		panel_3.setBackground(new Color(0, 128, 0));
+		GridBagConstraints gbc_panel_3 = new GridBagConstraints();
+		gbc_panel_3.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_3.gridx = 3;
+		gbc_panel_3.gridy = 0;
+		getContentPane().add(panel_3, gbc_panel_3);
+		
+		e3 = new JButton("");
+		e3.setName("3");
+		e3.setBackground(new Color(0, 128, 0));
+		e3.setForeground(new Color(0, 128, 0));
+		panel_3.add(e3);
+		
+		 panel_4 = new JPanel();
+		panel_4.setForeground(new Color(0, 128, 0));
+		panel_4.setBackground(new Color(0, 128, 0));
+		GridBagConstraints gbc_panel_4 = new GridBagConstraints();
+		gbc_panel_4.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_4.gridx = 4;
+		gbc_panel_4.gridy = 0;
+		getContentPane().add(panel_4, gbc_panel_4);
+		
+		e4 = new JButton("");
+		e4.setName("4");
+		e4.setBackground(new Color(0, 128, 0));
+		e4.setForeground(new Color(0, 128, 0));
+		panel_4.add(e4);
+		
+		 panel_5 = new JPanel();
+		panel_5.setForeground(new Color(0, 128, 0));
+		panel_5.setBackground(new Color(0, 128, 0));
+		GridBagConstraints gbc_panel_5 = new GridBagConstraints();
+		gbc_panel_5.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_5.gridx = 5;
+		gbc_panel_5.gridy = 0;
+		getContentPane().add(panel_5, gbc_panel_5);
+		
+		 e5 = new JButton("");
+		 e5.setName("5");
+		e5.setForeground(new Color(0, 128, 0));
+		e5.setBackground(new Color(0, 128, 0));
+		panel_5.add(e5);
+		
+		 panel_6 = new JPanel();
+		panel_6.setForeground(new Color(0, 128, 0));
+		panel_6.setBackground(new Color(0, 128, 0));
+		GridBagConstraints gbc_panel_6 = new GridBagConstraints();
+		gbc_panel_6.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_6.gridx = 6;
+		gbc_panel_6.gridy = 0;
+		getContentPane().add(panel_6, gbc_panel_6);
+		
+		 e6 = new JButton("");
+		 e6.setName("6");
+		e6.setForeground(new Color(0, 128, 0));
+		e6.setBackground(new Color(0, 128, 0));
+		panel_6.add(e6);
+		
+		 panel_7 = new JPanel();
+		panel_7.setForeground(new Color(0, 128, 0));
+		panel_7.setBackground(new Color(0, 128, 0));
+		GridBagConstraints gbc_panel_7 = new GridBagConstraints();
+		gbc_panel_7.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_7.gridx = 7;
+		gbc_panel_7.gridy = 0;
+		getContentPane().add(panel_7, gbc_panel_7);
+		
+		 e7 = new JButton("");
+		 e7.setName("7");
+		e7.setBackground(new Color(0, 128, 0));
+		e7.setForeground(new Color(0, 128, 0));
+		panel_7.add(e7);
+		
+		 panel_8 = new JPanel();
+		panel_8.setForeground(new Color(0, 128, 0));
+		panel_8.setBackground(new Color(0, 128, 0));
+		GridBagConstraints gbc_panel_8 = new GridBagConstraints();
+		gbc_panel_8.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_8.gridx = 8;
+		gbc_panel_8.gridy = 0;
+		getContentPane().add(panel_8, gbc_panel_8);
+		
+		 e8 = new JButton("");
+		 e8.setName("8");
+		e8.setForeground(new Color(0, 128, 0));
+		e8.setBackground(new Color(0, 128, 0));
+		panel_8.add(e8);
+		
+		 panel_10 = new JPanel();
+		panel_10.setForeground(new Color(0, 128, 0));
+		panel_10.setBackground(new Color(0, 128, 0));
+		GridBagConstraints gbc_panel_10 = new GridBagConstraints();
+		gbc_panel_10.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_10.gridx = 10;
+		gbc_panel_10.gridy = 0;
+		getContentPane().add(panel_10, gbc_panel_10);
+		
+		 e10 = new JButton("");
+		 e10.setName("10");
+		e10.setBackground(new Color(0, 128, 0));
+		e10.setForeground(new Color(0, 128, 0));
+		panel_10.add(e10);
+		
+		 panel_20 = new JPanel();
+		panel_20.setForeground(new Color(0, 128, 0));
+		panel_20.setBackground(new Color(0, 128, 0));
+		GridBagConstraints gbc_panel_20 = new GridBagConstraints();
+		gbc_panel_20.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_20.gridx = 10;
+		gbc_panel_20.gridy = 1;
+		getContentPane().add(panel_20, gbc_panel_20);
+		
+		 e20 = new JButton("");
+		 e20.setName("20");
+		e20.setBackground(new Color(0, 128, 0));
+		e20.setForeground(new Color(0, 128, 0));
+		panel_20.add(e20);
+		
+		 panel_11 = new JPanel();
+		panel_11.setForeground(new Color(0, 128, 0));
+		panel_11.setBackground(new Color(0, 128, 0));
+		GridBagConstraints gbc_panel_11 = new GridBagConstraints();
+		gbc_panel_11.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_11.gridx = 1;
+		gbc_panel_11.gridy = 1;
+		getContentPane().add(panel_11, gbc_panel_11);
+		
+		 e11 = new JButton("");
+		 e11.setName("11");
+		e11.setForeground(new Color(0, 128, 0));
+		e11.setBackground(new Color(0, 128, 0));
+		panel_11.add(e11);
+		
+		 panel_12 = new JPanel();
+		panel_12.setForeground(new Color(0, 128, 0));
+		panel_12.setBackground(new Color(0, 128, 0));
+		GridBagConstraints gbc_panel_12 = new GridBagConstraints();
+		gbc_panel_12.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_12.gridx = 2;
+		gbc_panel_12.gridy = 1;
+		getContentPane().add(panel_12, gbc_panel_12);
+		
+		 e12 = new JButton("");
+		 e12.setName("12");
+		e12.setForeground(new Color(0, 128, 0));
+		e12.setBackground(new Color(0, 128, 0));
+		panel_12.add(e12);
+		
+		 panel_13 = new JPanel();
+		panel_13.setForeground(new Color(0, 128, 0));
+		panel_13.setBackground(new Color(0, 128, 0));
+		GridBagConstraints gbc_panel_13 = new GridBagConstraints();
+		gbc_panel_13.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_13.gridx = 3;
+		gbc_panel_13.gridy = 1;
+		getContentPane().add(panel_13, gbc_panel_13);
+		
+		 e13 = new JButton("");
+		 e13.setName("13");
+		e13.setBackground(new Color(0, 128, 0));
+		e13.setForeground(new Color(0, 128, 0));
+		panel_13.add(e13);
+		
+		 panel_14 = new JPanel();
+		panel_14.setForeground(new Color(0, 128, 0));
+		panel_14.setBackground(new Color(0, 128, 0));
+		GridBagConstraints gbc_panel_14 = new GridBagConstraints();
+		gbc_panel_14.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_14.gridx = 4;
+		gbc_panel_14.gridy = 1;
+		getContentPane().add(panel_14, gbc_panel_14);
+		
+		 e14 = new JButton("");
+		 e14.setName("14");
+		e14.setForeground(new Color(0, 128, 0));
+		e14.setBackground(new Color(0, 128, 0));
+		panel_14.add(e14);
+		
+		 panel_15 = new JPanel();
+		panel_15.setForeground(new Color(0, 128, 0));
+		panel_15.setBackground(new Color(0, 128, 0));
+		GridBagConstraints gbc_panel_15 = new GridBagConstraints();
+		gbc_panel_15.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_15.gridx = 5;
+		gbc_panel_15.gridy = 1;
+		getContentPane().add(panel_15, gbc_panel_15);
+		
+		 e15 = new JButton("");
+		 e15.setName("15");
+		e15.setForeground(new Color(0, 128, 0));
+		e15.setBackground(new Color(0, 128, 0));
+		panel_15.add(e15);
+		
+		 panel_16 = new JPanel();
+		panel_16.setForeground(new Color(0, 128, 0));
+		panel_16.setBackground(new Color(0, 128, 0));
+		GridBagConstraints gbc_panel_16 = new GridBagConstraints();
+		gbc_panel_16.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_16.gridx = 6;
+		gbc_panel_16.gridy = 1;
+		getContentPane().add(panel_16, gbc_panel_16);
+		
+		 e16 = new JButton("");
+		 e16.setName("16");
+		e16.setForeground(new Color(0, 128, 0));
+		e16.setBackground(new Color(0, 128, 0));
+		panel_16.add(e16);
+		
+		 panel_17 = new JPanel();
+		panel_17.setForeground(new Color(0, 128, 0));
+		panel_17.setBackground(new Color(0, 128, 0));
+		GridBagConstraints gbc_panel_17 = new GridBagConstraints();
+		gbc_panel_17.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_17.gridx = 7;
+		gbc_panel_17.gridy = 1;
+		getContentPane().add(panel_17, gbc_panel_17);
+		
+		 e17 = new JButton("");
+		 e17.setName("17");
+		e17.setBackground(new Color(0, 128, 0));
+		e17.setForeground(new Color(0, 128, 0));
+		panel_17.add(e17);
+		
+		 panel_18 = new JPanel();
+		panel_18.setForeground(new Color(0, 128, 0));
+		panel_18.setBackground(new Color(0, 128, 0));
+		GridBagConstraints gbc_panel_18 = new GridBagConstraints();
+		gbc_panel_18.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_18.gridx = 8;
+		gbc_panel_18.gridy = 1;
+		getContentPane().add(panel_18, gbc_panel_18);
+		
+		 e18 = new JButton("");
+		 e18.setName("18");
+		e18.setForeground(new Color(0, 128, 0));
+		e18.setBackground(new Color(0, 128, 0));
+		panel_18.add(e18);
+		
+		 panel_19 = new JPanel();
+		panel_19.setForeground(new Color(0, 128, 0));
+		panel_19.setBackground(new Color(0, 128, 0));
+		GridBagConstraints gbc_panel_19 = new GridBagConstraints();
+		gbc_panel_19.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_19.gridx = 9;
+		gbc_panel_19.gridy = 1;
+		getContentPane().add(panel_19, gbc_panel_19);
+		
+		 e19 = new JButton("");
+		 e19.setName("19");
+		e19.setBackground(new Color(0, 128, 0));
+		e19.setForeground(new Color(0, 128, 0));
+		panel_19.add(e19);
+		
+		 panel_21 = new JPanel();
+		panel_21.setForeground(new Color(0, 128, 0));
+		panel_21.setBackground(new Color(0, 128, 0));
+		GridBagConstraints gbc_panel_21 = new GridBagConstraints();
+		gbc_panel_21.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_21.gridx = 1;
+		gbc_panel_21.gridy = 2;
+		getContentPane().add(panel_21, gbc_panel_21);
+		
+		 e21 = new JButton("");
+		 e21.setName("21");
+		e21.setForeground(new Color(0, 128, 0));
+		e21.setBackground(new Color(0, 128, 0));
+		panel_21.add(e21);
+		
+		 panel_22 = new JPanel();
+		panel_22.setForeground(new Color(0, 128, 0));
+		panel_22.setBackground(new Color(0, 128, 0));
+		GridBagConstraints gbc_panel_22 = new GridBagConstraints();
+		gbc_panel_22.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_22.gridx = 2;
+		gbc_panel_22.gridy = 2;
+		getContentPane().add(panel_22, gbc_panel_22);
+		
+		 e22 = new JButton("");
+		 e22.setName("22");
+		e22.setForeground(new Color(0, 128, 0));
+		e22.setBackground(new Color(0, 128, 0));
+		panel_22.add(e22);
+		
+		 panel_23 = new JPanel();
+		panel_23.setForeground(new Color(0, 128, 0));
+		panel_23.setBackground(new Color(0, 128, 0));
+		GridBagConstraints gbc_panel_23 = new GridBagConstraints();
+		gbc_panel_23.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_23.gridx = 3;
+		gbc_panel_23.gridy = 2;
+		getContentPane().add(panel_23, gbc_panel_23);
+		
+		 e23 = new JButton("");
+		 e23.setName("23");
+		e23.setBackground(new Color(0, 128, 0));
+		e23.setForeground(new Color(0, 128, 0));
+		panel_23.add(e23);
+		
+		 panel_24 = new JPanel();
+		panel_24.setForeground(new Color(0, 128, 0));
+		panel_24.setBackground(new Color(0, 128, 0));
+		GridBagConstraints gbc_panel_24 = new GridBagConstraints();
+		gbc_panel_24.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_24.gridx = 4;
+		gbc_panel_24.gridy = 2;
+		getContentPane().add(panel_24, gbc_panel_24);
+		
+		 e24 = new JButton("");
+		 e24.setName("24");
+		e24.setBackground(new Color(0, 128, 0));
+		e24.setForeground(new Color(0, 128, 0));
+		panel_24.add(e24);
+		
+		 panel_25 = new JPanel();
+		panel_25.setForeground(new Color(0, 128, 0));
+		panel_25.setBackground(new Color(0, 128, 0));
+		GridBagConstraints gbc_panel_25 = new GridBagConstraints();
+		gbc_panel_25.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_25.gridx = 5;
+		gbc_panel_25.gridy = 2;
+		getContentPane().add(panel_25, gbc_panel_25);
+		
+		 e25 = new JButton("");
+		 e25.setName("25");
+		e25.setForeground(new Color(0, 128, 0));
+		e25.setBackground(new Color(0, 128, 0));
+		panel_25.add(e25);
+		
+		 panel_26 = new JPanel();
+		panel_26.setForeground(new Color(0, 128, 0));
+		panel_26.setBackground(new Color(0, 128, 0));
+		GridBagConstraints gbc_panel_26 = new GridBagConstraints();
+		gbc_panel_26.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_26.gridx = 6;
+		gbc_panel_26.gridy = 2;
+		getContentPane().add(panel_26, gbc_panel_26);
+		
+		 e26 = new JButton("");
+		 e26.setName("26");
+		e26.setBackground(new Color(0, 128, 0));
+		e26.setForeground(new Color(0, 128, 0));
+		panel_26.add(e26);
+		
+		 panel_27 = new JPanel();
+		panel_27.setBackground(new Color(0, 128, 0));
+		panel_27.setForeground(new Color(0, 128, 0));
+		GridBagConstraints gbc_panel_27 = new GridBagConstraints();
+		gbc_panel_27.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_27.gridx = 7;
+		gbc_panel_27.gridy = 2;
+		getContentPane().add(panel_27, gbc_panel_27);
+		
+		 e27 = new JButton("");
+		 e27.setName("27");
+		e27.setForeground(new Color(0, 128, 0));
+		e27.setBackground(new Color(0, 128, 0));
+		panel_27.add(e27);
+		
+		 panel_28 = new JPanel();
+		panel_28.setForeground(new Color(0, 128, 0));
+		panel_28.setBackground(new Color(0, 128, 0));
+		GridBagConstraints gbc_panel_28 = new GridBagConstraints();
+		gbc_panel_28.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_28.gridx = 8;
+		gbc_panel_28.gridy = 2;
+		getContentPane().add(panel_28, gbc_panel_28);
+		
+		 e28 = new JButton("");
+		 e28.setName("28");
+		e28.setBackground(new Color(0, 128, 0));
+		e28.setForeground(new Color(0, 128, 0));
+		panel_28.add(e28);
+		
+		 panel_29 = new JPanel();
+		panel_29.setBackground(new Color(0, 128, 0));
+		panel_29.setForeground(new Color(0, 128, 0));
+		GridBagConstraints gbc_panel_29 = new GridBagConstraints();
+		gbc_panel_29.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_29.gridx = 9;
+		gbc_panel_29.gridy = 2;
+		getContentPane().add(panel_29, gbc_panel_29);
+		
+		 e29 = new JButton("");
+		 e29.setName("29");
+		e29.setBackground(new Color(0, 128, 0));
+		e29.setForeground(new Color(0, 128, 0));
+		panel_29.add(e29);
+		
+		 panel_30 = new JPanel();
+		panel_30.setForeground(new Color(0, 128, 0));
+		panel_30.setBackground(new Color(0, 128, 0));
+		GridBagConstraints gbc_panel_30 = new GridBagConstraints();
+		gbc_panel_30.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_30.gridx = 10;
+		gbc_panel_30.gridy = 2;
+		getContentPane().add(panel_30, gbc_panel_30);
+		
+		 e30 = new JButton("");
+		 e30.setName("30");
+		e30.setForeground(new Color(0, 128, 0));
+		e30.setBackground(new Color(0, 128, 0));
+		panel_30.add(e30);
+		
+		 panel_31 = new JPanel();
+		panel_31.setForeground(new Color(0, 128, 0));
+		panel_31.setBackground(new Color(0, 128, 0));
+		GridBagConstraints gbc_panel_31 = new GridBagConstraints();
+		gbc_panel_31.fill = GridBagConstraints.BOTH;
+		gbc_panel_31.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_31.gridx = 1;
+		gbc_panel_31.gridy = 3;
+		getContentPane().add(panel_31, gbc_panel_31);
+		
+		 e31 = new JButton("");
+		 e31.setName("31");
+		e31.setForeground(new Color(0, 128, 0));
+		e31.setBackground(new Color(0, 128, 0));
+		panel_31.add(e31);
+		
+		 panel_32 = new JPanel();
+		panel_32.setForeground(new Color(0, 128, 0));
+		panel_32.setBackground(new Color(0, 128, 0));
+		GridBagConstraints gbc_panel_32 = new GridBagConstraints();
+		gbc_panel_32.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_32.fill = GridBagConstraints.BOTH;
+		gbc_panel_32.gridx = 2;
+		gbc_panel_32.gridy = 3;
+		getContentPane().add(panel_32, gbc_panel_32);
+		
+		 e32 = new JButton("");
+		 e32.setName("32");
+		e32.setForeground(new Color(0, 128, 0));
+		e32.setBackground(new Color(0, 128, 0));
+		panel_32.add(e32);
+		
+		 panel_33 = new JPanel();
+		panel_33.setForeground(new Color(0, 128, 0));
+		panel_33.setBackground(new Color(0, 128, 0));
+		GridBagConstraints gbc_panel_33 = new GridBagConstraints();
+		gbc_panel_33.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_33.fill = GridBagConstraints.BOTH;
+		gbc_panel_33.gridx = 3;
+		gbc_panel_33.gridy = 3;
+		getContentPane().add(panel_33, gbc_panel_33);
+		
+		 e33 = new JButton("");
+		 e33.setName("33");
+		e33.setForeground(new Color(0, 128, 0));
+		e33.setBackground(new Color(0, 128, 0));
+		panel_33.add(e33);
+		
+		 panel_34 = new JPanel();
+		panel_34.setForeground(new Color(0, 128, 0));
+		panel_34.setBackground(new Color(0, 128, 0));
+		GridBagConstraints gbc_panel_34 = new GridBagConstraints();
+		gbc_panel_34.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_34.fill = GridBagConstraints.BOTH;
+		gbc_panel_34.gridx = 4;
+		gbc_panel_34.gridy = 3;
+		getContentPane().add(panel_34, gbc_panel_34);
+		
+		 e34 = new JButton("");
+		 e34.setName("34");
+		e34.setForeground(new Color(0, 128, 0));
+		e34.setBackground(new Color(0, 128, 0));
+		panel_34.add(e34);
+		
+		 panel_35 = new JPanel();
+		panel_35.setForeground(new Color(0, 128, 0));
+		panel_35.setBackground(new Color(0, 128, 0));
+		GridBagConstraints gbc_panel_35 = new GridBagConstraints();
+		gbc_panel_35.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_35.fill = GridBagConstraints.BOTH;
+		gbc_panel_35.gridx = 5;
+		gbc_panel_35.gridy = 3;
+		getContentPane().add(panel_35, gbc_panel_35);
+		
+		 e35 = new JButton("");
+		 e35.setName("35");
+		e35.setForeground(new Color(0, 128, 0));
+		e35.setBackground(new Color(0, 128, 0));
+		panel_35.add(e35);
+		
+		 panel_36 = new JPanel();
+		panel_36.setForeground(new Color(0, 128, 0));
+		panel_36.setBackground(new Color(0, 128, 0));
+		GridBagConstraints gbc_panel_36 = new GridBagConstraints();
+		gbc_panel_36.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_36.fill = GridBagConstraints.BOTH;
+		gbc_panel_36.gridx = 6;
+		gbc_panel_36.gridy = 3;
+		getContentPane().add(panel_36, gbc_panel_36);
+		
+		 e36 = new JButton("");
+		 e36.setName("36");
+		e36.setForeground(new Color(0, 128, 0));
+		e36.setBackground(new Color(0, 128, 0));
+		panel_36.add(e36);
+		
+		 panel_37 = new JPanel();
+		panel_37.setForeground(new Color(0, 128, 0));
+		panel_37.setBackground(new Color(0, 128, 0));
+		GridBagConstraints gbc_panel_37 = new GridBagConstraints();
+		gbc_panel_37.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_37.fill = GridBagConstraints.BOTH;
+		gbc_panel_37.gridx = 7;
+		gbc_panel_37.gridy = 3;
+		getContentPane().add(panel_37, gbc_panel_37);
+		
+		 e37 = new JButton("");
+		 e37.setName("37");
+		e37.setForeground(new Color(0, 128, 0));
+		e37.setBackground(new Color(0, 128, 0));
+		panel_37.add(e37);
+		
+		 panel_38 = new JPanel();
+		panel_38.setForeground(new Color(0, 128, 0));
+		panel_38.setBackground(new Color(0, 128, 0));
+		GridBagConstraints gbc_panel_38 = new GridBagConstraints();
+		gbc_panel_38.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_38.fill = GridBagConstraints.BOTH;
+		gbc_panel_38.gridx = 8;
+		gbc_panel_38.gridy = 3;
+		getContentPane().add(panel_38, gbc_panel_38);
+		
+		 e38 = new JButton("");
+		 e38.setName("38");
+		e38.setForeground(new Color(0, 128, 0));
+		e38.setBackground(new Color(0, 128, 0));
+		panel_38.add(e38);
+		
+		 panel_39 = new JPanel();
+		panel_39.setForeground(new Color(0, 128, 0));
+		panel_39.setBackground(new Color(0, 128, 0));
+		GridBagConstraints gbc_panel_39 = new GridBagConstraints();
+		gbc_panel_39.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_39.fill = GridBagConstraints.BOTH;
+		gbc_panel_39.gridx = 9;
+		gbc_panel_39.gridy = 3;
+		getContentPane().add(panel_39, gbc_panel_39);
+		
+		 e39 = new JButton("");
+		 e39.setName("39");
+		e39.setForeground(new Color(0, 128, 0));
+		e39.setBackground(new Color(0, 128, 0));
+		panel_39.add(e39);
+		
+		 panel_40 = new JPanel();
+		panel_40.setForeground(new Color(0, 128, 0));
+		panel_40.setBackground(new Color(0, 128, 0));
+		GridBagConstraints gbc_panel_40 = new GridBagConstraints();
+		gbc_panel_40.fill = GridBagConstraints.BOTH;
+		gbc_panel_40.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_40.gridx = 10;
+		gbc_panel_40.gridy = 3;
+		getContentPane().add(panel_40, gbc_panel_40);
+		
+		 e40 = new JButton("");
+		 e40.setName("40");
+		e40.setForeground(new Color(0, 128, 0));
+		e40.setBackground(new Color(0, 128, 0));
+		panel_40.add(e40);
+		
+		e1.addActionListener(new ListenerSaltos());
+		
+		e2.addActionListener(new ListenerSaltos());
+		e3.addActionListener(new ListenerSaltos());
+		e4.addActionListener(new ListenerSaltos());
+		e5.addActionListener(new ListenerSaltos());
+		e6.addActionListener(new ListenerSaltos());
+		e7.addActionListener(new ListenerSaltos());
+		e8.addActionListener(new ListenerSaltos());
+		e9.addActionListener(new ListenerSaltos());
+		e10.addActionListener(new ListenerSaltos());
+		e11.addActionListener(new ListenerSaltos());
+		
+		e12.addActionListener(new ListenerSaltos());
+		e13.addActionListener(new ListenerSaltos());
+		e14.addActionListener(new ListenerSaltos());
+		e15.addActionListener(new ListenerSaltos());
+		e16.addActionListener(new ListenerSaltos());
+		e17.addActionListener(new ListenerSaltos());
+		e18.addActionListener(new ListenerSaltos());
+		e19.addActionListener(new ListenerSaltos());
+		e20.addActionListener(new ListenerSaltos());
+		e21.addActionListener(new ListenerSaltos());
+		
+		e22.addActionListener(new ListenerSaltos());
+		e23.addActionListener(new ListenerSaltos());
+		e24.addActionListener(new ListenerSaltos());
+		e25.addActionListener(new ListenerSaltos());
+		e26.addActionListener(new ListenerSaltos());
+		e27.addActionListener(new ListenerSaltos());
+		e28.addActionListener(new ListenerSaltos());
+		e29.addActionListener(new ListenerSaltos());
+		e30.addActionListener(new ListenerSaltos());
+		e31.addActionListener(new ListenerSaltos());
+		
+		e32.addActionListener(new ListenerSaltos());
+		e33.addActionListener(new ListenerSaltos());
+		e34.addActionListener(new ListenerSaltos());
+		e35.addActionListener(new ListenerSaltos());
+		e36.addActionListener(new ListenerSaltos());
+		e37.addActionListener(new ListenerSaltos());
+		e38.addActionListener(new ListenerSaltos());
+		e39.addActionListener(new ListenerSaltos());
+		e40.addActionListener(new ListenerSaltos());
+		actualizarBotonesSaltos();
+		
+		pila1.setSaltos(0);
+		pila2.setSaltos(1);
+		pila3.setSaltos(2);
+		pila4.setSaltos(3);
+		pila5.setSaltos(4);
+		pila6.setSaltos(5);
+		pila7.setSaltos(6);
+		pila8.setSaltos(7);
+		pila9.setSaltos(8);
+		pila10.setSaltos(9);
+		pila11.setSaltos(10);
+		pila12.setSaltos(11);
+		pila13.setSaltos(12);
+		pila14.setSaltos(13);
+		pila15.setSaltos(14);
+		pila16.setSaltos(15);
+		pila17.setSaltos(16);
+		pila18.setSaltos(17);
+		pila19.setSaltos(18);
+		pila20.setSaltos(19);
+		pila21.setSaltos(20);
+		pila22.setSaltos(21);
+		pila23.setSaltos(22);
+		pila24.setSaltos(23);
+		pila25.setSaltos(24);
+		pila26.setSaltos(25);
+		pila27.setSaltos(26);
+		pila28.setSaltos(27);
+		pila29.setSaltos(28);
+		pila30.setSaltos(29);
+		pila31.setSaltos(30);
+		pila32.setSaltos(31);
+		pila33.setSaltos(32);
+		pila34.setSaltos(33);
+		pila35.setSaltos(34);
+		pila36.setSaltos(35);
+		pila37.setSaltos(36);
+		pila38.setSaltos(37);
+		pila39.setSaltos(38);
+		pila40.setSaltos(39);
+	}
 	public void nuevoClasico() {
+		getContentPane().removeAll();
 		Pilas = new ArrayList<Pila>();
 		Pila pila = new Pila();
 		Pila monton = new Pila();
@@ -3720,6 +3918,7 @@ public class SolitarioSwing extends JFrame {
 		
 		
 	}
+	
 	private static void addPopup(Component component, final JPopupMenu popup) {
 		component.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent e) {

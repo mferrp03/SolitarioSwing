@@ -3,10 +3,38 @@ import java.util.Collections;
 import java.util.List;
 public class Pila {
 	ArrayList<Carta>pila;
+	private int corto = 0;
+	private int largo = 0;
 	private int i = 0;
 	Pila(){
 		pila = new ArrayList<Carta>();
 	}
+	void setSaltos(int n) {
+		this.corto = n-1;
+		this.largo = n-3;
+	}
+	void cambiarCorto() {
+		this.corto-=1;
+	}
+	void cambiarLargo() {
+		this.largo-=1;
+	}
+	int getCorto() {
+		return this.corto;
+	}
+	int getLargo() {
+		return this.largo;
+	}
+
+	
+	boolean saltoPosible(Pila pila) {
+		boolean salto = false;
+		if(this.getCarta().mismoNumero(pila.getCarta()) || this.getCarta().mismoPalo(pila.getCarta() )){
+			salto = true;
+		}
+		return salto;
+	}
+
 	void addCarta(Carta carta) {
 		pila.add(carta);
 		i++;
@@ -41,5 +69,6 @@ public class Pila {
 	void barajar() {
 		Collections.shuffle(pila);
 	}
+	
 }
 
