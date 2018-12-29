@@ -23,6 +23,7 @@ public class SolitarioSwing extends JFrame {
 	private Carta seleccionada = new Carta ('0','0',false,"0");
 	int pilaSeleccionada = 0;
 	int numBtn = 0;
+	ArrayList<char[]>movimientos;
 	int oMov = -1;//pila de origen del ultimo movimiento
 	int dMov = -1;//pila de destino del ultimo movimiento
 	int tipo = 0;//sera 1 para el solitario clasico y 2 para el de saltos
@@ -389,7 +390,7 @@ public class SolitarioSwing extends JFrame {
 		mntmResolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (tipo == 1) {
-					
+					primerMovimientoClasico();
 					
 				}
 				if(tipo == 2) {
@@ -446,19 +447,23 @@ public class SolitarioSwing extends JFrame {
 	}
 	public boolean movimientoRepetido(Carta carta,int origen,int destino) {
 		boolean repetido = false;
+		
 		if(carta == seleccionada && destino == oMov && origen == dMov) {
 			repetido = true;
 		}
 		return repetido;
 	}
-	public boolean primerMovimientoClasico() {// TODO tener en cuenta reyes, solo permitir mover cartas descubiertas, implementar descubrir cartas y terminar de implementar la comprobacion de movimientos repetidos
+	public void primerMovimientoClasico() {// TODO se forman ciclos de 3 movimientos que previenen el bucle de acabarse nunca
 		
 		boolean stop = false;
 		int i = 0;
 		boolean pila1 = true;
 		while(i<= 12 && !stop) {
-		
-		if(Pilas.get(1).numCartas()>0 && pila1) {//TODO ahora mismo siempre entra aqui
+			for(int n = 6;n<=12;n++) {
+				if(Pilas.get(n).numCartas()>0)
+					Pilas.get(n).getCarta().setBack(false);
+			}
+		if(Pilas.get(1).numCartas()>0 && pila1) {
 			i = 2;
 				while(i<=5 && i>0) {
 					if(Pilas.get(1).getCarta().getNum()=='A') {
@@ -480,18 +485,24 @@ public class SolitarioSwing extends JFrame {
 						
 					}
 					else {
-						if(Pilas.get(1).getCarta().movimientoAMonton(Pilas.get(i).getCarta())) {
-							if(movimientoRepetido(Pilas.get(1).getCarta(),1,i))
+						//TODO se esta intentando coger una carta que no existe
+						if(Pilas.get(i).numCartas()>0) {
+							if(Pilas.get(1).getCarta().movimientoAMonton(Pilas.get(i).getCarta())) {
+								if(movimientoRepetido(Pilas.get(1).getCarta(),1,i))
 								stop=true;
-							else {
-								seleccionada = Pilas.get(1).getCarta();
-								oMov = 1;
-								dMov = i;
-								Pilas.get(i).addCarta(Pilas.get(1).getCarta());
-								Pilas.get(1).eliminarCarta();
-								i=0;
-							}
+								else {
+									seleccionada = Pilas.get(1).getCarta();
+									oMov = 1;
+									dMov = i;
+									Pilas.get(i).addCarta(Pilas.get(1).getCarta());
+									Pilas.get(1).eliminarCarta();
+									i=0;
+								}
 							
+							}
+							else {
+								i++;
+							}
 						}
 						else {
 							i++;
@@ -520,6 +531,7 @@ public class SolitarioSwing extends JFrame {
 						
 					}
 					else {
+						if(Pilas.get(i).numCartas()>0) {
 						if(Pilas.get(1).getCarta().movimientoPila(Pilas.get(i).getCarta())) {
 							if(movimientoRepetido(Pilas.get(1).getCarta(),1,i))
 								stop=true;
@@ -535,6 +547,14 @@ public class SolitarioSwing extends JFrame {
 							Pilas.get(1).eliminarCarta();
 							i=0;
 						}
+							else {
+								i++;
+								if(i == 13) {
+									i=0;
+									pila1=false;
+								}
+							}
+						}
 						else {
 							i++;
 							if(i == 13) {
@@ -546,34 +566,82 @@ public class SolitarioSwing extends JFrame {
 				}
 			}
 		else {
-			pila1=true;
+			pila1=false;
 			i=6;
 			int j = 2;
 			while(i>=6) {
-				if(j<6) {
-					if(Pilas.get(i).getCarta().movimientoAMonton(Pilas.get(j).getCarta())) {
-						Pilas.get(j).addCarta(Pilas.get(i).getCarta());
-						Pilas.get(i).eliminarCarta();
-						i=0;
+				if(j<6 && j>= 2) {
+					//TODO a veces llega un 13
+					if(Pilas.get(i).numCartas()>0) {
+						if(Pilas.get(i).getCarta().getNum()=='A' && Pilas.get(j).numCartas()==0) {
+							Pilas.get(j).addCarta(Pilas.get(i).getCarta());
+							Pilas.get(i).eliminarCarta();
+							i=0;
+						}
+						else {
+							if(Pilas.get(j).numCartas()>0) {
+								if(Pilas.get(i).getCarta().movimientoAMonton(Pilas.get(j).getCarta())) { 
+									Pilas.get(j).addCarta(Pilas.get(i).getCarta());
+									Pilas.get(i).eliminarCarta();
+									i=0;
+								}
+								else {
+									j++;
+								}
+							
+							}
+							else {
+								j++;
+							}
+						}
+						
 					}
-					else {
-						j++;
+					else if((Pilas.get(i).numCartas()==0)){
+						i++;
 					}
+					if(j==6) {
+						if(i==12) {
+							i=6;
+							j=7;
+						}
+						else {
+							j=2;
+							i++;
+						}
+					}
+					
 				}
 				else {
 					if(j==i)
 						j++;
-					else {
+			
+					if(j==13) {
+						if(i!=13)
+							i++;
+						j=2;
+					}
+					if(i==13) {
+						i=0;
+					}
+					
+					else {//TODO no se si esta bien este else, no deberia volver arriba?
 						int k = 0;
+						
 						while(k<Pilas.get(i).numCartas() && k>=0)  {
+							if(j==13) {
+								i++;
+								j=6;//TODO Creo que esto deberia ser 2, no 6
+								
+							}
 							if(Pilas.get(i).getCarta().getNum()=='K') {
+								// TODO Llega un 13 aqui de alguna manera
 								if(Pilas.get(j).numCartas()==0) {
 									if(movimientoRepetido(Pilas.get(i).getCarta(),i,j))
 										stop=true;
 									else {
 										seleccionada = Pilas.get(i).getCarta();
-										oMov = 1;
-										dMov = i;
+										oMov = i;
+										dMov = j;
 										Pilas.get(j).addCarta(Pilas.get(i).getCarta());
 										Pilas.get(i).eliminarCarta();
 										i=0;
@@ -589,38 +657,59 @@ public class SolitarioSwing extends JFrame {
 								}
 							}
 							else {
-								if(Pilas.get(i).getCartaN(k).movimientoPila(Pilas.get(j).getCarta())) {
+								if(Pilas.get(i).getCartaN(k).movimientoPila(Pilas.get(j).getCarta()) && Pilas.get(i).getCartaN(k).getBack()==false) {
 									int aux;
-									for (aux = k;aux<=Pilas.get(i).numCartas();aux++) {
-										Pilas.get(j).addCarta(Pilas.get(i).getCartaN(aux));
+									if(movimientoRepetido(Pilas.get(i).getCartaN(k),i,j))
+										stop=true;
+									else {
+										seleccionada = Pilas.get(i).getCarta();
+										oMov = i;
+										dMov = j;
+										for (aux = k;aux<Pilas.get(i).numCartas();aux++) {
+											Pilas.get(j).addCarta(Pilas.get(i).getCartaN(aux));
+										}
+										for(aux = k;aux<Pilas.get(i).numCartas();aux++) {
+											Pilas.get(i).eliminarCarta();
+										}
+										k=-1;
+										i=0;
 									}
-									for(aux = k;aux<=Pilas.get(i).numCartas();aux++) {
-										Pilas.get(i).eliminarCarta();
-									}
-									k=-1;
-									i=0;
 								}
 								else {
 									k++;
 								}
 							}
 						}
+						
 						if(k==Pilas.get(i).numCartas()) {
 							j++;
 							k=0;
 						}
 						if(j==13) {
 							i++;
+							j=6;
+							
+						}
+						if(i==13) {//pasar carta del mazo al monton si ningun otro movimiento es posible
+							if(Pilas.get(0).numCartas()>0) {
+								Pilas.get(1).addCarta(Pilas.get(0).getCarta());
+								Pilas.get(0).eliminarCarta();
+							}
+							else {
+								stop=true;
+							}
 						}
 					}
+					
 				}
-			}
+				}
+				
+			
 		}
 		
 		}
 		actualizarImagenes();
-		
-		return movimiento;
+
 	}
 	public void crearBotonesClasico(JLayeredPane pano,JButton button,int i,int dimension,int cartas,int pila) {
 		if(i==1) {
@@ -1716,7 +1805,7 @@ public class SolitarioSwing extends JFrame {
 		}
 		return cambiar;
 	}
-	private class MyListener implements ActionListener{
+	private class MyListener implements ActionListener{//Listener principal para el solitario clasico
 		public void	actionPerformed(ActionEvent e){
 			String[] nombre =((JButton) e.getSource()).getName().split("_");
 			int pila = Integer.parseInt(nombre[0]);
@@ -2065,6 +2154,7 @@ public class SolitarioSwing extends JFrame {
 		}
 	}
 	public void nuevoSaltos() {
+		movimientos = new ArrayList<char[]>();
 		getContentPane().removeAll();
 		tipo = 2;
 		Pilas = new ArrayList<Pila>();
@@ -3028,6 +3118,7 @@ public class SolitarioSwing extends JFrame {
 	public void nuevoClasico() {
 		getContentPane().removeAll();
 		tipo = 1;
+		movimientos = new ArrayList<char[]>();
 		Pilas = new ArrayList<Pila>();
 		Pila pila = new Pila();
 		Pila monton = new Pila();
@@ -3679,7 +3770,7 @@ public class SolitarioSwing extends JFrame {
 		crearBotonesClasico(panel8,btn8_11,11,10,3,8);
 		
 		btn8_12 = new JButton("");
-		crearBotonesClasico(panel8,btn8_12,12,10,3,8);
+		crearBotonesClasico(panel8,btn8_12,12,11,3,8);
 		
 		btn8_13 = new JButton("");
 		crearBotonesClasico(panel8,btn8_13,13,12,3,8);
