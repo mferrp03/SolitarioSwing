@@ -391,7 +391,7 @@ public class SolitarioSwing extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if (tipo == 1) {
 					primerMovimientoClasico();
-					
+					System.out.println("solitario resuelto\n");
 				}
 				if(tipo == 2) {
 					int i = 0;
@@ -454,7 +454,11 @@ public class SolitarioSwing extends JFrame {
 		return repetido;
 	}
 	public void primerMovimientoClasico() {// TODO se forman ciclos de 3 movimientos que previenen el bucle de acabarse nunca
+		//TODO Cuando se le da a resolver sin haber hecho nada antes entra en un bucle infinito frecuentemente, cuando se vacia la baraja sin hacer ningun movimiento suele 
+		//salir un 13 que da out of bound, otras veces sale un -1 y a veces el programa no saca mas cartas del mazo, solo trabaja con las cartas que ya han sido sacadas
 		
+		//parece que el bucle infinito se produce cuando no se puede hacer ningun movimiento, sin embargo si lo resuelve el programa e intento que lo vuelva a resolver
+		//no da problemas
 		boolean stop = false;
 		int i = 0;
 		boolean pila1 = true;
@@ -465,27 +469,26 @@ public class SolitarioSwing extends JFrame {
 			}
 		if(Pilas.get(1).numCartas()>0 && pila1) {
 			i = 2;
-				while(i<=5 && i>0) {
-					if(Pilas.get(1).getCarta().getNum()=='A') {
-						if(Pilas.get(i).numCartas()==0) {
-							if(movimientoRepetido(Pilas.get(1).getCarta(),1,i))
-								stop=true;
-							else {
-								seleccionada = Pilas.get(1).getCarta();
-								oMov = 1;
-								dMov = i;		
-								Pilas.get(i).addCarta(Pilas.get(1).getCarta());
-								Pilas.get(1).eliminarCarta();
-								i=0;
-							}
-						}
+			while(i<=5 && i>0) {
+				if(Pilas.get(1).getCarta().getNum()=='A') {
+					if(Pilas.get(i).numCartas()==0) {
+						if(movimientoRepetido(Pilas.get(1).getCarta(),1,i))
+							stop=true;
 						else {
-							i++;
+							seleccionada = Pilas.get(1).getCarta();
+							oMov = 1;
+							dMov = i;		
+							Pilas.get(i).addCarta(Pilas.get(1).getCarta());
+							Pilas.get(1).eliminarCarta();
+							i=0;
 						}
-						
 					}
 					else {
-						//TODO se esta intentando coger una carta que no existe
+						i++;
+					}
+						
+				}
+					else {
 						if(Pilas.get(i).numCartas()>0) {
 							if(Pilas.get(1).getCarta().movimientoAMonton(Pilas.get(i).getCarta())) {
 								if(movimientoRepetido(Pilas.get(1).getCarta(),1,i))
@@ -511,10 +514,15 @@ public class SolitarioSwing extends JFrame {
 					}
 				}
 				while(i>=6) {
-					if(Pilas.get(1).getCarta().getNum()=='K') {
-						if(Pilas.get(i).numCartas()==0) {
-							if(movimientoRepetido(Pilas.get(1).getCarta(),1,i))
+					if(i==13) {
+						stop=true;
+					}
+					else if(Pilas.get(1).getCarta().getNum()=='K') {
+						if(Pilas.get(i).numCartas()==0) {//TODO llega un 13 hasta aqui
+							if(movimientoRepetido(Pilas.get(1).getCarta(),1,i)) {
+								i=0;
 								stop=true;
+							}
 							else {
 								seleccionada = Pilas.get(1).getCarta();
 								oMov = 1;
@@ -533,8 +541,10 @@ public class SolitarioSwing extends JFrame {
 					else {
 						if(Pilas.get(i).numCartas()>0) {
 						if(Pilas.get(1).getCarta().movimientoPila(Pilas.get(i).getCarta())) {
-							if(movimientoRepetido(Pilas.get(1).getCarta(),1,i))
+							if(movimientoRepetido(Pilas.get(1).getCarta(),1,i)) {
 								stop=true;
+								i=0;
+							}
 							else {
 								seleccionada = Pilas.get(1).getCarta();
 								oMov = 1;
@@ -543,9 +553,6 @@ public class SolitarioSwing extends JFrame {
 								Pilas.get(1).eliminarCarta();
 								i=0;
 							}
-							Pilas.get(i).addCarta(Pilas.get(1).getCarta());
-							Pilas.get(1).eliminarCarta();
-							i=0;
 						}
 							else {
 								i++;
@@ -569,9 +576,10 @@ public class SolitarioSwing extends JFrame {
 			pila1=false;
 			i=6;
 			int j = 2;
-			while(i>=6) {
-				if(j<6 && j>= 2) {
+			while(i>=6 && i<13) {
+				if(j<6 && j>= 2 ) {
 					//TODO a veces llega un 13
+					
 					if(Pilas.get(i).numCartas()>0) {
 						if(Pilas.get(i).getCarta().getNum()=='A' && Pilas.get(j).numCartas()==0) {
 							Pilas.get(j).addCarta(Pilas.get(i).getCarta());
@@ -616,28 +624,39 @@ public class SolitarioSwing extends JFrame {
 						j++;
 			
 					if(j==13) {
-						if(i!=13)
+						if(i!=13) {
 							i++;
-						j=2;
+							j=2;
+						}
+						if(i==13)
+							stop=true;
+						
 					}
-					if(i==13) {
+					if(i==13) {//TODO esto es lo que genera un bucle infinito, el stop de arriba deberia arreglarlo
 						i=0;
 					}
 					
-					else {//TODO no se si esta bien este else, no deberia volver arriba?
+					else {
 						int k = 0;
 						
-						while(k<Pilas.get(i).numCartas() && k>=0)  {
+						while(k<Pilas.get(i).numCartas() && k>=0 && !stop)  {
 							if(j==13) {
 								i++;
-								j=6;//TODO Creo que esto deberia ser 2, no 6
+								j=6;
+								if(i==13) {
+									stop=true;
+								}
+								i=6;//esto deberia arreglar el 13
 								
 							}
 							if(Pilas.get(i).getCarta().getNum()=='K') {
 								// TODO Llega un 13 aqui de alguna manera
 								if(Pilas.get(j).numCartas()==0) {
-									if(movimientoRepetido(Pilas.get(i).getCarta(),i,j))
+									if(movimientoRepetido(Pilas.get(i).getCarta(),i,j)) {
+										k=-1;
+										i=0;
 										stop=true;
+									}
 									else {
 										seleccionada = Pilas.get(i).getCarta();
 										oMov = i;
@@ -657,10 +676,14 @@ public class SolitarioSwing extends JFrame {
 								}
 							}
 							else {
-								if(Pilas.get(i).getCartaN(k).movimientoPila(Pilas.get(j).getCarta()) && Pilas.get(i).getCartaN(k).getBack()==false) {
-									int aux;
-									if(movimientoRepetido(Pilas.get(i).getCartaN(k),i,j))
+								if(Pilas.get(i).numCartas()>0 && Pilas.get(j).numCartas()>0) {
+									if(Pilas.get(i).getCartaN(k).movimientoPila(Pilas.get(j).getCarta()) && Pilas.get(i).getCartaN(k).getBack()==false) {
+										int aux;
+										if(movimientoRepetido(Pilas.get(i).getCartaN(k),i,j)) {
 										stop=true;
+										k=-1;
+										i=0;
+									}
 									else {
 										seleccionada = Pilas.get(i).getCarta();
 										oMov = i;
@@ -673,6 +696,10 @@ public class SolitarioSwing extends JFrame {
 										}
 										k=-1;
 										i=0;
+									}
+								}
+								else {//TODO Esto deberia arreglar el -1
+										k++;
 									}
 								}
 								else {
@@ -690,13 +717,16 @@ public class SolitarioSwing extends JFrame {
 							j=6;
 							
 						}
-						if(i==13) {//pasar carta del mazo al monton si ningun otro movimiento es posible
+						if(i==13 || stop) {//pasar carta del mazo al monton si ningun otro movimiento es posible
 							if(Pilas.get(0).numCartas()>0) {
 								Pilas.get(1).addCarta(Pilas.get(0).getCarta());
 								Pilas.get(0).eliminarCarta();
+								i=0;
+								stop=false;
 							}
 							else {
 								stop=true;
+								i=0;
 							}
 						}
 					}
@@ -706,7 +736,18 @@ public class SolitarioSwing extends JFrame {
 				
 			
 		}
-		
+		if(i==13 || stop) {//pasar carta del mazo al monton si ningun otro movimiento es posible
+			if(Pilas.get(0).numCartas()>0) {
+				Pilas.get(1).addCarta(Pilas.get(0).getCarta());
+				Pilas.get(0).eliminarCarta();
+				i=0;
+				stop=false;
+			}
+			else {
+				stop=true;
+				i=0;
+			}
+		}
 		}
 		actualizarImagenes();
 
