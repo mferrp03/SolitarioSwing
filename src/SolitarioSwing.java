@@ -18,12 +18,14 @@ import javax.swing.ImageIcon;
 
 import java.util.ArrayList;
 public class SolitarioSwing extends JFrame {
+	//TODO Hacer y deshacer, mejor primero con solitario de saltos
 	File file;
 	JFileChooser fc = new JFileChooser();
 	private Carta seleccionada = new Carta ('0','0',false,"0");
 	int pilaSeleccionada = 0;
 	int numBtn = 0;
-	ArrayList<char[]>movimientos;
+	ArrayList<char[]>hacer;
+	ArrayList<char[]>desHacer;
 	int oMov = -1;//pila de origen del ultimo movimiento
 	int dMov = -1;//pila de destino del ultimo movimiento
 	int tipo = 0;//sera 1 para el solitario clasico y 2 para el de saltos
@@ -310,8 +312,8 @@ public class SolitarioSwing extends JFrame {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-		gridBagLayout.columnWeights = new double[] { 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
-		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
+		gridBagLayout.columnWeights = new double[]{ 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };//si se cambia a 0.0 se arregla el clasico
+		gridBagLayout.rowWeights = new double[] { 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		getContentPane().setLayout(gridBagLayout);
 		getContentPane().setBackground(new Color(0, 128, 0));
 		
@@ -354,6 +356,7 @@ public class SolitarioSwing extends JFrame {
 		mntmSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
+				
 			}
 		});
 		mnArchivo.add(mntmSalir);
@@ -362,6 +365,30 @@ public class SolitarioSwing extends JFrame {
 		menuBar.add(mnEditar);
 
 		JMenuItem mntmDeshacer = new JMenuItem("Deshacer");
+		mntmDeshacer.addActionListener(new ActionListener() {//TODO boton deshacer, primero introducir los movimientos en el array para poder deshacerlos
+			public void actionPerformed(ActionEvent arg0) {
+				char[] movimiento;
+				if(tipo==1) {
+					
+				}
+				if(tipo==2) {//TODO El hacer y deshacer movimientos estropea los elementos corto y largo de las pilas, hay que cambiarlo para poder devolverlos al estado anterior
+					if(desHacer.size() >0) {
+						movimiento  = new char[2];
+						movimiento = desHacer.get(desHacer.size()-1);
+						int origen = (int) movimiento[0];
+						int destino = (int) movimiento[1];
+						Pilas.get(destino).addCarta(Pilas.get(origen).getCarta());
+						Pilas.get(origen).eliminarCarta();
+						desHacer.remove(desHacer.get(desHacer.size()-1));
+						Pilas.get(destino+1).cambiarCorto(-1);
+						for(int i = destino+1;i<=destino+3;i++)
+							Pilas.get(i).cambiarLargo(-1);
+							actualizarBotonesSaltos();
+						}
+					
+					}
+				}
+		});
 		mnEditar.add(mntmDeshacer);
 
 		JMenuItem mntmHacer = new JMenuItem("Hacer");
@@ -380,19 +407,44 @@ public class SolitarioSwing extends JFrame {
 		mnHistorial.add(mntmFicheroEstadisticas);
 
 		JMenuItem mntmAyuda = new JMenuItem("Ayuda");
-		mntmSolitarioClasico.addActionListener(new ListenerClasico());
-		mntmSolitarioDeSaltos.addActionListener(new ListenerNuevoSaltos());
+		mntmSolitarioClasico.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			gridBagLayout.columnWeights = new double[]{ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };//si se cambia a 0.0 se arregla el clasico
+
+			nuevoClasico();
+			}
+		});
+		mntmSolitarioDeSaltos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			gridBagLayout.columnWeights = new double[]{ 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };//si se cambia a 0.0 se arregla el clasico
+
+			nuevoSaltos();
+			}
+		});
 		mntmAyuda.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "Para realizar el solitario hay que...");
+				JOptionPane.showMessageDialog(null, "Este programa permite realizar 2 tipos de solitario, el solitario clasico y el de saltos, el clasico consiste en una pila de la que se van sacando cartas\n"+ "que se ponen a su lado, 4 pilas en las que se tienen que poner las cartas de cada palo (un palo en cada pila) en orden, desde el as hasta el rey,\n"
+						+" de forma que el rey sera la carta de mas arriba y el as la de mas abajo tambien hay otras 7 pilas debajo, en estas pilas se pueden añadir cartas siempre\n"
+						+ "que la primera carta que se añade tenga el numero inmediatamente inferior y el color contrario a la carta sobre la que se va a colocar, a veces al mover cartas\n"
+						+"quedara una carta boca abajo en la pila, estas cartas se pueden dar la vuelta clickando sobre ellas cuando es la ultima carta de una pila, si queda una pila sin cartas\n"
+						+"solo se podra poner un rey en ese hueco, el solitario se gana cuando todas las pilas de los palos contienen a la totalidad de su palo, y se pierde cuando se sacan todas las\n"
+						+"cartas del mazo sin haber conseguido esto.\n" +"En el solitario de saltos se colocaran todas las cartas de la baraja española boca arriba sobre la mesa y las cartas podran ponerse sobre"
+							+ "la carta a su izquierda o la carta tres lugares a su izquierda si comparte\n"
+							+ "palo o numero con alguna de ellas, si una carta puede moverse al monton inmediatamente a su izquierda y al que esta tres lugares a su izquierda el que esta a tres lugares tendra prioridad\n"
+							+ "siempre debera moverse la carta mas a la izquierda posible y el objetivo del juego es conseguir poner todas las cartas en una unica pila.\n"
+							+ "Se puede guardar y cargar la partida seleccionando un fichero que emplear con estos propositos, tambien se pueden consultar sus estadisticas de juego\n"
+							+ "si se ha declarado previamente un fichero para ello, y en la seccion de editar se permite deshacer el ultimo movimiento, volver a hacerlo tras deshacerlo\n"
+							+ "o en caso de que no queden movimientos deshechos el programa hara un movimiento. Por ultimo se puede emplear la opcion de resolver que se encuentra junto\n"
+							+ "a estas para que el programa trate de resolver el solitario por si mismo.");
 			}
 		});
 		mntmResolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (tipo == 1) {
 					primerMovimientoClasico();
-					System.out.println("solitario resuelto\n");
+					
 				}
+				//TODO EL RESOLVER DE SALTOS PETA CON UN -1 POR ALGUN MOTIVO, ATES FUNCIONABA BIEN
 				if(tipo == 2) {
 					int i = 0;
 					while(i<40) {
@@ -459,6 +511,8 @@ public class SolitarioSwing extends JFrame {
 		
 		//parece que el bucle infinito se produce cuando no se puede hacer ningun movimiento, sin embargo si lo resuelve el programa e intento que lo vuelva a resolver
 		//no da problemas
+		//TODO Parece que el resolver funciona bien ahora, tiene algun problema de que a veces deja algun movimiento factible sin hacer pero por lo menos no eplota
+		//a veces no mueve los ases a los montones, parece que el problema es que no vuelve al principio del bucle cuando deberia
 		boolean stop = false;
 		int i = 0;
 		boolean pila1 = true;
@@ -632,11 +686,12 @@ public class SolitarioSwing extends JFrame {
 							stop=true;
 						
 					}
-					if(i==13) {//TODO esto es lo que genera un bucle infinito, el stop de arriba deberia arreglarlo
+					if(i==13) {
+						
 						i=0;
 					}
 					
-					else {
+					else {//TODO Parece que el infinito esta aqui dentro
 						int k = 0;
 						
 						while(k<Pilas.get(i).numCartas() && k>=0 && !stop)  {
@@ -645,12 +700,13 @@ public class SolitarioSwing extends JFrame {
 								j=6;
 								if(i==13) {
 									stop=true;
+									i=6;
 								}
-								i=6;//esto deberia arreglar el 13
+							
 								
 							}
 							if(Pilas.get(i).getCarta().getNum()=='K') {
-								// TODO Llega un 13 aqui de alguna manera
+							
 								if(Pilas.get(j).numCartas()==0) {
 									if(movimientoRepetido(Pilas.get(i).getCarta(),i,j)) {
 										k=-1;
@@ -676,7 +732,7 @@ public class SolitarioSwing extends JFrame {
 								}
 							}
 							else {
-								if(Pilas.get(i).numCartas()>0 && Pilas.get(j).numCartas()>0) {
+								if(Pilas.get(i).numCartas()>0 && Pilas.get(j).numCartas()>0) {//TODO cuando peta no entra aqui
 									if(Pilas.get(i).getCartaN(k).movimientoPila(Pilas.get(j).getCarta()) && Pilas.get(i).getCartaN(k).getBack()==false) {
 										int aux;
 										if(movimientoRepetido(Pilas.get(i).getCartaN(k),i,j)) {
@@ -698,7 +754,7 @@ public class SolitarioSwing extends JFrame {
 										i=0;
 									}
 								}
-								else {//TODO Esto deberia arreglar el -1
+								else {
 										k++;
 									}
 								}
@@ -1761,8 +1817,11 @@ public class SolitarioSwing extends JFrame {
 				setPilaSeleccionada(boton-1);
 				setNumBtn(boton);
 			}
-			else if(primerSalto(boton-1,getPilaSeleccionada())  && (Pilas.get(boton-1)).saltoPosible(Pilas.get(getPilaSeleccionada())) && ((boton-1)==Pilas.get(getPilaSeleccionada()).getCorto() || (boton-1) == Pilas.get(getPilaSeleccionada()).getLargo())) {
-
+			else if(primerSalto(boton-1,getPilaSeleccionada())) { // && (Pilas.get(boton-1)).saltoPosible(Pilas.get(getPilaSeleccionada())) && ((boton-1)==Pilas.get(getPilaSeleccionada()).getCorto() || (boton-1) == Pilas.get(getPilaSeleccionada()).getLargo())
+				char[] movimiento = new char[2];	
+				movimiento[0]=(char) (boton-1);
+				movimiento[1]=(char) (getPilaSeleccionada());
+				desHacer.add(movimiento);
 				Pilas.get(boton-1).addCarta(Pilas.get(getPilaSeleccionada()).getCarta());
 				Pilas.get(getPilaSeleccionada()).eliminarCarta();
 				if(Pilas.get(getPilaSeleccionada()).numCartas()==0) {
@@ -1785,51 +1844,71 @@ public class SolitarioSwing extends JFrame {
 	
 		}
 	}
-	boolean primerSalto(int i, int origen) {
-	
+	boolean primerSalto(int i, int origen) {//TODO NO COMPARA BIEN LAS FIGURAS (DOS SOTAS NO SE CONSIDERAN UN SALTO VALIDO)
 		boolean primero = false;
+
 		boolean bucle = true;
+
 		int j = 0;
+
 		int salto = 0;
+
 		while(bucle && j<40) {
-		
-			
+
 				if(Pilas.get(j).numCartas()>0) {
 					if(Pilas.get(j).getLargo()>=0) {
 						if(Pilas.get(Pilas.get(j).getLargo()).saltoPosible(Pilas.get(j))) {
+
 							salto = Pilas.get(j).getLargo();
+
 							bucle = false;
-						
+
 						}
+
 					}
-					
 					if(Pilas.get(j).getCorto()>=0 && bucle) {
+
 						if(Pilas.get(Pilas.get(j).getCorto()).saltoPosible(Pilas.get(j))){
+
 							salto =Pilas.get(j).getCorto();//AQUI
+
 							bucle = false;
+
 						}
+
 					}
+
 					}
+
 			if(bucle) {
+
 				j++;
+
 			}
+
 		}
+
 		if(salto==i && origen == j) {
+
 			primero = true;
+
 			
+
 		}
+
 		return primero;
+
 	}
 	void desplazarSaltos(int n) {
 		for(int i = n;i<Pilas.size();i++) {
 			if(Pilas.get(i).getCorto()>=0) {
 				while(Pilas.get(Pilas.get(i).getCorto()).numCartas()==0) {
-					Pilas.get(i).cambiarCorto();
+					Pilas.get(i).cambiarCorto(1);
 				}
 			}
 			
 			while(Pilas.get(i).getLargo()>=0 && comprobarLargo(i,Pilas.get(i).getLargo())) {
-				Pilas.get(i).cambiarLargo();
+				Pilas.get(i).cambiarLargo(1);
 			}
 			
 		}
@@ -1867,11 +1946,13 @@ public class SolitarioSwing extends JFrame {
 					}
 				}
 				else {
-					if (seleccionada.movimientoAMonton(Pilas.get(pila).getCarta())) {
-						Pilas.get(pila).addCarta(seleccionada);
-						Pilas.get(getPilaSeleccionada()).eliminarCarta();
-						actualizarImagenes();
-						seleccionada = new Carta('0','0',false,"0");
+					if(Pilas.get(pila).numCartas()>0) {
+						if (seleccionada.movimientoAMonton(Pilas.get(pila).getCarta())) {
+							Pilas.get(pila).addCarta(seleccionada);
+							Pilas.get(getPilaSeleccionada()).eliminarCarta();
+							actualizarImagenes();
+							seleccionada = new Carta('0','0',false,"0");
+						}
 					}
 				}
 			}
@@ -1939,20 +2020,11 @@ public class SolitarioSwing extends JFrame {
 			
 			}
 		}
-	private class ListenerClasico implements ActionListener{
-		public void	actionPerformed(ActionEvent e){
-		nuevoClasico();
-		}
-	}
-	private class ListenerNuevoSaltos implements ActionListener{
-		public void	actionPerformed(ActionEvent e){
-		nuevoSaltos();
-		}
-	}
+	
 	public void actualizarBotonesSaltos() {
 		
 		if(Pilas.get(0).numCartas()>0) {
-			
+			e1.setVisible(true);
 			e1.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(0).getCarta().getImage()))); 
 			 
 		}
@@ -1960,234 +2032,273 @@ public class SolitarioSwing extends JFrame {
 			e1.setVisible(false);
 		}
 		if(Pilas.get(1).numCartas()>0) {
+			e2.setVisible(true);
 			e2.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(1).getCarta().getImage()))); 
 		}
 		if(Pilas.get(1).numCartas()==0) {
 			e2.setVisible(false);
 		}
 		if(Pilas.get(2).numCartas()>0) {
+			e3.setVisible(true);
 			e3.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(2).getCarta().getImage()))); 
 		}
 		if(Pilas.get(2).numCartas()==0) {
 			e3.setVisible(false);
 		}
 		if(Pilas.get(3).numCartas()>0) {
+			e4.setVisible(true);
 			e4.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(3).getCarta().getImage()))); 
 		}
 		if(Pilas.get(3).numCartas()==0) {
 			e4.setVisible(false);
 		}
 		if(Pilas.get(4).numCartas()>0) {
+			e5.setVisible(true);
 			e5.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(4).getCarta().getImage()))); 
 		}
 		if(Pilas.get(4).numCartas()==0) {
 			e5.setVisible(false);
 		}
 		if(Pilas.get(5).numCartas()>0) {
+			e6.setVisible(true);
 			e6.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(5).getCarta().getImage()))); 
 		}
 		if(Pilas.get(5).numCartas()==0) {
 			e6.setVisible(false);
 		}
 		if(Pilas.get(6).numCartas()>0) {
+			e7.setVisible(true);
 			e7.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(6).getCarta().getImage()))); 
 		}
 		if(Pilas.get(6).numCartas()==0) {
 			e7.setVisible(false);
 		}
 		if(Pilas.get(7).numCartas()>0) {
+			e8.setVisible(true);
 			e8.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(7).getCarta().getImage()))); 
 		}
 		if(Pilas.get(7).numCartas()==0) {
 			e8.setVisible(false);
 		}
 		if(Pilas.get(8).numCartas()>0) {
+			e9.setVisible(true);
 			e9.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(8).getCarta().getImage()))); 
 		}
 		if(Pilas.get(8).numCartas()==0) {
 			e9.setVisible(false);
 		}
 		if(Pilas.get(9).numCartas()>0) {
+			e10.setVisible(true);
 			e10.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(9).getCarta().getImage()))); 
 		}
 		if(Pilas.get(9).numCartas()==0) {
 			e10.setVisible(false);
 		}
 		if(Pilas.get(10).numCartas()>0) {
+			e11.setVisible(true);
 			e11.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(10).getCarta().getImage()))); 
 		}
 		if(Pilas.get(10).numCartas()==0) {
 			e11.setVisible(false);
 		}
 		if(Pilas.get(11).numCartas()>0) {
+			e12.setVisible(true);
 			e12.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(11).getCarta().getImage()))); 
 		}
 		if(Pilas.get(11).numCartas()==0) {
 			e12.setVisible(false);
 		}
 		if(Pilas.get(12).numCartas()>0) {
+			e13.setVisible(true);
 			e13.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(12).getCarta().getImage()))); 
 		}
 		if(Pilas.get(12).numCartas()==0) {
 			e13.setVisible(false);
 		}
 		if(Pilas.get(13).numCartas()>0) {
+			e14.setVisible(true);
 			e14.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(13).getCarta().getImage()))); 
 		}
 		if(Pilas.get(13).numCartas()==0) {
 			e14.setVisible(false);
 		}
 		if(Pilas.get(14).numCartas()>0) {
+			e15.setVisible(true);
 			e15.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(14).getCarta().getImage()))); 
 		}
 		if(Pilas.get(14).numCartas()==0) {
 			e15.setVisible(false);
 		}
 		if(Pilas.get(15).numCartas()>0) {
+			e16.setVisible(true);
 			e16.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(15).getCarta().getImage()))); 
 		}
 		if(Pilas.get(15).numCartas()==0) {
 			e16.setVisible(false);
 		}
 		if(Pilas.get(16).numCartas()>0) {
+			e17.setVisible(true);
 			e17.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(16).getCarta().getImage()))); 
 		}
 		if(Pilas.get(16).numCartas()==0) {
 			e17.setVisible(false);
 		}
 		if(Pilas.get(17).numCartas()>0) {
+			e18.setVisible(true);
 			e18.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(17).getCarta().getImage()))); 
 		}
 		if(Pilas.get(17).numCartas()==0) {
 			e18.setVisible(false);
 		}
 		if(Pilas.get(18).numCartas()>0) {
+			e19.setVisible(true);
 			e19.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(18).getCarta().getImage()))); 
 		}
 		if(Pilas.get(18).numCartas()==0) {
 			e19.setVisible(false);
 		}
 		if(Pilas.get(19).numCartas()>0) {
+			e20.setVisible(true);
 			e20.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(19).getCarta().getImage()))); 
 		}
 		if(Pilas.get(19).numCartas()==0) {
 			e20.setVisible(false);
 		}
 		if(Pilas.get(20).numCartas()>0) {
+			e21.setVisible(true);
 			e21.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(20).getCarta().getImage()))); 
 		}
 		if(Pilas.get(20).numCartas()==0) {
 			e21.setVisible(false);
 		}
 		if(Pilas.get(21).numCartas()>0) {
+			e22.setVisible(true);
 			e22.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(21).getCarta().getImage()))); 
 		}
 		if(Pilas.get(21).numCartas()==0) {
 			e22.setVisible(false);
 		}
 		if(Pilas.get(22).numCartas()>0) {
+			e23.setVisible(true);
 			e23.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(22).getCarta().getImage()))); 
 		}
 		if(Pilas.get(22).numCartas()==0) {
 			e23.setVisible(false);
 		}
 		if(Pilas.get(23).numCartas()>0) {
+			e24.setVisible(true);
 			e24.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(23).getCarta().getImage()))); 
 		}
 		if(Pilas.get(23).numCartas()==0) {
 			e24.setVisible(false);
 		}
 		if(Pilas.get(24).numCartas()>0) {
+			e25.setVisible(true);
 			e25.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(24).getCarta().getImage()))); 
 		}
 		if(Pilas.get(24).numCartas()==0) {
 			e25.setVisible(false);
 		}
 		if(Pilas.get(25).numCartas()>0) {
+			e26.setVisible(true);
 			e26.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(25).getCarta().getImage()))); 
 		}
 		if(Pilas.get(25).numCartas()==0) {
 			e26.setVisible(false);
 		}
 		if(Pilas.get(26).numCartas()>0) {
+			e27.setVisible(true);
 			e27.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(26).getCarta().getImage()))); 
 		}
 		if(Pilas.get(26).numCartas()==0) {
 			e27.setVisible(false);
 		}
 		if(Pilas.get(27).numCartas()>0) {
+			e28.setVisible(true);
 			e28.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(27).getCarta().getImage()))); 
 		}
 		if(Pilas.get(27).numCartas()==0) {
 			e28.setVisible(false);
 		}
 		if(Pilas.get(28).numCartas()>0) {
+			e29.setVisible(true);
 			e29.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(28).getCarta().getImage()))); 
 		}
 		if(Pilas.get(28).numCartas()==0) {
 			e29.setVisible(false);
 		}
 		if(Pilas.get(29).numCartas()>0) {
+			e30.setVisible(true);
 			e30.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(29).getCarta().getImage()))); 
 		}
 		if(Pilas.get(29).numCartas()==0) {
 			e30.setVisible(false);
 		}
 		if(Pilas.get(30).numCartas()>0) {
+			e31.setVisible(true);
 			e31.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(30).getCarta().getImage()))); 
 		}
 		if(Pilas.get(30).numCartas()==0) {
 			e31.setVisible(false);
 		}
 		if(Pilas.get(31).numCartas()>0) {
+			e32.setVisible(true);
 			e32.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(31).getCarta().getImage()))); 
 		}
 		if(Pilas.get(31).numCartas()==0) {
 			e32.setVisible(false);
 		}
 		if(Pilas.get(32).numCartas()>0) {
+			e33.setVisible(true);
 			e33.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(32).getCarta().getImage()))); 
 		}
 		if(Pilas.get(32).numCartas()==0) {
 			e33.setVisible(false);
 		}
 		if(Pilas.get(33).numCartas()>0) {
+			e34.setVisible(true);
 			e34.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(33).getCarta().getImage()))); 
 		}
 		if(Pilas.get(33).numCartas()==0) {
 			e34.setVisible(false);
 		}
 		if(Pilas.get(34).numCartas()>0) {
+			e35.setVisible(true);
 			e35.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(34).getCarta().getImage()))); 
 		}
 		if(Pilas.get(34).numCartas()==0) {
 			e35.setVisible(false);
 		}
 		if(Pilas.get(35).numCartas()>0) {
+			e36.setVisible(true);
 			e36.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(35).getCarta().getImage()))); 
 		}
 		if(Pilas.get(35).numCartas()==0) {
 			e36.setVisible(false);
 		}
 		if(Pilas.get(36).numCartas()>0) {
+			e37.setVisible(true);
 			e37.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(36).getCarta().getImage()))); 
 		}
 		if(Pilas.get(36).numCartas()==0) {
 			e37.setVisible(false);
 		}
 		if(Pilas.get(37).numCartas()>0) {
+			e38.setVisible(true);
 			e38.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(37).getCarta().getImage()))); 
 		}
 		if(Pilas.get(37).numCartas()==0) {
 			e38.setVisible(false);
 		}
 		if(Pilas.get(38).numCartas()>0) {
+			e39.setVisible(true);
 			e39.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(38).getCarta().getImage()))); 
 		}
 		if(Pilas.get(38).numCartas()==0) {
 			e39.setVisible(false);
 		}
 		if(Pilas.get(39).numCartas()>0) {
+			e40.setVisible(true);
 			e40.setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(39).getCarta().getImage()))); 
 		}
 		if(Pilas.get(39).numCartas()==0) {
@@ -2195,7 +2306,9 @@ public class SolitarioSwing extends JFrame {
 		}
 	}
 	public void nuevoSaltos() {
-		movimientos = new ArrayList<char[]>();
+		
+		hacer = new ArrayList<char[]>();
+		desHacer = new ArrayList<char[]>();
 		getContentPane().removeAll();
 		tipo = 2;
 		Pilas = new ArrayList<Pila>();
@@ -2242,27 +2355,27 @@ public class SolitarioSwing extends JFrame {
 		pila40 = new Pila();
 		
 		
-		Carta AS = new Carta ('A','S',false,"/Images/espada/1.jpg");
+		Carta AS = new Carta ('A','E',false,"/Images/espada/1.jpg");
 		pila.addCarta(AS);
-		Carta DS = new Carta ('2','S',false,"/Images/espada/2.jpg");
+		Carta DS = new Carta ('2','E',false,"/Images/espada/2.jpg");
 		pila.addCarta(DS);
-		Carta TS = new Carta ('3','S',false,"/Images/espada/3.jpg");
+		Carta TS = new Carta ('3','E',false,"/Images/espada/3.jpg");
 		pila.addCarta(TS);
-		Carta CS = new Carta ('4','S',false,"/Images/espada/4.jpg");
+		Carta CS = new Carta ('4','E',false,"/Images/espada/4.jpg");
 		pila.addCarta(CS);
-		Carta CiS = new Carta ('5','S',false,"/Images/espada/5.jpg");
+		Carta CiS = new Carta ('5','E',false,"/Images/espada/5.jpg");
 		pila.addCarta(CiS);
-		Carta SS = new Carta ('6','S',false,"/Images/espada/6.jpg");
+		Carta SS = new Carta ('6','E',false,"/Images/espada/6.jpg");
 		pila.addCarta(SS);
-		Carta SiS = new Carta ('7','S',false,"/Images/espada/7.jpg");
+		Carta SiS = new Carta ('7','E',false,"/Images/espada/7.jpg");
 		pila.addCarta(SiS);
 		
-		Carta DiS = new Carta ('T','S',false,"/Images/espada/10.jpg");
+		Carta DiS = new Carta ('S','E',false,"/Images/espada/10.jpg");
 		pila.addCarta(DiS);
-		Carta JS = new Carta ('J','S',false,"/Images/espada/11.jpg");
+		Carta JS = new Carta ('C','E',false,"/Images/espada/11.jpg");
 		pila.addCarta(JS);
 		
-		Carta KS = new Carta ('K','S',false,"/Images/espada/12.jpg");
+		Carta KS = new Carta ('R','E',false,"/Images/espada/12.jpg");
 		pila.addCarta(KS);
 		
 		Carta AC = new Carta ('A','C',false,"/Images/copa/1.jpg");
@@ -2280,57 +2393,57 @@ public class SolitarioSwing extends JFrame {
 		Carta SiC = new Carta ('7','C',false,"/Images/copa/7.jpg");
 		pila.addCarta(SiC);
 		
-		Carta DiC = new Carta ('T','C',false,"/Images/copa/10.jpg");
+		Carta DiC = new Carta ('S','C',false,"/Images/copa/10.jpg");
 		pila.addCarta(DiC);
-		Carta JC = new Carta ('J','C',false,"/Images/copa/11.jpg");
+		Carta JC = new Carta ('C','C',false,"/Images/copa/11.jpg");
 		pila.addCarta(JC);
-		Carta KC = new Carta ('K','C',false,"/Images/copa/12.jpg");
+		Carta KC = new Carta ('R','C',false,"/Images/copa/12.jpg");
 		pila.addCarta(KC);
 	
-		Carta AD = new Carta ('A','D',false,"/Images/oro/1.jpg");
+		Carta AD = new Carta ('A','O',false,"/Images/oro/1.jpg");
 		pila.addCarta(AD);
-		Carta DD = new Carta ('2','D',false,"/Images/oro/2.jpg");
+		Carta DD = new Carta ('2','O',false,"/Images/oro/2.jpg");
 		pila.addCarta(DD);
-		Carta TD = new Carta ('3','D',false,"/Images/oro/3.jpg");
+		Carta TD = new Carta ('3','O',false,"/Images/oro/3.jpg");
 		pila.addCarta(TD);
-		Carta CD = new Carta ('4','D',false,"/Images/oro/4.jpg");
+		Carta CD = new Carta ('4','O',false,"/Images/oro/4.jpg");
 		pila.addCarta(CD);
-		Carta CiD = new Carta ('5','D',false,"/Images/oro/5.jpg");
+		Carta CiD = new Carta ('5','O',false,"/Images/oro/5.jpg");
 		pila.addCarta(CiD);
-		Carta SD = new Carta ('6','D',false,"/Images/oro/6.jpg");
+		Carta SD = new Carta ('6','O',false,"/Images/oro/6.jpg");
 		pila.addCarta(SD);
-		Carta SiD = new Carta ('7','D',false,"/Images/oro/7.jpg");
+		Carta SiD = new Carta ('7','O',false,"/Images/oro/7.jpg");
 		pila.addCarta(SiD);
 		
-		Carta DiD = new Carta ('T','D',false,"/Images/oro/10.jpg");
+		Carta DiD = new Carta ('S','O',false,"/Images/oro/10.jpg");
 		pila.addCarta(DiD);
-		Carta JD = new Carta ('J','D',false,"/Images/oro/11.jpg");
+		Carta JD = new Carta ('C','O',false,"/Images/oro/11.jpg");
 		pila.addCarta(JD);
 		
-		Carta KD = new Carta ('K','D',false,"/Images/oro/12.jpg");
+		Carta KD = new Carta ('R','O',false,"/Images/oro/12.jpg");
 		pila.addCarta(KD);
 	
-		Carta AH = new Carta ('A','H',false,"/Images/basto/1.jpg");
+		Carta AH = new Carta ('A','B',false,"/Images/basto/1.jpg");
 		pila.addCarta(AH);
-		Carta DH = new Carta ('2','H',false,"/Images/basto/2.jpg");
+		Carta DH = new Carta ('2','B',false,"/Images/basto/2.jpg");
 		pila.addCarta(DH);
-		Carta TH = new Carta ('3','H',false,"/Images/basto/3.jpg");
+		Carta TH = new Carta ('3','B',false,"/Images/basto/3.jpg");
 		pila.addCarta(TH);
-		Carta CH = new Carta ('4','H',false,"/Images/basto/4.jpg");
+		Carta CH = new Carta ('4','B',false,"/Images/basto/4.jpg");
 		pila.addCarta(CH);
-		Carta CiH = new Carta ('5','H',false,"/Images/basto/5.jpg");
+		Carta CiH = new Carta ('5','B',false,"/Images/basto/5.jpg");
 		pila.addCarta(CiH);
-		Carta SH = new Carta ('6','H',false,"/Images/basto/6.jpg");
+		Carta SH = new Carta ('6','B',false,"/Images/basto/6.jpg");
 		pila.addCarta(SH);
-		Carta SiH = new Carta ('7','H',false,"/Images/basto/7.jpg");
+		Carta SiH = new Carta ('7','B',false,"/Images/basto/7.jpg");
 		pila.addCarta(SiH);
 		
-		Carta DiH = new Carta ('T','H',false,"/Images/basto/10.jpg");
+		Carta DiH = new Carta ('S','B',false,"/Images/basto/10.jpg");
 		pila.addCarta(DiH);
-		Carta JH = new Carta ('J','H',false,"/Images/basto/11.jpg");
+		Carta JH = new Carta ('C','B',false,"/Images/basto/11.jpg");
 		pila.addCarta(JH);
 		
-		Carta KH = new Carta ('K','H',false,"/Images/basto/12.jpg");
+		Carta KH = new Carta ('R','B',false,"/Images/basto/12.jpg");
 		pila.addCarta(KH);
 		
 		pila.barajar();
@@ -2464,7 +2577,7 @@ public class SolitarioSwing extends JFrame {
 		panel_9.setBackground(new Color(0, 128, 0));
 		GridBagConstraints gbc_panel_9 = new GridBagConstraints();
 		gbc_panel_9.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_9.gridx = 9;
+		gbc_panel_9.gridx = 9;//9
 		gbc_panel_9.gridy = 0;
 		getContentPane().add(panel_9, gbc_panel_9);
 		
@@ -2479,7 +2592,7 @@ public class SolitarioSwing extends JFrame {
 		panel_1.setBackground(new Color(0, 128, 0));
 		GridBagConstraints gbc_panel_1 = new GridBagConstraints();
 		gbc_panel_1.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_1.gridx = 1;
+		gbc_panel_1.gridx = 1;//1
 		gbc_panel_1.gridy = 0;
 		getContentPane().add(panel_1, gbc_panel_1);
 		
@@ -2494,7 +2607,7 @@ public class SolitarioSwing extends JFrame {
 		panel_2.setForeground(new Color(0, 128, 0));
 		GridBagConstraints gbc_panel_2 = new GridBagConstraints();
 		gbc_panel_2.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_2.gridx = 2;
+		gbc_panel_2.gridx = 2;//2
 		gbc_panel_2.gridy = 0;
 		getContentPane().add(panel_2, gbc_panel_2);
 		
@@ -2509,7 +2622,7 @@ public class SolitarioSwing extends JFrame {
 		panel_3.setBackground(new Color(0, 128, 0));
 		GridBagConstraints gbc_panel_3 = new GridBagConstraints();
 		gbc_panel_3.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_3.gridx = 3;
+		gbc_panel_3.gridx = 3;//3
 		gbc_panel_3.gridy = 0;
 		getContentPane().add(panel_3, gbc_panel_3);
 		
@@ -2524,7 +2637,7 @@ public class SolitarioSwing extends JFrame {
 		panel_4.setBackground(new Color(0, 128, 0));
 		GridBagConstraints gbc_panel_4 = new GridBagConstraints();
 		gbc_panel_4.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_4.gridx = 4;
+		gbc_panel_4.gridx = 4;//4
 		gbc_panel_4.gridy = 0;
 		getContentPane().add(panel_4, gbc_panel_4);
 		
@@ -2539,7 +2652,7 @@ public class SolitarioSwing extends JFrame {
 		panel_5.setBackground(new Color(0, 128, 0));
 		GridBagConstraints gbc_panel_5 = new GridBagConstraints();
 		gbc_panel_5.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_5.gridx = 5;
+		gbc_panel_5.gridx = 5;//5
 		gbc_panel_5.gridy = 0;
 		getContentPane().add(panel_5, gbc_panel_5);
 		
@@ -2554,7 +2667,7 @@ public class SolitarioSwing extends JFrame {
 		panel_6.setBackground(new Color(0, 128, 0));
 		GridBagConstraints gbc_panel_6 = new GridBagConstraints();
 		gbc_panel_6.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_6.gridx = 6;
+		gbc_panel_6.gridx = 6;//6
 		gbc_panel_6.gridy = 0;
 		getContentPane().add(panel_6, gbc_panel_6);
 		
@@ -2569,7 +2682,7 @@ public class SolitarioSwing extends JFrame {
 		panel_7.setBackground(new Color(0, 128, 0));
 		GridBagConstraints gbc_panel_7 = new GridBagConstraints();
 		gbc_panel_7.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_7.gridx = 7;
+		gbc_panel_7.gridx = 7;//7
 		gbc_panel_7.gridy = 0;
 		getContentPane().add(panel_7, gbc_panel_7);
 		
@@ -2584,7 +2697,7 @@ public class SolitarioSwing extends JFrame {
 		panel_8.setBackground(new Color(0, 128, 0));
 		GridBagConstraints gbc_panel_8 = new GridBagConstraints();
 		gbc_panel_8.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_8.gridx = 8;
+		gbc_panel_8.gridx = 8;//8
 		gbc_panel_8.gridy = 0;
 		getContentPane().add(panel_8, gbc_panel_8);
 		
@@ -2599,7 +2712,7 @@ public class SolitarioSwing extends JFrame {
 		panel_10.setBackground(new Color(0, 128, 0));
 		GridBagConstraints gbc_panel_10 = new GridBagConstraints();
 		gbc_panel_10.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_10.gridx = 10;
+		gbc_panel_10.gridx = 10;//10
 		gbc_panel_10.gridy = 0;
 		getContentPane().add(panel_10, gbc_panel_10);
 		
@@ -3157,9 +3270,11 @@ public class SolitarioSwing extends JFrame {
 		pila40.setSaltos(39);
 	}
 	public void nuevoClasico() {
+		
 		getContentPane().removeAll();
 		tipo = 1;
-		movimientos = new ArrayList<char[]>();
+		hacer = new ArrayList<char[]>();
+		desHacer = new ArrayList<char[]>();
 		Pilas = new ArrayList<Pila>();
 		Pila pila = new Pila();
 		Pila monton = new Pila();
@@ -3386,7 +3501,7 @@ public class SolitarioSwing extends JFrame {
 		panel.setBackground(new Color(0, 128, 0));
 		GridBagConstraints gbc_panel = new GridBagConstraints();
 		gbc_panel.fill = GridBagConstraints.BOTH;
-		gbc_panel.gridwidth = 2;
+		gbc_panel.gridwidth = 2;//2
 		gbc_panel.insets = new Insets(0, 0, 5, 5);
 		gbc_panel.gridx = 0;
 		gbc_panel.gridy = 0;
@@ -3402,7 +3517,7 @@ public class SolitarioSwing extends JFrame {
 		GridBagConstraints gbc_btn0_1 = new GridBagConstraints();
 		gbc_btn0_1.anchor = GridBagConstraints.SOUTHWEST;
 		gbc_btn0_1.gridheight = 4;
-		gbc_btn0_1.gridwidth = 2;
+		gbc_btn0_1.gridwidth =2;//2
 		gbc_btn0_1.insets = new Insets(0, 0, 5, 5);
 		gbc_btn0_1.gridx = 0;
 		gbc_btn0_1.gridy = 0;
@@ -4071,10 +4186,11 @@ public class SolitarioSwing extends JFrame {
 		panel11.setBackground(new Color(0, 128, 0));
 		panel11.setLayout(null);
 		GridBagConstraints gbc_panel11 = new GridBagConstraints();
+		
 		gbc_panel11.gridheight = 5;
 		gbc_panel11.fill = GridBagConstraints.BOTH;
 		gbc_panel11.insets = new Insets(0, 0, 0, 5);
-		gbc_panel11.gridx = 6;
+		gbc_panel11.gridx = 6;//6
 		gbc_panel11.gridy = 1;
 		getContentPane().add(panel11, gbc_panel11);
 		
@@ -4190,12 +4306,14 @@ public class SolitarioSwing extends JFrame {
 		panel12.setLayout(null);
 		GridBagConstraints gbc_panel12 = new GridBagConstraints();
 		
-		gbc_panel12.ipadx = 2;
-		gbc_panel12.weightx = 2.0;
-		gbc_panel12.insets = new Insets(0, 0, 5, 5);
+		gbc_panel12.ipadx = 2;//2
+	
+		gbc_panel12.weightx = 2.0;//2
+		gbc_panel12.insets = new Insets(0, 0, 5, 5);//0,0,5,5
 		gbc_panel12.gridheight = 5;
+		gbc_panel12.anchor = GridBagConstraints.WEST;
 		gbc_panel12.fill = GridBagConstraints.BOTH;
-		gbc_panel12.gridx = 8;
+		gbc_panel12.gridx = 7;//8
 		gbc_panel12.gridy = 1;
 		getContentPane().add(panel12, gbc_panel12);
 		

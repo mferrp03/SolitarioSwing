@@ -13,11 +13,11 @@ public class Pila {
 		this.corto = n-1;
 		this.largo = n-3;
 	}
-	void cambiarCorto() {
-		this.corto-=1;
+	void cambiarCorto(int n) {
+		this.corto-=n;
 	}
-	void cambiarLargo() {
-		this.largo-=1;
+	void cambiarLargo(int n) {
+		this.largo-=n;
 	}
 	int getCorto() {
 		return this.corto;
