@@ -368,10 +368,42 @@ public class SolitarioSwing extends JFrame {
 		mntmDeshacer.addActionListener(new ActionListener() {//TODO boton deshacer, primero introducir los movimientos en el array para poder deshacerlos
 			public void actionPerformed(ActionEvent arg0) {
 				char[] movimiento;
-				if(tipo==1) {
+				if(tipo==1) {//TODO a veces se borran demasiadas cartas de la pila de destino al activar el deshacer
+					if(desHacer.size() >0) {
+						movimiento = new char[4];
+						movimiento = desHacer.get(desHacer.size()-1);
+						char numero = movimiento [0];
+						char palo = movimiento[1];
+						int origen = (int) movimiento[2];
+						int destino = (int) movimiento[3];
+						if(destino == origen) {
+							
+							Pilas.get(origen).getCarta().setBack(true);
+							
+						}
+						else {
+							int i =0;
+							boolean bucle = true;
+							while(bucle) {
+								if(Pilas.get(destino).getCartaN(i).getNum()==numero && Pilas.get(destino).getCartaN(i).getPalo()==palo)
+									bucle=false;
+								else {
+									i++;
+								}
+							}
+							for(int j = i; j<Pilas.get(destino).numCartas();j++) {
+								Pilas.get(origen).addCarta(Pilas.get(destino).getCartaN(j));
+							}
+							for(int j = 0 ; j<Pilas.get(destino).numCartas();j++)
+								Pilas.get(destino).eliminarCarta();
+							}
+						desHacer.remove(desHacer.get(desHacer.size()-1));
+						hacer.add(movimiento);
+						actualizarImagenes();
+					}
 					
 				}
-				if(tipo==2) {//TODO El hacer y deshacer movimientos estropea los elementos corto y largo de las pilas, hay que cambiarlo para poder devolverlos al estado anterior
+				if(tipo==2) {
 					if(desHacer.size() >0) {
 						movimiento  = new char[2];
 						movimiento = desHacer.get(desHacer.size()-1);
@@ -383,7 +415,8 @@ public class SolitarioSwing extends JFrame {
 						Pilas.get(destino+1).cambiarCorto(-1);
 						for(int i = destino+1;i<=destino+3;i++)
 							Pilas.get(i).cambiarLargo(-1);
-							actualizarBotonesSaltos();
+						actualizarBotonesSaltos();
+						hacer.add(movimiento);	
 						}
 					
 					}
@@ -392,6 +425,81 @@ public class SolitarioSwing extends JFrame {
 		mnEditar.add(mntmDeshacer);
 
 		JMenuItem mntmHacer = new JMenuItem("Hacer");
+		mntmHacer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(tipo == 1) {
+					
+				}
+				if(tipo==2) {
+					if(hacer.size()>0) {
+						char[] movimiento = new char[2];
+						movimiento = hacer.get(hacer.size()-1);
+						int origen = (int) movimiento[1];
+						int destino = (int) movimiento[0];
+						Pilas.get(destino).addCarta(Pilas.get(origen).getCarta());
+						Pilas.get(origen).eliminarCarta();
+						hacer.remove(hacer.get(hacer.size()-1));
+						if(Pilas.get(origen).numCartas()==0) {
+							desplazarSaltos(origen);
+						}
+						actualizarBotonesSaltos();
+						desHacer.add(movimiento);	
+					}
+					else {//TODO Traer aqui el codigo del resolver sin bucle
+						int i=0;
+						char[] movimiento = new char[2];
+						while(i<40) {
+							
+							if (i > 0) {
+								if(i > 2) {
+									if (primerSalto(Pilas.get(i).getLargo(),i)){
+										movimiento[0]=(char)i;
+										movimiento[1]=(char)Pilas.get(i).getLargo();
+										Pilas.get(Pilas.get(i).getLargo()).addCarta(Pilas.get(i).getCarta());
+										Pilas.get(i).eliminarCarta();
+										if(Pilas.get(i).numCartas()==0) {
+											desplazarSaltos(i);
+										}
+										i=40;	
+									}
+							
+									else if(primerSalto(Pilas.get(i).getCorto(),i)) {
+										movimiento[0]=(char)i;
+										movimiento[1]=(char)Pilas.get(i).getCorto();
+										Pilas.get(Pilas.get(i).getCorto()).addCarta(Pilas.get(i).getCarta());
+										Pilas.get(i).eliminarCarta();
+										if(Pilas.get(i).numCartas()==0) {
+											desplazarSaltos(i);
+										}
+										i=40;	
+									}
+									else
+										i++;
+									
+								}
+							else if	(primerSalto(Pilas.get(i).getCorto(),i)){
+								movimiento[0]=(char)i;
+								movimiento[1]=(char)Pilas.get(i).getCorto();
+								Pilas.get(Pilas.get(i).getCorto()).addCarta(Pilas.get(i).getCarta());
+								Pilas.get(i).eliminarCarta();
+								if(Pilas.get(i).numCartas()==0) {
+									desplazarSaltos(i);
+								}
+									i=40;
+								}
+							else
+								i++;
+							}
+						else
+							i++;
+						
+					}
+					desHacer.add(movimiento);
+					actualizarBotonesSaltos();
+					}
+				}
+			}
+		});
 		mnEditar.add(mntmHacer);
 
 		JMenuItem mntmResolver = new JMenuItem("Resolver");
@@ -444,7 +552,7 @@ public class SolitarioSwing extends JFrame {
 					primerMovimientoClasico();
 					
 				}
-				//TODO EL RESOLVER DE SALTOS PETA CON UN -1 POR ALGUN MOTIVO, ATES FUNCIONABA BIEN
+				
 				if(tipo == 2) {
 					int i = 0;
 					while(i<40) {
@@ -1926,12 +2034,20 @@ public class SolitarioSwing extends JFrame {
 		return cambiar;
 	}
 	private class MyListener implements ActionListener{//Listener principal para el solitario clasico
+		
 		public void	actionPerformed(ActionEvent e){
+			char[] movimiento = new char[4];
+			
 			String[] nombre =((JButton) e.getSource()).getName().split("_");
 			int pila = Integer.parseInt(nombre[0]);
 			int numero = Integer.parseInt(nombre[1]);
 			if(numero == Pilas.get(pila).numCartas() && Pilas.get(pila).getCarta().getBack()) {
 				Pilas.get(pila).getCarta().setBack(false);
+				movimiento[0] = Pilas.get(pila).getCarta().getNum();
+				movimiento[1] = Pilas.get(pila).getCarta().getPalo();
+				movimiento[2] =(char) pila;
+				movimiento[3] = (char) pila;
+				desHacer.add(movimiento);
 				((JButton) e.getSource()).setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(pila).getCarta().getImage())));
 				seleccionada = new Carta('0','0',false,"0");
 			}
@@ -1940,6 +2056,12 @@ public class SolitarioSwing extends JFrame {
 					if(seleccionada.getNum()=='A') {
 						Pilas.get(pila).addCarta(seleccionada);
 						Pilas.get(getPilaSeleccionada()).eliminarCarta();
+						
+						movimiento[0] = seleccionada.getNum();
+						movimiento[1] = seleccionada.getPalo();
+						movimiento[2] =(char) getPilaSeleccionada();
+						movimiento[3] =(char) pila;
+						desHacer.add(movimiento);
 						
 						actualizarImagenes();
 						
@@ -1950,6 +2072,11 @@ public class SolitarioSwing extends JFrame {
 						if (seleccionada.movimientoAMonton(Pilas.get(pila).getCarta())) {
 							Pilas.get(pila).addCarta(seleccionada);
 							Pilas.get(getPilaSeleccionada()).eliminarCarta();
+							movimiento[0] = seleccionada.getNum();
+							movimiento[1] = seleccionada.getPalo();
+							movimiento[2] =(char) getPilaSeleccionada();
+							movimiento[3] =(char) pila;
+							desHacer.add(movimiento);
 							actualizarImagenes();
 							seleccionada = new Carta('0','0',false,"0");
 						}
@@ -1959,19 +2086,28 @@ public class SolitarioSwing extends JFrame {
 			else if(Pilas.get(pila).numCartas()==0) {
 				if(seleccionada.getNum()=='K') {
 					if(getPilaSeleccionada()!=1) {
-					int j = 0;
-					for(int i = getNumBtn();i<=Pilas.get(getPilaSeleccionada()).numCartas();i++) {
-						Pilas.get(pila).addCarta(Pilas.get(getPilaSeleccionada()).getCartaN(i-1));
-						j++;
-					}
-					for(int i = 0;i<j;i++) {
-						Pilas.get(getPilaSeleccionada()).eliminarCarta();
-					}
-					
-				}
+						int j = 0;
+						for(int i = getNumBtn();i<=Pilas.get(getPilaSeleccionada()).numCartas();i++) {
+							Pilas.get(pila).addCarta(Pilas.get(getPilaSeleccionada()).getCartaN(i-1));
+							j++;
+						}
+						for(int i = 0;i<j;i++) {
+							Pilas.get(getPilaSeleccionada()).eliminarCarta();
+						}
+						movimiento[0] = seleccionada.getNum();
+						movimiento[1] = seleccionada.getPalo();
+						movimiento[2] =(char) getPilaSeleccionada();
+						movimiento[3] =(char) pila;
+						desHacer.add(movimiento);
+					}	
 					else {
 						Pilas.get(pila).addCarta(Pilas.get(getPilaSeleccionada()).getCarta());
 						Pilas.get(getPilaSeleccionada()).eliminarCarta();
+						movimiento[0] = seleccionada.getNum();
+						movimiento[1] = seleccionada.getPalo();
+						movimiento[2] =(char) getPilaSeleccionada();
+						movimiento[3] =(char) pila;
+						desHacer.add(movimiento);
 					}
 				}
 				
@@ -1983,6 +2119,11 @@ public class SolitarioSwing extends JFrame {
 				if(getPilaSeleccionada()==1) {
 					Pilas.get(pila).addCarta(seleccionada);
 					Pilas.get(getPilaSeleccionada()).eliminarCarta();
+					movimiento[0] = seleccionada.getNum();
+					movimiento[1] = seleccionada.getPalo();
+					movimiento[2] =(char) getPilaSeleccionada();
+					movimiento[3] =(char) pila;
+					desHacer.add(movimiento);
 				}
 				else if(getNumBtn() != Pilas.get(getPilaSeleccionada()).numCartas()) {
 					int j = 0;
@@ -1994,7 +2135,11 @@ public class SolitarioSwing extends JFrame {
 					for(int i = 0;i<j;i++) {
 						Pilas.get(getPilaSeleccionada()).eliminarCarta();
 					}
-					
+					movimiento[0] = seleccionada.getNum();
+					movimiento[1] = seleccionada.getPalo();
+					movimiento[2] =(char) getPilaSeleccionada();
+					movimiento[3] =(char) pila;
+					desHacer.add(movimiento);
 				}
 				
 				else {
@@ -2006,7 +2151,11 @@ public class SolitarioSwing extends JFrame {
 					for(int i = 0;i<j;i++) {
 						Pilas.get(getPilaSeleccionada()).eliminarCarta();
 					}
-					
+					movimiento[0] = seleccionada.getNum();
+					movimiento[1] = seleccionada.getPalo();
+					movimiento[2] =(char) getPilaSeleccionada();
+					movimiento[3] =(char) pila;
+					desHacer.add(movimiento);
 				}
 				actualizarImagenes();
 			}
@@ -2017,6 +2166,7 @@ public class SolitarioSwing extends JFrame {
 				setPilaSeleccionada(pila);
 				setNumBtn(numero);
 			}
+	
 			
 			}
 		}
