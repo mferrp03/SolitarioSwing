@@ -21,8 +21,14 @@ import javax.swing.JTextField;
 import javax.swing.ImageIcon;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 public class SolitarioSwing extends JFrame {
 	//TODO Hacer y deshacer, mejor primero con solitario de saltos
+	int intentosC = 0;
+	int intentosS = 0;
+	int completadoC = 0;
+	int completadoS = 0;
+	File stats;
 	File file;
 	int contador;
 	JFileChooser fc = new JFileChooser();
@@ -256,6 +262,15 @@ public class SolitarioSwing extends JFrame {
 	private JButton btn12_18;
 	private JButton btn12_19;
 	private JButton btn12_20;
+	Pila mazoC;
+	Pila mazoS;
+	
+	Pila monton;
+	Pila palo1;
+	Pila palo2;
+	Pila palo3;
+	Pila palo4;
+	
 	Pila pila;
 	Pila pila1;
 	Pila pila2;
@@ -343,33 +358,236 @@ public class SolitarioSwing extends JFrame {
 		mnNuevo.add(mntmSolitarioDeSaltos);
 
 		JMenuItem mntmCargar = new JMenuItem("Cargar");
+		mntmCargar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				int returnVal = fc.showOpenDialog(getContentPane());
+				
+				if (returnVal == JFileChooser.APPROVE_OPTION) {
+					file = fc.getSelectedFile();
+				}
+				Scanner sc;
+				try {
+					sc = new Scanner(file);
+					String lineArray[];
+					String linea = sc.nextLine();
+					if (linea.contentEquals("Solitario clasico") ) {
+						gridBagLayout.columnWeights = new double[]{ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
+						nuevoClasico();
+						
+						hacer = new ArrayList<char[]>();
+						desHacer = new ArrayList<char[]>();
+						Pilas = new ArrayList<Pila>();
+						pila = new Pila();
+						monton = new Pila();
+						palo1 = new Pila();
+						palo2 = new Pila();
+						palo3 = new Pila();
+						palo4 = new Pila();
+						pila1 = new Pila();
+						pila2 = new Pila();
+						pila3 = new Pila();
+						pila4 = new Pila();
+						pila5 = new Pila();
+						pila6 = new Pila();
+						pila7 = new Pila();
+						Pilas.add(pila);
+						Pilas.add(monton);
+						Pilas.add(palo1);
+						Pilas.add(palo2);
+						Pilas.add(palo3);
+						Pilas.add(palo4);
+						Pilas.add(pila1);
+						Pilas.add(pila2);
+						Pilas.add(pila3);
+						Pilas.add(pila4);
+						Pilas.add(pila5);
+						Pilas.add(pila6);
+						Pilas.add(pila7);
+						
+						linea = sc.nextLine();
+						lineArray = linea.split(" ");
+						if(!linea.equals("")) {
+						for(int i = 0; i<lineArray.length;i++)
+							Pilas.get(0).addCarta(buscarCartaC(lineArray[i].charAt(0),lineArray[i].charAt(1)));
+						}
+						
+						linea = sc.nextLine();
+						lineArray = linea.split(" ");
+						if(!linea.equals("")) {
+						for(int i = 0; i<lineArray.length;i++)
+							Pilas.get(1).addCarta(buscarCartaC(lineArray[i].charAt(0),lineArray[i].charAt(1)));
+						}
+						for(int i = 6; i<13;i++) {
+							if(sc.hasNext()) {
+							linea = sc.nextLine();
+							lineArray = linea.split(" ");
+							
+							Carta carta;
+							boolean back = true;
+							if(!linea.equals("")) {
+							for(int j = 0; j<lineArray.length;j++) {
+								if(lineArray[j].contentEquals("*")) {
+									back=false;
+								}
+								else {
+									carta = buscarCartaC(lineArray[j].charAt(0),lineArray[j].charAt(1));
+									carta.setBack(back);
+									Pilas.get(i).addCarta(carta);
+								}
+							}
+							}
+							}
+						}
+						for(int i=2; i<6;i++) {
+							if(!linea.equals("")) {
+							linea = sc.nextLine();
+							lineArray = linea.split(" ");
+							Carta carta;
+							if(lineArray[0].contentEquals(" ")) {
+								for(int j = 0; j<lineArray.length;j++)
+									Pilas.get(i).addCarta(buscarCartaC(lineArray[j].charAt(0),lineArray[j].charAt(1)));
+							}
+							}
+						}
+						actualizarImagenes();
+					}
+					if (linea.contentEquals("Solitario saltos") ) {
+						gridBagLayout.columnWeights = new double[]{ 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
+						nuevoSaltos();
+						hacer = new ArrayList<char[]>();
+						desHacer = new ArrayList<char[]>();
+						Pilas = new ArrayList<Pila>();
+						pila = new Pila();
+						pila1 = new Pila();
+						pila2 = new Pila();
+						pila3 = new Pila();
+						pila4 = new Pila();	
+						pila5 = new Pila();
+						pila6 = new Pila();
+						pila7 = new Pila();
+						pila8 = new Pila();
+						pila9 = new Pila();
+						pila10 = new Pila();
+						pila11 = new Pila();
+						pila12 = new Pila();
+						pila13 = new Pila();
+						pila14 = new Pila();
+						pila15 = new Pila();
+						pila16 = new Pila();
+						pila17 = new Pila();
+						pila18 = new Pila();
+						pila19 = new Pila();	
+						pila20 = new Pila();
+						pila21 = new Pila();
+						pila22 = new Pila();
+						pila23 = new Pila();
+						pila24= new Pila();
+						pila25 = new Pila();
+						pila26 = new Pila();
+						pila27 = new Pila();
+						pila28 = new Pila();
+						pila29 = new Pila();
+						pila30 = new Pila();
+						pila31 = new Pila();
+						pila32 = new Pila();
+						pila33 = new Pila();
+						pila34 = new Pila();	
+						pila35 = new Pila();
+						pila36 = new Pila();
+						pila37 = new Pila();
+						pila38 = new Pila();
+						pila39 = new Pila();
+						pila40 = new Pila();
+						Pilas.add(pila1);
+						Pilas.add(pila2);
+						Pilas.add(pila3);
+						Pilas.add(pila4);
+						Pilas.add(pila5);
+						Pilas.add(pila6);
+						Pilas.add(pila7);
+						Pilas.add(pila8);
+						Pilas.add(pila9);
+						Pilas.add(pila10);
+						Pilas.add(pila11);
+						Pilas.add(pila12);
+						Pilas.add(pila13);
+						Pilas.add(pila14);
+						Pilas.add(pila15);
+						Pilas.add(pila16);
+						Pilas.add(pila17);
+						Pilas.add(pila18);
+						Pilas.add(pila19);
+						Pilas.add(pila20);
+						Pilas.add(pila21);
+						Pilas.add(pila22);
+						Pilas.add(pila23);
+						Pilas.add(pila24);
+						Pilas.add(pila25);
+						Pilas.add(pila26);
+						Pilas.add(pila27);
+						Pilas.add(pila28);
+						Pilas.add(pila29);
+						Pilas.add(pila30);
+						Pilas.add(pila31);
+						Pilas.add(pila32);
+						Pilas.add(pila33);
+						Pilas.add(pila34);
+						Pilas.add(pila35);
+						Pilas.add(pila36);
+						Pilas.add(pila37);
+						Pilas.add(pila38);
+						Pilas.add(pila39);
+						Pilas.add(pila40);
+						setPilaSeleccionada(-1);
+						if(sc.hasNext()) {
+						linea = sc.nextLine();
+						lineArray = linea.split(" ");
+						
+						if(!linea.equals("")) {
+						for(int i = 0; i<lineArray.length;i++)
+							pila.addCarta(buscarCartaS(lineArray[i].charAt(0),lineArray[i].charAt(1)));
+						
+						}
+						}
+						int i = 0;
+						try {
+						while(!(linea = sc.nextLine()).isEmpty()) {
+						
+							lineArray = linea.split(" ");
+							for(int j = 0; j<lineArray.length;j++)
+								Pilas.get(i).addCarta(buscarCartaS(lineArray[j].charAt(0),lineArray[j].charAt(1)));
+							i++;
+							
+						}
+						}catch(Exception NoSuchElementException) {
+							
+							contador = i;
+							actualizarBotonesSaltos();
+						}
+						
+						
+					}
+					sc.close();
+				}catch(Exception exception) {
+					System.out.println("Error");
+				}
+				
+			}
+		});
 		mnArchivo.add(mntmCargar);
 
 		JMenuItem mntmSalvar = new JMenuItem("Salvar");
 		mntmSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(tipo ==1) {
+				if(file == null) {
+					int returnVal = fc.showOpenDialog(getContentPane());
 					
-				}
-				if(tipo == 2) {
-					try {
-					PrintWriter writer = new PrintWriter(file, "UTF-8");
-					writer.println("Solitario Saltos");
-					
-					for(int i =  0; i<40;i++) {
-						String content = new String();
-						if(Pilas.get(i).numCartas()>0) {
-							for(int j = 0; j<(Pilas.get(i).numCartas());j++){
-								
-							}
-						}
-					}
-					writer.println("The second line");
-					writer.close();	
-					}catch(Exception exception) {
-						System.out.println("Error");
+					if (returnVal == JFileChooser.APPROVE_OPTION) {
+						file = fc.getSelectedFile();
 					}
 				}
+				guardarPartidas();
+				
 			}
 		});
 		mnArchivo.add(mntmSalvar);
@@ -383,6 +601,7 @@ public class SolitarioSwing extends JFrame {
 					if (returnVal == JFileChooser.APPROVE_OPTION) {
 						file = fc.getSelectedFile();
 				}
+					guardarPartidas();
 			}
 		});
 		mnArchivo.add(mntmSalvarComo);
@@ -399,7 +618,7 @@ public class SolitarioSwing extends JFrame {
 		JMenu mnEditar = new JMenu("Editar");
 		menuBar.add(mnEditar);
 
-		JMenuItem mntmDeshacer = new JMenuItem("Deshacer");
+		JMenuItem mntmDeshacer = new JMenuItem("Deshacer");//TODO Adaptar el deshacer para que introduzca las pilas que han sido eliminadas(como el hacer pero empezando desde atras)
 		mntmDeshacer.addActionListener(new ActionListener() {//TODO boton deshacer, primero introducir los movimientos en el array para poder deshacerlos
 			public void actionPerformed(ActionEvent arg0) {
 				char[] movimiento;
@@ -418,6 +637,7 @@ public class SolitarioSwing extends JFrame {
 						}
 						else {
 							int i =0;
+							int num;
 							boolean bucle = true;
 							while(bucle) {
 								if(Pilas.get(destino).getCartaN(i).getNum()==numero && Pilas.get(destino).getCartaN(i).getPalo()==palo)
@@ -426,10 +646,11 @@ public class SolitarioSwing extends JFrame {
 									i++;
 								}
 							}
-							for(int j = i; j<Pilas.get(destino).numCartas();j++) {
+							num = Pilas.get(destino).numCartas();
+							for(int j = i; j<num;j++) {
 								Pilas.get(origen).addCarta(Pilas.get(destino).getCartaN(j));
 							}
-							for(int j = i ; j<Pilas.get(destino).numCartas();j++)
+							for(int j = i ; j<num;j++)
 								Pilas.get(destino).eliminarCarta();
 							}
 						desHacer.remove(desHacer.get(desHacer.size()-1));
@@ -438,13 +659,14 @@ public class SolitarioSwing extends JFrame {
 					}
 					
 				}
-				if(tipo==2) {
+				if(tipo==2) {//TODO Quedan huecos entre pilas al deshacer movimientos 
 					if(desHacer.size() >0) {
 						movimiento  = new char[2];
 						movimiento = desHacer.get(desHacer.size()-1);
 						int origen = (int) movimiento[0];
 						int destino = (int) movimiento[1];
 						if(destino == 0 ) {
+							
 							pila.addCarta(Pilas.get(origen).getCarta());
 							Pilas.get(origen).eliminarCarta();
 							desHacer.remove(desHacer.get(desHacer.size()-1));
@@ -455,9 +677,13 @@ public class SolitarioSwing extends JFrame {
 						}
 						
 						else {
-							Pilas.get(destino).addCarta(Pilas.get(origen).getCarta());
+							
+							moverPilasDeshacer(destino);
+							moverPilasSaltos();//TODO Prueba
+							Pilas.get(destino).addCarta(Pilas.get(origen).getCarta());//TODO se intenta acceder a una pila vacia al deshacer movimientos tras resolver
 							Pilas.get(origen).eliminarCarta();
 							desHacer.remove(desHacer.get(desHacer.size()-1));
+							/*
 							if(destino+1<40) {
 								Pilas.get(destino+1).cambiarCorto(-1);
 							}
@@ -465,6 +691,7 @@ public class SolitarioSwing extends JFrame {
 							for(int i = destino+1;i<=destino+3;i++)
 								Pilas.get(i).cambiarLargo(-1);
 							}
+							*/
 							actualizarBotonesSaltos();
 							hacer.add(movimiento);	
 							}
@@ -476,7 +703,7 @@ public class SolitarioSwing extends JFrame {
 		mnEditar.add(mntmDeshacer);
 
 		JMenuItem mntmHacer = new JMenuItem("Hacer");
-		mntmHacer.addActionListener(new ActionListener() {
+		mntmHacer.addActionListener(new ActionListener() {//TODO al intercambiar las cartas inferiores a 2 reyes puede repetir el movimiento indefinidamente, no lo reconoce como un mismo moviimiento
 			public void actionPerformed(ActionEvent arg0) {
 				if(tipo == 1) {
 					if(hacer.size()>0) {
@@ -493,6 +720,7 @@ public class SolitarioSwing extends JFrame {
 						}
 						else {
 							int i =0;
+							int num;
 							boolean bucle = true;
 							while(bucle) {
 								if(Pilas.get(origen).getCartaN(i).getNum()==numero && Pilas.get(origen).getCartaN(i).getPalo()==palo)
@@ -501,367 +729,21 @@ public class SolitarioSwing extends JFrame {
 									i++;
 								}
 							}
-							for(int j = i; j<Pilas.get(origen).numCartas();j++) {
+							num = Pilas.get(origen).numCartas();
+							for(int j = i; j<num;j++) {
 								Pilas.get(destino).addCarta(Pilas.get(origen).getCartaN(j));
 							}
-							for(int j = i ; j<Pilas.get(origen).numCartas();j++)
+							for(int j = i ; j<num;j++)
 								Pilas.get(origen).eliminarCarta();
 							}
+						isCompletadoC();
 						hacer.remove(hacer.get(hacer.size()-1));
 						desHacer.add(movimiento);
 						actualizarImagenes();
 					}
 					else {//resolver sin bucle
-						//TODO Si es la unica posibilidad repite un movimiento todo el rato, no es optimo pero es suficiente por ahora, por lo demas hace bien los movimientos
-						boolean stop = false;
-						int i = 0;
-						boolean pila1 = true;
-						char[] movimiento = new char[4];
-						boolean mov = false;
-							for(int n = 6;n<=12;n++) {
-								if(Pilas.get(n).numCartas()>0) {
-									Pilas.get(n).getCarta().setBack(false);
-								
-								}
-							}
-						if(pila1) {//si es posible se intenta mover la carta de la pila 1 a otra pila
-							if(Pilas.get(1).numCartas()>0) {
-							i = 2;
-							while(i<=5 && i>0) {
-								if(Pilas.get(1).getCarta().getNum()=='A') {
-									if(Pilas.get(i).numCartas()==0) {
-										if(movimientoRepetido(Pilas.get(1).getCarta(),1,i))
-											stop=true;
-										else {
-											seleccionada = Pilas.get(1).getCarta();
-											oMov = 1;
-											dMov = i;		
-											movimiento[0]=Pilas.get(1).getCarta().getNum();
-											movimiento[1]=Pilas.get(1).getCarta().getPalo();
-											movimiento[2]=(char)1;
-											movimiento[3]=(char)i;
-											desHacer.add(movimiento);
-											Pilas.get(i).addCarta(Pilas.get(1).getCarta());
-											Pilas.get(1).eliminarCarta();
-											mov=true;
-											i=0;
-										}
-									}
-									else {
-										i++;
-									}
-										
-								}
-									else {
-										
-										if(Pilas.get(i).numCartas()>0) {
-											if(Pilas.get(1).getCarta().movimientoAMonton(Pilas.get(i).getCarta())) {
-												if(movimientoRepetido(Pilas.get(1).getCarta(),1,i))
-												stop=true;
-												else {
-													seleccionada = Pilas.get(1).getCarta();
-													oMov = 1;
-													dMov = i;
-													movimiento[0]=Pilas.get(1).getCarta().getNum();
-													movimiento[1]=Pilas.get(1).getCarta().getPalo();
-													movimiento[2]=(char)1;
-													movimiento[3]=(char)i;
-													desHacer.add(movimiento);
-													Pilas.get(i).addCarta(Pilas.get(1).getCarta());
-													Pilas.get(1).eliminarCarta();
-													mov=true;
-													i=0;
-												}
-											
-											}
-											else {
-												i++;
-											}
-										}
-										else {
-											i++;
-										}
-										
-									}
-								}
-								while(i>=6) {
-									if(i==13) {
-										stop=true;
-										i=1;//esto arregla el bucle infinito de los reyes
-									}
-									else if(Pilas.get(1).getCarta().getNum()=='K') {
-										if(Pilas.get(i).numCartas()==0) {//TODO llega un 13 hasta aqui
-											if(movimientoRepetido(Pilas.get(1).getCarta(),1,i)) {
-												i=0;
-												stop=true;
-											}
-											else {
-												seleccionada = Pilas.get(1).getCarta();
-												oMov = 1;
-												dMov = i;
-												movimiento[0]=Pilas.get(1).getCarta().getNum();
-												movimiento[1]=Pilas.get(1).getCarta().getPalo();
-												movimiento[2]=(char)1;
-												movimiento[3]=(char)i;
-												desHacer.add(movimiento);
-												Pilas.get(i).addCarta(Pilas.get(1).getCarta());
-												Pilas.get(1).eliminarCarta();
-												mov=true;
-												i=0;
-											}
-											
-										}
-										else {
-											i++;
-										}
-										
-									}
-									else {
-										if(Pilas.get(i).numCartas()>0) {
-										if(Pilas.get(1).getCarta().movimientoPila(Pilas.get(i).getCarta())) {
-											if(movimientoRepetido(Pilas.get(1).getCarta(),1,i)) {
-												stop=true;
-												i=0;
-												pila1=false;
-											}
-											else {
-												seleccionada = Pilas.get(1).getCarta();
-												oMov = 1;
-												dMov = i;
-												movimiento[0]=Pilas.get(1).getCarta().getNum();
-												movimiento[1]=Pilas.get(1).getCarta().getPalo();
-												movimiento[2]=(char)1;
-												movimiento[3]=(char)i;
-												desHacer.add(movimiento);
-												Pilas.get(i).addCarta(Pilas.get(1).getCarta());
-												Pilas.get(1).eliminarCarta();
-												mov=true;
-												i=0;
-											}
-										}
-											else {
-												i++;
-												if(i == 13) {
-													i=0;
-													pila1=false;
-												}
-											}
-										}
-										else {
-											i++;
-											if(i == 13) {
-												i=0;
-												pila1=false;
-											}
-										}
-									}
-								}
-							}
-							else {
-								pila1 = false;
-							}
-							}
-						if(!pila1 ){//al no haber bucle no entra aqui
-							pila1=false;
-							i=6;
-							int j = 2;
-						
-							while(i>=6 && i<13) {//i es la pila de la que sale la carta, se comprueban toda las pilas j hasta que se encuentra un movimiento
-								if(j<6 && j>= 2 ) {
-									
-									
-									if(Pilas.get(i).numCartas()>0) {
-										if(Pilas.get(i).getCarta().getNum()=='A' && Pilas.get(j).numCartas()==0) {
-											movimiento[0]=Pilas.get(i).getCarta().getNum();
-											movimiento[1]=Pilas.get(i).getCarta().getPalo();
-											movimiento[2]=(char)i;
-											movimiento[3]=(char)j;
-											desHacer.add(movimiento);
-											Pilas.get(j).addCarta(Pilas.get(i).getCarta());
-											Pilas.get(i).eliminarCarta();
-											mov=true;
-											i=0;
-										}
-										else {
-											if(Pilas.get(j).numCartas()>0) {
-												if(Pilas.get(i).getCarta().movimientoAMonton(Pilas.get(j).getCarta())) { 
-													movimiento[0]=Pilas.get(i).getCarta().getNum();
-													movimiento[1]=Pilas.get(i).getCarta().getPalo();
-													movimiento[2]=(char)i;
-													movimiento[3]=(char)j;
-													desHacer.add(movimiento);
-													Pilas.get(j).addCarta(Pilas.get(i).getCarta());
-													Pilas.get(i).eliminarCarta();
-													mov=true;
-													i=0;
-												}
-												else {
-													j++;
-												}
-											
-											}
-											else {
-												j++;
-											}
-										}
-										
-									}
-									else if((Pilas.get(i).numCartas()==0)){
-										i++;
-									}
-									if(j==6) {
-										if(i==12) {
-											i=6;
-											j=7;
-										}
-										else {
-											j=2;
-											i++;
-										}
-									}
-									
-								}
-								else {
-									if(j==i)
-										j++;
-							
-									if(j==13) {
-										if(i!=13) {
-											i++;
-											j=2;
-										}
-										if(i==13)
-											stop=true;
-										
-									}
-									if(i==13) {
-										
-										i=0;
-									}
-									
-									else {
-										int k = 0;
-										
-										while(k<Pilas.get(i).numCartas() && k>=0 && !stop)  {
-											if(j==13) {
-												i++;
-												j=6;
-												if(i==13) {
-													stop=true;
-													i=6;
-												}
-											
-												
-											}
-											if(Pilas.get(i).getCarta().getNum()=='K') {
-											
-												if(Pilas.get(j).numCartas()==0) {
-													if(movimientoRepetido(Pilas.get(i).getCarta(),i,j)) {
-														k=-1;
-														i=0;
-														stop=true;
-													}
-													else {
-														seleccionada = Pilas.get(i).getCarta();
-														oMov = i;
-														dMov = j;
-														movimiento[0]=Pilas.get(i).getCarta().getNum();
-														movimiento[1]=Pilas.get(i).getCarta().getPalo();
-														movimiento[2]=(char)i;
-														movimiento[3]=(char)j;
-														desHacer.add(movimiento);
-														Pilas.get(j).addCarta(Pilas.get(i).getCarta());
-														Pilas.get(i).eliminarCarta();
-														mov=true;
-														i=0;
-														k=-1;
-													}
-												}
-												else {
-													k++;
-													if(k == Pilas.get(i).numCartas()) {
-														j++;
-														k=0;
-													}
-												}
-											}
-											else {
-												if(Pilas.get(i).numCartas()>0 && Pilas.get(j).numCartas()>0) {//TODO no elimina bien las cartas al mover mas de 1 a la vez
-													if(Pilas.get(i).getCartaN(k).movimientoPila(Pilas.get(j).getCarta()) && Pilas.get(i).getCartaN(k).getBack()==false) {
-														int aux;
-														if(movimientoRepetido(Pilas.get(i).getCartaN(k),i,j)) {
-														stop=true;
-														k=-1;
-														i=0;
-													}
-													else {
-														seleccionada = Pilas.get(i).getCarta();
-														oMov = i;
-														dMov = j;
-														movimiento[0]=Pilas.get(i).getCarta().getNum();
-														movimiento[1]=Pilas.get(i).getCarta().getPalo();
-														movimiento[2]=(char)i;
-														movimiento[3]=(char)j;
-														desHacer.add(movimiento);
-														int num= Pilas.get(i).numCartas();
-														for (aux = k;aux<num;aux++) {
-															Pilas.get(j).addCarta(Pilas.get(i).getCartaN(aux));
-														}
-														for(aux = k;aux<num;aux++) {
-															Pilas.get(i).eliminarCarta();
-														}
-														mov=true;
-														k=-1;
-														i=0;
-													}
-												}
-												else {
-														k++;
-													}
-												}
-												else {
-													k++;
-												}
-											}
-										}
-										
-										if(k==Pilas.get(i).numCartas()) {
-											j++;
-											k=0;
-										}
-										if(j==13) {
-											i++;
-											j=6;
-											
-										}
-										
-									}
-									
-								}
-								}
-								
-							
-						}
-						if(!mov) {//TODO No entra aqui
-							if(Pilas.get(0).numCartas()>0) {
-								movimiento[0]=Pilas.get(0).getCarta().getNum();
-								movimiento[1]=Pilas.get(0).getCarta().getPalo();
-								movimiento[2]=(char)0;
-								movimiento[3]=(char)1;
-								desHacer.add(movimiento);
-								Pilas.get(1).addCarta(Pilas.get(0).getCarta());
-								Pilas.get(0).eliminarCarta();
-								mov=true;
-								i=0;
-								stop=false;
-							}
-							else {
-								stop=true;
-								i=0;
-							}
-						}
-						
-						actualizarImagenes();
+						hacerMovimientoClasico();
+						isCompletadoC();
 						
 					}
 				}
@@ -876,6 +758,7 @@ public class SolitarioSwing extends JFrame {
 							Pilas.get(destino).addCarta(pila.getCarta());
 							pila.eliminarCarta();
 							contador++;
+							isCompletadoS();
 							hacer.remove(hacer.get(hacer.size()-1));
 						}
 						else if(Pilas.get(origen).numCartas()>0) {
@@ -884,77 +767,16 @@ public class SolitarioSwing extends JFrame {
 							Pilas.get(origen).eliminarCarta();
 							hacer.remove(hacer.get(hacer.size()-1));
 							if(Pilas.get(origen).numCartas()==0) {
-								desplazarSaltos(origen);
+								moverPilasSaltos();
 							}
+							isCompletadoS();
 						}
-						/*
-						else {//repetimos el else de abajo para cuando se intenta hacer un movimiento que ya no es posible
-							int i=0;
-							
-							if(pila.numCartas()>0) {
-								Pilas.get(contador).addCarta(pila.getCarta());
-								pila.eliminarCarta();
-								movimiento[0]=(char)contador;
-								movimiento[1]=(char)0;
-								
-								contador++;
-							}
-							else {
-								while(i<40) {
-								
-									if (i > 0) {
-										if(i > 2) {
-											if (primerSalto(Pilas.get(i).getLargo(),i)){
-												movimiento[0]=(char)Pilas.get(i).getLargo();
-												movimiento[1]=(char)i;
-												Pilas.get(Pilas.get(i).getLargo()).addCarta(Pilas.get(i).getCarta());
-												Pilas.get(i).eliminarCarta();
-												if(Pilas.get(i).numCartas()==0) {
-													desplazarSaltos(i);
-												}
-												i=40;	
-											}
-								
-											else if(primerSalto(Pilas.get(i).getCorto(),i)) {
-												movimiento[0]=(char)Pilas.get(i).getCorto();
-												movimiento[1]=(char)i;
-												Pilas.get(Pilas.get(i).getCorto()).addCarta(Pilas.get(i).getCarta());
-												Pilas.get(i).eliminarCarta();
-												if(Pilas.get(i).numCartas()==0) {
-													desplazarSaltos(i);
-												}
-												i=40;	
-											}
-											else
-												i++;
-										
-										}
-										else if	(primerSalto(Pilas.get(i).getCorto(),i)){
-											movimiento[0]=(char)Pilas.get(i).getCorto();
-											movimiento[1]=(char)i;
-											Pilas.get(Pilas.get(i).getCorto()).addCarta(Pilas.get(i).getCarta());
-											Pilas.get(i).eliminarCarta();
-											if(Pilas.get(i).numCartas()==0) {
-												desplazarSaltos(i);
-											}
-											i=40;
-										}
-										else
-											i++;
-									}
-									else
-										i++;
-							
-								}
-						}
-						desHacer.add(movimiento);
-						actualizarBotonesSaltos();
-						}*/
+						
 						actualizarBotonesSaltos();
 						desHacer.add(movimiento);	
 					}
 					else {//TODO se haen movimientos mal porque se modifica mal el corto y el largo
-						int i=0;
+						
 						char[] movimiento = new char[2];
 						if(pila.numCartas()>0) {
 							Pilas.get(contador).addCarta(pila.getCarta());
@@ -963,56 +785,13 @@ public class SolitarioSwing extends JFrame {
 							movimiento[1]=(char)0;
 							
 							contador++;
+							desHacer.add(movimiento);
 						}
 						else {
-							while(i<40) {
-							
-								if (i > 0) {
-									if(i > 2) {
-										if (primerSalto(Pilas.get(i).getLargo(),i)){
-											movimiento[0]=(char)Pilas.get(i).getLargo();
-											movimiento[1]=(char)i;
-											Pilas.get(Pilas.get(i).getLargo()).addCarta(Pilas.get(i).getCarta());
-											Pilas.get(i).eliminarCarta();
-											if(Pilas.get(i).numCartas()==0) {
-												desplazarSaltos(i);
-											}
-											i=40;	
-										}
-							
-										else if(primerSalto(Pilas.get(i).getCorto(),i)) {
-											movimiento[0]=(char)Pilas.get(i).getCorto();
-											movimiento[1]=(char)i;
-											Pilas.get(Pilas.get(i).getCorto()).addCarta(Pilas.get(i).getCarta());
-											Pilas.get(i).eliminarCarta();
-											if(Pilas.get(i).numCartas()==0) {
-												desplazarSaltos(i);
-											}
-											i=40;	
-										}
-										else
-											i++;
-									
-									}
-									else if	(primerSalto(Pilas.get(i).getCorto(),i)){
-										movimiento[0]=(char)Pilas.get(i).getCorto();
-										movimiento[1]=(char)i;
-										Pilas.get(Pilas.get(i).getCorto()).addCarta(Pilas.get(i).getCarta());
-										Pilas.get(i).eliminarCarta();
-										if(Pilas.get(i).numCartas()==0) {
-											desplazarSaltos(i);
-										}
-										i=40;
-									}
-									else
-										i++;
-								}
-								else
-									i++;
-						
-							}
+							hacerSalto();
 					}
-					desHacer.add(movimiento);
+					isCompletadoS();
+					
 					actualizarBotonesSaltos();
 					}
 				}
@@ -1027,12 +806,49 @@ public class SolitarioSwing extends JFrame {
 		menuBar.add(mnHistorial);
 
 		JMenuItem mntmEstadisticas = new JMenuItem("Estadisticas");
+		mntmEstadisticas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(stats != null) {
+				cargarStats();
+				JOptionPane.showMessageDialog(null,"Solitario saltos:\n"
+						+ "Intentos totales: "+ intentosS +"\nIntentos con exito: " + completadoS +"\nSolitario clasico\n"+ "Intentos totales: "+ intentosC +"\nIntentos con exito: " + completadoC );
+				}
+				else {
+					int returnVal = fc.showOpenDialog(getContentPane());
+					
+					if (returnVal == JFileChooser.APPROVE_OPTION) {
+						stats = fc.getSelectedFile();
+						intentosS= 0;
+						completadoS= 0;
+						intentosC = 0;
+						completadoC = 0;
+						cargarStats();
+					}
+					
+				}
+			}
+		});
+		
 		mnHistorial.add(mntmEstadisticas);
-
+		
 		JMenuItem mntmFicheroEstadisticas = new JMenuItem("Fichero estadisticas");
+		mntmFicheroEstadisticas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int returnVal = fc.showOpenDialog(getContentPane());
+				
+				if (returnVal == JFileChooser.APPROVE_OPTION) {
+					stats = fc.getSelectedFile();
+					intentosS= 0;
+					completadoS= 0;
+					intentosC = 0;
+					completadoC = 0;
+					cargarStats();
+				}
+				
+			
+			}
+		});
 		mnHistorial.add(mntmFicheroEstadisticas);
-
-		JMenuItem mntmAyuda = new JMenuItem("Ayuda");
 		mntmSolitarioClasico.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			gridBagLayout.columnWeights = new double[]{ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };//si se cambia a 0.0 se arregla el clasico
@@ -1047,123 +863,314 @@ public class SolitarioSwing extends JFrame {
 			nuevoSaltos();
 			}
 		});
-		mntmAyuda.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "Este programa permite realizar 2 tipos de solitario, el solitario clasico y el de saltos, el clasico consiste en una pila de la que se van sacando cartas\n"+ "que se ponen a su lado, 4 pilas en las que se tienen que poner las cartas de cada palo (un palo en cada pila) en orden, desde el as hasta el rey,\n"
-						+" de forma que el rey sera la carta de mas arriba y el as la de mas abajo tambien hay otras 7 pilas debajo, en estas pilas se pueden añadir cartas siempre\n"
-						+ "que la primera carta que se añade tenga el numero inmediatamente inferior y el color contrario a la carta sobre la que se va a colocar, a veces al mover cartas\n"
-						+"quedara una carta boca abajo en la pila, estas cartas se pueden dar la vuelta clickando sobre ellas cuando es la ultima carta de una pila, si queda una pila sin cartas\n"
-						+"solo se podra poner un rey en ese hueco, el solitario se gana cuando todas las pilas de los palos contienen a la totalidad de su palo, y se pierde cuando se sacan todas las\n"
-						+"cartas del mazo sin haber conseguido esto.\n" +"En el solitario de saltos se colocaran todas las cartas de la baraja española boca arriba sobre la mesa y las cartas podran ponerse sobre"
-							+ "la carta a su izquierda o la carta tres lugares a su izquierda si comparte\n"
-							+ "palo o numero con alguna de ellas, si una carta puede moverse al monton inmediatamente a su izquierda y al que esta tres lugares a su izquierda el que esta a tres lugares tendra prioridad\n"
-							+ "siempre debera moverse la carta mas a la izquierda posible y el objetivo del juego es conseguir poner todas las cartas en una unica pila.\n"
-							+ "Se puede guardar y cargar la partida seleccionando un fichero que emplear con estos propositos, tambien se pueden consultar sus estadisticas de juego\n"
-							+ "si se ha declarado previamente un fichero para ello, y en la seccion de editar se permite deshacer el ultimo movimiento, volver a hacerlo tras deshacerlo\n"
-							+ "o en caso de que no queden movimientos deshechos el programa hara un movimiento. Por ultimo se puede emplear la opcion de resolver que se encuentra junto\n"
-							+ "a estas para que el programa trate de resolver el solitario por si mismo.");
-			}
-		});
 		mntmResolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (tipo == 1) {
-					primerMovimientoClasico();
-					
+					boolean seguir = true;
+					do {
+					seguir =hacerMovimientoClasico();
+					}while(seguir);
+					isCompletadoC();
 				}
 				
 				if(tipo == 2) {
-					char[] movimiento = new char[2];
-					int i = 0;
+					boolean seguir = true;
 					
 					while(pila.numCartas()>0) {
 						Pilas.get(contador).addCarta(pila.getCarta());
 						pila.eliminarCarta();
 						contador++;
 					}
-					while(i<40) {
-					
-							if (i > 0) {
-								if(i > 2) {
-									if (primerSalto(Pilas.get(i).getLargo(),i)){
-										Pilas.get(Pilas.get(i).getLargo()).addCarta(Pilas.get(i).getCarta());
-										Pilas.get(i).eliminarCarta();
-										movimiento[0] = (char)Pilas.get(i).getLargo();
-										movimiento[1] = (char)i;
-										desHacer.add(movimiento);
-										if(Pilas.get(i).numCartas()==0) {
-											desplazarSaltos(i);
-										}
-										i=0;	
-									}
-							
-									else if(primerSalto(Pilas.get(i).getCorto(),i)) {
-										Pilas.get(Pilas.get(i).getCorto()).addCarta(Pilas.get(i).getCarta());
-										Pilas.get(i).eliminarCarta();
-										movimiento[0] = (char)Pilas.get(i).getCorto();
-										movimiento[1] = (char)i;
-										desHacer.add(movimiento);
-										if(Pilas.get(i).numCartas()==0) {
-											desplazarSaltos(i);
-										}
-										i=0;	
-									}
-									else
-										i++;
-									
-								}
-							else if	(primerSalto(Pilas.get(i).getCorto(),i)){
-								Pilas.get(Pilas.get(i).getCorto()).addCarta(Pilas.get(i).getCarta());
-								Pilas.get(i).eliminarCarta();
-								movimiento[0] = (char)Pilas.get(i).getCorto();
-								movimiento[1] = (char)i;
-								desHacer.add(movimiento);
-								if(Pilas.get(i).numCartas()==0) {
-									desplazarSaltos(i);
-								}
-									i=0;
-								}
-							else
-								i++;
-							}
-						else
-							i++;
-						
+					while(seguir) {
+						seguir = hacerSalto();
 					}
 					actualizarBotonesSaltos();
+					isCompletadoS();
 				}
 			}
 		});
 		
-		menuBar.add(mntmAyuda);
+				JMenuItem mntmAyuda = new JMenuItem("Ayuda");
+				mntmAyuda.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						JOptionPane.showMessageDialog(null, "Este programa permite realizar 2 tipos de solitario, el solitario clasico y el de saltos, el clasico consiste en una pila de la que se van sacando cartas\n"+ "que se ponen a su lado, 4 pilas en las que se tienen que poner las cartas de cada palo (un palo en cada pila) en orden, desde el as hasta el rey,\n"
+								+" de forma que el rey sera la carta de mas arriba y el as la de mas abajo tambien hay otras 7 pilas debajo, en estas pilas se pueden añadir cartas siempre\n"
+								+ "que la primera carta que se añade tenga el numero inmediatamente inferior y el color contrario a la carta sobre la que se va a colocar, a veces al mover cartas\n"
+								+"quedara una carta boca abajo en la pila, estas cartas se pueden dar la vuelta clickando sobre ellas cuando es la ultima carta de una pila, si queda una pila sin cartas\n"
+								+"solo se podra poner un rey en ese hueco, el solitario se gana cuando todas las pilas de los palos contienen a la totalidad de su palo, y se pierde cuando se sacan todas las\n"
+								+"cartas del mazo sin haber conseguido esto.\n" +"En el solitario de saltos se colocaran todas las cartas de la baraja española boca arriba sobre la mesa y las cartas podran ponerse sobre"
+									+ "la carta a su izquierda o la carta tres lugares a su izquierda si comparte\n"
+									+ "palo o numero con alguna de ellas, si una carta puede moverse al monton inmediatamente a su izquierda y al que esta tres lugares a su izquierda el que esta a tres lugares tendra prioridad\n"
+									+ "siempre debera moverse la carta mas a la izquierda posible y el objetivo del juego es conseguir poner todas las cartas en una unica pila.\n"
+									+ "Se puede guardar y cargar la partida seleccionando un fichero que emplear con estos propositos, tambien se pueden consultar sus estadisticas de juego\n"
+									+ "si se ha declarado previamente un fichero para ello, y en la seccion de editar se permite deshacer el ultimo movimiento, volver a hacerlo tras deshacerlo\n"
+									+ "o en caso de que no queden movimientos deshechos el programa hara un movimiento. Por ultimo se puede emplear la opcion de resolver que se encuentra junto\n"
+									+ "a estas para que el programa trate de resolver el solitario por si mismo.");
+					}
+				});
+				
+				menuBar.add(mntmAyuda);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(10, 10, 1024, 768);
 		setVisible(true);
 	}
-	public boolean movimientoRepetido(Carta carta,int origen,int destino) {
-		boolean repetido = false;
+	void cargarStats() {
+		Scanner sc;
+		try {
+		sc = new Scanner(stats);
+		String linea;
+		String lineArray[];
+		if(sc.hasNextLine()) {
+		linea = sc.nextLine();
 		
-		if(carta == seleccionada && destino == oMov && origen == dMov) {
-			repetido = true;
+		if(linea.equals("Solitario saltos")) {
+			linea = sc.nextLine();
+			lineArray = linea.split(" ");
+			intentosS = Integer.parseInt(lineArray[0]);
+			linea = sc.nextLine();
+			lineArray = linea.split(" ");
+			completadoS = Integer.parseInt(lineArray[0]);
 		}
-		return repetido;
+		linea = sc.nextLine();
+		if(linea.equals("Solitario clasico")) {
+			linea = sc.nextLine();
+			lineArray = linea.split(" ");
+			intentosC = Integer.parseInt(lineArray[0]);
+			linea = sc.nextLine();
+			lineArray = linea.split(" ");
+			completadoC = Integer.parseInt(lineArray[0]);
+		}
+		}
+		else {
+			guardarStats();
+		}
+		sc.close();
+		}catch(Exception e) {
+			System.out.println("Error.");
+		}
 	}
-	public void primerMovimientoClasico() {// TODO se forman ciclos de 3 movimientos que previenen el bucle de acabarse nunca
-		//TODO Cuando se le da a resolver sin haber hecho nada antes entra en un bucle infinito frecuentemente, cuando se vacia la baraja sin hacer ningun movimiento suele 
-		//salir un 13 que da out of bound, otras veces sale un -1 y a veces el programa no saca mas cartas del mazo, solo trabaja con las cartas que ya han sido sacadas
+	void guardarStats() {
+		try {
 		
-		//parece que el bucle infinito se produce cuando no se puede hacer ningun movimiento, sin embargo si lo resuelve el programa e intento que lo vuelva a resolver
-		//no da problemas
-		//TODO Parece que el resolver funciona bien ahora, tiene algun problema de que a veces deja algun movimiento factible sin hacer pero por lo menos no eplota
-		//a veces no mueve los ases a los montones, parece que el problema es que no vuelve al principio del bucle cuando deberia
+		PrintWriter writer = new PrintWriter(stats, "UTF-8");
+		Scanner sc;
+		sc = new Scanner(stats);
+	
+		writer.println("Solitario saltos");
+		writer.println(intentosS);
+		writer.println(completadoS);
+		writer.println("Solitario clasico");
+		writer.println(intentosC);
+		writer.println(completadoC);
+		writer.close();
+		sc.close();
+		}catch(Exception e) {
+			System.out.println("Error.");
+		}
+	}
+	void guardarPartidas() {
+		if(tipo ==1) {
+			
+			try {
+				PrintWriter writer = new PrintWriter(file, "UTF-8");
+				writer.println("Solitario clasico");
+				StringBuilder linea1 = new StringBuilder();
+				StringBuilder linea2 = new StringBuilder();
+				
+				int c = 0;
+				int d = 0;
+				int h = 0;
+				int s = 0;
+				if(Pilas.get(0).numCartas()>0) {
+					for(int i = 0;i<Pilas.get(0).numCartas();i++) {
+						linea1.append(Character.toString(Pilas.get(0).getCartaN(i).getNum())+Character.toString(Pilas.get(0).getCartaN(i).getPalo())+" ");
+					
+					}
+				}
+				
+				writer.println(linea1);
+				linea1=new StringBuilder();
+				if(Pilas.get(1).numCartas()>0) {
+					for(int i = 0;i<Pilas.get(1).numCartas();i++) {
+						linea1.append(Character.toString(Pilas.get(1).getCartaN(i).getNum())+Character.toString(Pilas.get(1).getCartaN(i).getPalo())+" ");
+					
+					}
+				}
+				writer.println(linea1);
+				for(int i = 6;i<13;i++) {
+					linea2 = new StringBuilder();
+					boolean reves = true;
+					if(Pilas.get(i).numCartas()>0) {
+					for(int j = 0; j<Pilas.get(i).numCartas();j++) {
+						if(reves && !Pilas.get(i).getCartaN(j).getBack()) {
+							reves = false;
+							linea2.append("* ");
+							
+						}
+						linea2.append(Character.toString(Pilas.get(i).getCartaN(j).getNum())+Character.toString(Pilas.get(i).getCartaN(j).getPalo())+ " ");
+						
+					}
+					}
+					writer.println(linea2);
+				}
+				for (int i = 2; i<6;i++) {
+					if(Pilas.get(i).numCartas()>0) {
+						if(Pilas.get(i).getCarta().getPalo() == 'C') {
+							c = i;
+						}
+						if(Pilas.get(i).getCarta().getPalo() == 'D') {
+							d = i;
+						}
+						if(Pilas.get(i).getCarta().getPalo() == 'H') {
+							h = i;
+						}
+						if(Pilas.get(i).getCarta().getPalo() == 'S') {
+							s = i;
+						}
+					}
+				}
+				linea1 = new StringBuilder();
+				if(c>0 && Pilas.get(c).numCartas()>0) {
+				for(int i = 0;i<Pilas.get(c).numCartas();i++) {
+					linea1.append(Character.toString(Pilas.get(c).getCartaN(i).getNum())+Character.toString(Pilas.get(c).getCartaN(i).getPalo())+" ");
+					
+				}
+				}
+				writer.println(linea1);
+				linea1 = new StringBuilder();
+				if(d>0 && Pilas.get(d).numCartas()>0) {
+					for(int i = 0;i<Pilas.get(d).numCartas();i++) {
+						linea1.append(Character.toString(Pilas.get(d).getCartaN(d).getNum())+Character.toString(Pilas.get(c).getCartaN(i).getPalo())+" ");
+						
+					}
+					}
+				writer.println(linea1);
+				linea1 = new StringBuilder();
+				if(h>0 && Pilas.get(h).numCartas()>0) {
+					for(int i = 0;i<Pilas.get(h).numCartas();i++) {
+						linea1.append(Character.toString(Pilas.get(h).getCartaN(i).getNum())+Character.toString(Pilas.get(h).getCartaN(i).getPalo())+" ");
+						
+					}
+					}
+				writer.println(linea1);
+				linea1 = new StringBuilder();
+				if(s>0 && Pilas.get(s).numCartas()>0) {
+					for(int i = 0;i<Pilas.get(s).numCartas();i++) {
+						linea1.append(Character.toString(Pilas.get(s).getCartaN(i).getNum())+Character.toString(Pilas.get(s).getCartaN(i).getPalo())+" ");
+						
+					}
+				}
+				writer.println(linea1);
+				writer.close();	
+				}catch(Exception exception) {
+					System.out.println("Error");
+				}
+		}
+		if(tipo == 2) {
+			
+			try {
+			PrintWriter writer = new PrintWriter(file, "UTF-8");
+			writer.println("Solitario saltos");
+			StringBuilder linea1 = new StringBuilder();
+			StringBuilder linea2;
+			int n = 0;
+			for(int i = 0;i<pila.numCartas();i++) {
+				linea1.append(Character.toString(pila.getCartaN(i).getNum())+Character.toString(pila.getCartaN(i).getPalo())+" ");
+				
+			}
+			writer.println(linea1);
+			while(n< 40) {
+				if(Pilas.get(n).numCartas()==0) {
+					n = 40;
+				}
+				else {
+				linea2 = new StringBuilder();
+				for(int i = 0;i<Pilas.get(n).numCartas();i++) {
+					linea2.append(Character.toString(Pilas.get(n).getCartaN(i).getNum())+Character.toString(Pilas.get(n).getCartaN(i).getPalo())+" ");
+					
+				}
+				writer.println(linea2);
+				}
+				n++;
+			}
+			writer.close();	
+			}catch(Exception exception) {
+				System.out.println("Error");
+			}
+		}
+	}
+	public boolean hacerSalto() {//TODO Implementar aqui tambien el resolver
+		boolean mov = false;
+		char[] movimiento = new char[2];
+		
+		int i=0;
+		while(i<40) {
+			
+			if (i > 0) {
+				if(i > 2) {
+					if (primerSalto(i-3,i)){
+						movimiento[0]=(char)(i-3);
+						movimiento[1]=(char)i;
+						Pilas.get(i-3).addCarta(Pilas.get(i).getCarta());
+						Pilas.get(i).eliminarCarta();
+						if(Pilas.get(i).numCartas()==0) {
+							moverPilasSaltos();
+						}
+						i=40;	
+						mov = true;
+					}
+		
+					else if(primerSalto(i-1,i)) {
+						movimiento[0]=(char)(i-1);
+						movimiento[1]=(char)i;
+						Pilas.get(i-1).addCarta(Pilas.get(i).getCarta());
+						Pilas.get(i).eliminarCarta();
+						if(Pilas.get(i).numCartas()==0) {
+							moverPilasSaltos();
+						}
+						i=40;	
+						mov = true;
+					}
+					else
+						i++;
+				
+				}
+				else if	(primerSalto(i-1,i)){
+					movimiento[0]=(char)(i-1);
+					movimiento[1]=(char)i;
+					Pilas.get(i-1).addCarta(Pilas.get(i).getCarta());
+					Pilas.get(i).eliminarCarta();
+					if(Pilas.get(i).numCartas()==0) {
+						moverPilasSaltos();
+					}
+					i=40;
+					mov = true;
+				}
+				else
+					i++;
+			}
+			else
+				i++;
+	
+		}
+		if(mov)
+			desHacer.add(movimiento);
+		return mov;
+	}
+	public boolean hacerMovimientoClasico() {
 		boolean stop = false;
 		int i = 0;
 		boolean pila1 = true;
-		while(i<= 12 && !stop) {
+		char[] movimiento = new char[4];
+		boolean mov = false;
 			for(int n = 6;n<=12;n++) {
-				if(Pilas.get(n).numCartas()>0)
+				if(Pilas.get(n).numCartas()>0) {
 					Pilas.get(n).getCarta().setBack(false);
+				
+				}
 			}
-		if(Pilas.get(1).numCartas()>0 && pila1) {
+		if(pila1) {//si es posible se intenta mover la carta de la pila 1 a otra pila
+			if(Pilas.get(1).numCartas()>0) {
 			i = 2;
 			while(i<=5 && i>0) {
 				if(Pilas.get(1).getCarta().getNum()=='A') {
@@ -1174,8 +1181,14 @@ public class SolitarioSwing extends JFrame {
 							seleccionada = Pilas.get(1).getCarta();
 							oMov = 1;
 							dMov = i;		
+							movimiento[0]=Pilas.get(1).getCarta().getNum();
+							movimiento[1]=Pilas.get(1).getCarta().getPalo();
+							movimiento[2]=(char)1;
+							movimiento[3]=(char)i;
+							desHacer.add(movimiento);
 							Pilas.get(i).addCarta(Pilas.get(1).getCarta());
 							Pilas.get(1).eliminarCarta();
+							mov=true;
 							i=0;
 						}
 					}
@@ -1185,6 +1198,7 @@ public class SolitarioSwing extends JFrame {
 						
 				}
 					else {
+						
 						if(Pilas.get(i).numCartas()>0) {
 							if(Pilas.get(1).getCarta().movimientoAMonton(Pilas.get(i).getCarta())) {
 								if(movimientoRepetido(Pilas.get(1).getCarta(),1,i))
@@ -1193,8 +1207,14 @@ public class SolitarioSwing extends JFrame {
 									seleccionada = Pilas.get(1).getCarta();
 									oMov = 1;
 									dMov = i;
+									movimiento[0]=Pilas.get(1).getCarta().getNum();
+									movimiento[1]=Pilas.get(1).getCarta().getPalo();
+									movimiento[2]=(char)1;
+									movimiento[3]=(char)i;
+									desHacer.add(movimiento);
 									Pilas.get(i).addCarta(Pilas.get(1).getCarta());
 									Pilas.get(1).eliminarCarta();
+									mov=true;
 									i=0;
 								}
 							
@@ -1212,6 +1232,7 @@ public class SolitarioSwing extends JFrame {
 				while(i>=6) {
 					if(i==13) {
 						stop=true;
+						i=1;//esto arregla el bucle infinito de los reyes
 					}
 					else if(Pilas.get(1).getCarta().getNum()=='K') {
 						if(Pilas.get(i).numCartas()==0) {//TODO llega un 13 hasta aqui
@@ -1223,8 +1244,14 @@ public class SolitarioSwing extends JFrame {
 								seleccionada = Pilas.get(1).getCarta();
 								oMov = 1;
 								dMov = i;
+								movimiento[0]=Pilas.get(1).getCarta().getNum();
+								movimiento[1]=Pilas.get(1).getCarta().getPalo();
+								movimiento[2]=(char)1;
+								movimiento[3]=(char)i;
+								desHacer.add(movimiento);
 								Pilas.get(i).addCarta(Pilas.get(1).getCarta());
 								Pilas.get(1).eliminarCarta();
+								mov=true;
 								i=0;
 							}
 							
@@ -1240,13 +1267,20 @@ public class SolitarioSwing extends JFrame {
 							if(movimientoRepetido(Pilas.get(1).getCarta(),1,i)) {
 								stop=true;
 								i=0;
+								pila1=false;
 							}
 							else {
 								seleccionada = Pilas.get(1).getCarta();
 								oMov = 1;
 								dMov = i;
+								movimiento[0]=Pilas.get(1).getCarta().getNum();
+								movimiento[1]=Pilas.get(1).getCarta().getPalo();
+								movimiento[2]=(char)1;
+								movimiento[3]=(char)i;
+								desHacer.add(movimiento);
 								Pilas.get(i).addCarta(Pilas.get(1).getCarta());
 								Pilas.get(1).eliminarCarta();
+								mov=true;
 								i=0;
 							}
 						}
@@ -1268,25 +1302,42 @@ public class SolitarioSwing extends JFrame {
 					}
 				}
 			}
-		else {
+			else {
+				pila1 = false;
+			}
+			}
+		if(!pila1 ){//al no haber bucle no entra aqui
 			pila1=false;
 			i=6;
 			int j = 2;
-			while(i>=6 && i<13) {
+		
+			while(i>=6 && i<13) {//i es la pila de la que sale la carta, se comprueban toda las pilas j hasta que se encuentra un movimiento
 				if(j<6 && j>= 2 ) {
-					//TODO a veces llega un 13
+					
 					
 					if(Pilas.get(i).numCartas()>0) {
 						if(Pilas.get(i).getCarta().getNum()=='A' && Pilas.get(j).numCartas()==0) {
+							movimiento[0]=Pilas.get(i).getCarta().getNum();
+							movimiento[1]=Pilas.get(i).getCarta().getPalo();
+							movimiento[2]=(char)i;
+							movimiento[3]=(char)j;
+							desHacer.add(movimiento);
 							Pilas.get(j).addCarta(Pilas.get(i).getCarta());
 							Pilas.get(i).eliminarCarta();
+							mov=true;
 							i=0;
 						}
 						else {
 							if(Pilas.get(j).numCartas()>0) {
 								if(Pilas.get(i).getCarta().movimientoAMonton(Pilas.get(j).getCarta())) { 
+									movimiento[0]=Pilas.get(i).getCarta().getNum();
+									movimiento[1]=Pilas.get(i).getCarta().getPalo();
+									movimiento[2]=(char)i;
+									movimiento[3]=(char)j;
+									desHacer.add(movimiento);
 									Pilas.get(j).addCarta(Pilas.get(i).getCarta());
 									Pilas.get(i).eliminarCarta();
+									mov=true;
 									i=0;
 								}
 								else {
@@ -1325,6 +1376,7 @@ public class SolitarioSwing extends JFrame {
 							j=2;
 						}
 						if(i==13)
+							i=0;
 							stop=true;
 						
 					}
@@ -1333,7 +1385,365 @@ public class SolitarioSwing extends JFrame {
 						i=0;
 					}
 					
-					else {//TODO Parece que el infinito esta aqui dentro
+					else {
+						int k = 0;
+						
+						while(k<Pilas.get(i).numCartas() && k>=0 && !stop)  {
+							if(j==13) {
+								i++;
+								j=6;
+								if(i==13) {
+									stop=true;
+									i=6;
+								}
+							
+								
+							}
+							if(Pilas.get(i).getCartaN(k).getNum()=='K') {//deberia tener en cuenta la k
+								if(Pilas.get(i).getCartaN(k).getBack()==false) {
+									if(Pilas.get(j).numCartas()==0) {
+										if(movimientoRepetido(Pilas.get(i).getCarta(),i,j)) {
+											k=-1;
+											i=0;
+											stop=true;
+										}
+										else {
+											seleccionada = Pilas.get(i).getCarta();
+											oMov = i;
+											dMov = j;
+											int aux;
+											int num;
+											movimiento[0]=Pilas.get(i).getCarta().getNum();
+											movimiento[1]=Pilas.get(i).getCarta().getPalo();
+											movimiento[2]=(char)i;
+											movimiento[3]=(char)j;
+											desHacer.add(movimiento);
+											num= Pilas.get(i).numCartas();
+											for (aux = k;aux<num;aux++) {
+												Pilas.get(j).addCarta(Pilas.get(i).getCartaN(aux));
+											}
+											for(aux = k;aux<num;aux++) {
+												Pilas.get(i).eliminarCarta();
+											}
+											mov=true;
+											i=0;
+											k=-1;
+										}
+									}
+									else {
+										k++;
+										if(k == Pilas.get(i).numCartas()) {
+											j++;
+											k=0;
+										}
+									}
+								}
+								else {
+									k++;
+									if(k == Pilas.get(i).numCartas()) {
+										j++;
+										k=0;
+									}
+								}
+								
+							}
+							else {
+								if(Pilas.get(i).numCartas()>0 && Pilas.get(j).numCartas()>0) {//TODO no elimina bien las cartas al mover mas de 1 a la vez
+									if(Pilas.get(i).getCartaN(k).movimientoPila(Pilas.get(j).getCarta()) && Pilas.get(i).getCartaN(k).getBack()==false) {
+										int aux;
+										if(movimientoRepetido(Pilas.get(i).getCartaN(k),i,j)) {
+										stop=true;
+										k=-1;
+										i=0;
+									}
+									else {
+										seleccionada = Pilas.get(i).getCartaN(k);
+										oMov = i;
+										dMov = j;
+										movimiento[0]=Pilas.get(i).getCarta().getNum();
+										movimiento[1]=Pilas.get(i).getCarta().getPalo();
+										movimiento[2]=(char)i;
+										movimiento[3]=(char)j;
+										desHacer.add(movimiento);
+										int num= Pilas.get(i).numCartas();
+										for (aux = k;aux<num;aux++) {
+											Pilas.get(j).addCarta(Pilas.get(i).getCartaN(aux));
+										}
+										for(aux = k;aux<num;aux++) {
+											Pilas.get(i).eliminarCarta();
+										}
+										mov=true;
+										k=-1;
+										i=0;
+									}
+								}
+								else {
+										k++;
+									}
+								}
+								else {
+									k++;
+								}
+							}
+						}
+						
+						if(k==Pilas.get(i).numCartas()) {
+							j++;
+							k=0;
+						}
+						if(j==13) {
+							i++;
+							j=6;
+							
+						}
+						
+					}
+					
+				}
+				}
+				
+			
+		}
+		if(!mov) {//TODO No entra aqui
+			if(Pilas.get(0).numCartas()>0) {
+				movimiento[0]=Pilas.get(0).getCarta().getNum();
+				movimiento[1]=Pilas.get(0).getCarta().getPalo();
+				movimiento[2]=(char)0;
+				movimiento[3]=(char)1;
+				desHacer.add(movimiento);
+				Pilas.get(1).addCarta(Pilas.get(0).getCarta());
+				Pilas.get(0).eliminarCarta();
+				mov=true;
+				i=0;
+				stop=false;
+			}
+			else {
+				stop=true;
+				i=0;
+			}
+		}
+		
+		actualizarImagenes();
+		return mov;
+	}
+		
+	
+	public boolean movimientoRepetido(Carta carta,int origen,int destino) {
+		boolean repetido = false;
+		
+		if(carta == seleccionada && destino == oMov && origen == dMov) {
+			repetido = true;
+		}
+		return repetido;
+	}
+	public void primerMovimientoClasico() {//TODO Bucle infinito cuando se arranca sin haber sacado cartas y -1 cuando ademas no se pueden mover cartas
+		//TODO Si consigo meter un bucle aqui deberia funcionar perfectamente
+		
+		
+//TODO SEPARACION
+	//TODO NO COMPRUEBA BIEN LOS ASES DE LAS PILAS 6-12 O LAS CARTAS QUE PUEDE SUBIR
+		boolean stop = false;
+		int i = 0;
+		boolean pila1 = false;
+		boolean movimiento = true;
+		while(i<= 12 && !stop) {
+			for(int n = 6;n<=12;n++) {
+				if(Pilas.get(n).numCartas()>0)
+					Pilas.get(n).getCarta().setBack(false);
+			}
+		if(Pilas.get(1).numCartas()>0 && movimiento) {
+			pila1 = true;
+			movimiento = false;
+		}
+		if(pila1) {
+			i = 2;
+			while(i<=5 && i>0) {
+				if(Pilas.get(1).getCarta().getNum()=='A') {
+					if(Pilas.get(i).numCartas()==0) {
+						if(movimientoRepetido(Pilas.get(1).getCarta(),1,i))
+							stop=true;
+						else {
+							seleccionada = Pilas.get(1).getCarta();
+							oMov = 1;
+							dMov = i;		
+							Pilas.get(i).addCarta(Pilas.get(1).getCarta());
+							Pilas.get(1).eliminarCarta();
+							movimiento = true;
+							pila1 = false;
+							
+							i=0;
+						}
+					}
+					else {
+						i++;
+					}
+						
+				}
+					else {
+						if(Pilas.get(i).numCartas()>0) {
+							if(Pilas.get(1).getCarta().movimientoAMonton(Pilas.get(i).getCarta())) {
+								if(movimientoRepetido(Pilas.get(1).getCarta(),1,i))
+								stop=true;
+								else {
+									seleccionada = Pilas.get(1).getCarta();
+									oMov = 1;
+									dMov = i;
+									Pilas.get(i).addCarta(Pilas.get(1).getCarta());
+									Pilas.get(1).eliminarCarta();
+									movimiento = true;
+									pila1=false;
+									
+									i=0;
+								}
+							
+							}
+							else {
+								i++;
+							}
+						}
+						else {
+							i++;
+						}
+						
+					}
+				}
+				while(i>=6) {
+					if(i==13) {
+						i=0;//TODO ESTO PROVOCAVA UN BUCLE INFINITO
+						stop=true;
+					}
+					else if(Pilas.get(1).getCarta().getNum()=='K') {
+						if(Pilas.get(i).numCartas()==0) {
+							if(movimientoRepetido(Pilas.get(1).getCarta(),1,i)) {
+								i=0;
+								stop=true;
+							}
+							else {
+								seleccionada = Pilas.get(1).getCarta();
+								oMov = 1;
+								dMov = i;
+								Pilas.get(i).addCarta(Pilas.get(1).getCarta());
+								Pilas.get(1).eliminarCarta();
+								movimiento = true;
+								pila1=false;
+								
+								i=0;
+							}
+							
+						}
+						else {
+							i++;
+						}
+						
+					}
+					else {
+						if(Pilas.get(i).numCartas()>0) {
+						if(Pilas.get(1).getCarta().movimientoPila(Pilas.get(i).getCarta())) {
+							if(movimientoRepetido(Pilas.get(1).getCarta(),1,i)) {
+								stop=true;
+								i=0;
+							}
+							else {
+								seleccionada = Pilas.get(1).getCarta();
+								oMov = 1;
+								dMov = i;
+								Pilas.get(i).addCarta(Pilas.get(1).getCarta());
+								Pilas.get(1).eliminarCarta();
+								movimiento = true;
+								pila1=false;
+								
+								i=0;
+							}
+						}
+							else {
+								i++;
+								if(i == 13) {
+									i=0;
+									pila1=false;
+								}
+							}
+						}
+						else {
+							i++;
+							if(i == 13) {
+								i=0;
+								pila1=false;
+							}
+						}
+					}
+				}
+			}
+		else {
+			pila1=false;
+			i=6;
+			int j = 2;
+			while(i>=6 && i<13) {
+				if(j<6 && j>= 2 ) {
+				
+					
+					if(Pilas.get(i).numCartas()>0) {
+						if(Pilas.get(i).getCarta().getNum()=='A' && Pilas.get(j).numCartas()==0) {
+							Pilas.get(j).addCarta(Pilas.get(i).getCarta());
+							Pilas.get(i).eliminarCarta();
+							movimiento = true;
+							
+							i=0;
+						}
+						else {
+							if(Pilas.get(j).numCartas()>0) {
+								if(Pilas.get(i).getCarta().movimientoAMonton(Pilas.get(j).getCarta())) { 
+									Pilas.get(j).addCarta(Pilas.get(i).getCarta());
+									Pilas.get(i).eliminarCarta();
+									movimiento = true;
+									
+									i=0;
+								}
+								else {
+									j++;
+								}
+							
+							}
+							else {
+								j++;
+							}
+						}
+						
+					}
+					else if((Pilas.get(i).numCartas()==0)){
+						i++;
+					}
+					if(j==6) {
+						if(i==12) {
+							i=6;
+							j=7;
+						}
+						else {
+							j=2;
+							i++;
+						}
+					}
+					
+				}
+				else {
+					if(j==i)
+						j++;
+			
+					if(j==13) {
+						if(i!=13) {
+							i++;
+							j=2;
+						}
+						if(i==13)
+							i=0;
+							stop=true;
+						
+					}
+					if(i==13) {
+						
+						i=0;
+					}
+					
+					else {
 						int k = 0;
 						
 						while(k<Pilas.get(i).numCartas() && k>=0 && !stop)  {
@@ -1361,6 +1771,7 @@ public class SolitarioSwing extends JFrame {
 										dMov = j;
 										Pilas.get(j).addCarta(Pilas.get(i).getCarta());
 										Pilas.get(i).eliminarCarta();
+										movimiento = true;
 										i=0;
 										k=-1;
 									}
@@ -1374,24 +1785,27 @@ public class SolitarioSwing extends JFrame {
 								}
 							}
 							else {
-								if(Pilas.get(i).numCartas()>0 && Pilas.get(j).numCartas()>0) {//TODO cuando peta no entra aqui
+								if(Pilas.get(i).numCartas()>0 && Pilas.get(j).numCartas()>0) {
 									if(Pilas.get(i).getCartaN(k).movimientoPila(Pilas.get(j).getCarta()) && Pilas.get(i).getCartaN(k).getBack()==false) {
 										int aux;
-										if(movimientoRepetido(Pilas.get(i).getCartaN(k),i,j)) {
+										if(movimientoRepetido(Pilas.get(i).getCartaN(k),i,j)) {//TODO BUSCAR MAS ITERACIONES DE MOVIMIENTO REPETIDO ACTUANDO MAL
 										stop=true;
-										k=-1;
-										i=0;
-									}
+											k=-1;
+											i=0;
+										}
 									else {
-										seleccionada = Pilas.get(i).getCarta();
+										int num;
+										seleccionada = Pilas.get(i).getCartaN(k);
 										oMov = i;
 										dMov = j;
-										for (aux = k;aux<Pilas.get(i).numCartas();aux++) {
+										num = Pilas.get(i).numCartas();
+										for (aux = k;aux<num;aux++) {
 											Pilas.get(j).addCarta(Pilas.get(i).getCartaN(aux));
 										}
-										for(aux = k;aux<Pilas.get(i).numCartas();aux++) {
+										for(aux = k;aux<num;aux++) {
 											Pilas.get(i).eliminarCarta();
 										}
+										movimiento = true;
 										k=-1;
 										i=0;
 									}
@@ -1421,6 +1835,7 @@ public class SolitarioSwing extends JFrame {
 								Pilas.get(0).eliminarCarta();
 								i=0;
 								stop=false;
+								pila1=true;
 							}
 							else {
 								stop=true;
@@ -1440,12 +1855,15 @@ public class SolitarioSwing extends JFrame {
 				Pilas.get(0).eliminarCarta();
 				i=0;
 				stop=false;
+				pila1=true;
+				movimiento = true;
 			}
 			else {
 				stop=true;
 				i=0;
 			}
 		}
+		
 		}
 		actualizarImagenes();
 
@@ -2454,7 +2872,41 @@ public class SolitarioSwing extends JFrame {
 			}
 		}
 	}
-	
+	void moverPilasDeshacer(int n) {//crea el hueco necesario para deshacer un movimiento, recibe el indice de la pila a la que se mueve la carta
+		int i = 39;
+		boolean listo = false;
+		while(!listo) {
+			if(Pilas.get(i).numCartas()==0 && Pilas.get(i-1).numCartas()!=0) {
+				int aux = Pilas.get(i-1).numCartas();
+				for(int j = 0;j<aux;j++) {
+					Pilas.get(i).addCarta(Pilas.get(i-1).getCartaN(j));
+				}
+				for(int j = 0;j<aux;j++) {
+					Pilas.get(i-1).eliminarCarta();
+				}
+			}
+			if(i-1 == n) {
+				listo = true;
+			}
+			i--;
+		}
+		
+	}
+	void moverPilasSaltos() {//metodo para mover las pilas a la izquierda cuando una queda vacia
+		for (int i = 0; i<39;i++) {
+			if(Pilas.get(i).numCartas()==0 && Pilas.get(i+1).numCartas()!=0) {
+				int aux = Pilas.get(i+1).numCartas();
+				for(int j = 0;j<aux;j++) {
+					Pilas.get(i).addCarta(Pilas.get(i+1).getCartaN(j));
+				}
+				for(int j = 0;j<aux;j++) {
+					Pilas.get(i+1).eliminarCarta();
+				}
+				i=0;
+				
+			}
+		}
+	}
 	private class ListenerSaltos implements ActionListener{
 		public void	actionPerformed(ActionEvent e){
 			int boton = 0;
@@ -2466,18 +2918,27 @@ public class SolitarioSwing extends JFrame {
 				setPilaSeleccionada(boton-1);
 				setNumBtn(boton);
 			}
-			else if(primerSalto(boton-1,getPilaSeleccionada())) { // && (Pilas.get(boton-1)).saltoPosible(Pilas.get(getPilaSeleccionada())) && ((boton-1)==Pilas.get(getPilaSeleccionada()).getCorto() || (boton-1) == Pilas.get(getPilaSeleccionada()).getLargo())
+			else if((Pilas.get(boton-1)).saltoPosible(Pilas.get(getPilaSeleccionada())) &&(boton-1) == getPilaSeleccionada()-1 || (boton-1) == getPilaSeleccionada()-3) { // && (Pilas.get(boton-1)).saltoPosible(Pilas.get(getPilaSeleccionada())) && ((boton-1)==Pilas.get(getPilaSeleccionada()).getCorto() || (boton-1) == Pilas.get(getPilaSeleccionada()).getLargo())
 				char[] movimiento = new char[2];	
 				movimiento[0]=(char) (boton-1);
 				movimiento[1]=(char) (getPilaSeleccionada());
+				
 				desHacer.add(movimiento);
 				hacer = new ArrayList<char[]>();
 				Pilas.get(boton-1).addCarta(Pilas.get(getPilaSeleccionada()).getCarta());
 				Pilas.get(getPilaSeleccionada()).eliminarCarta();
-				if(Pilas.get(getPilaSeleccionada()).numCartas()==0) {//TODO los saltos se desplazan mal cuando se produce un movimiento antes de sacar todas las cartas
-					desplazarSaltos(getPilaSeleccionada());
+				
+				if(Pilas.get(getPilaSeleccionada()).numCartas()==0) {
+					moverPilasSaltos();
+					contador--;
+				
+					//desplazarSaltos(getPilaSeleccionada());
 				}
+				
 					
+				
+				
+				
 				seleccionada = new Carta('0','0',false,"0");
 				setPilaSeleccionada(-1);
 				setNumBtn(-1);
@@ -2489,6 +2950,7 @@ public class SolitarioSwing extends JFrame {
 				setPilaSeleccionada(boton-1);
 				setNumBtn(boton);
 			}
+			isCompletadoS();
 			actualizarBotonesSaltos();
 		
 	
@@ -2506,21 +2968,21 @@ public class SolitarioSwing extends JFrame {
 		while(bucle && j<40) {
 
 				if(Pilas.get(j).numCartas()>0) {
-					if(Pilas.get(j).getLargo()>=0) {
-						if(Pilas.get(Pilas.get(j).getLargo()).saltoPosible(Pilas.get(j))) {
+					if(j-3>=0) {
+						if(Pilas.get(j-3).saltoPosible(Pilas.get(j))) {
 
-							salto = Pilas.get(j).getLargo();
+							salto = j-3;
 
 							bucle = false;
 
 						}
 
 					}
-					if(Pilas.get(j).getCorto()>=0 && bucle) {
+					if(j-1>=0 && bucle) {
 
-						if(Pilas.get(Pilas.get(j).getCorto()).saltoPosible(Pilas.get(j))){
+						if(Pilas.get(j-1).saltoPosible(Pilas.get(j))){
 
-							salto =Pilas.get(j).getCorto();//AQUI
+							salto =j-1;//AQUI
 
 							bucle = false;
 
@@ -2594,6 +3056,7 @@ public class SolitarioSwing extends JFrame {
 				movimiento[1] = Pilas.get(pila).getCarta().getPalo();
 				movimiento[2] =(char) pila;
 				movimiento[3] = (char) pila;
+				hacer = new ArrayList<char[]>();
 				desHacer.add(movimiento);
 				((JButton) e.getSource()).setIcon(new ImageIcon(SolitarioSwing.class.getResource(Pilas.get(pila).getCarta().getImage())));
 				seleccionada = new Carta('0','0',false,"0");
@@ -2608,6 +3071,7 @@ public class SolitarioSwing extends JFrame {
 						movimiento[1] = seleccionada.getPalo();
 						movimiento[2] =(char) getPilaSeleccionada();
 						movimiento[3] =(char) pila;
+						hacer = new ArrayList<char[]>();
 						desHacer.add(movimiento);
 						
 						actualizarImagenes();
@@ -2623,6 +3087,7 @@ public class SolitarioSwing extends JFrame {
 							movimiento[1] = seleccionada.getPalo();
 							movimiento[2] =(char) getPilaSeleccionada();
 							movimiento[3] =(char) pila;
+							hacer = new ArrayList<char[]>();
 							desHacer.add(movimiento);
 							actualizarImagenes();
 							seleccionada = new Carta('0','0',false,"0");
@@ -2645,6 +3110,7 @@ public class SolitarioSwing extends JFrame {
 						movimiento[1] = seleccionada.getPalo();
 						movimiento[2] =(char) getPilaSeleccionada();
 						movimiento[3] =(char) pila;
+						hacer = new ArrayList<char[]>();
 						desHacer.add(movimiento);
 					}	
 					else {
@@ -2654,6 +3120,7 @@ public class SolitarioSwing extends JFrame {
 						movimiento[1] = seleccionada.getPalo();
 						movimiento[2] =(char) getPilaSeleccionada();
 						movimiento[3] =(char) pila;
+						hacer = new ArrayList<char[]>();
 						desHacer.add(movimiento);
 					}
 				}
@@ -2670,6 +3137,7 @@ public class SolitarioSwing extends JFrame {
 					movimiento[1] = seleccionada.getPalo();
 					movimiento[2] =(char) getPilaSeleccionada();
 					movimiento[3] =(char) pila;
+					hacer = new ArrayList<char[]>();
 					desHacer.add(movimiento);
 				}
 				else if(getNumBtn() != Pilas.get(getPilaSeleccionada()).numCartas()) {
@@ -2686,6 +3154,7 @@ public class SolitarioSwing extends JFrame {
 					movimiento[1] = seleccionada.getPalo();
 					movimiento[2] =(char) getPilaSeleccionada();
 					movimiento[3] =(char) pila;
+					hacer = new ArrayList<char[]>();
 					desHacer.add(movimiento);
 				}
 				
@@ -2702,6 +3171,7 @@ public class SolitarioSwing extends JFrame {
 					movimiento[1] = seleccionada.getPalo();
 					movimiento[2] =(char) getPilaSeleccionada();
 					movimiento[3] =(char) pila;
+					hacer = new ArrayList<char[]>();
 					desHacer.add(movimiento);
 				}
 				actualizarImagenes();
@@ -2714,7 +3184,7 @@ public class SolitarioSwing extends JFrame {
 				setNumBtn(numero);
 			}
 	
-			
+			isCompletadoC();
 			}
 		}
 	
@@ -3009,6 +3479,10 @@ public class SolitarioSwing extends JFrame {
 		}
 	}
 	public void nuevoSaltos() {
+		intentosS++;
+		if(stats != null) {
+			guardarStats();
+		}
 		contador = 0;
 		hacer = new ArrayList<char[]>();
 		desHacer = new ArrayList<char[]>();
@@ -3925,26 +4399,275 @@ public class SolitarioSwing extends JFrame {
 		pila40.setSaltos(39);
 		
 	}
-	public void nuevoClasico() {
+	void isCompletadoC() {
+	
+		if(Pilas.get(2).numCartas() == 10 && Pilas.get(3).numCartas() == 10 && Pilas.get(4).numCartas() == 10 && Pilas.get(5).numCartas() == 10) {
+			completadoC++;
+			if(stats != null) {
+				guardarStats();
+			}
+		}
+	}
+	void isCompletadoS() {
+		if(Pilas.get(0).numCartas()==40) {
+			completadoS++;
+			if(stats != null) {
+				guardarStats();
+			}
+		}
+	}
+	Carta buscarCartaS(char num, char palo) {
+		Carta carta=new Carta('0','0',false,"/Images/107016_01.png");
+		mazoS=new Pila();
+		int i = 0;
+		boolean encontrar = false;
+		Carta AS = new Carta ('A','E',false,"/Images/espada/1.jpg");
+		mazoS.addCarta(AS);
+		Carta DS = new Carta ('2','E',false,"/Images/espada/2.jpg");
+		mazoS.addCarta(DS);
+		Carta TS = new Carta ('3','E',false,"/Images/espada/3.jpg");
+		mazoS.addCarta(TS);
+		Carta CS = new Carta ('4','E',false,"/Images/espada/4.jpg");
+		mazoS.addCarta(CS);
+		Carta CiS = new Carta ('5','E',false,"/Images/espada/5.jpg");
+		mazoS.addCarta(CiS);
+		Carta SS = new Carta ('6','E',false,"/Images/espada/6.jpg");
+		mazoS.addCarta(SS);
+		Carta SiS = new Carta ('7','E',false,"/Images/espada/7.jpg");
+		mazoS.addCarta(SiS);
 		
+		Carta DiS = new Carta ('S','E',false,"/Images/espada/10.jpg");
+		mazoS.addCarta(DiS);
+		Carta JS = new Carta ('C','E',false,"/Images/espada/11.jpg");
+		mazoS.addCarta(JS);
+		
+		Carta KS = new Carta ('R','E',false,"/Images/espada/12.jpg");
+		mazoS.addCarta(KS);
+		
+		Carta AC = new Carta ('A','C',false,"/Images/copa/1.jpg");
+		mazoS.addCarta(AC);
+		Carta DC = new Carta ('2','C',false,"/Images/copa/2.jpg");
+		mazoS.addCarta(DC);
+		Carta TC = new Carta ('3','C',false,"/Images/copa/3.jpg");;
+		mazoS.addCarta(TC);
+		Carta CC = new Carta ('4','C',false,"/Images/copa/4.jpg");
+		mazoS.addCarta(CC);
+		Carta CiC = new Carta ('5','C',false,"/Images/copa/5.jpg");
+		mazoS.addCarta(CiC);
+		Carta SC = new Carta ('6','C',false,"/Images/copa/6.jpg");
+		mazoS.addCarta(SC);
+		Carta SiC = new Carta ('7','C',false,"/Images/copa/7.jpg");
+		mazoS.addCarta(SiC);
+		
+		Carta DiC = new Carta ('S','C',false,"/Images/copa/10.jpg");
+		mazoS.addCarta(DiC);
+		Carta JC = new Carta ('C','C',false,"/Images/copa/11.jpg");
+		mazoS.addCarta(JC);
+		Carta KC = new Carta ('R','C',false,"/Images/copa/12.jpg");
+		mazoS.addCarta(KC);
+	
+		Carta AD = new Carta ('A','O',false,"/Images/oro/1.jpg");
+		mazoS.addCarta(AD);
+		Carta DD = new Carta ('2','O',false,"/Images/oro/2.jpg");
+		mazoS.addCarta(DD);
+		Carta TD = new Carta ('3','O',false,"/Images/oro/3.jpg");
+		mazoS.addCarta(TD);
+		Carta CD = new Carta ('4','O',false,"/Images/oro/4.jpg");
+		mazoS.addCarta(CD);
+		Carta CiD = new Carta ('5','O',false,"/Images/oro/5.jpg");
+		mazoS.addCarta(CiD);
+		Carta SD = new Carta ('6','O',false,"/Images/oro/6.jpg");
+		mazoS.addCarta(SD);
+		Carta SiD = new Carta ('7','O',false,"/Images/oro/7.jpg");
+		mazoS.addCarta(SiD);
+		
+		Carta DiD = new Carta ('S','O',false,"/Images/oro/10.jpg");
+		mazoS.addCarta(DiD);
+		Carta JD = new Carta ('C','O',false,"/Images/oro/11.jpg");
+		mazoS.addCarta(JD);
+		
+		Carta KD = new Carta ('R','O',false,"/Images/oro/12.jpg");
+		mazoS.addCarta(KD);
+	
+		Carta AH = new Carta ('A','B',false,"/Images/basto/1.jpg");
+		mazoS.addCarta(AH);
+		Carta DH = new Carta ('2','B',false,"/Images/basto/2.jpg");
+		mazoS.addCarta(DH);
+		Carta TH = new Carta ('3','B',false,"/Images/basto/3.jpg");
+		mazoS.addCarta(TH);
+		Carta CH = new Carta ('4','B',false,"/Images/basto/4.jpg");
+		mazoS.addCarta(CH);
+		Carta CiH = new Carta ('5','B',false,"/Images/basto/5.jpg");
+		mazoS.addCarta(CiH);
+		Carta SH = new Carta ('6','B',false,"/Images/basto/6.jpg");
+		mazoS.addCarta(SH);
+		Carta SiH = new Carta ('7','B',false,"/Images/basto/7.jpg");
+		mazoS.addCarta(SiH);
+		
+		Carta DiH = new Carta ('S','B',false,"/Images/basto/10.jpg");
+		mazoS.addCarta(DiH);
+		Carta JH = new Carta ('C','B',false,"/Images/basto/11.jpg");
+		mazoS.addCarta(JH);
+		Carta KH = new Carta ('R','B',false,"/Images/basto/12.jpg");
+		mazoS.addCarta(KH);
+		while(!encontrar) {
+			if	(mazoS.getCartaN(i).getNum() == num &&  mazoS.getCartaN(i).getPalo() == palo) {
+				carta = mazoS.getCartaN(i);
+				encontrar = true;
+				}
+			else {
+				i++;
+			}
+			}
+		
+		return carta;
+	}
+	Carta buscarCartaC(char num, char palo) {
+		Carta carta=new Carta('0','0',false,"/Images/107016_01.png");
+		mazoC=new Pila();
+		int i = 0;
+		boolean encontrar = false;
+		Carta AS = new Carta ('A','S',false,"/Images/107016_01.png");
+		mazoC.addCarta(AS);
+		Carta DS = new Carta ('2','S',false,"/Images/62233_30.png");
+		mazoC.addCarta(DS);
+		Carta TS = new Carta ('3','S',false,"/Images/107016_03.gif");
+		mazoC.addCarta(TS);
+		Carta CS = new Carta ('4','S',false,"/Images/107016_04.gif");
+		mazoC.addCarta(CS);
+		Carta CiS = new Carta ('5','S',false,"/Images/107016_05.gif");
+		mazoC.addCarta(CiS);
+		Carta SS = new Carta ('6','S',false,"/Images/107016_06.gif");
+		mazoC.addCarta(SS);
+		Carta SiS = new Carta ('7','S',false,"/Images/107016_07.gif");
+		mazoC.addCarta(SiS);
+		Carta OS = new Carta ('8','S',false,"/Images/107016_08.gif");
+		mazoC.addCarta(OS);
+		Carta NS = new Carta ('9','S',false,"/Images/107016_09.gif");
+		mazoC.addCarta(NS);
+		Carta DiS = new Carta ('T','S',false,"/Images/107016_10.gif");
+		mazoC.addCarta(DiS);
+		Carta JS = new Carta ('J','S',false,"/Images/107016_11.gif");
+		mazoC.addCarta(JS);
+		Carta QS = new Carta ('Q','S',false,"/Images/107016_12.gif");
+		mazoC.addCarta(QS);
+		Carta KS = new Carta ('K','S',false,"/Images/107016_13.gif");
+		mazoC.addCarta(KS);
+		
+		Carta AC = new Carta ('A','C',false,"/Images/107016_27.gif");
+		mazoC.addCarta(AC);
+		Carta DC = new Carta ('2','C',false,"/Images/107016_28.gif");
+		mazoC.addCarta(DC);
+		Carta TC = new Carta ('3','C',false,"/Images/107016_29.gif");;
+		mazoC.addCarta(TC);
+		Carta CC = new Carta ('4','C',false,"/Images/107016_30.gif");
+		mazoC.addCarta(CC);
+		Carta CiC = new Carta ('5','C',false,"/Images/107016_31.gif");
+		mazoC.addCarta(CiC);
+		Carta SC = new Carta ('6','C',false,"/Images/107016_32.gif");
+		mazoC.addCarta(SC);
+		Carta SiC = new Carta ('7','C',false,"/Images/107016_33.gif");
+		mazoC.addCarta(SiC);
+		Carta OC = new Carta ('8','C',false,"/Images/107016_34.gif");
+		mazoC.addCarta(OC);
+		Carta NC = new Carta ('9','C',false,"/Images/107016_35.gif");
+		mazoC.addCarta(NC);
+		Carta DiC = new Carta ('T','C',false,"/Images/107016_36.gif");
+		mazoC.addCarta(DiC);
+		Carta JC = new Carta ('J','C',false,"/Images/107016_37.gif");
+		mazoC.addCarta(JC);
+		Carta QC = new Carta ('Q','C',false,"/Images/107016_38.gif");
+		mazoC.addCarta(QC);
+		Carta KC = new Carta ('K','C',false,"/Images/107016_39.gif");
+		mazoC.addCarta(KC);
+	
+		Carta AD = new Carta ('A','D',false,"/Images/107016_40.gif");
+		mazoC.addCarta(AD);
+		Carta DD = new Carta ('2','D',false,"/Images/107016_41.gif");
+		mazoC.addCarta(DD);
+		Carta TD = new Carta ('3','D',false,"/Images/107016_42.gif");
+		mazoC.addCarta(TD);
+		Carta CD = new Carta ('4','D',false,"/Images/107016_43.gif");
+		mazoC.addCarta(CD);
+		Carta CiD = new Carta ('5','D',false,"/Images/107016_44.gif");
+		mazoC.addCarta(CiD);
+		Carta SD = new Carta ('6','D',false,"/Images/107016_45.gif");
+		mazoC.addCarta(SD);
+		Carta SiD = new Carta ('7','D',false,"/Images/107016_46.gif");
+		mazoC.addCarta(SiD);
+		Carta OD = new Carta ('8','D',false,"/Images/107016_47.gif");
+		mazoC.addCarta(OD);
+		Carta ND = new Carta ('9','D',false,"/Images/107016_48.gif");
+		mazoC.addCarta(ND);
+		Carta DiD = new Carta ('T','D',false,"/Images/107016_49.gif");
+		mazoC.addCarta(DiD);
+		Carta JD = new Carta ('J','D',false,"/Images/107016_50.gif");
+		mazoC.addCarta(JD);
+		Carta QD = new Carta ('Q','D',false,"/Images/107016_51.gif");
+		mazoC.addCarta(QD);
+		Carta KD = new Carta ('K','D',false,"/Images/107016_52.gif");
+		mazoC.addCarta(KD);
+	
+		Carta AH = new Carta ('A','H',false,"/Images/107016_14.gif");
+		mazoC.addCarta(AH);
+		Carta DH = new Carta ('2','H',false,"/Images/107016_15.gif");
+		mazoC.addCarta(DH);
+		Carta TH = new Carta ('3','H',false,"/Images/107016_16.gif");
+		mazoC.addCarta(TH);
+		Carta CH = new Carta ('4','H',false,"/Images/107016_17.gif");
+		mazoC.addCarta(CH);
+		Carta CiH = new Carta ('5','H',false,"/Images/107016_18.gif");
+		mazoC.addCarta(CiH);
+		Carta SH = new Carta ('6','H',false,"/Images/107016_19.gif");
+		mazoC.addCarta(SH);
+		Carta SiH = new Carta ('7','H',false,"/Images/107016_20.gif");
+		mazoC.addCarta(SiH);
+		Carta OH = new Carta ('8','H',false,"/Images/107016_21.gif");
+		mazoC.addCarta(OH);
+		Carta NH = new Carta ('9','H',false,"/Images/107016_22.gif");
+		mazoC.addCarta(NH);
+		Carta DiH = new Carta ('T','H',false,"/Images/107016_23.gif");
+		mazoC.addCarta(DiH);
+		Carta JH = new Carta ('J','H',false,"/Images/107016_24.gif");
+		mazoC.addCarta(JH);
+		Carta QH = new Carta ('Q','H',false,"/Images/107016_25.gif");
+		mazoC.addCarta(QH);
+		Carta KH = new Carta ('K','H',false,"/Images/107016_26.gif");
+		mazoC.addCarta(KH);
+		while(!encontrar) {
+		if	(mazoC.getCartaN(i).getNum() == num &&  mazoC.getCartaN(i).getPalo() == palo) {
+			carta = mazoC.getCartaN(i);
+			encontrar = true;
+			}
+		else {
+			i++;
+		}
+		}
+		return carta;
+	}
+	public void nuevoClasico() {
+		intentosC++;
+		if(stats != null) {
+			guardarStats();
+		}
 		getContentPane().removeAll();
 		tipo = 1;
 		hacer = new ArrayList<char[]>();
 		desHacer = new ArrayList<char[]>();
 		Pilas = new ArrayList<Pila>();
-		Pila pila = new Pila();
-		Pila monton = new Pila();
-		Pila palo1 = new Pila();
-		Pila palo2 = new Pila();
-		Pila palo3 = new Pila();
-		Pila palo4 = new Pila();
-		Pila pila1 = new Pila();
-		Pila pila2 = new Pila();
-		Pila pila3 = new Pila();
-		Pila pila4 = new Pila();
-		Pila pila5 = new Pila();
-		Pila pila6 = new Pila();
-		Pila pila7 = new Pila();
+		pila = new Pila();
+		monton = new Pila();
+		palo1 = new Pila();
+		palo2 = new Pila();
+		palo3 = new Pila();
+		palo4 = new Pila();
+		pila1 = new Pila();
+		pila2 = new Pila();
+		pila3 = new Pila();
+		pila4 = new Pila();
+		pila5 = new Pila();
+		pila6 = new Pila();
+		pila7 = new Pila();
 		
 		
 		Carta AS = new Carta ('A','S',false,"/Images/107016_01.png");

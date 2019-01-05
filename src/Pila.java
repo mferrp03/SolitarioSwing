@@ -3,12 +3,15 @@ import java.util.Collections;
 import java.util.List;
 public class Pila {
 	ArrayList<Carta>pila;
+	
 	private int corto = 0;
 	private int largo = 0;
 	private int i = 0;
 	Pila(){
 		pila = new ArrayList<Carta>();
+		
 	}
+	
 	void setSaltos(int n) {
 		this.corto = n-1;
 		this.largo = n-3;
@@ -39,6 +42,7 @@ public class Pila {
 		pila.add(carta);
 		i++;
 	}
+	
 	boolean aniadirCarta(Carta carta) {
 		boolean add = false;
 		if(i==0) {
